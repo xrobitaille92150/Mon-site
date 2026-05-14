@@ -1,0 +1,9 @@
+J'ai toutes les données. Le site original utilise :
+
+Font : Figtree (pas Inter)
+Couleur primaire : #060756 (indigo profond)
+Texte : rgb(17,19,73) = #111349
+Accent CTA : rgb(196,146,44) = #C4922C — or/gold (pas teal)
+Secondaire : rgb(55,115,254) = #3773FE — bleu électrique
+Fond clair : rgb(244,244,247) = #F4F4F7
+Design alternant sections sombres/claires (pas tout dark)
