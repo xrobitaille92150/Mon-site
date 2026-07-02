@@ -196,6 +196,7 @@
         .xcard h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.625rem; letter-spacing: -0.01em; position: relative; z-index: 1; }
         .xcard p { font-size: 0.875rem; color: var(--gray); line-height: 1.65; position: relative; z-index: 1; }
         .tags { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 1.25rem; position: relative; z-index: 1; }
+        .xmore { display: block; margin-top: 0.9rem; } .xmore a { color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; } .xmore a:hover, .xmore a:focus-visible { color: var(--gold-light); }
         .tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.275rem 0.625rem; border-radius: 2px; background: rgba(11,21,48,0.05); color: var(--primary); }
 
         /* ── CLIENTS ── */
@@ -440,6 +441,7 @@
                 <h3 data-i18n="expertise.c1.title">IFRS 17, IFRS 9 &amp; Solvabilité II</h3>
                 <p data-i18n="expertise.c1.body">De l'analyse d'écarts à la production des reportings — transformation IFRS 17, IFRS 9 et Solvabilité II pour les assureurs et gestionnaires d'actifs.</p>
                 <div class="tags"><span class="tag">IFRS 17</span><span class="tag">IFRS 9</span><span class="tag">Solvency II</span></div>
+                <span class="xmore" data-i18n="expertise.c1.more"><a href="/fr/expertise/ifrs-17-ifrs-9-solvency-ii/">En savoir plus &rarr;</a></span>
             </div>
             <div class="xcard fade d2">
                 <span class="xcard-num">02</span>
@@ -447,6 +449,7 @@
                 <h3 data-i18n="expertise.c2.title">Reporting investissement</h3>
                 <p data-i18n="expertise.c2.body">Reporting institutionnel pour les assureurs et gestionnaires d'actifs — des flux de données portefeuille aux restitutions réglementaires et de gestion.</p>
                 <div class="tags"><span class="tag">Investment</span><span class="tag">Asset Management</span><span class="tag">Reporting</span></div>
+                <span class="xmore" data-i18n="expertise.c2.more"><a href="/fr/expertise/investment-accounting-reporting/">En savoir plus &rarr;</a></span>
             </div>
             <div class="xcard fade d3">
                 <span class="xcard-num">03</span>
@@ -454,6 +457,7 @@
                 <h3 data-i18n="expertise.c3.title">Management de transition</h3>
                 <p data-i18n="expertise.c3.body">Prise en charge des fonctions finance et comptabilité en période de transformation, de deadline réglementaire ou de réorganisation. Opérationnel rapidement, sans phase d'apprentissage.</p>
                 <div class="tags"><span class="tag">Finance</span><span class="tag">Accounting</span><span class="tag">Transition</span></div>
+                <span class="xmore" data-i18n="expertise.c3.more"><a href="/fr/expertise/interim-management/">En savoir plus &rarr;</a></span>
             </div>
             <div class="xcard fade d1">
                 <span class="xcard-num">04</span>
@@ -461,6 +465,7 @@
                 <h3 data-i18n="expertise.c4.title">PMO &amp; Pilotage de programme</h3>
                 <p data-i18n="expertise.c4.body">Gouvernance senior sur des transformations multi-chantiers — comités de pilotage, suivi des jalons, gestion des risques, reporting programme.</p>
                 <div class="tags"><span class="tag">PMO</span><span class="tag">Governance</span><span class="tag">Delivery</span></div>
+                <span class="xmore" data-i18n="expertise.c4.more"><a href="/fr/expertise/pmo-programme-delivery/">En savoir plus &rarr;</a></span>
             </div>
             <div class="xcard fade d2">
                 <span class="xcard-num">05</span>
@@ -468,6 +473,7 @@
                 <h3 data-i18n="expertise.c5.title">SimCorp Dimension &amp; Clearwater Analytics</h3>
                 <p data-i18n="expertise.c5.body">Accompagnement fonctionnel et analyse métier sur les deux plateformes leaders — interface entre les équipes DSI et les métiers sur des déploiements complexes.</p>
                 <div class="tags"><span class="tag">SimCorp Dimension</span><span class="tag">Clearwater Analytics</span><span class="tag">Implementation</span></div>
+                <span class="xmore" data-i18n="expertise.c5.more"><a href="/fr/expertise/simcorp-clearwater/">En savoir plus &rarr;</a></span>
             </div>
             <div class="xcard fade d3">
                 <span class="xcard-num">06</span>
@@ -717,6 +723,11 @@ const T = {
         'expertise.c5.body':    'Implementation support and business analysis for investment management platforms — bridging the business and technical divide on complex deployments.',
         'expertise.c6.title':   'Finance Transformation',
         'expertise.c6.body':    'End-to-end finance function redesign — target operating model, process optimisation, and change management for insurers and AM firms.',
+        'expertise.c1.more':    '<a href="/expertise/ifrs-17-ifrs-9-solvency-ii/">Learn more &rarr;</a>',
+        'expertise.c2.more':    '<a href="/expertise/investment-accounting-reporting/">Learn more &rarr;</a>',
+        'expertise.c3.more':    '<a href="/expertise/interim-management/">Learn more &rarr;</a>',
+        'expertise.c4.more':    '<a href="/expertise/pmo-programme-delivery/">Learn more &rarr;</a>',
+        'expertise.c5.more':    '<a href="/expertise/simcorp-clearwater/">Learn more &rarr;</a>',
         'clients.label':        'Who I Work With',
         'clients.title':        'Three Complementary<br>Client Relationships',
         'clients.subtitle':     'Vendors, institutions, and consulting firms. Each relationship strengthens the others: expertise gained with vendors builds credibility with insurers, and the reverse.',
@@ -825,6 +836,11 @@ const T = {
         'expertise.c5.body':    'Accompagnement fonctionnel et analyse métier sur les deux plateformes leaders — interface entre les équipes DSI et les métiers sur des déploiements complexes.',
         'expertise.c6.title':   'Transformation Finance',
         'expertise.c6.body':    'Refonte de la fonction finance — modèle opérationnel cible, amélioration des processus, accompagnement du changement. Pour les assureurs et gestionnaires d\'actifs.',
+        'expertise.c1.more':    '<a href="/fr/expertise/ifrs-17-ifrs-9-solvency-ii/">En savoir plus &rarr;</a>',
+        'expertise.c2.more':    '<a href="/fr/expertise/investment-accounting-reporting/">En savoir plus &rarr;</a>',
+        'expertise.c3.more':    '<a href="/fr/expertise/interim-management/">En savoir plus &rarr;</a>',
+        'expertise.c4.more':    '<a href="/fr/expertise/pmo-programme-delivery/">En savoir plus &rarr;</a>',
+        'expertise.c5.more':    '<a href="/fr/expertise/simcorp-clearwater/">En savoir plus &rarr;</a>',
         'clients.label':        'Avec qui je travaille',
         'clients.title':        'Trois types de clients,<br>trois angles d\'intervention',
         'clients.subtitle':     'Éditeurs de logiciels, assureurs et cabinets de conseil — chaque relation enrichit les autres. L\'expertise acquise chez les éditeurs renforce la crédibilité chez les assureurs, et inversement.',
