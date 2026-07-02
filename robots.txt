@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /gen/
+Disallow: /Website building/
+Disallow: /01 Daily Logs/
+Disallow: /Business/
+
+Sitemap: https://www.myxavier.finance/sitemap.xml
