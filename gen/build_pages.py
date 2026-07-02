@@ -130,7 +130,7 @@ def page(slug, lang, d):
 <section class="cta"><div class="wrap">
   <h2>{s['cta_h']}</h2>
   <p>{s['cta_p']}</p>
-  <a class="btn-gold" href="https://calendly.com/xrobitaille/30min" target="_blank" rel="noopener">{s['cta_btn']}</a>
+  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">{s['cta_btn']}</a>
   <span class="alt">{s['cta_alt']}</span>
 </div></section>
 <footer><div class="wrap">
