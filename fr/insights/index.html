@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consultant Comptabilité & Reporting des Investissements | Xavier Advisory</title>
-<meta name="description" content="Comptabilité des placements pour assureurs et asset managers : sous-ledger titres, schémas multi-normes, coût amorti, réconciliation dépositaire, fast-close, ALM.">
-<link rel="canonical" href="https://www.myxavier.finance/fr/expertise/investment-accounting-reporting/">
-<link rel="alternate" hreflang="en" href="https://www.myxavier.finance/expertise/investment-accounting-reporting/">
-<link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/expertise/investment-accounting-reporting/">
-<link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/expertise/investment-accounting-reporting/">
-<meta property="og:type" content="website">
+<title>Décryptages — Finance assurance, comptabilité des investissements | Xavier Advisory</title>
+<meta name="description" content="Articles techniques sur la finance assurance : IFRS 9 et IFRS 17, comptabilité des investissements, Solvabilité II, implémentations. Par Xavier Robitaille.">
+<link rel="canonical" href="https://www.myxavier.finance/fr/insights/">
+<link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/">
+<link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/">
+<link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="Xavier Advisory">
-<meta property="og:title" content="Consultant Comptabilité & Reporting des Investissements | Xavier Advisory">
-<meta property="og:description" content="Comptabilité des placements pour assureurs et asset managers : sous-ledger titres, schémas multi-normes, coût amorti, réconciliation dépositaire, fast-close, ALM.">
-<meta property="og:url" content="https://www.myxavier.finance/fr/expertise/investment-accounting-reporting/">
+<meta property="og:title" content="Décryptages — Finance assurance, comptabilité des investissements | Xavier Advisory">
+<meta property="og:description" content="Articles techniques sur la finance assurance : IFRS 9 et IFRS 17, comptabilité des investissements, Solvabilité II, implémentations. Par Xavier Robitaille.">
+<meta property="og:url" content="https://www.myxavier.finance/fr/insights/">
 <meta property="og:image" content="https://www.myxavier.finance/brand_assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "@id": "https://www.myxavier.finance/fr/expertise/investment-accounting-reporting/#service", "name": "Consultant Comptabilité & Reporting des Investissements", "description": "Comptabilité des placements pour assureurs et asset managers : sous-ledger titres, schémas multi-normes, coût amorti, réconciliation dépositaire, fast-close, ALM.", "url": "https://www.myxavier.finance/fr/expertise/investment-accounting-reporting/", "inLanguage": "fr", "provider": {"@type": "ProfessionalService", "name": "Xavier Advisory", "url": "https://www.myxavier.finance/", "founder": {"@type": "Person", "name": "Xavier Robitaille"}}, "areaServed": ["FR", "EU", "International"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "D&eacute;cryptages", "url": "https://www.myxavier.finance/fr/insights/"}</script>
 <style>
 :root { --primary:#0B1530; --text:#0B1530; --gold:#C79A3B; --gold-light:#D9A24A; --light-bg:#F5F2EB; --white:#FFF; --gray:#6B7280; --border:rgba(11,21,48,0.1); }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
@@ -66,31 +66,49 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
 .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
 .breadcrumb a:hover{color:#fff}
 @media (max-width:640px){.nav-right a.nav-link{display:none}}
+
+.byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
+.byline strong{color:rgba(255,255,255,.9)}
+article{max-width:760px}
+article h2{font-size:1.55rem;margin:2.6rem 0 1rem}
+article h3{font-family:'Montserrat',sans-serif;font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.8rem 0 .6rem}
+article p{line-height:1.75;margin-bottom:1rem;color:#2A3345}
+article ul{margin:0 0 1rem 1.2rem;line-height:1.7;color:#2A3345}
+article li{margin-bottom:.4rem}
+article blockquote{border-left:3px solid var(--gold);padding:.6rem 0 .6rem 1.2rem;margin:1.2rem 0;color:#4B5364;font-style:italic}
+article table{width:100%;border-collapse:collapse;margin:1.4rem 0;font-size:.88rem}
+article th{background:var(--primary);color:#fff;text-align:left;padding:.6rem .8rem;font-weight:600}
+article td{padding:.55rem .8rem;border-bottom:1px solid var(--border);color:#2A3345;vertical-align:top}
+article .refnote{font-size:.8rem;color:var(--gray);border-top:1px solid var(--border);padding-top:1rem;margin-top:2.4rem}
+article a{color:var(--gold);text-decoration:none}
+article a:hover{text-decoration:underline}
+.related{background:var(--white);border-top:3px solid var(--gold);padding:1.2rem 1.4rem;margin:2.4rem 0;box-shadow:0 8px 24px rgba(11,21,48,.07)}
+.related strong{display:block;margin-bottom:.4rem;color:var(--primary)}
+.idx-card{display:block;background:var(--white);border-top:3px solid var(--gold);padding:1.5rem 1.6rem;margin-bottom:1.2rem;box-shadow:0 8px 24px rgba(11,21,48,.07);text-decoration:none;color:inherit;transition:transform .2s}
+.idx-card:hover{transform:translateY(-2px)}
+.idx-card h2{font-size:1.25rem;color:var(--primary);margin-bottom:.5rem}
+.idx-card p{color:#4B5364;line-height:1.65;font-size:.92rem}
+.idx-card .meta{font-size:.75rem;color:var(--gray);margin-top:.7rem;display:block}
 </style>
 </head>
 <body>
 <nav><div class="nav-inner">
   <a class="nav-logo" href="/fr/" aria-label="Xavier Advisory"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>A</em>V<em>I</em>ER</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></a>
-  <div class="nav-right"><a class="nav-link" href="/fr/#expertise">Expertise</a><a class="nav-link" href="/fr/#profile">Profil</a><a class="nav-link" href="/fr/#approach">Approche</a><a class="nav-link" href="/fr/insights/">D&eacute;cryptages</a><a class="nav-cta" href="/fr/#contact">Contact</a><a href="https://www.myxavier.finance/expertise/investment-accounting-reporting/" rel="alternate" hreflang="en">EN</a></div>
+  <div class="nav-right"><a class="nav-link" href="/fr/#expertise">Expertise</a><a class="nav-link" href="/fr/#profile">Profil</a><a class="nav-link" href="/fr/#approach">Approche</a><a class="nav-link" href="/fr/insights/">D&eacute;cryptages</a><a class="nav-cta" href="/fr/#contact">Contact</a><a href="https://www.myxavier.finance/insights/" rel="alternate">EN</a></div>
 </div></nav>
 <header class="hero"><div class="wrap">
-  <div class="breadcrumb"><a href="/fr/#expertise">&larr; Toute l'expertise</a></div>
-  <div class="label">Expertise</div>
-  <h1>Comptabilit&eacute; &amp; Reporting des Investissements</h1>
-  <p>Le sous-ledger titres est l'endroit où les données de marché, les relevés dépositaire et le grand livre doivent se réconcilier, à chaque clôture. Je fais tourner, refonds et migre cette fonction chez les assureurs et réassureurs depuis 25 ans.</p>
+  <div class="label">Xavier Advisory</div>
+  <h1>D&eacute;cryptages</h1>
+  <p>Notes de terrain : réglementation, comptabilité des investissements et systèmes, écrites depuis des missions livrées.</p>
 </div></header>
-<section><div class="wrap prose"><h2>Le probl&egrave;me</h2><p>La comptabilité des placements se situe entre la gestion d'actifs et la finance, et n'appartient à aucune des deux. Modèles de coût amorti, dépréciation, valorisation multi-normes (French GAAP, IFRS, US GAAP) et réconciliations dépositaire exigent à la fois la rigueur comptable et la connaissance des instruments.</p><p>Quand la fonction faiblit, les symptômes apparaissent en clôture : écarts de valorisation inexpliqués, suspens qui vieillissent, OD manuelles que personne ne peut justifier à l'auditeur.</p></div></section>
-<section style="background:var(--white)"><div class="wrap"><h2>Ce que je livre</h2><ul class="deliver"><li><strong>Comptabilité auxiliaire titres</strong> : schémas comptables par classe d'instrument, modèles de coût amorti et taux effectif, dépréciation.</li><li><strong>Réconciliation et apurement</strong> : réconciliation dépositaire, plans d'apurement des comptes d'attente, contrôles de clôture.</li><li><strong>Fast-close</strong> : refonte de la clôture investissements, discipline de cut-off, contrôles automatisés.</li><li><strong>Restitutions de gestion et ALM</strong> : reporting investissement, production des données ALM et SCR, transparisation.</li></ul></div></section>
-<section><div class="wrap"><h2>R&eacute;alisations</h2><div class="cards"><div class="card"><h3>CNP — Direction des investissements (2013–2017)</h3><p>Management de transition : production financière &amp; Solvabilité II, fast-close investissements, production sous SimCorp.</p></div><div class="card"><h3>SCOR — Finance &amp; Investissements (2008–2010)</h3><p>Reporting investissements multi-normes (IFRS, US GAAP), portefeuilles américains, flux dépositaires.</p></div><div class="card"><h3>Outillage de référence</h3><p>Modèle coût amorti / taux effectif (ASD) construit et réutilisé de mission en mission ; fichiers de production ECL livrés chez Coface.</p></div></div></div></section>
+<section><div class="wrap" style="max-width:800px">
+<a class="idx-card" href="/fr/insights/effective-interest-rate-bond-amortisation/"><h2>Amortissement des primes et décotes obligataires : pourquoi le taux d'intérêt effectif s'impose en Europe</h2><p>Pourquoi le taux d'intérêt effectif (TIE) est obligatoire pour l'amortissement des primes et décotes obligataires des assureurs européens : IFRS 9, Solvabilité II, ANC 2015-11, CGI.</p><span class="meta">Xavier Robitaille · 3 juillet 2026 · 7 min de lecture</span></a>
+
+</div></section>
 <section class="cta"><div class="wrap">
-  <h2>Disponible imm&eacute;diatement pour de nouvelles missions</h2>
-  <p>Remote, hybride ou sur site, en France et &agrave; l'international. Fran&ccedil;ais et anglais.</p>
+  <h2>Disponible imm&eacute;diatement pour de nouvelles missions</h2><p>Remote, hybride ou sur site, en France et &agrave; l'international. Fran&ccedil;ais et anglais.</p>
   <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">R&eacute;server un appel &rarr;</a>
   <span class="alt">ou &eacute;crivez &agrave; <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span>
 </div></section>
-<footer><div class="wrap">
-  <span>&copy; 2026 Xavier Advisory</span>
-  <span><a href="/fr/">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span>
-</div></footer>
-</body>
-</html>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="/fr/">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span></div></footer>
+</body></html>

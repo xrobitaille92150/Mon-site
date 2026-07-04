@@ -57,8 +57,8 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
 """
 
 NAV_LINKS = {
- 'en': [('Expertise','/#expertise'),('Profile','/#profile'),('Approach','/#approach')],
- 'fr': [('Expertise','/fr/#expertise'),('Profil','/fr/#profile'),('Approche','/fr/#approach')],
+ 'en': [('Expertise','/#expertise'),('Profile','/#profile'),('Approach','/#approach'),('Insights','/insights/')],
+ 'fr': [('Expertise','/fr/#expertise'),('Profil','/fr/#profile'),('Approche','/fr/#approach'),('D&eacute;cryptages','/fr/insights/')],
 }
 STR = {
  'en': dict(home='/', contact='Contact', cta_h="Available now for new mandates", cta_p="Full remote, hybrid or on-site, in France and internationally. French and English.", cta_btn="Book a call &rarr;", cta_alt='or write to <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>', back="&larr; All expertise", lang_link_label="FR", crumb="Expertise"),

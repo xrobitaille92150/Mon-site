@@ -84,4 +84,32 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/expertise/simcorp-clearwater/"/>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.myxavier.finance/insights/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/insights/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"/>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Effective Interest Rate vs Linear Amortisation: the European Rules | Xavier Advisory</title>
+<meta name="description" content="Why the effective interest rate (EIR) is mandatory for bond premium and discount amortisation for European insurers: IFRS 9, Solvency II, ANC 2015-11, French tax law.">
+<link rel="canonical" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/">
+<link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/">
+<link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/">
+<link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Xavier Advisory">
+<meta property="og:title" content="Effective Interest Rate vs Linear Amortisation: the European Rules | Xavier Advisory">
+<meta property="og:description" content="Why the effective interest rate (EIR) is mandatory for bond premium and discount amortisation for European insurers: IFRS 9, Solvency II, ANC 2015-11, French tax law.">
+<meta property="og:url" content="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/">
+<meta property="og:image" content="https://www.myxavier.finance/brand_assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Bond premium and discount amortisation: why the effective interest rate is mandatory in Europe", "description": "Why the effective interest rate (EIR) is mandatory for bond premium and discount amortisation for European insurers: IFRS 9, Solvency II, ANC 2015-11, French tax law.", "datePublished": "2026-07-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Xavier Robitaille"}, "publisher": {"@type": "Organization", "name": "Xavier Advisory", "url": "https://www.myxavier.finance/"}, "mainEntityOfPage": "https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"}</script>
+<style>
+:root { --primary:#0B1530; --text:#0B1530; --gold:#C79A3B; --gold-light:#D9A24A; --light-bg:#F5F2EB; --white:#FFF; --gray:#6B7280; --border:rgba(11,21,48,0.1); }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:var(--light-bg);-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'Playfair Display',serif}
+nav{position:sticky;top:0;z-index:100;background:var(--primary);padding:1.1rem 0}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:inline-flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none}
+.xa-mark{height:46px;width:46px;display:block;flex-shrink:0}
+.xa-word{display:flex;flex-direction:column;line-height:1;font-family:'Playfair Display',serif;font-weight:600;font-size:1.15rem;letter-spacing:.28em;color:#fff}
+.xa-name{display:block;white-space:nowrap;margin-right:-.28em}
+.xa-word em{font-style:normal;color:var(--gold)}
+.xa-word small{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:500;letter-spacing:0;margin-top:4px;color:rgba(255,255,255,.72);display:flex;justify-content:space-between}
+.nav-right{display:flex;align-items:center;gap:1.4rem}
+.nav-right a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.nav-right a:hover,.nav-right a:focus-visible{color:#fff}
+.nav-cta{background:var(--gold);color:#fff !important;padding:.55rem 1.2rem;border-radius:3px}
+.hero{background:var(--primary);color:#fff;padding:4.5rem 0 4rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+.label{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.label::before{content:"";width:26px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(2.1rem,4.5vw,3.4rem);font-weight:700;line-height:1.12;letter-spacing:-.01em;margin:.9rem 0 1.2rem}
+.hero p{max-width:640px;font-size:1.02rem;line-height:1.7;color:rgba(255,255,255,.82)}
+section{padding:3.6rem 0}
+section h2{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:700;margin-bottom:1.3rem}
+.prose p{max-width:680px;line-height:1.75;margin-bottom:1rem;color:#2A3345}
+ul.deliver{list-style:none;max-width:720px}
+ul.deliver li{padding:.9rem 0 .9rem 1.6rem;border-bottom:1px solid var(--border);line-height:1.65;color:#2A3345;position:relative}
+ul.deliver li::before{content:"";position:absolute;left:0;top:1.45rem;width:9px;height:9px;background:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1.4rem}
+.card{background:var(--white);border-top:3px solid var(--gold);padding:1.4rem 1.5rem;box-shadow:0 8px 24px rgba(11,21,48,.07)}
+.card h3{font-size:.98rem;font-weight:700;margin-bottom:.55rem;color:var(--primary)}
+.card p{font-size:.88rem;line-height:1.65;color:#4B5364}
+.cta{background:var(--primary);color:#fff;text-align:center;padding:4rem 0}
+.cta h2{color:#fff}
+.cta p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 1.6rem;line-height:1.7}
+.btn-gold{display:inline-block;background:var(--gold);color:#fff;text-decoration:none;padding:.9rem 2rem;border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s}
+.btn-gold:hover{transform:translateY(-2px)}
+.cta .alt{display:block;margin-top:1.1rem;color:rgba(255,255,255,.7);font-size:.9rem}
+.cta .alt a{color:var(--gold-light)}
+footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(255,255,255,.6);font-size:.8rem}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
+.breadcrumb{font-size:.78rem;margin-bottom:1rem}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+@media (max-width:640px){.nav-right a.nav-link{display:none}}
+
+.byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
+.byline strong{color:rgba(255,255,255,.9)}
+article{max-width:760px}
+article h2{font-size:1.55rem;margin:2.6rem 0 1rem}
+article h3{font-family:'Montserrat',sans-serif;font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.8rem 0 .6rem}
+article p{line-height:1.75;margin-bottom:1rem;color:#2A3345}
+article ul{margin:0 0 1rem 1.2rem;line-height:1.7;color:#2A3345}
+article li{margin-bottom:.4rem}
+article blockquote{border-left:3px solid var(--gold);padding:.6rem 0 .6rem 1.2rem;margin:1.2rem 0;color:#4B5364;font-style:italic}
+article table{width:100%;border-collapse:collapse;margin:1.4rem 0;font-size:.88rem}
+article th{background:var(--primary);color:#fff;text-align:left;padding:.6rem .8rem;font-weight:600}
+article td{padding:.55rem .8rem;border-bottom:1px solid var(--border);color:#2A3345;vertical-align:top}
+article .refnote{font-size:.8rem;color:var(--gray);border-top:1px solid var(--border);padding-top:1rem;margin-top:2.4rem}
+article a{color:var(--gold);text-decoration:none}
+article a:hover{text-decoration:underline}
+.related{background:var(--white);border-top:3px solid var(--gold);padding:1.2rem 1.4rem;margin:2.4rem 0;box-shadow:0 8px 24px rgba(11,21,48,.07)}
+.related strong{display:block;margin-bottom:.4rem;color:var(--primary)}
+.idx-card{display:block;background:var(--white);border-top:3px solid var(--gold);padding:1.5rem 1.6rem;margin-bottom:1.2rem;box-shadow:0 8px 24px rgba(11,21,48,.07);text-decoration:none;color:inherit;transition:transform .2s}
+.idx-card:hover{transform:translateY(-2px)}
+.idx-card h2{font-size:1.25rem;color:var(--primary);margin-bottom:.5rem}
+.idx-card p{color:#4B5364;line-height:1.65;font-size:.92rem}
+.idx-card .meta{font-size:.75rem;color:var(--gray);margin-top:.7rem;display:block}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="nav-logo" href="/" aria-label="Xavier Advisory"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>A</em>V<em>I</em>ER</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></a>
+  <div class="nav-right"><a class="nav-link" href="/#expertise">Expertise</a><a class="nav-link" href="/#profile">Profile</a><a class="nav-link" href="/#approach">Approach</a><a class="nav-link" href="/insights/">Insights</a><a class="nav-cta" href="/#contact">Contact</a><a href="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/" rel="alternate">FR</a></div>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <div class="breadcrumb"><a href="/insights/">&larr; Insights</a></div>
+  <div class="label">Investment Accounting</div>
+  <h1 style="font-size:clamp(1.8rem,3.6vw,2.7rem)">Bond Premium and Discount Amortisation: Why the Effective Interest Rate Is Mandatory in Europe</h1>
+  <p>Linear interpolation is tolerated in some US GAAP setups. For a European insurer it fails IFRS 9, French statutory and tax rules, and supervisory practice. The references, assembled.</p>
+  <div class="byline"><strong>Xavier Robitaille</strong><span>3 July 2026</span><span>7 min read</span></div>
+</div></header>
+<section><div class="wrap"><article>
+
+<h2>The question</h2>
+<p>A recurring debate in investment accounting teams: can bond premiums and discounts be amortised with a straight-line or interpolated method rather than the effective interest rate (EIR)? The shortcut is tempting. Linear interpolation between present values is easy to build in a spreadsheet, easy to explain, and tolerated in some cases under US&nbsp;GAAP.</p>
+<p>For a European insurer, the answer is no. The obligation to amortise at the effective rate is written into IFRS, French statutory accounting, French tax law and supervisory practice. This note assembles the references, because the debate usually dies the moment they are on the table.</p>
+
+<h2>The European regulatory base</h2>
+<h3>IFRS 9: the effective interest method is the method</h3>
+<p>IFRS 9 §5.4.1: "Interest revenue shall be calculated by using the effective interest method." Appendix A defines the effective interest rate as the rate that exactly discounts estimated future contractual cash flows through the expected life of the financial asset to its gross carrying amount. An interpolated approximation does not meet that definition, even in simplified implementations.</p>
+<h3>Solvency II: market-consistent logic</h3>
+<p>Directive 2009/138/EC and Delegated Regulation (EU) 2015/35 require market-consistent valuation. Where amortised cost feeds prudential figures, the amortisation must follow the yield determined at acquisition: actuarial logic, consistent with IFRS 9 and national GAAP.</p>
+<h3>French statutory accounts: ANC 2015-11 and the true and fair view</h3>
+<p>ANC Regulation 2015-11 (Article 122-1) requires the difference between redemption price and acquisition price of fixed-income securities to be spread over their remaining life. The article does not name the method; it does not authorise one that distorts economic reality either. A linear interpolation between spot present values fails to preserve the time value of money across periods, which puts it at odds with the true and fair view required by Article L.123-14 of the Code de commerce.</p>
+<h3>French tax law: the explicit rule</h3>
+<p>For insurers, Article 38 bis B bis of the Code général des impôts sets an explicitly actuarial rule: the spreading must be such that the book value of the securities equals their present value discounted at the yield-to-maturity determined at acquisition. The tax administration's doctrine (BOFiP, BOI-BIC-PDSTK-10-20-100) applies this to insurance and capitalisation companies. A non-actuarial method exposes the insurer to reclassification of taxable income.</p>
+
+<h2>Across national GAAPs</h2>
+<table>
+<tr><th>Country</th><th>Basis</th><th>Position</th></tr>
+<tr><td>France</td><td>ANC 2015-11 art. 122-1; CGI art. 38 bis B bis</td><td>Actuarial method explicitly required on the tax side; statutory accounts must reflect economic reality.</td></tr>
+<tr><td>Germany</td><td>HGB; BaFin circulars</td><td>Premiums and discounts amortised at the effective rate; supervisory guidance anchors actuarial assumptions in HGB figures.</td></tr>
+<tr><td>Switzerland</td><td>Swiss GAAP FER (incl. FER 40)</td><td>Amortised cost applied with an actuarial method in insurance practice.</td></tr>
+<tr><td>Netherlands</td><td>Dutch GAAP (Title 9, Book 2)</td><td>Converged with IFRS on financial instruments; EIR is standard practice.</td></tr>
+<tr><td>Italy, Belgium, Luxembourg</td><td>OIC / Royal Decree 1992 / CAA framework</td><td>Local texts are less explicit; supervisory practice and IFRS consolidation push the same actuarial logic.</td></tr>
+</table>
+<p>The pattern is consistent: where the text is explicit, it requires the effective rate; where it is silent, supervisory practice and the IFRS anchor leave no room for interpolation in statutory or prudential reporting.</p>
+
+<h2>What the platforms enforce</h2>
+<p>Every major investment accounting platform used by European insurers amortises at the effective rate by default: SimCorp Dimension, Clearwater Analytics, NeoXam GP, SAP FAM, Eagle, Aladdin. None of them offers linear interpolation as a statutory amortisation mode. Having implemented SimCorp Dimension and Clearwater Analytics end to end, I have never seen a compliant configuration built on interpolation. When interpolation appears, it lives in a side spreadsheet, and that is where audit findings start.</p>
+
+<h2>Where linear interpolation breaks</h2>
+<ul>
+<li><strong>Compliance</strong>: it satisfies neither IFRS 9, nor the French tax rule, nor supervisory expectations under Solvency II.</li>
+<li><strong>Reporting</strong>: it distorts the interest margin between periods and breaks the matching of income with the economic yield of the instrument.</li>
+<li><strong>Technique</strong>: it does not preserve the internal rate of return, and the distortion grows with maturity, coupon structure and rate levels. On long-dated or structured bonds the gap becomes material.</li>
+</ul>
+
+<h2>The US GAAP counter-argument</h2>
+<p>Under ASC 320, a straight-line method is tolerated when the difference from the effective interest method is immaterial. No equivalent materiality clause exists under IFRS or under the French texts cited above. A method imported from a US parent or a US-built tool does not survive contact with ACPR, BaFin or a French tax audit.</p>
+
+<h2>In practice</h2>
+<ul>
+<li>Fix the effective rate at acquisition and document it: it is the anchor for accounting, tax and prudential figures.</li>
+<li>Keep amortisation in the accounting engine, not in satellite spreadsheets: one calculation, one audit trail.</li>
+<li>On migrations, recompute EIR schedules from acquisition data rather than importing residual amortisation balances: this is where historic distortions surface.</li>
+<li>Reconcile amortised cost against the custodian at each closing; divergences are usually a symptom of methodology gaps, not data gaps.</li>
+</ul>
+
+<div class="related"><strong>Related expertise</strong>This note draws on engagements covered in <a href="/expertise/investment-accounting-reporting/">Investment Accounting &amp; Reporting</a> and <a href="/expertise/simcorp-clearwater/">SimCorp Dimension &amp; Clearwater Analytics</a>.</div>
+<p class="refnote">Primary sources: <a href="https://www.ifrs.org/issued-standards/list-of-standards/ifrs-9-financial-instruments/" target="_blank" rel="noopener">IFRS 9, Financial Instruments</a> (§5.4.1 and Appendix A) · <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0138" target="_blank" rel="noopener">Directive 2009/138/EC (Solvency II)</a> and Delegated Regulation (EU) 2015/35 · ANC Regulation 2015-11, Article 122-1 · <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034388048" target="_blank" rel="noopener">CGI, Article 38 bis B bis</a> · <a href="https://bofip.impots.gouv.fr/bofip/1996-PGP.html/identifiant=BOI-BIC-PDSTK-10-20-100-20120912" target="_blank" rel="noopener">BOFiP BOI-BIC-PDSTK-10-20-100</a> · Code de commerce, Article L.123-14.</p>
+</article></div></section>
+<section class="cta"><div class="wrap">
+  <h2>Available now for new mandates</h2><p>Full remote, hybrid or on-site, in France and internationally. French and English.</p>
+  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">Book a call &rarr;</a>
+  <span class="alt">or write to <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span>
+</div></section>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="/">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span></div></footer>
+</body></html>

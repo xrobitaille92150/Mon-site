@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIE ou amortissement linéaire : ce que la réglementation impose | Xavier Advisory</title>
+<meta name="description" content="Pourquoi le taux d'intérêt effectif (TIE) est obligatoire pour l'amortissement des primes et décotes obligataires des assureurs européens : IFRS 9, Solvabilité II, ANC 2015-11, CGI.">
+<link rel="canonical" href="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/">
+<link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/">
+<link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/">
+<link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Xavier Advisory">
+<meta property="og:title" content="TIE ou amortissement linéaire : ce que la réglementation impose | Xavier Advisory">
+<meta property="og:description" content="Pourquoi le taux d'intérêt effectif (TIE) est obligatoire pour l'amortissement des primes et décotes obligataires des assureurs européens : IFRS 9, Solvabilité II, ANC 2015-11, CGI.">
+<meta property="og:url" content="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/">
+<meta property="og:image" content="https://www.myxavier.finance/brand_assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Amortissement des primes et décotes obligataires : pourquoi le taux d'intérêt effectif s'impose en Europe", "description": "Pourquoi le taux d'intérêt effectif (TIE) est obligatoire pour l'amortissement des primes et décotes obligataires des assureurs européens : IFRS 9, Solvabilité II, ANC 2015-11, CGI.", "datePublished": "2026-07-03", "inLanguage": "fr", "author": {"@type": "Person", "name": "Xavier Robitaille"}, "publisher": {"@type": "Organization", "name": "Xavier Advisory", "url": "https://www.myxavier.finance/"}, "mainEntityOfPage": "https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/"}</script>
+<style>
+:root { --primary:#0B1530; --text:#0B1530; --gold:#C79A3B; --gold-light:#D9A24A; --light-bg:#F5F2EB; --white:#FFF; --gray:#6B7280; --border:rgba(11,21,48,0.1); }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:var(--light-bg);-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'Playfair Display',serif}
+nav{position:sticky;top:0;z-index:100;background:var(--primary);padding:1.1rem 0}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:inline-flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none}
+.xa-mark{height:46px;width:46px;display:block;flex-shrink:0}
+.xa-word{display:flex;flex-direction:column;line-height:1;font-family:'Playfair Display',serif;font-weight:600;font-size:1.15rem;letter-spacing:.28em;color:#fff}
+.xa-name{display:block;white-space:nowrap;margin-right:-.28em}
+.xa-word em{font-style:normal;color:var(--gold)}
+.xa-word small{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:500;letter-spacing:0;margin-top:4px;color:rgba(255,255,255,.72);display:flex;justify-content:space-between}
+.nav-right{display:flex;align-items:center;gap:1.4rem}
+.nav-right a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.nav-right a:hover,.nav-right a:focus-visible{color:#fff}
+.nav-cta{background:var(--gold);color:#fff !important;padding:.55rem 1.2rem;border-radius:3px}
+.hero{background:var(--primary);color:#fff;padding:4.5rem 0 4rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+.label{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.label::before{content:"";width:26px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(2.1rem,4.5vw,3.4rem);font-weight:700;line-height:1.12;letter-spacing:-.01em;margin:.9rem 0 1.2rem}
+.hero p{max-width:640px;font-size:1.02rem;line-height:1.7;color:rgba(255,255,255,.82)}
+section{padding:3.6rem 0}
+section h2{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:700;margin-bottom:1.3rem}
+.prose p{max-width:680px;line-height:1.75;margin-bottom:1rem;color:#2A3345}
+ul.deliver{list-style:none;max-width:720px}
+ul.deliver li{padding:.9rem 0 .9rem 1.6rem;border-bottom:1px solid var(--border);line-height:1.65;color:#2A3345;position:relative}
+ul.deliver li::before{content:"";position:absolute;left:0;top:1.45rem;width:9px;height:9px;background:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1.4rem}
+.card{background:var(--white);border-top:3px solid var(--gold);padding:1.4rem 1.5rem;box-shadow:0 8px 24px rgba(11,21,48,.07)}
+.card h3{font-size:.98rem;font-weight:700;margin-bottom:.55rem;color:var(--primary)}
+.card p{font-size:.88rem;line-height:1.65;color:#4B5364}
+.cta{background:var(--primary);color:#fff;text-align:center;padding:4rem 0}
+.cta h2{color:#fff}
+.cta p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 1.6rem;line-height:1.7}
+.btn-gold{display:inline-block;background:var(--gold);color:#fff;text-decoration:none;padding:.9rem 2rem;border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s}
+.btn-gold:hover{transform:translateY(-2px)}
+.cta .alt{display:block;margin-top:1.1rem;color:rgba(255,255,255,.7);font-size:.9rem}
+.cta .alt a{color:var(--gold-light)}
+footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(255,255,255,.6);font-size:.8rem}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
+.breadcrumb{font-size:.78rem;margin-bottom:1rem}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+@media (max-width:640px){.nav-right a.nav-link{display:none}}
+
+.byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
+.byline strong{color:rgba(255,255,255,.9)}
+article{max-width:760px}
+article h2{font-size:1.55rem;margin:2.6rem 0 1rem}
+article h3{font-family:'Montserrat',sans-serif;font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.8rem 0 .6rem}
+article p{line-height:1.75;margin-bottom:1rem;color:#2A3345}
+article ul{margin:0 0 1rem 1.2rem;line-height:1.7;color:#2A3345}
+article li{margin-bottom:.4rem}
+article blockquote{border-left:3px solid var(--gold);padding:.6rem 0 .6rem 1.2rem;margin:1.2rem 0;color:#4B5364;font-style:italic}
+article table{width:100%;border-collapse:collapse;margin:1.4rem 0;font-size:.88rem}
+article th{background:var(--primary);color:#fff;text-align:left;padding:.6rem .8rem;font-weight:600}
+article td{padding:.55rem .8rem;border-bottom:1px solid var(--border);color:#2A3345;vertical-align:top}
+article .refnote{font-size:.8rem;color:var(--gray);border-top:1px solid var(--border);padding-top:1rem;margin-top:2.4rem}
+article a{color:var(--gold);text-decoration:none}
+article a:hover{text-decoration:underline}
+.related{background:var(--white);border-top:3px solid var(--gold);padding:1.2rem 1.4rem;margin:2.4rem 0;box-shadow:0 8px 24px rgba(11,21,48,.07)}
+.related strong{display:block;margin-bottom:.4rem;color:var(--primary)}
+.idx-card{display:block;background:var(--white);border-top:3px solid var(--gold);padding:1.5rem 1.6rem;margin-bottom:1.2rem;box-shadow:0 8px 24px rgba(11,21,48,.07);text-decoration:none;color:inherit;transition:transform .2s}
+.idx-card:hover{transform:translateY(-2px)}
+.idx-card h2{font-size:1.25rem;color:var(--primary);margin-bottom:.5rem}
+.idx-card p{color:#4B5364;line-height:1.65;font-size:.92rem}
+.idx-card .meta{font-size:.75rem;color:var(--gray);margin-top:.7rem;display:block}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="nav-logo" href="/fr/" aria-label="Xavier Advisory"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>A</em>V<em>I</em>ER</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></a>
+  <div class="nav-right"><a class="nav-link" href="/fr/#expertise">Expertise</a><a class="nav-link" href="/fr/#profile">Profil</a><a class="nav-link" href="/fr/#approach">Approche</a><a class="nav-link" href="/fr/insights/">D&eacute;cryptages</a><a class="nav-cta" href="/fr/#contact">Contact</a><a href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/" rel="alternate">EN</a></div>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <div class="breadcrumb"><a href="/fr/insights/">&larr; D&eacute;cryptages</a></div>
+  <div class="label">Comptabilité des investissements</div>
+  <h1 style="font-size:clamp(1.8rem,3.6vw,2.7rem)">Amortissement des primes et décotes obligataires : pourquoi le taux d'intérêt effectif s'impose en Europe</h1>
+  <p>L'interpolation linéaire est tolérée dans certains montages US GAAP. Pour un assureur européen, elle échoue face à IFRS 9, aux règles comptables et fiscales françaises et à la pratique prudentielle. Les références, rassemblées.</p>
+  <div class="byline"><strong>Xavier Robitaille</strong><span>3 juillet 2026</span><span>7 min de lecture</span></div>
+</div></header>
+<section><div class="wrap"><article>
+
+<h2>La question</h2>
+<p>Débat récurrent dans les équipes de comptabilité des placements : peut-on amortir les primes et décotes obligataires avec une méthode linéaire ou interpolée plutôt qu'au taux d'intérêt effectif (TIE) ? Le raccourci est tentant. L'interpolation linéaire entre valeurs actuelles se construit facilement dans un tableur, s'explique facilement, et reste tolérée dans certains cas en US&nbsp;GAAP.</p>
+<p>Pour un assureur européen, la réponse est non. L'obligation d'amortir au taux effectif est écrite dans les IFRS, dans le référentiel comptable français, dans la loi fiscale et dans la pratique prudentielle. Cette note rassemble les références, parce que le débat s'éteint en général dès qu'elles sont sur la table.</p>
+
+<h2>Le socle réglementaire européen</h2>
+<h3>IFRS 9 : la méthode du taux d'intérêt effectif est la méthode</h3>
+<p>IFRS 9 §5.4.1 : « Interest revenue shall be calculated by using the effective interest method. » L'Appendix A définit le taux d'intérêt effectif comme le taux qui actualise exactement les flux de trésorerie contractuels futurs estimés sur la durée de vie attendue de l'actif financier, à sa valeur comptable brute. Une approximation interpolée ne répond pas à cette définition, même dans les implémentations simplifiées.</p>
+<h3>Solvabilité II : logique market-consistent</h3>
+<p>La directive 2009/138/CE et le règlement délégué (UE) 2015/35 imposent une valorisation market-consistent. Quand le coût amorti alimente les chiffres prudentiels, l'amortissement doit suivre le rendement déterminé à l'acquisition : une logique actuarielle, cohérente avec IFRS 9 et les référentiels nationaux.</p>
+<h3>Comptes sociaux français : ANC 2015-11 et image fidèle</h3>
+<p>Le règlement ANC 2015-11 (article 122-1) impose d'étaler la différence entre prix de remboursement et prix d'acquisition des titres à revenu fixe sur leur durée de vie résiduelle. L'article ne nomme pas la méthode ; il n'en autorise pas non plus une qui déforme la réalité économique. Une interpolation linéaire entre valeurs actuelles ne préserve pas la valeur temps de l'argent d'une période à l'autre, ce qui la met en contradiction avec l'image fidèle exigée par l'article L.123-14 du Code de commerce.</p>
+<h3>Le droit fiscal français : la règle explicite</h3>
+<p>Pour les assureurs, l'article 38 bis B bis du Code général des impôts pose une règle explicitement actuarielle : l'étalement doit être tel que la valeur comptable des titres soit égale à leur valeur actuelle, actualisée au taux de rendement actuariel déterminé à l'acquisition. La doctrine administrative (BOFiP, BOI-BIC-PDSTK-10-20-100) l'applique aux entreprises d'assurance et de capitalisation. Une méthode non actuarielle expose l'assureur à un redressement.</p>
+
+<h2>Le tour des référentiels nationaux</h2>
+<table>
+<tr><th>Pays</th><th>Base</th><th>Position</th></tr>
+<tr><td>France</td><td>ANC 2015-11 art. 122-1 ; CGI art. 38 bis B bis</td><td>Méthode actuarielle explicitement requise côté fiscal ; les comptes sociaux doivent refléter la réalité économique.</td></tr>
+<tr><td>Allemagne</td><td>HGB ; circulaires BaFin</td><td>Primes et décotes amorties au taux effectif ; la doctrine prudentielle ancre les hypothèses actuarielles dans les chiffres HGB.</td></tr>
+<tr><td>Suisse</td><td>Swiss GAAP FER (dont FER 40)</td><td>Coût amorti appliqué avec une méthode actuarielle dans la pratique assurantielle.</td></tr>
+<tr><td>Pays-Bas</td><td>Dutch GAAP (Title 9, Book 2)</td><td>Convergé avec les IFRS sur les instruments financiers ; le TIE est la pratique standard.</td></tr>
+<tr><td>Italie, Belgique, Luxembourg</td><td>OIC / arrêté royal 1992 / cadre CAA</td><td>Textes locaux moins explicites ; la pratique prudentielle et la consolidation IFRS imposent la même logique actuarielle.</td></tr>
+</table>
+<p>Le motif est constant : là où le texte est explicite, il exige le taux effectif ; là où il est muet, la pratique prudentielle et l'ancrage IFRS ne laissent aucune place à l'interpolation dans le reporting statutaire ou prudentiel.</p>
+
+<h2>Ce que les plateformes imposent</h2>
+<p>Toutes les grandes plateformes de comptabilité des placements utilisées par les assureurs européens amortissent au taux effectif par défaut : SimCorp Dimension, Clearwater Analytics, NeoXam GP, SAP FAM, Eagle, Aladdin. Aucune ne propose l'interpolation linéaire comme mode d'amortissement statutaire. Pour avoir implémenté SimCorp Dimension et Clearwater Analytics de bout en bout, je n'ai jamais vu une configuration conforme construite sur de l'interpolation. Quand elle existe, elle vit dans un tableur satellite, et c'est là que commencent les constats d'audit.</p>
+
+<h2>Où l'interpolation linéaire casse</h2>
+<ul>
+<li><strong>Conformité</strong> : elle ne satisfait ni IFRS 9, ni la règle fiscale française, ni les attentes prudentielles sous Solvabilité II.</li>
+<li><strong>Reporting</strong> : elle déforme la marge d'intérêt entre les périodes et rompt le rattachement des produits au rendement économique de l'instrument.</li>
+<li><strong>Technique</strong> : elle ne préserve pas le taux de rendement interne, et l'écart grandit avec la maturité, la structure de coupon et le niveau des taux. Sur les obligations longues ou structurées, l'écart devient significatif.</li>
+</ul>
+
+<h2>Le contre-argument US GAAP</h2>
+<p>Sous ASC 320, une méthode linéaire est tolérée quand l'écart avec la méthode du taux effectif n'est pas significatif. Aucune clause de matérialité équivalente n'existe dans les IFRS ni dans les textes français cités plus haut. Une méthode importée d'une maison mère américaine ou d'un outil construit pour le marché US ne survit pas au contact de l'ACPR, de la BaFin ou d'un contrôle fiscal français.</p>
+
+<h2>En pratique</h2>
+<ul>
+<li>Figer le taux effectif à l'acquisition et le documenter : c'est l'ancre des chiffres comptables, fiscaux et prudentiels.</li>
+<li>Garder l'amortissement dans le moteur comptable, pas dans des tableurs satellites : un seul calcul, une seule piste d'audit.</li>
+<li>En migration, recalculer les échéanciers TIE depuis les données d'acquisition plutôt que d'importer des soldes d'amortissement résiduels : c'est là que remontent les distorsions historiques.</li>
+<li>Réconcilier le coût amorti avec le dépositaire à chaque clôture ; les écarts sont en général un symptôme de méthode, pas de données.</li>
+</ul>
+
+<div class="related"><strong>Expertise associée</strong>Cette note s'appuie sur les missions couvertes dans <a href="/fr/expertise/investment-accounting-reporting/">Comptabilité &amp; Reporting des Investissements</a> et <a href="/fr/expertise/simcorp-clearwater/">SimCorp Dimension &amp; Clearwater Analytics</a>.</div>
+<p class="refnote">Sources : <a href="https://www.ifrs.org/issued-standards/list-of-standards/ifrs-9-financial-instruments/" target="_blank" rel="noopener">IFRS 9, Financial Instruments</a> (§5.4.1 et Appendix A) · <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32009L0138" target="_blank" rel="noopener">Directive 2009/138/CE (Solvabilité II)</a> et règlement délégué (UE) 2015/35 · Règlement ANC 2015-11, article 122-1 · <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034388048" target="_blank" rel="noopener">CGI, article 38 bis B bis</a> · <a href="https://bofip.impots.gouv.fr/bofip/1996-PGP.html/identifiant=BOI-BIC-PDSTK-10-20-100-20120912" target="_blank" rel="noopener">BOFiP BOI-BIC-PDSTK-10-20-100</a> · Code de commerce, article L.123-14.</p>
+</article></div></section>
+<section class="cta"><div class="wrap">
+  <h2>Disponible imm&eacute;diatement pour de nouvelles missions</h2><p>Remote, hybride ou sur site, en France et &agrave; l'international. Fran&ccedil;ais et anglais.</p>
+  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">R&eacute;server un appel &rarr;</a>
+  <span class="alt">ou &eacute;crivez &agrave; <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span>
+</div></section>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="/fr/">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span></div></footer>
+</body></html>
