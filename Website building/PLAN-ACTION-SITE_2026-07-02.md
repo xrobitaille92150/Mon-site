@@ -4,6 +4,8 @@
 
 **État au 2 juillet, fin de journée : P0, P1 et P2 livrés et déployés sur www.myxavier.finance** (rebranding Xavier Advisory inclus — domaine, email welcome@, DNS Hostinger, 301 depuis xavier-robitaille.fr). Restent : P3 (sous-pages expertise), P4 (SEO continu, Search Console), P5 (effets). Déploiement auto GitHub→Netlify suspendu tant que le flag GitHub n'est pas levé (support contacté) ; déploiement manuel : `npx netlify-cli deploy --prod --dir .`
 
+**État au 7 juillet : P3, P5 et P3.6 livrés.** P3 : 5 sous-pages expertise EN+FR + section Insights + article TIE/EIR (03/07). P5 : compteurs animés, grain hero, purge du bleu hors charte — décision n°3 tranchée : supprimé (07/07, commit `945caff`). P3.6 : page `/formation/` + `/fr/formation/` (IA pour les professionnels de la finance), nav Training/Formation, sitemap 18 URLs (07/07, commit `cb1dc86`). **Restent** : P4 continu (vérification Search Console — action Xavier ; 2-3 articles de fond), image OG à tester avec LinkedIn Post Inspector. ⚠️ Le déploiement auto GitHub→Netlify ne fonctionne toujours pas (testé le 07/07 : aucun build après push) — déployer via `./deploy.sh` ; vérifier les settings Netlify.
+
 ---
 
 ## Synthèse
