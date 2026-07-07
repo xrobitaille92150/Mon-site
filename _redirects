@@ -2,3 +2,12 @@ https://xavier-robitaille.fr/* https://www.myxavier.finance/:splat 301!
 https://www.xavier-robitaille.fr/* https://www.myxavier.finance/:splat 301!
 http://xavier-robitaille.fr/* https://www.myxavier.finance/:splat 301!
 http://www.xavier-robitaille.fr/* https://www.myxavier.finance/:splat 301!
+
+# Documents internes — jamais servis en production
+/CLAUDE.md / 404!
+/README.md / 404!
+/deploy.sh / 404!
+/Business/* / 404!
+/Website%20building/* / 404!
+/01%20Daily%20Logs/* / 404!
+/gen/* / 404!
