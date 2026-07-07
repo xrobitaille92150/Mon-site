@@ -112,4 +112,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"/>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.myxavier.finance/formation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/formation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/formation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/formation/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/formation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/formation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/formation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/formation/"/>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

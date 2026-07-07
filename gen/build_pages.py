@@ -57,16 +57,19 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
 """
 
 NAV_LINKS = {
- 'en': [('Expertise','/#expertise'),('Profile','/#profile'),('Approach','/#approach'),('Insights','/insights/')],
- 'fr': [('Expertise','/fr/#expertise'),('Profil','/fr/#profile'),('Approche','/fr/#approach'),('D&eacute;cryptages','/fr/insights/')],
+ 'en': [('Expertise','/#expertise'),('Profile','/#profile'),('Approach','/#approach'),('Insights','/insights/'),('Training','/formation/')],
+ 'fr': [('Expertise','/fr/#expertise'),('Profil','/fr/#profile'),('Approche','/fr/#approach'),('D&eacute;cryptages','/fr/insights/'),('Formation','/fr/formation/')],
 }
+
+def base_path(slug):
+    return slug if slug == 'formation' else f"expertise/{slug}"
 STR = {
  'en': dict(home='/', contact='Contact', cta_h="Available now for new mandates", cta_p="Full remote, hybrid or on-site, in France and internationally. French and English.", cta_btn="Book a call &rarr;", cta_alt='or write to <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>', back="&larr; All expertise", lang_link_label="FR", crumb="Expertise"),
  'fr': dict(home='/fr/', contact='Contact', cta_h="Disponible imm&eacute;diatement pour de nouvelles missions", cta_p="Remote, hybride ou sur site, en France et &agrave; l'international. Fran&ccedil;ais et anglais.", cta_btn="R&eacute;server un appel &rarr;", cta_alt='ou &eacute;crivez &agrave; <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>', back="&larr; Toute l'expertise", lang_link_label="EN", crumb="Expertise"),
 }
 
 def jsonld(slug, lang, d):
-    url = f"{BASE}/expertise/{slug}/" if lang=='en' else f"{BASE}/fr/expertise/{slug}/"
+    url = f"{BASE}/{base_path(slug)}/" if lang=='en' else f"{BASE}/fr/{base_path(slug)}/"
     import json
     return json.dumps({
       "@context":"https://schema.org","@type":"Service",
@@ -82,8 +85,8 @@ def jsonld(slug, lang, d):
 def page(slug, lang, d):
     s = STR[lang]
     other = 'fr' if lang=='en' else 'en'
-    url_en = f"{BASE}/expertise/{slug}/"
-    url_fr = f"{BASE}/fr/expertise/{slug}/"
+    url_en = f"{BASE}/{base_path(slug)}/"
+    url_fr = f"{BASE}/fr/{base_path(slug)}/"
     url_self = url_en if lang=='en' else url_fr
     url_other = url_fr if lang=='en' else url_en
     navlinks = ''.join(f'<a class="nav-link" href="{h}">{t}</a>' for t,h in NAV_LINKS[lang])
@@ -119,7 +122,7 @@ def page(slug, lang, d):
   <div class="nav-right">{navlinks}<a class="nav-cta" href="{s['home']}#contact">{s['contact']}</a><a href="{url_other}" rel="alternate" hreflang="{other}">{s['lang_link_label']}</a></div>
 </div></nav>
 <header class="hero"><div class="wrap">
-  <div class="breadcrumb"><a href="{s['home']}#expertise">{s['back']}</a></div>
+  <div class="breadcrumb"><a href="{d.get('backhref', s['home'] + '#expertise')}">{d.get('back', s['back'])}</a></div>
   <div class="label">{d['label']}</div>
   <h1>{d['h1']}</h1>
   <p>{d['intro']}</p>
@@ -144,7 +147,7 @@ def page(slug, lang, d):
 count = 0
 for slug, langs in PAGES.items():
     for lang, d in langs.items():
-        path = (f"expertise/{slug}" if lang=='en' else f"fr/expertise/{slug}")
+        path = (base_path(slug) if lang=='en' else f"fr/{base_path(slug)}")
         os.makedirs(path, exist_ok=True)
         with open(f"{path}/index.html", "w", encoding="utf-8") as f:
             f.write(page(slug, lang, d))
