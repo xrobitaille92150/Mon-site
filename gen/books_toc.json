@@ -1,0 +1,2298 @@
+{
+ "couvertures": {
+  "titlepage": [
+   [
+    "",
+    "Les opérations de couverture dans les organismes d’assurance"
+   ],
+   [
+    "",
+    "Change, taux, indices : instruments, stratégies, comptabilité et prudentiel"
+   ],
+   [
+    "",
+    "Normes françaises  ·  IFRS 9 / IAS 39  ·  Solvabilité II"
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "",
+    "www.myxavier.fr"
+   ],
+   [
+    "",
+    "XAVIER"
+   ],
+   [
+    "",
+    "ADVISORY"
+   ],
+   [
+    "",
+    "Les opérations de couverture"
+   ],
+   [
+    "",
+    "dans les organismes d’assurance"
+   ],
+   [
+    "",
+    "Change, taux, indices : instruments, stratégies,"
+   ],
+   [
+    "",
+    "comptabilité, prudentiel et contrôles"
+   ],
+   [
+    "",
+    "Normes françaises  ·  IFRS 9 / IAS 39  ·  Solvabilité II"
+   ],
+   [
+    "",
+    "XAVIER ROBITAILLEwww.myxavier.fr"
+   ],
+   [
+    "En-ttedetabledesmatires",
+    "Table des matières"
+   ]
+  ],
+  "toc": [
+   [
+    "Titre6",
+    "Introduction"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE I"
+   ],
+   [
+    "Titre1",
+    "Les couvertures dans la gestion financière des organismes d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 1"
+   ],
+   [
+    "Titre2",
+    "La couverture : une décision de gestion avant d'être une technique comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 2"
+   ],
+   [
+    "Titre2",
+    "Les risques financiers d'un organisme d'assurance : change, taux, actions"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 3"
+   ],
+   [
+    "Titre2",
+    "Pourquoi les marchés ont-ils inventé les instruments dérivés ?"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 4"
+   ],
+   [
+    "Titre2",
+    "Pourquoi un organisme d'assurance couvre-t-il ses risques — et pourquoi pas toujours ?"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 5"
+   ],
+   [
+    "Titre2",
+    "Le cadre juridique de l'utilisation des dérivés par les assureurs : de la liste fermée à la personne prudente"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 6"
+   ],
+   [
+    "Titre2",
+    "Les risques et avantages transférés : la clé de compréhension des traitements comptables"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 7"
+   ],
+   [
+    "Titre2",
+    "Les couvertures dans la stratégie d'investissement et la gestion actif-passif"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE II"
+   ],
+   [
+    "Titre1",
+    "Les instruments de couverture et leur cadre juridique"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 8"
+   ],
+   [
+    "Titre2",
+    "Panorama des instruments : fermes et optionnels, organisés et de gré à gré"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 9"
+   ],
+   [
+    "Titre2",
+    "Les contrats à terme fermes : forwards et futures"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 10"
+   ],
+   [
+    "Titre2",
+    "Les swaps : taux, devises, indices"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 11"
+   ],
+   [
+    "Titre2",
+    "Les options : le droit sans l'obligation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 12"
+   ],
+   [
+    "Titre2",
+    "Caps, floors, collars et swaptions : les options de taux"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 13"
+   ],
+   [
+    "Titre2",
+    "Les instruments de change : terme, swap de change, NDF, options"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 14"
+   ],
+   [
+    "Titre2",
+    "Les couvertures d'inflation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 15"
+   ],
+   [
+    "Titre2",
+    "Les couvertures de crédit : CDS et indices"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 16"
+   ],
+   [
+    "Titre2",
+    "Le cadre contractuel : ISDA, FBF et les annexes de collatéral"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 17"
+   ],
+   [
+    "Titre2",
+    "EMIR : compensation centrale, déclaration et risque de contrepartie"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE III"
+   ],
+   [
+    "Titre1",
+    "Les stratégies de couverture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 18"
+   ],
+   [
+    "Titre2",
+    "L'anatomie d'une stratégie de couverture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 19"
+   ],
+   [
+    "Titre2",
+    "Couvrir le risque de change d'un portefeuille en devises"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 20"
+   ],
+   [
+    "Titre2",
+    "Couvrir le risque de change structurel : participations et succursales"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 21"
+   ],
+   [
+    "Titre2",
+    "Couvrir le risque de hausse des taux"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 22"
+   ],
+   [
+    "Titre2",
+    "Couvrir le risque de baisse des taux : le réinvestissement et les garanties"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 23"
+   ],
+   [
+    "Titre2",
+    "Couvrir un portefeuille actions par instruments sur indices"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 24"
+   ],
+   [
+    "Titre2",
+    "Les programmes de couverture : gouvernance, roulement et coûts"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE IV"
+   ],
+   [
+    "Titre1",
+    "La logique économique du traitement comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 25"
+   ],
+   [
+    "Titre2",
+    "Le principe fondamental : l'instrument et l'élément couvert forment une seule position"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 26"
+   ],
+   [
+    "Titre2",
+    "Le dérivé sans couverture : pourquoi la prudence impose la dissymétrie"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 27"
+   ],
+   [
+    "Titre2",
+    "Les lois fondamentales de la comptabilité des couvertures"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 28"
+   ],
+   [
+    "Titre2",
+    "L'efficacité : mesurer ce que la couverture couvre vraiment"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE V"
+   ],
+   [
+    "Titre1",
+    "La comptabilité des couvertures en normes françaises assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 29"
+   ],
+   [
+    "Titre2",
+    "L'architecture du CRC 2002-09 : opérations, stratégies, traitements"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 30"
+   ],
+   [
+    "Titre2",
+    "La documentation initiale et le suivi : les huit rubriques du § 200"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 31"
+   ],
+   [
+    "Titre2",
+    "Le cadre comptable : hors-bilan, comptes de régularisation, collatéral"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 32"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 1 — La couverture de change d'un portefeuille obligataire en dollars"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 33"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 2 — Le swap de taux en stratégie de rendement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 34"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 3 — L'achat d'un cap : la prime et son étalement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 35"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 4 — Fixer la valeur d'une cession ou d'un investissement : les stratégies d'investissement et de désinvestissement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 36"
+   ],
+   [
+    "Titre2",
+    "La rupture, la déqualification et la position ouverte isolée"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VI"
+   ],
+   [
+    "Titre1",
+    "Les opérations de couverture en normes IFRS"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 37"
+   ],
+   [
+    "Titre2",
+    "L'architecture IFRS : IFRS 9, IAS 39 et le choix de méthode"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 38"
+   ],
+   [
+    "Titre2",
+    "Les trois modèles : juste valeur, flux de trésorerie, investissement net"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 39"
+   ],
+   [
+    "Titre2",
+    "La qualification IFRS 9 : critères, ratio, rééquilibrage, cessation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 40"
+   ],
+   [
+    "Titre2",
+    "Dossier IFRS n° 1 — Couverture de juste valeur d'une obligation à taux fixe"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 41"
+   ],
+   [
+    "Titre2",
+    "Dossier IFRS n° 2 — Couverture de flux de trésorerie et coût de la couverture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 42"
+   ],
+   [
+    "Titre2",
+    "Dossier IFRS n° 3 — La couverture d'investissement net en devise"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 43"
+   ],
+   [
+    "Titre2",
+    "Couvertures et IFRS 17 : la gestion du résultat d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 44"
+   ],
+   [
+    "Titre2",
+    "Autour d'IFRS 9 : l'information (IFRS 7), la compensation (IAS 32), la juste valeur (IFRS 13)"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VII"
+   ],
+   [
+    "Titre1",
+    "Solvabilité II et information prudentielle"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 45"
+   ],
+   [
+    "Titre2",
+    "Les dérivés dans le bilan prudentiel"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 46"
+   ],
+   [
+    "Titre2",
+    "Les techniques d'atténuation des risques : les conditions de la reconnaissance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 47"
+   ],
+   [
+    "Titre2",
+    "L'effet des couvertures sur le SCR marché : taux, change, actions"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 48"
+   ],
+   [
+    "Titre2",
+    "Le risque de contrepartie et le collatéral dans la formule standard"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 49"
+   ],
+   [
+    "Titre2",
+    "Les états prudentiels, l'ORSA et la gouvernance des dérivés"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VIII"
+   ],
+   [
+    "Titre1",
+    "Gestion, suivi et contrôles"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 50"
+   ],
+   [
+    "Titre2",
+    "Le cycle de vie front-to-back d'une opération de couverture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 51"
+   ],
+   [
+    "Titre2",
+    "La valorisation indépendante et les réconciliations"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 52"
+   ],
+   [
+    "Titre2",
+    "Le contrôle interne des couvertures et la revue des auditeurs"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 53"
+   ],
+   [
+    "Titre2",
+    "La gouvernance : la politique des dérivés et ses comités"
+   ],
+   [
+    "Titre6",
+    "Conclusion"
+   ],
+   [
+    "Titre6",
+    "ANNEXES"
+   ],
+   [
+    "Titre7",
+    "Analyse comparative — Normes françaises, IFRS, Solvabilité II"
+   ],
+   [
+    "Titre7",
+    "Exemple complet de mesure d'efficacité : dollar offset et régression"
+   ],
+   [
+    "Titre7",
+    "Modèle de documentation de stratégie (CRC 2002-09, § 200)"
+   ],
+   [
+    "Titre7",
+    "RACI type — Mise en place et suivi d'une opération de couverture"
+   ],
+   [
+    "Titre7",
+    "Glossaire"
+   ],
+   [
+    "Titre7",
+    "Guide de clôture des opérations de couverture"
+   ],
+   [
+    "Titre7",
+    "Questions fréquentes"
+   ],
+   [
+    "Titre7",
+    "Les principes fondamentaux des couvertures"
+   ]
+  ],
+  "pages": "(null)"
+ },
+ "obligations": {
+  "titlepage": [
+   [
+    "",
+    "TRAITÉ"
+   ],
+   [
+    "",
+    "La gestion obligataire"
+   ],
+   [
+    "",
+    "dans l'assurance non-vie"
+   ],
+   [
+    "",
+    "Instruments, marchés, gestion de portefeuille,"
+   ],
+   [
+    "",
+    "comptabilité, prudentiel et contrôles"
+   ],
+   [
+    "",
+    "Normes françaises assurance (ANC 2015-11)  ·  IFRS 9  ·  Solvabilité II"
+   ],
+   [
+    "",
+    "XAVIER ROBITAILLEÉdition professionnelle"
+   ],
+   [
+    "En-ttedetabledesmatires",
+    "Table des matières"
+   ],
+   [
+    "TM6",
+    "Introduction\t6"
+   ],
+   [
+    "TM1",
+    "L'obligation dans la gestion financière des organismes d'assurance\t8"
+   ],
+   [
+    "TM2",
+    "Pourquoi l'assureur est un investisseur obligataire\t10"
+   ],
+   [
+    "TM2",
+    "Le bilan de l'assureur : des passifs longs, des flux prévisibles, un besoin d'adossement\t12"
+   ],
+   [
+    "TM2",
+    "Le cadre juridique des placements : du catalogue d'actifs admissibles au principe de la personne prudente\t15"
+   ],
+   [
+    "TM2",
+    "Le vocabulaire du marché obligataire : nominal, coupon, échéance, rang, notation\t17"
+   ]
+  ],
+  "toc": [
+   [
+    "Titre6",
+    "Introduction"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE I"
+   ],
+   [
+    "Titre1",
+    "L'obligation dans la gestion financière des organismes d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 1"
+   ],
+   [
+    "Titre2",
+    "Pourquoi l'assureur est un investisseur obligataire"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 2"
+   ],
+   [
+    "Titre2",
+    "Le bilan de l'assureur : des passifs longs, des flux prévisibles, un besoin d'adossement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 3"
+   ],
+   [
+    "Titre2",
+    "Le cadre juridique des placements : du catalogue d'actifs admissibles au principe de la personne prudente"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 4"
+   ],
+   [
+    "Titre2",
+    "Le vocabulaire du marché obligataire : nominal, coupon, échéance, rang, notation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 5"
+   ],
+   [
+    "Titre2",
+    "Prix, rendement et courbe des taux : la mécanique de la valeur"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 6"
+   ],
+   [
+    "Titre2",
+    "Duration, sensibilité, convexité : mesurer l'exposition au taux"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE II"
+   ],
+   [
+    "Titre1",
+    "La vie d'une obligation, de l'achat au remboursement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 7"
+   ],
+   [
+    "Titre2",
+    "Le marché primaire : syndication et adjudication"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 8"
+   ],
+   [
+    "Titre2",
+    "Le marché secondaire : cotation, coupon couru, règlement-livraison"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 9"
+   ],
+   [
+    "Titre2",
+    "Le cycle front-to-back d'un ordre obligataire"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 10"
+   ],
+   [
+    "Titre2",
+    "Les flux de la vie normale : coupons, amortissements, remboursement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 11"
+   ],
+   [
+    "Titre2",
+    "Le coût amorti : la comptabilité de la détention"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 12"
+   ],
+   [
+    "Titre2",
+    "Surcote et décote : étaler l'écart pour rétablir le rendement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 13"
+   ],
+   [
+    "Titre2",
+    "Les événements de l'émetteur : call, rachat, échange, assemblées"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 14"
+   ],
+   [
+    "Titre2",
+    "Le traitement opérationnel des événements : le front-to-back des OST"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 15"
+   ],
+   [
+    "Titre2",
+    "La comptabilité auxiliaire des placements et les réconciliations"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE III"
+   ],
+   [
+    "Titre1",
+    "Les types d'obligations"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 16"
+   ],
+   [
+    "Titre2",
+    "Classer les obligations : émetteur, taux, structure, rang"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 17"
+   ],
+   [
+    "Titre2",
+    "Les obligations souveraines et assimilées"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 18"
+   ],
+   [
+    "Titre2",
+    "Les obligations d'entreprises et la notation de crédit"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 19"
+   ],
+   [
+    "Titre2",
+    "Taux fixe, taux variable : le profil de risque selon le mode de coupon"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 20"
+   ],
+   [
+    "Titre2",
+    "Les obligations indexées sur l'inflation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 21"
+   ],
+   [
+    "Titre2",
+    "Les obligations remboursables par anticipation : callables et puttables"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 22"
+   ],
+   [
+    "Titre2",
+    "Les obligations convertibles"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 23"
+   ],
+   [
+    "Titre2",
+    "Les dettes subordonnées et hybrides financières"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 24"
+   ],
+   [
+    "Titre2",
+    "Covered bonds, titrisations et placements privés"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE IV"
+   ],
+   [
+    "Titre1",
+    "La gestion du portefeuille obligataire : gouvernance, méthodes, risques et contrôles"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 25"
+   ],
+   [
+    "Titre2",
+    "La gouvernance : politique de placement et comités"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 26"
+   ],
+   [
+    "Titre2",
+    "L'adossement actif-passif : construire le portefeuille à partir des engagements"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 27"
+   ],
+   [
+    "Titre2",
+    "Buy-and-maintain : le mode de gestion de référence de l'actif général"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 28"
+   ],
+   [
+    "Titre2",
+    "Le rendement comptable, le TRA et la politique de réinvestissement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 29"
+   ],
+   [
+    "Titre2",
+    "Les stratégies de courbe et de spread"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 30"
+   ],
+   [
+    "Titre2",
+    "Mesurer la performance : indices, rendement comptable, rendement économique"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 31"
+   ],
+   [
+    "Titre2",
+    "La gestion du risque de crédit : limites, diversification, suivi"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 32"
+   ],
+   [
+    "Titre2",
+    "La dégradation et le défaut : la vie de l'obligation en difficulté"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 33"
+   ],
+   [
+    "Titre2",
+    "La liquidité du portefeuille et la mobilisation des titres"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 34"
+   ],
+   [
+    "Titre2",
+    "Mandats, fonds dédiés et délégation de gestion"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 35"
+   ],
+   [
+    "Titre2",
+    "Pensions et prêts de titres : les grands principes de la mobilisation temporaire"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 36"
+   ],
+   [
+    "Titre2",
+    "Les dérivés dans la gestion obligataire : les grands principes de la couverture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 37"
+   ],
+   [
+    "Titre2",
+    "Le contrôle interne du portefeuille obligataire"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE V"
+   ],
+   [
+    "Titre1",
+    "La comptabilité obligataire en normes françaises assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 38"
+   ],
+   [
+    "Titre2",
+    "L'architecture des textes : R.343-9, R.343-10 et le règlement ANC 2015-11"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 39"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 1 — L'acquisition et l'inventaire d'une obligation à taux fixe"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 40"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 2 — Décote et obligations indexées sur l'inflation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 41"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 3 — La cession d'une obligation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 42"
+   ],
+   [
+    "Titre2",
+    "La dépréciation pour risque de crédit : la distinction entre effet taux et effet crédit"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 43"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n° 4 — La dépréciation pour risque de crédit avéré"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 44"
+   ],
+   [
+    "Titre2",
+    "La PRE et les placements de l'article R.343-10"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 45"
+   ],
+   [
+    "Titre2",
+    "L'état des placements et l'annexe : l'information réglementaire"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VI"
+   ],
+   [
+    "Titre1",
+    "Les obligations en normes IFRS"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 46"
+   ],
+   [
+    "Titre2",
+    "IFRS 9 : le classement par le test SPPI et le modèle de gestion"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 47"
+   ],
+   [
+    "Titre2",
+    "Dossier IFRS n° 1 — Le coût amorti et le taux d'intérêt effectif"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 48"
+   ],
+   [
+    "Titre2",
+    "Dossier IFRS n° 2 — La juste valeur par OCI et le recyclage"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 49"
+   ],
+   [
+    "Titre2",
+    "Dossier IFRS n° 3 — La dépréciation ECL en trois buckets"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 50"
+   ],
+   [
+    "Titre2",
+    "FVTPL, option de juste valeur et reclassements"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 51"
+   ],
+   [
+    "Titre2",
+    "IFRS 9 et IFRS 17 : la cohérence comptable actif-passif"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 52"
+   ],
+   [
+    "Titre2",
+    "IFRS 7 et IFRS 13 : l'information à fournir sur le portefeuille obligataire"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VII"
+   ],
+   [
+    "Titre1",
+    "Solvabilité II"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 53"
+   ],
+   [
+    "Titre2",
+    "Le bilan prudentiel : la valeur économique des obligations"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 54"
+   ],
+   [
+    "Titre2",
+    "La courbe réglementaire : extrapolation, volatility adjustment, matching adjustment"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 55"
+   ],
+   [
+    "Titre2",
+    "Le SCR de taux : la sensibilité du bilan aux courbes stressées"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 56"
+   ],
+   [
+    "Titre2",
+    "Le SCR de spread et de concentration : le coût en capital du crédit"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 57"
+   ],
+   [
+    "Titre2",
+    "Souverains, look-through et cas particuliers"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 58"
+   ],
+   [
+    "Titre2",
+    "QRT, ORSA et personne prudente : l'information prudentielle"
+   ],
+   [
+    "Titre6",
+    "Conclusion"
+   ],
+   [
+    "Titre7",
+    "Analyse comparative — Normes françaises, IFRS 9, Solvabilité II"
+   ],
+   [
+    "Titre7",
+    "Exemple complet — Une même obligation dans les trois référentiels"
+   ],
+   [
+    "Titre7",
+    "Structure type d'une politique de placement obligataire"
+   ],
+   [
+    "Titre7",
+    "RACI type — Cycle de vie d'une obligation en portefeuille"
+   ],
+   [
+    "Titre7",
+    "Glossaire"
+   ],
+   [
+    "Titre7",
+    "Les principes fondamentaux de la gestion obligataire en assurance"
+   ],
+   [
+    "Titre7",
+    "Cas pratiques intégrés"
+   ],
+   [
+    "Titre7",
+    "Checklists opérationnelles"
+   ],
+   [
+    "Titre7",
+    "Liste des illustrations"
+   ]
+  ],
+  "pages": "(null)"
+ },
+ "pension": {
+  "titlepage": [
+   [
+    "",
+    "Les opérations de pension dans les organismes d’assurance"
+   ],
+   [
+    "",
+    "Aspects juridiques, économiques, comptables, prudentiels et opérationnels"
+   ],
+   [
+    "",
+    "Normes françaises – IFRS – Solvabilité 2"
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "",
+    "www.myxavier.fr"
+   ],
+   [
+    "",
+    "XAVIER"
+   ],
+   [
+    "",
+    "ADVISORY"
+   ],
+   [
+    "",
+    "Les opérations de pension dans les organismes d’assurance"
+   ],
+   [
+    "",
+    "Aspects juridiques, économiques, comptables, prudentiels et opérationnels"
+   ],
+   [
+    "Titre4",
+    "Normes françaises – IFRS – Solvabilité 2"
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "En-ttedetabledesmatires",
+    "Table des matières"
+   ],
+   [
+    "TM6",
+    "Introduction6"
+   ],
+   [
+    "TM1",
+    "Les pensions dans la gestion financière des organismes d'assurance7"
+   ]
+  ],
+  "toc": [
+   [
+    "Titre6",
+    "Introduction"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE I"
+   ],
+   [
+    "Titre1",
+    "Les pensions dans la gestion financière des organismes d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 1"
+   ],
+   [
+    "Titre2",
+    "Les opérations de pension : un instrument de gestion avant d'être une technique comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 2"
+   ],
+   [
+    "Titre2",
+    "Le marché des pensions : au cœur de la liquidité mondiale"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 3"
+   ],
+   [
+    "Titre2",
+    "Pourquoi les marchés ont-ils inventé les opérations de pension ?"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 4"
+   ],
+   [
+    "Titre2",
+    "Pourquoi un organisme d'assurance réalise-t-il une opération de pension ?"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 5"
+   ],
+   [
+    "Titre2",
+    "La nature juridique des opérations de pension : une vente qui n'en est pas une ?"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 6"
+   ],
+   [
+    "Titre2",
+    "Les risques et avantages : la clé de compréhension des traitements comptables"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 7"
+   ],
+   [
+    "Titre2",
+    "Les opérations de pension dans la stratégie d'investissement des organismes d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 8"
+   ],
+   [
+    "Titre2",
+    "Les opérations de pension dans l'équilibre financier d'un organisme d'assurance"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE II"
+   ],
+   [
+    "Titre1",
+    "Le cadre juridique des opérations de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 9"
+   ],
+   [
+    "Titre2",
+    "La construction juridique des opérations de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 10"
+   ],
+   [
+    "Titre2",
+    "Le GMRA : la constitution juridique des opérations de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 11"
+   ],
+   [
+    "Titre2",
+    "Les acteurs du marché des pensions : des objectifs différents, un intérêt commun"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 12"
+   ],
+   [
+    "Titre2",
+    "Le collatéral : pierre angulaire des opérations de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 13"
+   ],
+   [
+    "Titre2",
+    "Le risque de contrepartie dans les opérations de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 14"
+   ],
+   [
+    "Titre2",
+    "Les opérations de pension au cœur de la stabilité financière"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 15"
+   ],
+   [
+    "Titre2",
+    "Pension et prêt de titres : deux opérations souvent confondues, deux logiques distinctes"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE III"
+   ],
+   [
+    "Titre1",
+    "La logique économique du traitement comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 16"
+   ],
+   [
+    "Titre2",
+    "Le principe fondamental : une pension ne modifie pas le patrimoine économique"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 17"
+   ],
+   [
+    "Titre2",
+    "Les accessoires du titre suivent-ils nécessairement le titre ?"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 18"
+   ],
+   [
+    "Titre2",
+    "Les lois fondamentales de la comptabilité des pensions"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 19"
+   ],
+   [
+    "Titre2",
+    "De la logique économique à la règle comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 20"
+   ],
+   [
+    "Titre2",
+    "Pourquoi la comptabilité des pensions est-elle ce qu'elle est ?"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE IV"
+   ],
+   [
+    "Titre1",
+    "La comptabilité des pensions en normes françaises assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 21"
+   ],
+   [
+    "Titre2",
+    "Principes comptables applicables aux opérations de pension en normes françaises assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 22"
+   ],
+   [
+    "Titre2",
+    "De l'événement de gestion à l'écriture comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 23"
+   ],
+   [
+    "Titre2",
+    "Événement n°1 – La mise en pension des titres"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 24"
+   ],
+   [
+    "Titre2",
+    "Événement n°2 – La vie de la pension : le temps devient un événement comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 25"
+   ],
+   [
+    "Titre2",
+    "Événement n°3 – Le coupon : quand le droit et l'économie empruntent des chemins différents"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 26"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n°1 – La naissance d'une opération de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 27"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n°2 – Le coupon pendant une opération de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 28"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n°3 – Les appels de marge : maintenir l'équilibre"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 29"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n°4 – La rémunération de la pension : le coût de la liquidité"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 30"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n°5 – Le débouclage de la pension : le retour à l'état initial"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 31"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n°6 – L'arrêté comptable : lorsque la pension traverse une clôture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 32"
+   ],
+   [
+    "Titre2",
+    "Dossier comptable n°7 – Le renouvellement d'une pension (roll-over)"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 33"
+   ],
+   [
+    "Titre2",
+    "Synthèse : Schémas comptables de bout en bout d'une mise en pension d'OAT en normes françaises assurance"
+   ],
+   [
+    "NumroChapitre",
+    "Chapitre 34"
+   ],
+   [
+    "Titre2",
+    "Le hors-bilan"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 35"
+   ],
+   [
+    "Titre2",
+    "Comptabilisation des prises en pension (reverse repo) en normes françaises assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 36"
+   ],
+   [
+    "Titre2",
+    "Les cas complexes et les situations particulières"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE V"
+   ],
+   [
+    "Titre1",
+    "Les opérations de pension en normes IFRS"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 37"
+   ],
+   [
+    "Titre2",
+    "Introduction : Pourquoi consacrer une partie spécifique aux IFRS ?"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 38"
+   ],
+   [
+    "Titre2",
+    "Les points communs avec les normes françaises"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 39"
+   ],
+   [
+    "Titre2",
+    "L’application des spécificités d’IFRS 9 aux opérations de REPO"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 40"
+   ],
+   [
+    "Titre2",
+    "Revue des autres normes IFRS"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VI"
+   ],
+   [
+    "Titre1",
+    "Solvabilité II et information prudentielle"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 41"
+   ],
+   [
+    "Titre2",
+    "Les opérations de pension en Solvabilité II"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 42"
+   ],
+   [
+    "Titre2",
+    "Les actifs engagés : une information comptable, un enjeu prudentiel"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 43"
+   ],
+   [
+    "Titre2",
+    "Analyse comparative des opérations de pension : Normes françaises – IFRS – Solvabilité II"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 44"
+   ],
+   [
+    "Titre2",
+    "De l'opération de pension à l'information financière"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VII"
+   ],
+   [
+    "Titre1",
+    "Gouvernance, contrôle interne, systèmes et audit"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 45"
+   ],
+   [
+    "Titre2",
+    "Gouvernance des opérations de pension dans un organisme d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 46"
+   ],
+   [
+    "Titre2",
+    "La politique de recours aux pensions dans un organisme d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 47"
+   ],
+   [
+    "Titre2",
+    "Les opérations de pension dans la gouvernance financière de l'organisme d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 48"
+   ],
+   [
+    "Titre2",
+    "Du suivi d'une opération au pilotage d'un portefeuille de pensions"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 49"
+   ],
+   [
+    "Titre2",
+    "Contrôle interne, maîtrise des risques et organisation des opérations de pension"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 50"
+   ],
+   [
+    "Titre2",
+    "Les systèmes d'information"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 51"
+   ],
+   [
+    "Titre2",
+    "Audit des opérations de pension et attentes des commissaires aux comptes"
+   ],
+   [
+    "NumroChapitre",
+    "SYNTHESE"
+   ],
+   [
+    "Titre2",
+    "Doctrine comptable des opérations de pension"
+   ],
+   [
+    "Titre6",
+    "Conclusion générale"
+   ],
+   [
+    "Titre6",
+    "Postface"
+   ],
+   [
+    "Titre6",
+    "ANNEXES"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE A"
+   ],
+   [
+    "Titre7",
+    "Questions fréquemment posées"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE B"
+   ],
+   [
+    "Titre7",
+    "Modèle de manuel de procédures comptables"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE C"
+   ],
+   [
+    "Titre7",
+    "Guide de clôture annuelle"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE D"
+   ],
+   [
+    "Titre7",
+    "Références réglementaires commentées"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE E"
+   ],
+   [
+    "Titre7",
+    "RACI type – Mise en place et suivi d’une mise en pension"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE F"
+   ],
+   [
+    "Titre7",
+    "Les principes fondamentaux des pensions"
+   ]
+  ],
+  "pages": null
+ },
+ "transformations": {
+  "titlepage": [
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "NumroPartie",
+    "Organismes d'assurance : Vos chantiers de 2027-2028"
+   ],
+   [
+    "CouvertureMotsCls",
+    "Solvabilité 2, IFRS 18, AI Act, IRDD, ..."
+   ],
+   [
+    "NumroPartie",
+    "Avez-vous anticipé ces 15 réformes ?"
+   ],
+   [
+    "",
+    "Les clés de l’Assurance et de la Finance"
+   ],
+   [
+    "",
+    "Les clés de l’Assurance et de la Finance"
+   ],
+   [
+    "",
+    "Organismes d'assurance : Vos chantiers de 2027-2028"
+   ],
+   [
+    "",
+    "Solvabilité 2, IFRS 18, AI Act, IRDD, ..."
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "En-ttedetabledesmatires",
+    "Table des matières"
+   ],
+   [
+    "TM5",
+    "Introduction13"
+   ],
+   [
+    "TM6",
+    "Société d’assurance : la double peine14"
+   ],
+   [
+    "TM6",
+    "Caveat15"
+   ],
+   [
+    "TM6",
+    "Les conventions de niveau d’exigence utilisées dans ce livre15"
+   ]
+  ],
+  "toc": [
+   [
+    "NumroPartie",
+    "Organismes d'assurance : Vos chantiers de 2027-2028"
+   ],
+   [
+    "NumroPartie",
+    "Avez-vous anticipé ces 15 réformes ?"
+   ],
+   [
+    "Titre6",
+    "Introduction"
+   ],
+   [
+    "Titre7",
+    "Société d’assurance : la double peine"
+   ],
+   [
+    "Titre7",
+    "Caveat"
+   ],
+   [
+    "Titre7",
+    "Les conventions de niveau d’exigence utilisées dans ce livre"
+   ],
+   [
+    "Titre7",
+    "La grille d’analyse"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE I"
+   ],
+   [
+    "Titre1",
+    "Comprendre la transformation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 1"
+   ],
+   [
+    "Titre2",
+    "Quinze réformes arrivent en 2027 et se disputent les mêmes ressources"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 2"
+   ],
+   [
+    "Titre2",
+    "5 sources normatives pour une société lambda, 8 pour un assureur"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 3"
+   ],
+   [
+    "Titre2",
+    "La taxonomie des impacts : dix questions, une seule grille"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 4"
+   ],
+   [
+    "Titre2",
+    "L'assureur a trois rôles"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 5"
+   ],
+   [
+    "Titre2",
+    "La chronologie consolidée : ce qui est certain, ce qui ne l'est pas"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE II"
+   ],
+   [
+    "Titre1",
+    "Le socle commun à toute société française"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 6"
+   ],
+   [
+    "Titre2",
+    "Le PCG modernisé s'applique aux assureurs, mais leur règlement sectoriel n'a pas suivi"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 7"
+   ],
+   [
+    "Titre2",
+    "La facturation électronique atteint les PME en septembre 2027 et, par ricochet, l'écosystème de l'assureur"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 8"
+   ],
+   [
+    "Titre2",
+    "La loi « Fraudes » du 25 juin 2026 allonge la conservation à dix ans et sanctionne les tiers"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 9"
+   ],
+   [
+    "Titre2",
+    "La même loi « Fraudes » impacte l'assureur par trois autres canaux qu'aucun texte d'assurance n'annonce"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 10"
+   ],
+   [
+    "Titre2",
+    "La CVAE ne disparaît pas en 2027 : elle est gelée, puis décroît"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 11"
+   ],
+   [
+    "Titre2",
+    "La loi de simplification impose à l'assureur des délais et une motivation pour résilier un contrat"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 12"
+   ],
+   [
+    "Titre2",
+    "Le logiciel devient un produit défectueux, et l'assureur RC découvre son exposition"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE III"
+   ],
+   [
+    "Titre1",
+    "Le droit social et l'emploi"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 13"
+   ],
+   [
+    "Titre2",
+    "Transparence salariale : la charge de la preuve change de camp au 1er janvier 2028"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 14"
+   ],
+   [
+    "Titre2",
+    "Partage de la valeur et PSC : deux tests à intégrer à la clôture de chaque entité"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 15"
+   ],
+   [
+    "Titre2",
+    "Un texte social atteint l'assureur par trois canaux — un seul est traité spontanément"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE IV"
+   ],
+   [
+    "Titre1",
+    "Durabilité"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 16"
+   ],
+   [
+    "Titre2",
+    "Omnibus I : 80 % des entreprises sortent du champ, celles qui restent collectent dès janvier 2027"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 17"
+   ],
+   [
+    "Titre2",
+    "ESRS et taxonomie : la double matérialité reste, la souscription est le périmètre orphelin"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 18"
+   ],
+   [
+    "Titre2",
+    "CS3D et SFDR : deux textes non stabilisés qui imposent quand même des travaux 2027"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE V"
+   ],
+   [
+    "Titre1",
+    "Comptabilité et présentation financière"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 19"
+   ],
+   [
+    "Titre2",
+    "IFRS 18 : même résultat net, autre compte de résultat — et un comparatif 2026 à produire"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 20"
+   ],
+   [
+    "Titre2",
+    "Les MPM : le résultat ajusté du communiqué de presse entre dans l'annexe auditée"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 21"
+   ],
+   [
+    "Titre2",
+    "Quelle est l'activité principale d’un assureur ? Une vraie question, pour IFRS 18"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 22"
+   ],
+   [
+    "Titre2",
+    "IFRS 19 : la seule (petite) bouffée d’oxygène"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 23"
+   ],
+   [
+    "Titre2",
+    "IFRS S2 : les émissions financées se décident au comité d'investissement"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VI"
+   ],
+   [
+    "Titre1",
+    "Le prudentiel assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 24"
+   ],
+   [
+    "Titre2",
+    "Solvabilité II révisée s'applique au T1 2027"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 25"
+   ],
+   [
+    "Titre2",
+    "Reporting prudentiel 2027 : taxonomie 2.10 au T1, SFCR audité sur l'exercice"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 26"
+   ],
+   [
+    "Titre2",
+    "ICS et ESAP : les ratios deviennent comparables, donc contestables"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VII"
+   ],
+   [
+    "Titre1",
+    "Conformité, numérique et données"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 27"
+   ],
+   [
+    "Titre2",
+    "AMLR : applicable le 10 juillet 2027, sans transposition ni doctrine nationale"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 28"
+   ],
+   [
+    "Titre2",
+    "AI Act : la tarification vie et santé parmi les usages à haut risque"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 29"
+   ],
+   [
+    "Titre2",
+    "DORA, NIS2, CRA : les obligations cyber de l’assureur et de ses fournisseurs"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VIII"
+   ],
+   [
+    "Titre1",
+    "Décommissionnements et mise en œuvre"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 30"
+   ],
+   [
+    "Titre2",
+    "L'obsolescence : le seul risque de la période qui soit certain, daté et public"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 31"
+   ],
+   [
+    "Titre2",
+    "SAP Business Suite 7 : fin de maintenance standard fin 2027, et l'ERP produit les chiffres de tous les autres chantiers"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 32"
+   ],
+   [
+    "Titre2",
+    "Windows Server 2016 et SQL Server : l'infrastructure sort du support au milieu du pic réglementaire"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 33"
+   ],
+   [
+    "Titre2",
+    "Db2, Cognos Planning, SAS : trois fins de support en 2027, dont celle des outils de modélisation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 34"
+   ],
+   [
+    "Titre2",
+    "Le programme intégré : quinze chantiers, quatre axes, un budget consolidé"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 35"
+   ],
+   [
+    "Titre2",
+    "Contrôle interne et audit : trois documents entrent dans le périmètre d'audit"
+   ],
+   [
+    "Titre6",
+    "Conclusion"
+   ],
+   [
+    "Titre6",
+    "ANNEXES"
+   ],
+   [
+    "Titre7",
+    "Annexe A - Matrice générale des impacts"
+   ],
+   [
+    "Titre7",
+    "Annexe B - Calendrier de mise en œuvre"
+   ],
+   [
+    "Titre7",
+    "Annexe C - Matrice normes-processus-systèmes"
+   ],
+   [
+    "Titre7",
+    "Annexe D - Modèle de fiche d'impact"
+   ],
+   [
+    "Titre7",
+    "Annexe E - Checklists de préparation"
+   ],
+   [
+    "Titre7",
+    "Annexe F - Glossaire des sigles"
+   ],
+   [
+    "Titre7",
+    "Annexe G - Bibliographie institutionnelle sélective"
+   ],
+   [
+    "Titre7",
+    "Annexe H - Les sept points à valider — revue trimestrielle"
+   ]
+  ],
+  "pages": "(null)"
+ }
+}

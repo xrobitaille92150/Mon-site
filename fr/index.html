@@ -61,7 +61,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0B1530;
@@ -73,10 +73,10 @@
             --gray: #6B7280;
             --border: rgba(0,0,0,0.07);
         }
-        .hero h1, h2.title, .pullquote { font-family: 'Playfair Display', serif; }
+        .hero h1, h2.title, .pullquote { font-family: 'EB Garamond', Georgia, serif; }
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        body { font-family: 'Inter', Arial, sans-serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
         /* ── PROGRESS BAR ── */
         #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); z-index: 200; transition: width 0.08s linear; pointer-events: none; }
@@ -87,10 +87,10 @@
         .nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
         .nav-logo { display: inline-flex; align-items: center; gap: 0.7rem; color: #fff; text-decoration: none; transition: transform 0.2s; }
         .xa-mark { height: 58px; width: 58px; display: block; flex-shrink: 0; }
-        .xa-word { display: flex; flex-direction: column; line-height: 1; font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.45rem; letter-spacing: 0.28em; color: #fff; }
+        .xa-word { display: flex; flex-direction: column; line-height: 1; font-family: 'EB Garamond', Georgia, serif; font-weight: 600; font-size: 1.45rem; letter-spacing: 0.28em; color: #fff; }
         .xa-name { display: block; white-space: nowrap; margin-right: -0.28em; }
         .xa-word em { font-style: normal; color: var(--gold); }
-        .xa-word small { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0; margin-top: 5px; color: rgba(255,255,255,0.72); display: flex; justify-content: space-between; }
+        .xa-word small { font-family: 'Inter', Arial, sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0; margin-top: 5px; color: rgba(255,255,255,0.72); display: flex; justify-content: space-between; }
         .nav-logo:hover { transform: scale(1.02); }
         
         .nav-right { display: flex; align-items: center; gap: 1.5rem; }
@@ -106,7 +106,7 @@
         /* ── LANG TOGGLE ── */
         .lang-toggle { display: flex; align-items: center; gap: 0; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 3px; overflow: hidden; transition: border-color 0.2s; }
         .lang-toggle:hover { border-color: rgba(255,255,255,0.45); }
-        .lang-btn { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.38); background: none; border: none; cursor: pointer; padding: 0.35rem 0.6rem; transition: color 0.2s, background 0.2s; }
+        .lang-btn { font-family: 'Inter', Arial, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.38); background: none; border: none; cursor: pointer; padding: 0.35rem 0.6rem; transition: color 0.2s, background 0.2s; }
         .lang-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
         .lang-sep { font-size: 0.62rem; color: rgba(255,255,255,0.18); pointer-events: none; }
 
@@ -132,7 +132,7 @@
         .subtitle { font-size: 1.05rem; line-height: 1.75; margin-top: 1rem; max-width: 600px; }
         .subtitle.on-dark { color: rgba(255,255,255,0.52); }
         .subtitle.on-light { color: var(--gray); }
-        .btn-gold { background: var(--gold); color: #fff; padding: 0.9rem 2rem; border-radius: 3px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .btn-gold { background: var(--gold); color: #fff; padding: 0.9rem 2rem; border-radius: 3px; font-family: 'Inter', Arial, sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
         .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(199,154,59,0.4); }
         @keyframes btn-breathe {
             0%, 100% { transform: translateY(0);    box-shadow: 0 4px 16px rgba(199,154,59,0.18); }
@@ -140,7 +140,7 @@
         }
         .ctabox .btn-gold { animation: btn-breathe 3.2s ease-in-out infinite; }
         .ctabox .btn-gold:hover { animation-play-state: paused; }
-        .btn-ghost { background: transparent; color: #ffffff !important; padding: 0.9rem 2rem; border-radius: 3px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid rgba(255,255,255,0.5); cursor: pointer; transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .btn-ghost { background: transparent; color: #ffffff !important; padding: 0.9rem 2rem; border-radius: 3px; font-family: 'Inter', Arial, sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid rgba(255,255,255,0.5); cursor: pointer; transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
         .btn-ghost:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.72) !important; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(255,255,255,0.12); }
 
         /* ── ANIMATIONS ── */
@@ -322,7 +322,7 @@
         .footer-links a:hover { color: rgba(255,255,255,0.65); }
 
         /* ── RESPONSIVE ── */
-        @media (max-width: 1100px) { .hero-inner { grid-template-columns: 60% 1fr; gap: 3rem; } }
+        @media (max-width: 1100px) { .hero-inner { grid-template-columns: 60% 1fr; gap: 3rem; } .nav-links { gap: 1.25rem; } }
         @media (max-width: 1024px) {
             .expertise-grid { grid-template-columns: repeat(2, 1fr); }
             .pillars { grid-template-columns: repeat(2, 1fr); }
@@ -361,16 +361,17 @@
 <nav id="nav">
     <div class="nav-inner">
         <a href="#" class="nav-logo">
-            <svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>A</em>V<em>I</em>ER</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span>
+            <svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span>
         </a>
         <div class="nav-right">
             <ul class="nav-links">
                 <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
                 <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
                 <li><a href="#profile" data-i18n="nav.profile">Profil</a></li>
-                <li><a href="#approach" data-i18n="nav.approach">Approche</a>
-                <a href="/fr/insights/" data-i18n="nav.insights">D&eacute;cryptages</a>
-                <a href="/fr/formation/" data-i18n="nav.formation">Formation</a></li>
+                <li><a href="#approach" data-i18n="nav.approach">Approche</a></li>
+                <li><a href="/fr/insights/" data-i18n="nav.insights">D&eacute;cryptages</a></li>
+                <li><a href="/fr/publications/" data-i18n="nav.publications">Publications</a></li>
+                <li><a href="/fr/formation/" data-i18n="nav.formation">Formation</a></li>
                 <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a></li>
             </ul>
             <div class="lang-toggle">
@@ -391,6 +392,7 @@
     <a href="#profile" class="mobile-link" data-i18n="nav.profile">Profile</a>
     <a href="#approach" class="mobile-link" data-i18n="nav.approach">Approach</a>
     <a href="/fr/insights/" class="mobile-link" data-i18n="nav.insights">D&eacute;cryptages</a>
+    <a href="/fr/publications/" class="mobile-link" data-i18n="nav.publications">Publications</a>
     <a href="/fr/formation/" class="mobile-link" data-i18n="nav.formation">Formation</a>
     <a href="#contact" class="mobile-link" data-i18n="nav.contact">Contact</a>
 </div>
@@ -558,7 +560,7 @@
                 <span class="cnum" data-i18n="clients.c3.num">03 &mdash; Cabinets de conseil</span>
                 <div class="cicon"><svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><circle cx="4" cy="20" r="2"/><circle cx="20" cy="20" r="2"/><line x1="12" y1="6" x2="12" y2="12"/><line x1="12" y1="12" x2="5" y2="18"/><line x1="12" y1="12" x2="19" y2="18"/></svg></div>
                 <h3 data-i18n="clients.c3.title">Cabinets de stratégie &amp; conseil</h3>
-                <p data-i18n="clients.c3.body">En sous-traitance spécialisée — la connaissance sectorielle qui permet aux équipes généralistes d'être crédibles face aux clients assurance et finance.</p>
+                <p data-i18n="clients.c3.body">En sous-traitance spécialisée — la connaissance sectorielle qui permet aux équipes généralistes d'être crédibles face aux clients assurance et finance. J&rsquo;ai construit une practice de ce type : une BU de 20 consultants, 10 clients, 3 M&euro; de chiffre d&rsquo;affaires.</p>
                 <ul class="croles">
                     <li data-i18n="clients.c3.r1">Associés de practice</li>
                     <li data-i18n="clients.c3.r2">Chefs de projet &amp; de chantier</li>
@@ -633,9 +635,9 @@
             <div class="label" data-i18n="track.label">R&eacute;alisations</div>
             <div class="pillars" style="margin-top: 2rem;">
                 <div class="pillar"><div class="pillar-num">01</div><h4 data-i18n="track.t1.title">Clearwater Analytics &mdash; R&eacute;assureur fran&ccedil;ais</h4><p data-i18n="track.t1.body">2024&ndash;2026. Impl&eacute;mentation de 18 mois : comptabilit&eacute; des investissements (Core), gestion des ordres (OMS) et module private equity. OMS en production en d&eacute;cembre 2025, Core en janvier 2026. Comit&eacute;s sponsors mensuels niveau C-suite, livraison bilingue.</p></div>
-                <div class="pillar"><div class="pillar-num">02</div><h4 data-i18n="track.t2.title">IFRS 9 &mdash; Assureur-cr&eacute;dit</h4><p data-i18n="track.t2.body">2020&ndash;2024. 4 ans de pilotage du programme ECL : sch&eacute;mas comptables, int&eacute;gration dans la cl&ocirc;ture, livraison coordonn&eacute;e avec le d&eacute;positaire (CACEIS).</p></div>
-                <div class="pillar"><div class="pillar-num">03</div><h4 data-i18n="track.t3.title">SimCorp Dimension &mdash; Assureur vie</h4><p data-i18n="track.t3.body">2013&ndash;2017. Management de transition : production financi&egrave;re &amp; Solvabilit&eacute; II. Impl&eacute;mentation SimCorp et fast-close investissements.</p></div>
-                <div class="pillar"><div class="pillar-num">04</div><h4 data-i18n="track.t4.title">SimCorp Dimension &mdash; R&eacute;assureur mondial</h4><p data-i18n="track.t4.body">2006&ndash;2010. Impl&eacute;mentation front-to-back compl&egrave;te, budget 3 M&euro; : middle et back office, flux Swift, Bloomberg, reporting IFRS et US GAAP.</p></div>
+                <div class="pillar"><div class="pillar-num">02</div><h4 data-i18n="track.t2.title">IFRS 9 &mdash; Assureur-cr&eacute;dit</h4><p data-i18n="track.t2.body">2020&ndash;2024. 4 ans de pilotage du programme ECL : sch&eacute;mas comptables, int&eacute;gration dans la cl&ocirc;ture, cr&eacute;ation du Data Warehouse placements, livraison coordonn&eacute;e avec le d&eacute;positaire (CACEIS).</p></div>
+                <div class="pillar"><div class="pillar-num">03</div><h4 data-i18n="track.t3.title">SimCorp Dimension &mdash; Assureur vie</h4><p data-i18n="track.t3.body">2013&ndash;2017. Management de transition : production financi&egrave;re (dont production projet&eacute;e), &eacute;tats Solvabilit&eacute; II des placements. Impl&eacute;mentation SimCorp et fast-close investissements.</p></div>
+                <div class="pillar"><div class="pillar-num">04</div><h4 data-i18n="track.t4.title">SimCorp Dimension &mdash; R&eacute;assureur mondial</h4><p data-i18n="track.t4.body">2006&ndash;2010. Transformation de la fonction investissement (special advisor du COO), puis impl&eacute;mentation front-to-back compl&egrave;te, budget 3 M&euro; : middle et back office, flux Swift, Bloomberg, reporting IFRS et US GAAP.</p></div>
             </div>
         </div>
     </div>
@@ -682,7 +684,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-logo"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>A</em>V<em>I</em>ER</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></div>
+        <div class="footer-logo"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></div>
         <small data-i18n="footer.copy">&copy; 2026 Xavier Advisory. Tous droits réservés.</small>
         <div class="footer-links">
             <a href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">Calendly</a>
@@ -703,6 +705,7 @@ const T = {
         'nav.approach':         'Approach',
         'nav.contact':          'Contact',
         'nav.insights':         'Insights',
+        'nav.publications':     'Publications',
         'nav.formation':        'Training',
         'hero.h1':              'Senior Advisory Uniting <em>Insurance, Finance & Investment</em> Expertise',
         'hero.sub':             'A structurally rare profile: actuarial training, accounting qualification, and 25 years of insurance-specific experience, from regulatory accounting to investment reporting to programme governance. Latest delivery: an 18-month Clearwater Analytics implementation, live since January 2026.',
@@ -753,14 +756,14 @@ const T = {
         'clients.c2.r4':        'Programme Manager',
         'clients.c3.num':       '03 — Consulting Firms',
         'clients.c3.title':     'Strategy &amp; Consulting Firms',
-        'clients.c3.body':      'Engaged as specialist subcontractor — providing the deep insurance and finance knowledge that generalist teams need to deliver credibly in this sector.',
+        'clients.c3.body':      'Engaged as specialist subcontractor — providing the deep insurance and finance knowledge that generalist teams need to deliver credibly in this sector. I have built such a practice myself: a business unit of 20 consultants, 10 clients, &euro;3M in fees.',
         'clients.c3.r1':        'Practice Partners',
         'clients.c3.r2':        'Project &amp; Workstream Leads',
         'clients.c3.r3':        'Specialist Subcontract',
         'profile.label':        'The Profile',
         'profile.title':        'A Positioning With<br>No Direct Equivalent',
         'profile.p1':           '25 years in insurance, since the first job. Enough depth to read technical stakes at first glance, immediate credibility with actuarial and finance counterparts, and delivery without a learning phase.',
-        'profile.p2':           'The combination of ESCP, actuarial training, and accounting qualification is genuinely rare in the market. It translates into full coverage of both the financial reporting side and the investment and asset management side — without needing a second person in the room.',
+        'profile.p2':           'The combination of ESCP, actuarial training, and accounting qualification is rare in the market. It translates into full coverage of both the financial reporting side and the investment and asset management side — without needing a second person in the room.',
         'profile.cred1.name':   'ESCP Business School',
         'profile.cred1.desc':   'Top 2 French Grande &Eacute;cole &middot; European Tier 1',
         'profile.cred2.name':   'Actuarial Studies',
@@ -796,11 +799,11 @@ const T = {
         'track.t1.title':       'Clearwater Analytics &mdash; French reinsurer',
         'track.t1.body':        '2024&ndash;2026. 18-month implementation: investment accounting (Core), order management (OMS) and private equity modules. OMS live December 2025, Core live January 2026. Monthly C-suite sponsor committees, bilingual delivery.',
         'track.t2.title':       'IFRS 9 &mdash; Credit insurer',
-        'track.t2.body':        '2020&ndash;2024. 4 years running the ECL programme: accounting schemes, closing integration, delivery coordinated with the custodian (CACEIS).',
+        'track.t2.body':        '2020&ndash;2024. 4 years running the ECL programme: accounting schemes, closing integration, creation of the investments data warehouse, delivery coordinated with the custodian (CACEIS).',
         'track.t3.title':       'SimCorp Dimension &mdash; Life insurer',
-        'track.t3.body':        '2013&ndash;2017. Interim head of financial production &amp; Solvency II. SimCorp implementation and investment fast-close.',
+        'track.t3.body':        '2013&ndash;2017. Interim head of financial production &amp; Solvency II: financial production (including projected), Solvency II investment statements, SimCorp implementation, investment fast-close.',
         'track.t4.title':       'SimCorp Dimension &mdash; Global reinsurer',
-        'track.t4.body':        '2006&ndash;2010. Full front-to-back implementation, &euro;3M budget: middle and back office, Swift flows, Bloomberg, IFRS and US GAAP reporting.',
+        'track.t4.body':        '2006&ndash;2010. Investment function transformation (special advisor to the COO), then full front-to-back implementation, &euro;3M budget: middle and back office, Swift flows, Bloomberg, IFRS and US GAAP reporting.',
         'contact.label':        'Get in Touch',
         'contact.title':        'Available for<br>New Mandates',
         'contact.badge':        'Available now',
@@ -818,6 +821,7 @@ const T = {
         'nav.approach':         'Approche',
         'nav.contact':          'Contact',
         'nav.insights':         'D&eacute;cryptages',
+        'nav.publications':     'Publications',
         'nav.formation':        'Formation',
         'hero.h1':              'Consultant Expert en <em>Assurance, Finance &amp; Investissement</em>',
         'hero.sub':             '25 ans dans l\'assurance. Formation actuarielle, qualification comptable, ESCP. Un profil qui couvre à la fois la comptabilité réglementaire, le reporting investissement et le pilotage de programmes complexes. Derni&egrave;re livraison : impl&eacute;mentation Clearwater Analytics, en production depuis janvier 2026.',
@@ -868,7 +872,7 @@ const T = {
         'clients.c2.r4':        'Chef de programme',
         'clients.c3.num':       '03 &mdash; Cabinets de conseil',
         'clients.c3.title':     'Cabinets de stratégie &amp; conseil',
-        'clients.c3.body':      'En sous-traitance spécialisée — la connaissance sectorielle qui permet aux équipes généralistes d\'être crédibles face aux clients assurance et finance.',
+        'clients.c3.body':      'En sous-traitance spécialisée — la connaissance sectorielle qui permet aux équipes généralistes d\'être crédibles face aux clients assurance et finance. J&rsquo;ai construit une practice de ce type : une BU de 20 consultants, 10 clients, 3 M&euro; de chiffre d&rsquo;affaires.',
         'clients.c3.r1':        'Associés de practice',
         'clients.c3.r2':        'Chefs de projet &amp; de chantier',
         'clients.c3.r3':        'Sous-traitance spécialisée',
@@ -911,11 +915,11 @@ const T = {
         'track.t1.title':       'Clearwater Analytics &mdash; R&eacute;assureur fran&ccedil;ais',
         'track.t1.body':        '2024&ndash;2026. Impl&eacute;mentation de 18 mois : comptabilit&eacute; des investissements (Core), gestion des ordres (OMS) et module private equity. OMS en production en d&eacute;cembre 2025, Core en janvier 2026. Comit&eacute;s sponsors mensuels niveau C-suite, livraison bilingue.',
         'track.t2.title':       'IFRS 9 &mdash; Assureur-cr&eacute;dit',
-        'track.t2.body':        '2020&ndash;2024. 4 ans de pilotage du programme ECL : sch&eacute;mas comptables, int&eacute;gration dans la cl&ocirc;ture, livraison coordonn&eacute;e avec le d&eacute;positaire (CACEIS).',
+        'track.t2.body':        '2020&ndash;2024. 4 ans de pilotage du programme ECL : sch&eacute;mas comptables, int&eacute;gration dans la cl&ocirc;ture, cr&eacute;ation du Data Warehouse placements, livraison coordonn&eacute;e avec le d&eacute;positaire (CACEIS).',
         'track.t3.title':       'SimCorp Dimension &mdash; Assureur vie',
-        'track.t3.body':        '2013&ndash;2017. Management de transition : production financi&egrave;re &amp; Solvabilit&eacute; II. Impl&eacute;mentation SimCorp et fast-close investissements.',
+        'track.t3.body':        '2013&ndash;2017. Management de transition : production financi&egrave;re (dont production projet&eacute;e), &eacute;tats Solvabilit&eacute; II des placements. Impl&eacute;mentation SimCorp et fast-close investissements.',
         'track.t4.title':       'SimCorp Dimension &mdash; R&eacute;assureur mondial',
-        'track.t4.body':        '2006&ndash;2010. Impl&eacute;mentation front-to-back compl&egrave;te, budget 3 M&euro; : middle et back office, flux Swift, Bloomberg, reporting IFRS et US GAAP.',
+        'track.t4.body':        '2006&ndash;2010. Transformation de la fonction investissement (special advisor du COO), puis impl&eacute;mentation front-to-back compl&egrave;te, budget 3 M&euro; : middle et back office, flux Swift, Bloomberg, reporting IFRS et US GAAP.',
         'contact.label':        'Prendre contact',
         'contact.title':        'Disponible pour<br>de nouvelles missions',
         'contact.badge':        'Disponible imm&eacute;diatement',

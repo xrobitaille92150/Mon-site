@@ -126,4 +126,74 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/formation/"/>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.myxavier.finance/publications/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/publications/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/publications/chantiers-2027-2028/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/chantiers-2027-2028/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/chantiers-2027-2028/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/chantiers-2027-2028/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/publications/chantiers-2027-2028/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/chantiers-2027-2028/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/chantiers-2027-2028/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/chantiers-2027-2028/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/publications/operations-de-pension/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/operations-de-pension/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/operations-de-pension/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/operations-de-pension/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/publications/operations-de-pension/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/operations-de-pension/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/operations-de-pension/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/operations-de-pension/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/publications/gestion-obligataire/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/gestion-obligataire/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/gestion-obligataire/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/gestion-obligataire/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/publications/gestion-obligataire/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/gestion-obligataire/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/gestion-obligataire/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/gestion-obligataire/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/publications/operations-de-couverture/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/operations-de-couverture/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/operations-de-couverture/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/operations-de-couverture/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/publications/operations-de-couverture/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/operations-de-couverture/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/operations-de-couverture/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/operations-de-couverture/"/>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

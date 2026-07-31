@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
-from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE
+from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE, navlinks_html
 
 ART_CSS = """
 .byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
 .byline strong{color:rgba(255,255,255,.9)}
 article{max-width:760px}
 article h2{font-size:1.55rem;margin:2.6rem 0 1rem}
-article h3{font-family:'Montserrat',sans-serif;font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.8rem 0 .6rem}
+article h3{font-family:'Inter',Arial,sans-serif;font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.8rem 0 .6rem}
 article p{line-height:1.75;margin-bottom:1rem;color:#2A3345}
 article ul{margin:0 0 1rem 1.2rem;line-height:1.7;color:#2A3345}
 article li{margin-bottom:.4rem}
@@ -48,13 +48,13 @@ def head(title, desc, url_self, url_en, url_fr, lang, ld):
 <meta property="og:image" content="{BASE}/brand_assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{ld}</script>
 <style>{CSS}{ART_CSS}</style>
 </head>"""
 
 def nav(lang, s, url_other, other_label):
-    links = ''.join(f'<a class="nav-link" href="{h}">{t}</a>' for t, h in NAV_LINKS[lang])
+    links = navlinks_html(lang, '/insights/' if lang == 'en' else '/fr/insights/')
     return f"""<nav><div class="nav-inner">
   <a class="nav-logo" href="{s['home']}" aria-label="Xavier Advisory">{MARK}{WORD}</a>
   <div class="nav-right">{links}<a class="nav-cta" href="{s['home']}#contact">{s['contact']}</a><a href="{url_other}" rel="alternate">{other_label}</a></div>

@@ -5,24 +5,25 @@ from pages_data import PAGES
 
 BASE = "https://www.myxavier.finance"
 MARK = '<svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg>'
-WORD = '<span class="xa-word"><span class="xa-name">X<em>A</em>V<em>I</em>ER</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span>'
+WORD = '<span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span>'
 
 CSS = """
 :root { --primary:#0B1530; --text:#0B1530; --gold:#C79A3B; --gold-light:#D9A24A; --light-bg:#F5F2EB; --white:#FFF; --gray:#6B7280; --border:rgba(11,21,48,0.1); }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
-body{font-family:'Montserrat',sans-serif;color:var(--text);background:var(--light-bg);-webkit-font-smoothing:antialiased}
-h1,h2{font-family:'Playfair Display',serif}
+body{font-family:'Inter',Arial,sans-serif;color:var(--text);background:var(--light-bg);-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'EB Garamond',Georgia,serif}
 nav{position:sticky;top:0;z-index:100;background:var(--primary);padding:1.1rem 0}
 .nav-inner{max-width:1080px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:inline-flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none}
 .xa-mark{height:46px;width:46px;display:block;flex-shrink:0}
-.xa-word{display:flex;flex-direction:column;line-height:1;font-family:'Playfair Display',serif;font-weight:600;font-size:1.15rem;letter-spacing:.28em;color:#fff}
+.xa-word{display:flex;flex-direction:column;line-height:1;font-family:'EB Garamond',Georgia,serif;font-weight:600;font-size:1.15rem;letter-spacing:.28em;color:#fff}
 .xa-name{display:block;white-space:nowrap;margin-right:-.28em}
 .xa-word em{font-style:normal;color:var(--gold)}
-.xa-word small{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:500;letter-spacing:0;margin-top:4px;color:rgba(255,255,255,.72);display:flex;justify-content:space-between}
+.xa-word small{font-family:'Inter',Arial,sans-serif;font-size:.55rem;font-weight:500;letter-spacing:0;margin-top:4px;color:rgba(255,255,255,.72);display:flex;justify-content:space-between}
 .nav-right{display:flex;align-items:center;gap:1.4rem}
 .nav-right a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .nav-right a:hover,.nav-right a:focus-visible{color:#fff}
+.nav-right a.nav-link.active{color:#fff;border-bottom:2px solid var(--gold);padding-bottom:3px}
 .nav-cta{background:var(--gold);color:#fff !important;padding:.55rem 1.2rem;border-radius:3px}
 .hero{background:var(--primary);color:#fff;padding:4.5rem 0 4rem}
 .wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
@@ -57,12 +58,22 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
 """
 
 NAV_LINKS = {
- 'en': [('Expertise','/#expertise'),('Profile','/#profile'),('Approach','/#approach'),('Insights','/insights/'),('Training','/formation/')],
- 'fr': [('Expertise','/fr/#expertise'),('Profil','/fr/#profile'),('Approche','/fr/#approach'),('D&eacute;cryptages','/fr/insights/'),('Formation','/fr/formation/')],
+ 'en': [('Expertise','/#expertise'),('Profile','/#profile'),('Approach','/#approach'),('Insights','/insights/'),('Publications','/publications/'),('Training','/formation/')],
+ 'fr': [('Expertise','/fr/#expertise'),('Profil','/fr/#profile'),('Approche','/fr/#approach'),('D&eacute;cryptages','/fr/insights/'),('Publications','/fr/publications/'),('Formation','/fr/formation/')],
 }
 
 def base_path(slug):
     return slug if slug == 'formation' else f"expertise/{slug}"
+
+def navlinks_html(lang, active=None):
+    """Liens du menu ; le lien de la rubrique courante est marqué actif."""
+    out = []
+    for t, h in NAV_LINKS[lang]:
+        if h == active:
+            out.append(f'<a class="nav-link active" aria-current="page" href="{h}">{t}</a>')
+        else:
+            out.append(f'<a class="nav-link" href="{h}">{t}</a>')
+    return ''.join(out)
 STR = {
  'en': dict(home='/', contact='Contact', cta_h="Available now for new mandates", cta_p="Full remote, hybrid or on-site, in France and internationally. French and English.", cta_btn="Book a call &rarr;", cta_alt='or write to <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>', back="&larr; All expertise", lang_link_label="FR", crumb="Expertise"),
  'fr': dict(home='/fr/', contact='Contact', cta_h="Disponible imm&eacute;diatement pour de nouvelles missions", cta_p="Remote, hybride ou sur site, en France et &agrave; l'international. Fran&ccedil;ais et anglais.", cta_btn="R&eacute;server un appel &rarr;", cta_alt='ou &eacute;crivez &agrave; <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>', back="&larr; Toute l'expertise", lang_link_label="EN", crumb="Expertise"),
@@ -89,7 +100,9 @@ def page(slug, lang, d):
     url_fr = f"{BASE}/fr/{base_path(slug)}/"
     url_self = url_en if lang=='en' else url_fr
     url_other = url_fr if lang=='en' else url_en
-    navlinks = ''.join(f'<a class="nav-link" href="{h}">{t}</a>' for t,h in NAV_LINKS[lang])
+    prefix = '' if lang == 'en' else '/fr'
+    active = f"{prefix}/formation/" if slug == 'formation' else (f"{prefix}/#expertise" if lang == 'fr' else '/#expertise')
+    navlinks = navlinks_html(lang, active)
     cards = ''.join(f'<div class="card"><h3>{t}</h3><p>{b}</p></div>' for t,b in d['s3'])
     prose1 = ''.join(f'<p>{p}</p>' for p in d['s1'])
     deliver = ''.join(f'<li>{p}</li>' for p in d['s2'])
@@ -112,7 +125,7 @@ def page(slug, lang, d):
 <meta property="og:image" content="{BASE}/brand_assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{jsonld(slug, lang, d)}</script>
 <style>{CSS}</style>
 </head>
