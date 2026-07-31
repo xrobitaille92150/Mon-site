@@ -4,7 +4,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 from pages_data import PAGES
 
 BASE = "https://www.myxavier.finance"
-MARK = '<svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg>'
+# Sur fond navy, la diagonale du symbole est ivoire (règle charte, version inverse).
+MARK = '<svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="#F5F2EB"/></svg>'
 WORD = '<span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span>'
 
 CSS = """
@@ -24,6 +25,11 @@ nav{position:sticky;top:0;z-index:100;background:var(--primary);padding:1.1rem 0
 .nav-right a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .nav-right a:hover,.nav-right a:focus-visible{color:#fff}
 .nav-right a.nav-link.active{color:#fff;border-bottom:2px solid var(--gold);padding-bottom:3px}
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-drop{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--primary);border:1px solid rgba(199,154,59,.3);box-shadow:0 14px 34px rgba(11,21,48,.35);padding:.55rem 0;min-width:250px;z-index:120}
+.nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop{display:block}
+.nav-drop a{display:block;padding:.5rem 1.1rem;font-size:.72rem;letter-spacing:.05em;text-transform:none;color:rgba(245,242,235,.82);white-space:nowrap}
+.nav-drop a:hover{color:#fff;background:rgba(199,154,59,.14)}
 .nav-cta{background:var(--gold);color:#fff !important;padding:.55rem 1.2rem;border-radius:3px}
 .hero{background:var(--primary);color:#fff;padding:4.5rem 0 4rem}
 .wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
@@ -48,31 +54,68 @@ ul.deliver li::before{content:"";position:absolute;left:0;top:1.45rem;width:9px;
 .btn-gold:hover{transform:translateY(-2px)}
 .cta .alt{display:block;margin-top:1.1rem;color:rgba(255,255,255,.7);font-size:.9rem}
 .cta .alt a{color:var(--gold-light)}
-footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(255,255,255,.6);font-size:.8rem}
+footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(245,242,235,.78);font-size:.8rem}
 footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
+footer a{color:rgba(245,242,235,.9);text-decoration:none;margin-left:1.2rem}
 .breadcrumb{font-size:.78rem;margin-bottom:1rem}
 .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
 .breadcrumb a:hover{color:#fff}
-@media (max-width:640px){.nav-right a.nav-link{display:none}}
+@media (max-width:640px){.nav-right a.nav-link,.nav-right .nav-item{display:none}}
 """
 
+# Menu à 2 niveaux (titre + sous-menu), inspiré des navs de cabinets (peu d'entrées, déroulants).
 NAV_LINKS = {
- 'en': [('Expertise','/#expertise'),('Profile','/#profile'),('Approach','/#approach'),('Insights','/insights/'),('Publications','/publications/'),('Training','/formation/')],
- 'fr': [('Expertise','/fr/#expertise'),('Profil','/fr/#profile'),('Approche','/fr/#approach'),('D&eacute;cryptages','/fr/insights/'),('Publications','/fr/publications/'),('Formation','/fr/formation/')],
+ 'en': [
+   ('Expertise', '/#expertise', [
+      ('Overview', '/#expertise'),
+      ('IFRS 17, IFRS 9 &amp; Solvency II', '/expertise/ifrs-17-ifrs-9-solvency-ii/'),
+      ('SimCorp &amp; Clearwater', '/expertise/simcorp-clearwater/'),
+      ('Investment Accounting &amp; Reporting', '/expertise/investment-accounting-reporting/'),
+      ('PMO &amp; Programme Delivery', '/expertise/pmo-programme-delivery/'),
+      ('Interim Management', '/expertise/interim-management/')]),
+   ('About', '/#profile', [
+      ('Clients', '/#clients'),
+      ('Profile', '/#profile'),
+      ('Approach', '/#approach')]),
+   ('Publications', '/publications/', [
+      ('Books &amp; extracts', '/publications/'),
+      ('Insights', '/insights/')]),
+   ('Training', '/formation/', None),
+ ],
+ 'fr': [
+   ('Expertise', '/fr/#expertise', [
+      ('Vue d&rsquo;ensemble', '/fr/#expertise'),
+      ('IFRS 17, IFRS 9 &amp; Solvabilit&eacute; II', '/fr/expertise/ifrs-17-ifrs-9-solvency-ii/'),
+      ('SimCorp &amp; Clearwater', '/fr/expertise/simcorp-clearwater/'),
+      ('Comptabilit&eacute; &amp; reporting des investissements', '/fr/expertise/investment-accounting-reporting/'),
+      ('PMO &amp; pilotage de programme', '/fr/expertise/pmo-programme-delivery/'),
+      ('Management de transition', '/fr/expertise/interim-management/')]),
+   ('&Agrave; propos', '/fr/#profile', [
+      ('Clients', '/fr/#clients'),
+      ('Profil', '/fr/#profile'),
+      ('Approche', '/fr/#approach')]),
+   ('Publications', '/fr/publications/', [
+      ('Livres &amp; extraits', '/fr/publications/'),
+      ('D&eacute;cryptages', '/fr/insights/')]),
+   ('Formation', '/fr/formation/', None),
+ ],
 }
 
 def base_path(slug):
     return slug if slug == 'formation' else f"expertise/{slug}"
 
 def navlinks_html(lang, active=None):
-    """Liens du menu ; le lien de la rubrique courante est marqué actif."""
+    """Menu à 2 niveaux ; l'entrée de la rubrique courante est marquée active."""
     out = []
-    for t, h in NAV_LINKS[lang]:
-        if h == active:
-            out.append(f'<a class="nav-link active" aria-current="page" href="{h}">{t}</a>')
+    for t, h, children in NAV_LINKS[lang]:
+        is_active = h == active or (children and any(ch == active for _, ch in children))
+        cls = 'nav-link active' if is_active else 'nav-link'
+        cur = ' aria-current="page"' if is_active else ''
+        if children:
+            drop = ''.join(f'<a href="{ch}">{ct}</a>' for ct, ch in children)
+            out.append(f'<div class="nav-item"><a class="{cls}"{cur} href="{h}">{t}</a><div class="nav-drop">{drop}</div></div>')
         else:
-            out.append(f'<a class="nav-link" href="{h}">{t}</a>')
+            out.append(f'<a class="{cls}"{cur} href="{h}">{t}</a>')
     return ''.join(out)
 STR = {
  'en': dict(home='/', contact='Contact', cta_h="Available now for new mandates", cta_p="Full remote, hybrid or on-site, in France and internationally. French and English.", cta_btn="Book a call &rarr;", cta_alt='or write to <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>', back="&larr; All expertise", lang_link_label="FR", crumb="Expertise"),

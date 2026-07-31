@@ -103,6 +103,17 @@
         .nav-cta::after { display: none !important; }
         .nav-cta:hover { background: var(--gold-light) !important; }
 
+
+        /* ── NAV DROPDOWNS ── */
+        .nav-links li.nav-item { position: relative; }
+        .nav-links li.nav-item > a { padding-right: 13px; }
+        .nav-links li.nav-item > a::before { content: '\25BE'; position: absolute; right: 0; top: 2px; font-size: 0.55rem; color: rgba(255,255,255,0.45); }
+        .nav-drop { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: rgba(11,21,48,0.97); border: 1px solid rgba(199,154,59,0.3); box-shadow: 0 18px 44px rgba(11,21,48,0.4); padding: 0.55rem 0; min-width: 260px; z-index: 120; }
+        .nav-drop::before { content: ''; position: absolute; top: -16px; left: 0; right: 0; height: 16px; }
+        .nav-links li.nav-item:hover .nav-drop, .nav-links li.nav-item:focus-within .nav-drop { display: block; }
+        .nav-links .nav-drop a { display: block; padding: 0.5rem 1.2rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em; text-transform: none; color: rgba(245,242,235,0.82); white-space: nowrap; }
+        .nav-links .nav-drop a::after, .nav-links .nav-drop a::before { display: none; }
+        .nav-links .nav-drop a:hover { color: #fff; background: rgba(199,154,59,0.14); }
         /* ── LANG TOGGLE ── */
         .lang-toggle { display: flex; align-items: center; gap: 0; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 3px; overflow: hidden; transition: border-color 0.2s; }
         .lang-toggle:hover { border-color: rgba(255,255,255,0.45); }
@@ -316,10 +327,10 @@
         .footer-logo .xa-word { font-size: 1rem; }
         .footer-logo .xa-word small { font-size: 0.5rem; margin-top: 4px; }
         
-        footer small { font-size: 0.775rem; color: rgba(255,255,255,0.28); }
+        footer small { font-size: 0.775rem; color: rgba(245,242,235,0.75); }
         .footer-links { display: flex; gap: 1.75rem; }
-        .footer-links a { font-size: 0.775rem; color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: rgba(255,255,255,0.65); }
+        .footer-links a { font-size: 0.775rem; color: rgba(245,242,235,0.75); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #F5F2EB; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1100px) { .hero-inner { grid-template-columns: 60% 1fr; gap: 3rem; } .nav-links { gap: 1.25rem; } }
@@ -361,16 +372,30 @@
 <nav id="nav">
     <div class="nav-inner">
         <a href="#" class="nav-logo">
-            <svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span>
+            <svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="#F5F2EB"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span>
         </a>
         <div class="nav-right">
             <ul class="nav-links">
-                <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
-                <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
-                <li><a href="#profile" data-i18n="nav.profile">Profile</a></li>
-                <li><a href="#approach" data-i18n="nav.approach">Approach</a></li>
-                <li><a href="/insights/" data-i18n="nav.insights">Insights</a></li>
-                <li><a href="/publications/" data-i18n="nav.publications">Publications</a></li>
+                <li class="nav-item"><a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+                    <div class="nav-drop">
+                        <a href="#expertise" data-i18n="nav.overview">Overview</a>
+                        <a href="/expertise/ifrs-17-ifrs-9-solvency-ii/" data-i18n="nav.e_ifrs">IFRS 17, IFRS 9 &amp; Solvency II</a>
+                        <a href="/expertise/simcorp-clearwater/" data-i18n="nav.e_simcorp">SimCorp &amp; Clearwater</a>
+                        <a href="/expertise/investment-accounting-reporting/" data-i18n="nav.e_invest">Investment Accounting &amp; Reporting</a>
+                        <a href="/expertise/pmo-programme-delivery/" data-i18n="nav.e_pmo">PMO &amp; Programme Delivery</a>
+                        <a href="/expertise/interim-management/" data-i18n="nav.e_interim">Interim Management</a>
+                    </div></li>
+                <li class="nav-item"><a href="#profile" data-i18n="nav.about">About</a>
+                    <div class="nav-drop">
+                        <a href="#clients" data-i18n="nav.clients">Clients</a>
+                        <a href="#profile" data-i18n="nav.profile">Profile</a>
+                        <a href="#approach" data-i18n="nav.approach">Approach</a>
+                    </div></li>
+                <li class="nav-item"><a href="/publications/" data-i18n="nav.publications">Publications</a>
+                    <div class="nav-drop">
+                        <a href="/publications/" data-i18n="nav.books">Books &amp; extracts</a>
+                        <a href="/insights/" data-i18n="nav.insights">Insights</a>
+                    </div></li>
                 <li><a href="/formation/" data-i18n="nav.formation">Training</a></li>
                 <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a></li>
             </ul>
@@ -684,7 +709,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-logo"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></div>
+        <div class="footer-logo"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="#F5F2EB"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></div>
         <small data-i18n="footer.copy">&copy; 2026 Xavier Advisory. All rights reserved.</small>
         <div class="footer-links">
             <a href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">Calendly</a>
@@ -706,6 +731,14 @@ const T = {
         'nav.contact':          'Contact',
         'nav.insights':         'Insights',
         'nav.publications':     'Publications',
+        'nav.about':            'About',
+        'nav.overview':         'Overview',
+        'nav.books':            'Books &amp; extracts',
+        'nav.e_ifrs':           'IFRS 17, IFRS 9 &amp; Solvency II',
+        'nav.e_simcorp':        'SimCorp &amp; Clearwater',
+        'nav.e_invest':         'Investment Accounting &amp; Reporting',
+        'nav.e_pmo':            'PMO &amp; Programme Delivery',
+        'nav.e_interim':        'Interim Management',
         'nav.formation':        'Training',
         'hero.h1':              'Senior Advisory Uniting <em>Insurance, Finance & Investment</em> Expertise',
         'hero.sub':             'A structurally rare profile: actuarial training, accounting qualification, and 25 years of insurance-specific experience, from regulatory accounting to investment reporting to programme governance. Latest delivery: an 18-month Clearwater Analytics implementation, live since January 2026.',
@@ -822,6 +855,14 @@ const T = {
         'nav.contact':          'Contact',
         'nav.insights':         'D&eacute;cryptages',
         'nav.publications':     'Publications',
+        'nav.about':            '&Agrave; propos',
+        'nav.overview':         'Vue d&rsquo;ensemble',
+        'nav.books':            'Livres &amp; extraits',
+        'nav.e_ifrs':           'IFRS 17, IFRS 9 &amp; Solvabilit&eacute; II',
+        'nav.e_simcorp':        'SimCorp &amp; Clearwater',
+        'nav.e_invest':         'Comptabilit&eacute; des investissements',
+        'nav.e_pmo':            'PMO &amp; Pilotage de programme',
+        'nav.e_interim':        'Management de transition',
         'nav.formation':        'Formation',
         'hero.h1':              'Consultant Expert en <em>Assurance, Finance &amp; Investissement</em>',
         'hero.sub':             '25 ans dans l\'assurance. Formation actuarielle, qualification comptable, ESCP. Un profil qui couvre à la fois la comptabilité réglementaire, le reporting investissement et le pilotage de programmes complexes. Derni&egrave;re livraison : impl&eacute;mentation Clearwater Analytics, en production depuis janvier 2026.',

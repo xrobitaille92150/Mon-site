@@ -310,7 +310,7 @@ def preview_page(slug, b, lang):
       <div class="e3">{ui['release']}</div>
       <div class="e1">{esc(b['name'])}</div>
       <div class="e2">{ui['preview_note']}</div>
-      <div style="width:120px">{MARK.replace('var(--gold)', '#C79A3B').replace('currentColor', '#FFFFFF')}</div>
+      <div style="width:120px">{MARK.replace('var(--gold)', '#C79A3B')}</div>
     </div></div>''')
 
     lang_note = f'<p class="preview-note">{ui["in_french"]}</p>' if ui['in_french'] else ''

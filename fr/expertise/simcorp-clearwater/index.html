@@ -36,6 +36,11 @@ nav{position:sticky;top:0;z-index:100;background:var(--primary);padding:1.1rem 0
 .nav-right a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .nav-right a:hover,.nav-right a:focus-visible{color:#fff}
 .nav-right a.nav-link.active{color:#fff;border-bottom:2px solid var(--gold);padding-bottom:3px}
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-drop{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--primary);border:1px solid rgba(199,154,59,.3);box-shadow:0 14px 34px rgba(11,21,48,.35);padding:.55rem 0;min-width:250px;z-index:120}
+.nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop{display:block}
+.nav-drop a{display:block;padding:.5rem 1.1rem;font-size:.72rem;letter-spacing:.05em;text-transform:none;color:rgba(245,242,235,.82);white-space:nowrap}
+.nav-drop a:hover{color:#fff;background:rgba(199,154,59,.14)}
 .nav-cta{background:var(--gold);color:#fff !important;padding:.55rem 1.2rem;border-radius:3px}
 .hero{background:var(--primary);color:#fff;padding:4.5rem 0 4rem}
 .wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
@@ -60,19 +65,19 @@ ul.deliver li::before{content:"";position:absolute;left:0;top:1.45rem;width:9px;
 .btn-gold:hover{transform:translateY(-2px)}
 .cta .alt{display:block;margin-top:1.1rem;color:rgba(255,255,255,.7);font-size:.9rem}
 .cta .alt a{color:var(--gold-light)}
-footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(255,255,255,.6);font-size:.8rem}
+footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(245,242,235,.78);font-size:.8rem}
 footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-footer a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:1.2rem}
+footer a{color:rgba(245,242,235,.9);text-decoration:none;margin-left:1.2rem}
 .breadcrumb{font-size:.78rem;margin-bottom:1rem}
 .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
 .breadcrumb a:hover{color:#fff}
-@media (max-width:640px){.nav-right a.nav-link{display:none}}
+@media (max-width:640px){.nav-right a.nav-link,.nav-right .nav-item{display:none}}
 </style>
 </head>
 <body>
 <nav><div class="nav-inner">
-  <a class="nav-logo" href="/fr/" aria-label="Xavier Advisory"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="currentColor"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></a>
-  <div class="nav-right"><a class="nav-link active" aria-current="page" href="/fr/#expertise">Expertise</a><a class="nav-link" href="/fr/#profile">Profil</a><a class="nav-link" href="/fr/#approach">Approche</a><a class="nav-link" href="/fr/insights/">D&eacute;cryptages</a><a class="nav-link" href="/fr/publications/">Publications</a><a class="nav-link" href="/fr/formation/">Formation</a><a class="nav-cta" href="/fr/#contact">Contact</a><a href="https://www.myxavier.finance/expertise/simcorp-clearwater/" rel="alternate" hreflang="en">EN</a></div>
+  <a class="nav-logo" href="/fr/" aria-label="Xavier Advisory"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="#F5F2EB"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></a>
+  <div class="nav-right"><div class="nav-item"><a class="nav-link active" aria-current="page" href="/fr/#expertise">Expertise</a><div class="nav-drop"><a href="/fr/#expertise">Vue d&rsquo;ensemble</a><a href="/fr/expertise/ifrs-17-ifrs-9-solvency-ii/">IFRS 17, IFRS 9 &amp; Solvabilit&eacute; II</a><a href="/fr/expertise/simcorp-clearwater/">SimCorp &amp; Clearwater</a><a href="/fr/expertise/investment-accounting-reporting/">Comptabilit&eacute; &amp; reporting des investissements</a><a href="/fr/expertise/pmo-programme-delivery/">PMO &amp; pilotage de programme</a><a href="/fr/expertise/interim-management/">Management de transition</a></div></div><div class="nav-item"><a class="nav-link" href="/fr/#profile">&Agrave; propos</a><div class="nav-drop"><a href="/fr/#clients">Clients</a><a href="/fr/#profile">Profil</a><a href="/fr/#approach">Approche</a></div></div><div class="nav-item"><a class="nav-link" href="/fr/publications/">Publications</a><div class="nav-drop"><a href="/fr/publications/">Livres &amp; extraits</a><a href="/fr/insights/">D&eacute;cryptages</a></div></div><a class="nav-link" href="/fr/formation/">Formation</a><a class="nav-cta" href="/fr/#contact">Contact</a><a href="https://www.myxavier.finance/expertise/simcorp-clearwater/" rel="alternate" hreflang="en">EN</a></div>
 </div></nav>
 <header class="hero"><div class="wrap">
   <div class="breadcrumb"><a href="/fr/#expertise">&larr; Toute l'expertise</a></div>
