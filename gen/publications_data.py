@@ -29,6 +29,8 @@ UI = {
     toc_title="Table of contents",
     annexes="Appendices",
     in_french="Book written in French.",
+    hint="Click or drag a page corner to turn the pages — or use the arrows.",
+    pg_prev="Previous page", pg_next="Next page",
  ),
  'fr': dict(
     title="Publications — Traités et livres blancs finance assurance | Xavier Advisory",
@@ -56,6 +58,8 @@ UI = {
     toc_title="Table des matières",
     annexes="Annexes",
     in_french="",
+    hint="Cliquez ou faites glisser le coin d'une page pour la tourner — ou utilisez les flèches.",
+    pg_prev="Page précédente", pg_next="Page suivante",
  ),
 }
 

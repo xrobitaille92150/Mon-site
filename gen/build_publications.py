@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-# Génère /publications/ + /fr/publications/ + une page d'aperçu par livre
-# (page de titre + table des matières = les premières pages de l'ouvrage).
-import os, sys, json, re, html
+# Génère /publications/ + /fr/publications/ + une page d'aperçu par livre :
+# un livre animé (tourne-pages) contenant couverture, page de titre,
+# table des matières complète et introduction.
+import os, sys, json, re, html, math
 sys.path.insert(0, os.path.dirname(__file__))
 from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE, navlinks_html
 from publications_data import UI, BOOKS
 
 TOC = json.load(open(os.path.join(os.path.dirname(__file__), 'books_toc.json'), encoding='utf-8'))
+
+FLIP_JS_CDN = "https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
 
 PUB_CSS = """
 .pub-section{padding:3.6rem 0}
@@ -19,27 +22,49 @@ PUB_CSS = """
 .bookcard h3{font-family:'EB Garamond',Georgia,serif;font-size:1.22rem;font-weight:700;color:var(--primary);line-height:1.25}
 .bookcard p{font-size:.88rem;line-height:1.65;color:#4B5364}
 .bookcard .view{margin-top:auto;color:var(--gold);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.sheets{max-width:760px;margin:0 auto}
-.sheet{background:#fff;box-shadow:0 10px 30px rgba(11,21,48,.12);padding:3.2rem 3.4rem;margin-bottom:1.6rem;position:relative}
-.sheet .pageno{position:absolute;bottom:1rem;right:1.4rem;font-size:.72rem;color:var(--gray)}
-.sheet-title{display:flex;flex-direction:column;align-items:center;text-align:center;min-height:560px;justify-content:space-between;padding-top:1.4rem}
-.st-coll{font-size:.72rem;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;line-height:1.8}
-.st-rule{width:110px;height:1px;background:var(--gold);margin:1.2rem auto}
-.st-t1{font-family:'EB Garamond',Georgia,serif;font-size:2rem;font-weight:700;color:var(--primary);line-height:1.22}
-.st-t2{font-family:'EB Garamond',Georgia,serif;font-size:1.25rem;font-style:italic;color:var(--primary);margin-top:.7rem}
-.st-sub{font-size:.9rem;color:#4B5364;margin-top:1.4rem;line-height:1.6}
-.st-ref{font-size:.76rem;color:var(--gold);letter-spacing:.04em;margin-top:1.6rem}
-.st-author{font-size:.95rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--primary)}
-.st-site{font-size:.74rem;color:var(--gray);margin-top:.5rem}
-.sheet h2.toch{font-size:1.35rem;margin-bottom:1.4rem}
-.toc-h{font-weight:700;color:var(--primary);margin:1.1rem 0 .4rem;font-size:.95rem}
-.toc-part{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:1.3rem 0 .5rem}
-.toc-ch{font-size:.9rem;line-height:1.5;color:#2A3345;padding:.22rem 0 .22rem 1.6rem;text-indent:-1.6rem}
-.toc-ch b{color:var(--primary);font-weight:600}
-.toc-ax{font-size:.88rem;line-height:1.5;color:#2A3345;padding:.2rem 0}
-.preview-note{max-width:760px;margin:0 auto 2rem;font-size:.88rem;color:var(--gray);font-style:italic}
-.preview-actions{max-width:760px;margin:0 auto;display:flex;gap:1rem;flex-wrap:wrap}
-@media(max-width:640px){.sheet{padding:2rem 1.4rem}.sheet-title{min-height:480px}}
+/* ── Livre animé ── */
+.fb-stage{max-width:860px;margin:0 auto;padding:1rem 0}
+#flipbook{margin:0 auto}
+.fb-page{width:400px;height:580px;background:#FDFCF8;overflow:hidden;box-shadow:inset -6px 0 14px -8px rgba(11,21,48,.14)}
+body:not(.flip-on) #flipbook{display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
+.fb-inner{padding:30px 28px;height:100%;box-sizing:border-box;position:relative}
+.fb-cover{background:#0B1530}
+.fb-cover svg{width:100%;height:100%;display:block}
+.fb-folio{position:absolute;bottom:11px;right:16px;font-size:9px;color:#9AA1AE}
+.fb-h{font-family:'EB Garamond',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--primary);margin:0 0 .7rem}
+.fb-toc-h{font-weight:700;color:var(--primary);margin:.55rem 0 .2rem;font-size:11.5px}
+.fb-toc-part{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:.65rem 0 .25rem}
+.fb-toc-ch{font-size:10.5px;line-height:1.45;color:#2A3345;padding:.12rem 0 .12rem 1.1rem;text-indent:-1.1rem}
+.fb-toc-ch b{color:var(--primary);font-weight:600}
+.fb-toc-ax{font-size:10.5px;line-height:1.45;color:#2A3345;padding:.1rem 0}
+.fb-p{font-size:12.5px;line-height:1.62;color:#2A3345;margin:0 0 .55rem;text-align:justify}
+.fb-li{font-size:12.5px;line-height:1.55;color:#2A3345;margin:0 0 .15rem;padding-left:1rem;position:relative}
+.fb-li::before{content:"—";position:absolute;left:0;color:var(--gold);font-size:10px}
+.fb-q{font-size:12.5px;line-height:1.6;color:#4B5364;font-style:italic;border-left:2px solid var(--gold);padding-left:.8rem;margin:0 0 .7rem}
+.fb-ih{font-family:'EB Garamond',Georgia,serif;font-size:14.5px;font-weight:700;color:var(--primary);margin:.7rem 0 .4rem}
+.fb-title{display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;height:100%}
+.fb-title .st-coll{font-size:.6rem;font-weight:700;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;line-height:1.8}
+.fb-title .st-rule{width:90px;height:1px;background:var(--gold);margin:.9rem auto}
+.fb-title .st-t1{font-family:'EB Garamond',Georgia,serif;font-size:1.55rem;font-weight:700;color:var(--primary);line-height:1.25}
+.fb-title .st-t2{font-family:'EB Garamond',Georgia,serif;font-size:1.05rem;font-style:italic;color:var(--primary);margin-top:.55rem}
+.fb-title .st-sub{font-size:.72rem;color:#4B5364;margin-top:1.1rem;line-height:1.6}
+.fb-title .st-ref{font-size:.62rem;color:var(--gold);letter-spacing:.03em;margin-top:1.2rem}
+.fb-title .st-author{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+.fb-title .st-site{font-size:.62rem;color:var(--gray);margin-top:.4rem}
+.fb-end{background:#0B1530;color:#fff}
+.fb-end .fb-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.1rem}
+.fb-end .e1{font-family:'EB Garamond',Georgia,serif;font-size:1.35rem;font-weight:700;line-height:1.3}
+.fb-end .e2{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.7;max-width:270px}
+.fb-end .e3{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.fb-controls{display:flex;align-items:center;justify-content:center;gap:1.1rem;margin-top:1.4rem}
+.fb-btn{background:var(--primary);color:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.05rem;line-height:1;transition:background .2s,transform .2s}
+.fb-btn:hover{background:var(--gold);transform:translateY(-1px)}
+.fb-count{font-size:.8rem;color:var(--gray);min-width:70px;text-align:center}
+.fb-hint{text-align:center;font-size:.78rem;color:var(--gray);margin-top:.6rem;font-style:italic}
+.preview-note{max-width:760px;margin:1.6rem auto 0;font-size:.88rem;color:var(--gray);font-style:italic;text-align:center}
+.preview-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
+@media(max-width:480px){.fb-btn{width:36px;height:36px}}
 """
 
 def esc(s): return html.escape(s, quote=False)
@@ -48,7 +73,7 @@ def cover_svg(b):
     """Couverture fictive aux couleurs de la charte (inline SVG, polices du document)."""
     serif = "'EB Garamond',Georgia,serif"; sans = "'Inter',Arial,sans-serif"
     y = 62; parts = []
-    parts.append('<svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="%s">' % esc(b['name']))
+    parts.append('<svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="%s" preserveAspectRatio="xMidYMid meet">' % esc(b['name']))
     parts.append('<rect width="400" height="580" fill="#0B1530"/>')
     parts.append('<rect x="16" y="16" width="368" height="548" fill="none" stroke="#C79A3B" stroke-width="1.4"/>')
     parts.append('<rect x="22" y="22" width="356" height="536" fill="none" stroke="#C79A3B" stroke-width="0.4" opacity="0.5"/>')
@@ -102,7 +127,33 @@ def toc_entries(src, ui):
             out.append(('ax', (pending_ax or '') + t)); pending_ax = None
     return out
 
-def head(title, desc, url_self, url_en, url_fr, lang, ld):
+# ── Pagination : découpe le contenu en pages de hauteur fixe (estimation en pixels) ──
+PAGE_BUDGET = 495
+
+def _lines(t, cpl): return max(1, math.ceil(len(t) / cpl))
+
+def _toc_height(kind, t):
+    if kind == 'h': return 28
+    if kind == 'part': return 32
+    return _lines(t, 58) * 15 + 4
+
+def _intro_height(kind, t):
+    if kind == 'h': return 34
+    if kind == 'q': return _lines(t, 50) * 20 + 12
+    if t.rstrip().endswith((';', ':')) and len(t) < 120: return _lines(t, 52) * 19 + 3
+    return _lines(t, 52) * 20 + 9
+
+def paginate(blocks, height_fn, header_h):
+    pages, cur, used = [], [], header_h
+    for b in blocks:
+        h = height_fn(b[0], b[1])
+        if cur and used + h > PAGE_BUDGET:
+            pages.append(cur); cur, used = [], 0
+        cur.append(b); used += h
+    if cur: pages.append(cur)
+    return pages
+
+def head(title, desc, url_self, url_en, url_fr, lang, ld, extra_head=''):
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -124,7 +175,7 @@ def head(title, desc, url_self, url_en, url_fr, lang, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{ld}</script>
-<style>{CSS}{PUB_CSS}</style>
+<style>{CSS}{PUB_CSS}</style>{extra_head}
 </head>"""
 
 def nav(lang, s, url_other, other_label):
@@ -190,6 +241,29 @@ def index_page(lang):
 </div></section>
 {cta_footer(s)}"""
 
+def _render_toc_rows(chunk):
+    rows = []
+    for kind, txt in chunk:
+        txt = esc(txt)
+        if kind == 'h': rows.append(f'<div class="fb-toc-h">{txt}</div>')
+        elif kind == 'part': rows.append(f'<div class="fb-toc-part">{txt}</div>')
+        elif kind == 'ch':
+            m = re.match(r'(\d+\.) (.*)', txt)
+            rows.append(f'<div class="fb-toc-ch"><b>{m.group(1)}</b> {m.group(2)}</div>' if m else f'<div class="fb-toc-ch">{txt}</div>')
+        else: rows.append(f'<div class="fb-toc-ax">{txt}</div>')
+    return ''.join(rows)
+
+def _render_intro_rows(chunk):
+    rows = []
+    for kind, txt in chunk:
+        t = esc(txt)
+        if kind == 'h': rows.append(f'<div class="fb-ih">{t}</div>')
+        elif kind == 'q': rows.append(f'<div class="fb-q">{t}</div>')
+        elif txt.rstrip().endswith(';') and len(txt) < 120:
+            rows.append(f'<div class="fb-li">{t}</div>')
+        else: rows.append(f'<p class="fb-p">{t}</p>')
+    return ''.join(rows)
+
 def preview_page(slug, b, lang):
     s, ui = STR[lang], UI[lang]
     url_en, url_fr = book_url(slug, 'en'), book_url(slug, 'fr')
@@ -202,31 +276,72 @@ def preview_page(slug, b, lang):
                      "inLanguage": "fr", "datePublished": "2026-08",
                      "publisher": {"@type": "Organization", "name": "Xavier Advisory"},
                      "url": url_self, "description": desc}, ensure_ascii=False)
-    entries = toc_entries(b['src'], UI['fr'])
-    n = len(entries); per = -(-n // 4)  # 4 pages de sommaire au plus
-    chunks = [entries[i:i+per] for i in range(0, n, per)][:4]
-    tp = ['<div class="sheet"><div class="sheet-title">',
+
+    pages = []
+    folio = [0]
+
+    # 1. Couverture
+    pages.append(f'<div class="fb-page fb-cover" data-density="hard">{cover_svg(b)}</div>'); folio[0] += 1
+    # 2. Page de titre
+    tp = ['<div class="fb-inner"><div class="fb-title">',
           '<div><div class="st-coll">' + '<br>'.join(esc(x) for x in b['collection']) + '</div><div class="st-rule"></div></div>',
           '<div><div class="st-t1">' + '<br>'.join(esc(x) for x in b['t1']) + '</div>']
     if b['t2']: tp.append('<div class="st-t2">' + '<br>'.join(esc(x) for x in b['t2']) + '</div>')
     if b['sub']: tp.append('<div class="st-sub">' + '<br>'.join(esc(x) for x in b['sub']) + '</div>')
     tp.append('<div class="st-ref">' + '<br>'.join(esc(x) for x in b['ref']) + '</div></div>')
     tp.append('<div><div class="st-author">Xavier Robitaille</div><div class="st-site">www.myxavier.fr</div></div>')
-    tp.append('</div><span class="pageno">1</span></div>')
-    sheets = [''.join(tp)]
-    for ci, chunk in enumerate(chunks):
-        rows = []
-        if ci == 0: rows.append(f'<h2 class="toch">{ui["toc_title"]}</h2>')
-        for kind, txt in chunk:
-            txt = esc(txt)
-            if kind == 'h': rows.append(f'<div class="toc-h">{txt}</div>')
-            elif kind == 'part': rows.append(f'<div class="toc-part">{txt}</div>')
-            elif kind == 'ch':
-                m = re.match(r'(\d+\.) (.*)', txt)
-                rows.append(f'<div class="toc-ch"><b>{m.group(1)}</b> {m.group(2)}</div>' if m else f'<div class="toc-ch">{txt}</div>')
-            else: rows.append(f'<div class="toc-ax">{txt}</div>')
-        sheets.append(f'<div class="sheet">{"".join(rows)}<span class="pageno">{ci+2}</span></div>')
+    tp.append('</div></div>')
+    folio[0] += 1
+    pages.append(f'<div class="fb-page">{"".join(tp)}<span class="fb-folio">{folio[0]}</span></div>')
+    # 3+. Table des matières
+    entries = toc_entries(b['src'], UI['fr'])
+    for i, chunk in enumerate(paginate(entries, _toc_height, 40)):
+        h = f'<div class="fb-h">{ui["toc_title"]}</div>' if i == 0 else ''
+        folio[0] += 1
+        pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_toc_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
+    # Introduction
+    intro = TOC[b['src']].get('intro') or []
+    for i, chunk in enumerate(paginate(intro, _intro_height, 44)):
+        h = f'<div class="fb-h">Introduction</div>' if i == 0 else ''
+        folio[0] += 1
+        pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_intro_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
+    # Dernière page
+    pages.append(f'''<div class="fb-page fb-end" data-density="hard"><div class="fb-inner">
+      <div class="e3">{ui['release']}</div>
+      <div class="e1">{esc(b['name'])}</div>
+      <div class="e2">{ui['preview_note']}</div>
+      <div style="width:120px">{MARK.replace('var(--gold)', '#C79A3B').replace('currentColor', '#FFFFFF')}</div>
+    </div></div>''')
+
     lang_note = f'<p class="preview-note">{ui["in_french"]}</p>' if ui['in_french'] else ''
+    flip_js = f"""
+<script src="{FLIP_JS_CDN}"></script>
+<script>
+(function() {{
+  var el = document.getElementById('flipbook');
+  if (!el || typeof St === 'undefined') return;
+  try {{
+    var pf = new St.PageFlip(el, {{
+      width: 400, height: 580, size: 'stretch',
+      minWidth: 280, maxWidth: 460, minHeight: 406, maxHeight: 667,
+      showCover: true, maxShadowOpacity: 0.4, mobileScrollSupport: false, flippingTime: 800
+    }});
+    pf.loadFromHTML(document.querySelectorAll('.fb-page'));
+    document.body.classList.add('flip-on');
+    var total = pf.getPageCount();
+    var count = document.getElementById('fb-count');
+    function upd() {{ count.textContent = (pf.getCurrentPageIndex() + 1) + ' / ' + total; }}
+    upd();
+    pf.on('flip', function() {{ setTimeout(upd, 50); }});
+    document.getElementById('fb-prev').addEventListener('click', function() {{ pf.flipPrev(); }});
+    document.getElementById('fb-next').addEventListener('click', function() {{ pf.flipNext(); }});
+    document.addEventListener('keydown', function(e) {{
+      if (e.key === 'ArrowLeft') pf.flipPrev();
+      if (e.key === 'ArrowRight') pf.flipNext();
+    }});
+  }} catch (e) {{ /* les pages restent affichées empilées */ }}
+}})();
+</script>"""
     return f"""{head(title, esc(desc), url_self, url_en, url_fr, lang, ld)}
 <body>
 {nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
@@ -238,12 +353,20 @@ def preview_page(slug, b, lang):
 </div></header>
 <section class="pub-section"><div class="wrap">
   {lang_note}
-  <div class="sheets">{''.join(sheets)}</div>
-  <p class="preview-note">{ui['preview_note']}</p>
+  <div class="fb-stage">
+    <div id="flipbook">{''.join(pages)}</div>
+    <div class="fb-controls">
+      <button class="fb-btn" id="fb-prev" aria-label="{ui['pg_prev']}">&larr;</button>
+      <span class="fb-count" id="fb-count"></span>
+      <button class="fb-btn" id="fb-next" aria-label="{ui['pg_next']}">&rarr;</button>
+    </div>
+    <p class="fb-hint">{ui['hint']}</p>
+  </div>
   <div class="preview-actions">
     <a class="btn-gold" href="{ui['notify_href']}">{ui['notify']}</a>
   </div>
 </div></section>
+{flip_js}
 {cta_footer(s)}"""
 
 if __name__ == '__main__':

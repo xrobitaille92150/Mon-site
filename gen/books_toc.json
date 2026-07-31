@@ -592,7 +592,97 @@
     "Les principes fondamentaux des couvertures"
    ]
   ],
-  "pages": "(null)"
+  "pages": "(null)",
+  "intro": [
+   [
+    "p",
+    "Les opérations de couverture comptent parmi les instruments les plus utilisés de la gestion financière des organismes d'assurance."
+   ],
+   [
+    "p",
+    "Toutes les compagnies d'assurance importantes y ont recours :"
+   ],
+   [
+    "p",
+    "couverture du risque de change sur les portefeuilles en devises ;"
+   ],
+   [
+    "p",
+    "protection du portefeuille obligataire contre les mouvements de taux ;"
+   ],
+   [
+    "p",
+    "protection des portefeuilles actions contre les baisses de marché ;"
+   ],
+   [
+    "p",
+    "sécurisation des conditions de réinvestissement futur ;"
+   ],
+   [
+    "p",
+    "réduction du capital réglementaire exigé au titre du SCR marché ;"
+   ],
+   [
+    "p",
+    "stabilisation du résultat comptable et du ratio de solvabilité."
+   ],
+   [
+    "p",
+    "Malgré cette importance économique, la documentation spécifiquement consacrée aux assureurs français reste rare."
+   ],
+   [
+    "p",
+    "Les ouvrages disponibles traitent principalement :"
+   ],
+   [
+    "p",
+    "des salles de marchés bancaires ;"
+   ],
+   [
+    "p",
+    "des IFRS appliquées aux établissements de crédit ;"
+   ],
+   [
+    "p",
+    "ou de la théorie financière des produits dérivés."
+   ],
+   [
+    "p",
+    "Ils abordent rarement :"
+   ],
+   [
+    "p",
+    "le règlement CRC n° 2002-09, maintenu en vigueur par l'article 260-1 du règlement ANC n° 2015-11 ;"
+   ],
+   [
+    "p",
+    "les comptes annuels des entreprises d'assurance ;"
+   ],
+   [
+    "p",
+    "Solvabilité II et la reconnaissance des techniques d'atténuation des risques ;"
+   ],
+   [
+    "p",
+    "les QRT ;"
+   ],
+   [
+    "p",
+    "les impacts sur le contrôle interne et la gouvernance."
+   ],
+   [
+    "p",
+    "L'objectif de ce livre est de proposer une doctrine homogène destinée aux directions comptables, directions des investissements, directions financières, directions des risques, commissaires aux comptes et autorités de contrôle."
+   ],
+   [
+    "p",
+    "Champ du livre. Cet ouvrage couvre les trois grandes familles de couvertures d'un organisme d'assurance : les couvertures de change, les couvertures de taux et les couvertures sur indices actions. Deux familles voisines les complètent : les couvertures d'inflation (chapitre 14) et les couvertures de crédit (chapitre 15), qui mobilisent les mêmes cadres comptables et prudentiels avec des spécificités propres. Les couvertures de risques techniques (réassurance) obéissent à d'autres textes et ne sont pas traitées ici."
+   ],
+   [
+    "p",
+    "Convention de lecture. L'ouvrage utilise les termes consacrés : l'élément couvert désigne l'actif, le passif ou le flux futur exposé au risque ; l'instrument de couverture désigne le contrat financier à terme (IFT) conclu pour compenser ce risque ; la stratégie désigne l'ensemble documenté formé par l'élément couvert, l'instrument et l'objectif poursuivi. Dans le cas d'espèce qui traverse tout le livre, l'organisme d'assurance achète la protection et la contrepartie bancaire la vend. Cette convention est rappelée en tête de chaque partie, afin que chacune puisse être lue de manière indépendante."
+   ]
+  ]
  },
  "obligations": {
   "titlepage": [
@@ -1219,7 +1309,37 @@
     "Liste des illustrations"
    ]
   ],
-  "pages": "(null)"
+  "pages": "(null)",
+  "intro": [
+   [
+    "p",
+    "Le portefeuille d'un organisme d'assurance est d'abord un portefeuille obligataire. Chez un assureur non-vie français, les obligations et les fonds obligataires représentent couramment la moitié à deux tiers des placements. Ce poids n'a rien d'un hasard ni d'une prudence excessive : il découle de la nature même du métier. L'assureur encaisse des primes aujourd'hui et promet des prestations demain ; l'obligation encaisse un capital aujourd'hui et promet des flux demain. Les deux courbes se répondent, et toute la gestion financière de l'assurance consiste à les faire coïncider."
+   ],
+   [
+    "p",
+    "Ce traité couvre l'assurance non-vie (IARD) : dommages aux biens, automobile, responsabilité civile, construction, santé et prévoyance courtes. L'assurance vie — passifs de plusieurs décennies, taux garantis, participation aux bénéfices — obéit à une logique de gestion différente et relève d'un autre ouvrage."
+   ],
+   [
+    "p",
+    "Ce traité couvre la gestion obligataire de bout en bout : ce qu'est une obligation et comment elle se valorise, les grandes familles d'instruments, le fonctionnement des marchés primaire et secondaire, les événements qui jalonnent la vie d'un titre — coupons, remboursements anticipés, dégradations, défauts —, les méthodes de gestion propres à l'assurance, puis le traitement comptable et prudentiel dans les trois référentiels applicables aux organismes français : les normes françaises assurance issues du code des assurances et du règlement ANC n° 2015-11, les normes IFRS avec IFRS 9, et Solvabilité II."
+   ],
+   [
+    "p",
+    "Le fil directeur du livre tient en une phrase : la comptabilité suit la gestion. Un assureur qui détient ses obligations jusqu'à l'échéance pour payer des prestations n'a pas le même besoin de représentation comptable qu'un arbitragiste qui les retourne en une semaine. Les trois référentiels étudiés ici traduisent chacun à leur manière cette idée — le coût amorti des normes françaises, le couple modèle de gestion / test SPPI d'IFRS 9, la valeur économique corrigée par le capital réglementaire de Solvabilité II. Comprendre l'économie de la détention obligataire avant d'ouvrir les textes : voilà la méthode suivie dans chaque partie."
+   ],
+   [
+    "p",
+    "Deux opérations de la vie du portefeuille obligataire font l'objet de traités distincts dans la même collection. La mise en pension et le prêt de titres, qui transforment temporairement les obligations en liquidité, sont traités en détail dans le Traité des opérations de pension dans les organismes d'assurance. Les instruments dérivés qui protègent le portefeuille contre les mouvements de taux et de change relèvent du Traité des opérations de couverture dans les organismes d'assurance. Le présent ouvrage leur consacre à chacun un chapitre de principes (chapitres 35 et 36) : assez pour situer ces opérations dans la gestion obligataire, et un renvoi pour le lecteur qui veut la mécanique complète."
+   ],
+   [
+    "p",
+    "Convention de lecture. Le mot  obligation  désigne dans tout l'ouvrage un titre de créance négociable au sens large : obligation proprement dite, titre de créance négociable à court ou moyen terme, bon du Trésor.  L'assureur  désigne indifféremment une entreprise d'assurance, une mutuelle ou une institution de prévoyance ; les trois familles appliquent les mêmes règles comptables de placement, sous réserve des renvois propres à chaque code. Les montants des exemples sont en euros ; les taux s'entendent en base annuelle. Le  pied de coupon  désigne le prix hors intérêts courus, seule convention de cotation utilisée sur les marchés obligataires."
+   ],
+   [
+    "p",
+    "L'ouvrage s'adresse aux directions des investissements, aux comptables de placements, aux actuaires, aux auditeurs et aux consultants qui interviennent sur la frontière entre gestion d'actifs et comptabilité d'assurance. Chaque partie se lit seule ; les chapitres de dossiers comptables se consultent comme des modèles d'écritures."
+   ]
+  ]
  },
  "pension": {
   "titlepage": [
@@ -1818,7 +1938,93 @@
     "Les principes fondamentaux des pensions"
    ]
   ],
-  "pages": null
+  "pages": null,
+  "intro": [
+   [
+    "q",
+    "Les opérations de pension (\"repos\" ou repurchase agreements) sont aujourd'hui l'un des principaux instruments de financement du portefeuille des assureurs."
+   ],
+   [
+    "p",
+    "Toutes les compagnies d'assurance importantes y ont recours :"
+   ],
+   [
+    "p",
+    "refinancement de portefeuille obligataire ;"
+   ],
+   [
+    "p",
+    "gestion de la liquidité ;"
+   ],
+   [
+    "p",
+    "optimisation du rendement ;"
+   ],
+   [
+    "p",
+    "couverture temporaire ;"
+   ],
+   [
+    "p",
+    "constitution de collatéral ;"
+   ],
+   [
+    "p",
+    "refinancement auprès de banques ou de banques centrales."
+   ],
+   [
+    "p",
+    "Malgré cette importance économique, il existe relativement peu de documentation spécifiquement consacrée aux assureurs français."
+   ],
+   [
+    "p",
+    "Les ouvrages disponibles traitent principalement :"
+   ],
+   [
+    "p",
+    "des établissements de crédit ;"
+   ],
+   [
+    "p",
+    "des IFRS ;"
+   ],
+   [
+    "p",
+    "ou des aspects juridiques."
+   ],
+   [
+    "p",
+    "Ils abordent rarement :"
+   ],
+   [
+    "p",
+    "le règlement ANC 2015-11 ;"
+   ],
+   [
+    "p",
+    "les comptes assurance ;"
+   ],
+   [
+    "p",
+    "Solvabilité II ;"
+   ],
+   [
+    "p",
+    "les QRT ;"
+   ],
+   [
+    "p",
+    "les impacts sur le contrôle interne."
+   ],
+   [
+    "p",
+    "L'objectif de ce livre est donc de proposer une doctrine homogène destinée aux directions comptables, directions des investissements, directions financières, commissaires aux comptes et autorités de contrôle."
+   ],
+   [
+    "p",
+    "Convention de lecture. Cet ouvrage utilise les termes consacrés du marché : le donneur désigne la partie qui met les titres en pension et reçoit les liquidités ; le preneur désigne la partie qui prête les liquidités et reçoit les titres. Dans le cas d'espèce qui traverse tout le livre, le donneur est l'organisme d'assurance et le preneur la contrepartie bancaire."
+   ]
+  ]
  },
  "transformations": {
   "titlepage": [
@@ -2293,6 +2499,148 @@
     "Annexe H - Les sept points à valider — revue trimestrielle"
    ]
   ],
-  "pages": "(null)"
+  "pages": "(null)",
+  "intro": [
+   [
+    "p",
+    "En 2023, un directeur financier d'assurance pouvait décrire son année en une phrase : « on passe à IFRS 17 ». La contrainte était forte, mais elle était claire. Elle avait un propriétaire, un budget, un comité de pilotage et une date."
+   ],
+   [
+    "p",
+    "Les exercices 2027 et 2028 ne se laisseront pas résumer aussi simplement. Aucune norme ne dominera la période comme IFRS 17 ou IFRS 9 ont dominé la précédente. La difficulté vient d'ailleurs : une quinzaine de transformations d'origines différentes arrivent en même temps, sollicitent les mêmes équipes, consomment les mêmes données et s'appuient sur les mêmes systèmes — dont certains, répandus chez les assureurs, cesseront d'être maintenus pendant la période."
+   ],
+   [
+    "p",
+    "Le 30 janvier 2027, Solvabilité II révisée entre en application ; le 29 janvier 2027, IRRD ; le 1er janvier 2027, IFRS 18."
+   ],
+   [
+    "p",
+    "Le 19 mars 2027, la France doit avoir transposé la directive Omnibus. Le 10 juillet 2027, le règlement européen anti-blanchiment devient directement applicable."
+   ],
+   [
+    "p",
+    "Le 2 août 2027, l'AI Act atteint sa pleine application programmée."
+   ],
+   [
+    "p",
+    "Le 1er septembre 2027, les PME françaises doivent émettre leurs factures sous forme électronique."
+   ],
+   [
+    "p",
+    "Le 11 décembre 2027, le Cyber Resilience Act produit ses principales obligations."
+   ],
+   [
+    "p",
+    "Bien évidemment, et sans surprise, aucune de ces dates n'a été fixée en considération des autres."
+   ],
+   [
+    "p",
+    "Cerise sur le gâteau, le 31 décembre 2027, SAP cesse la maintenance standard de Business Suite 7. Avant cela, le 12 janvier 2027, Windows Server 2016 ne sera plus supporté par Microsoft."
+   ],
+   [
+    "h",
+    "Société d’assurance : la double peine"
+   ],
+   [
+    "p",
+    "La société d’assurance, quelle que soit sa forme, est régie à la base par les mêmes textes que toute société française : elle paie la CVAE, conserve ses pièces comptables, émet des factures électroniques, publie un index d'égalité professionnelle et subit les fins de support de ses éditeurs exactement comme un industriel. Le droit commun ne s'arrête pas à la porte du secteur régulé, et l'expérience montre qu’il n’est pas rare que certains assureurs, absorbés par leur propre corpus prudentiel, découvrent tardivement les textes transverses."
+   ],
+   [
+    "p",
+    "De surcroît, les évolutions réglementaires produisent un effet spécifique chez un assureur. Cet effet particulier à l’assurance passe par deux canaux qu'il faut distinguer :"
+   ],
+   [
+    "p",
+    "l'assureur entité réglementée, soumis à Solvabilité II, à l'ACPR, à DORA, à IRRD ;"
+   ],
+   [
+    "p",
+    "l'assureur porteur du risque des autres — le canal le plus souvent négligé."
+   ],
+   [
+    "p",
+    "Ce second canal justifie la nécessité d’une analyse exhaustive des nouvelles normes ou obligations à venir."
+   ],
+   [
+    "p",
+    "Lorsque la directive sur la responsabilité du fait des produits inclut les logiciels dans la notion de produit défectueux, elle ne s'adresse pas aux assureurs : elle s'adresse aux fabricants. Mais elle modifie l'exposition des contrats de responsabilité civile que ces assureurs ont souscrits."
+   ],
+   [
+    "p",
+    "Lorsque la transparence salariale inverse la charge de la preuve en matière de discrimination, elle s'adresse aux employeurs — et elle nourrit les garanties de responsabilité civile des dirigeants et de protection juridique."
+   ],
+   [
+    "p",
+    "Lorsque NIS2 impose des obligations de sécurité à quinze mille entités françaises, elle exclut les assureurs, couverts par DORA — mais elle transforme le profil de leurs assurés cyber et de leurs propres fournisseurs."
+   ],
+   [
+    "p",
+    "Principe directeur n° 1 - Une réforme qui ne vise pas l'assurance peut être, pour un assureur, un sujet de souscription avant d'être un sujet de conformité."
+   ],
+   [
+    "h",
+    "Caveat"
+   ],
+   [
+    "p",
+    "Ce livre n’a pas l’ambition de recenser pas chaque modification d’un environnement technique et juridique d’une complexité légendaire."
+   ],
+   [
+    "p",
+    "Il met un focus sur les évolutions susceptibles d'entraîner, pour le Comex d’un assureur une décision de direction : un programme, un budget, un choix stratégique, un développement informatique, ou un changement matériel du profil de risque."
+   ],
+   [
+    "p",
+    "Il ne remplace pas la consultation d’un cabinet juridique, d’audit ou d’expertise comptable."
+   ],
+   [
+    "p",
+    "Il distingue enfin, systématiquement, ce qui est adopté de ce qui ne l'est pas. Au 16 juillet 2026, date à laquelle nous clôturons la rédaction de ce guide, la loi française transposant NIS2 n'est pas votée ; le projet de loi sur la transparence salariale est au Conseil d'État ; plusieurs décrets d'application de la loi de simplification manquent."
+   ],
+   [
+    "p",
+    "La liste de ces incertitudes est reprise en annexe, pour vous en simplifier le suivi tout au long de 2027."
+   ],
+   [
+    "h",
+    "Les conventions de niveau d’exigence utilisées dans ce livre"
+   ],
+   [
+    "p",
+    "[RÈGLE] : exigence explicitement fondée sur un texte adopté ;"
+   ],
+   [
+    "p",
+    "[INTERPRÉTATION] : conséquence raisonnablement déduite des textes ;"
+   ],
+   [
+    "p",
+    "[RECOMMANDATION] : bonne pratique de mise en œuvre proposée ;"
+   ],
+   [
+    "p",
+    "[À VALIDER] : point dépendant d'un texte à venir, d'une transposition ou d'une analyse juridique. L'annexe H rassemble les sept points de cette nature et les hiérarchise ;"
+   ],
+   [
+    "p",
+    "[POLITIQUE INTERNE] : choix relevant de la gouvernance propre à l'organisme."
+   ],
+   [
+    "h",
+    "La grille d’analyse"
+   ],
+   [
+    "p",
+    "Chaque évolution est examinée selon dix impacts possibles :"
+   ],
+   [
+    "p",
+    "Cette grille de lecture permet de comparer des événements hétérogènes — une directive prudentielle et une fin de support d'éditeur — sur un même plan : celui de leurs effets."
+   ],
+   [
+    "p",
+    "Situation arrêtée au 16 juillet 2026."
+   ]
+  ]
  }
 }
