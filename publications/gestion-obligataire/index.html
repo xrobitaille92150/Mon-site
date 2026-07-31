@@ -125,6 +125,9 @@ body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
 .fb-hint{text-align:center;font-size:.78rem;color:var(--gray);margin-top:.6rem;font-style:italic}
 .preview-note{max-width:760px;margin:1.6rem auto 0;font-size:.88rem;color:var(--gray);font-style:italic;text-align:center}
 .preview-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
+.notify-form{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;align-items:stretch}
+.notify-mail{padding:.8rem 1rem;border:1px solid rgba(11,21,48,.3);border-radius:3px;min-width:270px;font-family:'Inter',Arial,sans-serif;font-size:.9rem;color:var(--text);background:#fff}
+.notify-mail:focus-visible{outline:2px solid var(--gold)}
 @media(max-width:480px){.fb-btn{width:36px;height:36px}}
 </style>
 </head>
@@ -156,7 +159,13 @@ body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
     <p class="fb-hint">Click or drag a page corner to turn the pages — or use the arrows.</p>
   </div>
   <div class="preview-actions">
-    <a class="btn-gold" href="mailto:welcome@myxavier.finance?subject=Publication%20alert">Get notified at publication</a>
+    <form class="notify-form" name="notify-parution" method="POST" action="/publications/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="notify-parution">
+      <input type="hidden" name="livre" value="La gestion obligataire dans l'assurance non-vie">
+      <p style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
+      <input class="notify-mail" type="email" name="email" required placeholder="Your work email" aria-label="Email">
+      <button class="btn-gold" type="submit">Get notified at publication</button>
+    </form>
   </div>
 </div></section>
 

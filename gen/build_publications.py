@@ -64,6 +64,9 @@ body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
 .fb-hint{text-align:center;font-size:.78rem;color:var(--gray);margin-top:.6rem;font-style:italic}
 .preview-note{max-width:760px;margin:1.6rem auto 0;font-size:.88rem;color:var(--gray);font-style:italic;text-align:center}
 .preview-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
+.notify-form{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;align-items:stretch}
+.notify-mail{padding:.8rem 1rem;border:1px solid rgba(11,21,48,.3);border-radius:3px;min-width:270px;font-family:'Inter',Arial,sans-serif;font-size:.9rem;color:var(--text);background:#fff}
+.notify-mail:focus-visible{outline:2px solid var(--gold)}
 @media(max-width:480px){.fb-btn{width:36px;height:36px}}
 """
 
@@ -363,10 +366,36 @@ def preview_page(slug, b, lang):
     <p class="fb-hint">{ui['hint']}</p>
   </div>
   <div class="preview-actions">
-    <a class="btn-gold" href="{ui['notify_href']}">{ui['notify']}</a>
+    <form class="notify-form" name="notify-parution" method="POST" action="{'/publications/thank-you/' if lang=='en' else '/fr/publications/merci/'}" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="notify-parution">
+      <input type="hidden" name="livre" value="{esc(b['name'])}">
+      <p style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
+      <input class="notify-mail" type="email" name="email" required placeholder="{ui['mail_ph']}" aria-label="Email">
+      <button class="btn-gold" type="submit">{ui['notify']}</button>
+    </form>
   </div>
 </div></section>
 {flip_js}
+{cta_footer(s)}"""
+
+def thanks_page(lang):
+    s, ui = STR[lang], UI[lang]
+    seg = 'thank-you' if lang == 'en' else 'merci'
+    url_en, url_fr = f"{BASE}/publications/thank-you/", f"{BASE}/fr/publications/merci/"
+    url_self = url_en if lang == 'en' else url_fr
+    url_other = url_fr if lang == 'en' else url_en
+    title = f"{ui['thanks_title']} | Xavier Advisory"
+    h = head(title, ui['thanks_body'], url_self, url_en, url_fr, lang, '{}',
+             extra_head='\n<meta name="robots" content="noindex">')
+    return f"""{h}
+<body>
+{nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
+<header class="hero"><div class="wrap">
+  <div class="label">Publications</div>
+  <h1>{ui['thanks_title']}</h1>
+  <p>{ui['thanks_body']}</p>
+  <p style="margin-top:1.2rem"><span style="color:rgba(245,242,235,.85)">{ui['thanks_back']}</span></p>
+</div></header>
 {cta_footer(s)}"""
 
 if __name__ == '__main__':
@@ -380,4 +409,8 @@ if __name__ == '__main__':
             d = os.path.join(root, base, slug)
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(preview_page(slug, b, lang)); count += 1
+        seg = 'thank-you' if lang == 'en' else 'merci'
+        d = os.path.join(root, base, seg)
+        os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(thanks_page(lang)); count += 1
     print(f"{count} pages publications générées")
