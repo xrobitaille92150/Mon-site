@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="Éditions Actuarius">
+  <g transform="translate(280 30) scale(.64)"><path d="M 195,570 A 520 520 0 0 0 805,570" fill="none" stroke="#C79A3B" stroke-width="52"/><polygon fill="#FFFFFF" points="461,248 539,248 228,852 150,852"/><polygon fill="#FFFFFF" points="461,248 539,248 850,852 772,852"/><path fill="#FFFFFF" fill-rule="evenodd" d="M500 118a80 80 0 1 0 0 160a80 80 0 1 0 0-160 M500 158a40 40 0 1 1 0 80a40 40 0 1 1 0-80"/></g>
+  <text x="600" y="900" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="142" font-weight="600" letter-spacing="13" fill="#FFFFFF">ACTU<tspan fill="#C79A3B">A</tspan>R<tspan fill="#C79A3B">I</tspan>US</text>
+  <line x1="125" y1="960" x2="1075" y2="960" stroke="#C79A3B" stroke-width="3"/>
+  <text x="600" y="1115" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="100" font-weight="500" letter-spacing="65" fill="#C79A3B">ÉDITIONS</text>
+</svg>

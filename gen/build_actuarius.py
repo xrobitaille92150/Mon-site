@@ -1,126 +1,230 @@
 # -*- coding: utf-8 -*-
-# Génère le site boutique Éditions Actuarius dans actuarius/ (FR à la racine, EN sous /en/).
-# Déploiement : second site Netlify sur le même repo, publish directory = "actuarius",
-# domaine = www.editionsactuarius.fr (+ actuariuspress.com en alias/redirection).
-# Les liens d'achat viennent du dict SHOP de publications_data.py (source unique).
+"""Genere les deux sites de la maison d'edition, une marque par domaine.
+
+  actuarius/        -> Editions Actuarius (FR) -> editionsactuarius.com
+  actuarius-press/  -> Actuarius Press    (EN) -> actuariuspress.com
+
+Deploiement : deux sites Netlify sur le meme repo, publish directory =
+"actuarius" et "actuarius-press".
+
+Conformite charte (brand kit v1.3, 00_Knowledge/Inputs/11 - Editions
+Actuarius Brand Kit) :
+  - ACTUARIUS est toujours en PREMIERE ligne du logo, le descripteur
+    (EDITIONS / PRESS) en seconde.
+  - Le 2e A et le I d'ACTUARIUS sont en Rich Gold.
+  - Les logos ne sont pas reconstruits en CSS : les SVG du kit sont
+    copies dans brand_assets/actuarius/ et inlines tels quels.
+
+Les liens d'achat viennent du dict SHOP de publications_data.py.
+"""
 import os, sys, json, html
+
 sys.path.insert(0, os.path.dirname(__file__))
 from publications_data import UI, BOOKS, SHOP
-from build_publications import cover_svg, buy_buttons, shop_of, LEMON_JS, ACT_MARK_INV
+from build_publications import cover_svg, buy_buttons, shop_of, LEMON_JS
 
-ACT_BASE = "https://www.editionsactuarius.fr"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS = os.path.join(ROOT, 'brand_assets', 'actuarius')
 MAIN = "https://www.myxavier.finance"
 
-ACT = {
- 'fr': dict(
-    lang='fr', dir='', other='/en/', other_label='EN',
+
+def asset(name):
+    """Lit un asset du brand kit importe dans le repo."""
+    with open(os.path.join(ASSETS, name), encoding='utf-8') as f:
+        return f.read()
+
+
+# --- Les deux marques ---------------------------------------------------
+# Une marque = un domaine = une langue = un repertoire de publication.
+BRANDS = {
+ 'editions': dict(
+    key='editions', lang='fr', outdir='actuarius',
+    name="Éditions Actuarius",
+    base="https://www.editionsactuarius.com",
+    logo='editions-stacked-inverse.svg',
+    og='og-editions.png',
+    sister_url="https://www.actuariuspress.com",
+    sister_label="English — Actuarius Press",
     title="Éditions Actuarius — Traités techniques finance & assurance",
-    desc="Éditions Actuarius publie des traités techniques de référence en finance et assurance : comptabilité des placements, prudentiel, contrôles. PDF, papier et Kindle.",
+    desc="Éditions Actuarius publie des traités techniques de référence en "
+         "finance et assurance : comptabilité des placements, prudentiel, "
+         "contrôles. PDF, papier et Kindle.",
     tagline="Traités techniques finance &amp; assurance",
-    intro="L'<em>actuarius</em> tenait les registres et les comptes de Rome. Éditions Actuarius publie des traités écrits depuis la pratique : comptabilité des placements, règles prudentielles et contrôles, avec écritures complètes et dossiers chiffrés.",
+    intro="L'<em>actuarius</em> tenait les registres et les comptes de Rome. "
+          "Éditions Actuarius publie des traités écrits depuis la pratique : "
+          "comptabilité des placements, règles prudentielles et contrôles, "
+          "avec écritures complètes et dossiers chiffrés.",
     extract="Lire les premières pages",
     upcoming="Bientôt disponible ici",
     author_t="L'auteur",
-    author_b='Xavier Robitaille conseille assureurs et institutions financières sur leurs sujets finance, comptabilité, investissements et réglementaire. Profil complet sur <a href="%s/fr/">myxavier.finance</a>.' % MAIN,
+    author_b="Xavier Robitaille conseille assureurs et institutions financières "
+             "sur leurs sujets finance, comptabilité, investissements et "
+             'réglementaire. Profil complet sur <a href="%s/fr/">myxavier.finance</a>.' % MAIN,
     legal="Éditions Actuarius est la marque d'édition de Xavier Advisory.",
     contact="Contact",
+    preview_path='/fr/publications/',
  ),
- 'en': dict(
-    lang='en', dir='en/', other='/', other_label='FR',
-    title="Éditions Actuarius — Technical books on finance & insurance",
-    desc="Éditions Actuarius publishes reference technical books on finance and insurance: investment accounting, prudential rules, controls. PDF, paperback and Kindle.",
+ 'press': dict(
+    key='press', lang='en', outdir='actuarius-press',
+    name="Actuarius Press",
+    base="https://www.actuariuspress.com",
+    logo='press-stacked-inverse.svg',
+    og='og-press.png',
+    sister_url="https://www.editionsactuarius.com",
+    sister_label="Français — Éditions Actuarius",
+    title="Actuarius Press — Technical books on finance & insurance",
+    desc="Actuarius Press publishes reference technical books on finance and "
+         "insurance: investment accounting, prudential rules, controls. "
+         "PDF, paperback and Kindle.",
     tagline="Technical books on finance &amp; insurance",
-    intro="The <em>actuarius</em> kept Rome's registers and accounts. Éditions Actuarius publishes books written from practice: investment accounting, prudential rules and controls, with full accounting entries and worked cases.",
+    intro="The <em>actuarius</em> kept Rome's registers and accounts. "
+          "Actuarius Press publishes books written from practice: investment "
+          "accounting, prudential rules and controls, with full accounting "
+          "entries and worked cases.",
     extract="Read the first pages",
     upcoming="Coming soon to this shop",
     author_t="The author",
-    author_b='Xavier Robitaille advises insurers and financial institutions on finance, accounting, investment and regulatory topics. Full profile at <a href="%s/">myxavier.finance</a>.' % MAIN,
-    legal="Éditions Actuarius is the publishing imprint of Xavier Advisory.",
+    author_b="Xavier Robitaille advises insurers and financial institutions on "
+             "finance, accounting, investment and regulatory topics. Full "
+             'profile at <a href="%s/">myxavier.finance</a>.' % MAIN,
+    legal="Actuarius Press is the publishing imprint of Xavier Advisory.",
     contact="Contact",
+    preview_path='/publications/',
  ),
 }
 
+# --- Feuille de style : tokens du kit, pas de valeurs en dur -------------
 CSS = """
-:root{--primary:#0B1530;--gold:#C79A3B;--text:#2A3345;--gray:#6B7280;--light:#F5F2EB;--white:#fff}
+:root{
+  --act-deep-navy:#0B1530;--act-rich-gold:#C79A3B;--act-ivory:#F5F2EB;
+  --act-white:#FFFFFF;--act-light-grey:#E6E8EC;
+  --act-font-display:'EB Garamond',Georgia,serif;
+  --act-font-interface:Inter,Arial,sans-serif;
+  --act-radius-sm:6px;--act-radius-md:12px;
+  --act-space-3:16px;--act-space-4:24px;--act-space-5:32px;--act-space-6:48px;
+  --text:#2A3345;--gray:#6B7280;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',Arial,sans-serif;color:var(--text);background:var(--light);line-height:1.6}
+body{font-family:var(--act-font-interface);color:var(--text);
+     background:var(--act-ivory);line-height:1.6}
 .wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem}
-a{color:var(--gold)}
-header.hero{background:var(--primary);color:#F5F2EB;padding:4.2rem 0 3.6rem;text-align:center}
-.wordmark .wm-l1{font-size:.82rem;letter-spacing:.55em;color:var(--gold);text-transform:uppercase;padding-left:.55em}
-.wordmark .wm-rule{width:170px;height:1px;background:var(--gold);margin:.8rem auto}
-.wordmark .wm-l2{font-family:'EB Garamond',Georgia,serif;font-size:clamp(2.3rem,6vw,3.4rem);font-weight:600;letter-spacing:.14em;color:#F5F2EB;padding-left:.14em}
-.hero .tagline{margin-top:1.1rem;font-size:.95rem;color:#C7CCD6;letter-spacing:.04em}
-.hero .langsw{position:absolute;top:1.2rem;right:1.6rem}
-.hero .langsw a{color:#C7CCD6;text-decoration:none;font-size:.8rem;letter-spacing:.1em}
-.hero{position:relative}
-.intro{max-width:720px;margin:2.6rem auto 0;text-align:center;font-size:1rem;line-height:1.8}
-.intro em{font-family:'EB Garamond',Georgia,serif}
-.shop{padding:3.4rem 0 4rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
-.bk{background:var(--white);border-top:3px solid var(--gold);box-shadow:0 8px 24px rgba(11,21,48,.07);padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
-.bk .cw{display:flex;justify-content:center;background:var(--light);padding:1.4rem 0}
+a{color:var(--act-rich-gold)}
+/* Empreinte mesuree : marges larges, grille stable, hierarchie nette. */
+header.hero{background:var(--act-deep-navy);color:var(--act-ivory);
+            padding:4.4rem 0 3.6rem;text-align:center;position:relative}
+.hero .logo{width:230px;margin:0 auto}
+.hero .logo svg{width:100%;height:auto;display:block}
+.hero .tagline{margin-top:1.4rem;font-size:.95rem;color:#C7CCD6;
+               letter-spacing:.04em}
+.hero .sister{position:absolute;top:1.2rem;right:1.6rem}
+.hero .sister a{color:#C7CCD6;text-decoration:none;font-size:.78rem;
+                letter-spacing:.08em}
+.hero .sister a:hover{color:var(--act-rich-gold)}
+.intro{max-width:720px;margin:2.6rem auto 0;font-size:1rem;line-height:1.8}
+.intro em{font-family:var(--act-font-display)}
+.shop{padding:var(--act-space-6) 0 4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem}
+.bk{background:var(--act-white);border-top:3px solid var(--act-rich-gold);
+    box-shadow:0 8px 24px rgba(11,21,48,.07);padding:1.6rem;display:flex;
+    flex-direction:column;gap:1rem}
+.bk .cw{display:flex;justify-content:center;background:var(--act-ivory);
+        padding:1.4rem 0}
 .bk .cw svg{width:210px;height:auto;box-shadow:0 12px 28px rgba(11,21,48,.3)}
-.bk h3{font-family:'EB Garamond',Georgia,serif;font-size:1.22rem;color:var(--primary);line-height:1.25}
+.bk h3{font-family:var(--act-font-display);font-size:1.22rem;
+       color:var(--act-deep-navy);line-height:1.25}
 .bk p{font-size:.88rem;line-height:1.65;color:#4B5364}
-.bk .extract{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;margin-top:auto}
-.btn-gold{display:inline-block;background:var(--gold);color:#fff;text-decoration:none;padding:.75rem 1.4rem;border-radius:3px;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s}
+.bk .extract{font-size:.78rem;font-weight:700;letter-spacing:.08em;
+             text-transform:uppercase;text-decoration:none;margin-top:auto}
+.btn-gold{display:inline-block;background:var(--act-rich-gold);color:#fff;
+          text-decoration:none;padding:.75rem 1.4rem;border-radius:3px;
+          font-weight:700;font-size:.78rem;letter-spacing:.1em;
+          text-transform:uppercase;transition:transform .2s}
 .btn-gold:hover{transform:translateY(-2px)}
-.btn-buy2{display:inline-block;background:transparent;color:var(--primary);text-decoration:none;padding:.68rem 1.2rem;border:1.5px solid var(--primary);border-radius:3px;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s,background .2s,color .2s}
-.btn-buy2:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
-.btn-gold:focus-visible,.btn-buy2:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.btn-buy2{display:inline-block;background:transparent;
+          color:var(--act-deep-navy);text-decoration:none;padding:.68rem 1.2rem;
+          border:1.5px solid var(--act-deep-navy);border-radius:3px;
+          font-weight:700;font-size:.78rem;letter-spacing:.1em;
+          text-transform:uppercase;
+          transition:transform .2s,background .2s,color .2s}
+.btn-buy2:hover{background:var(--act-deep-navy);color:#fff;
+                transform:translateY(-2px)}
+.btn-gold:focus-visible,.btn-buy2:focus-visible{
+  outline:2px solid var(--act-rich-gold);outline-offset:2px}
 .buy-row{display:flex;gap:.6rem;flex-wrap:wrap}
 .buy-price{font-weight:800;margin-left:.4rem}
 .buy-note{font-size:.74rem;color:var(--gray);margin-top:.5rem}
-.upcoming{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-.author{background:var(--white);padding:3rem 0}
-.author h2{font-family:'EB Garamond',Georgia,serif;color:var(--primary);margin-bottom:.8rem}
+.upcoming{font-size:.72rem;font-weight:700;letter-spacing:.1em;
+          text-transform:uppercase;color:var(--act-rich-gold)}
+.author{background:var(--act-white);padding:3rem 0}
+.author h2{font-family:var(--act-font-display);color:var(--act-deep-navy);
+           margin-bottom:.8rem}
 .author p{max-width:680px}
-footer{background:var(--primary);color:#C7CCD6;padding:2rem 0;font-size:.8rem}
-footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer{background:var(--act-deep-navy);color:#C7CCD6;padding:2rem 0;
+       font-size:.8rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;
+             flex-wrap:wrap;align-items:center}
 footer a{color:#C7CCD6}
+footer a:hover{color:var(--act-rich-gold)}
+@media(max-width:640px){.hero .logo{width:180px}
+  .hero .sister{position:static;display:block;margin-bottom:1.4rem}}
 """
 
-def esc(s): return html.escape(s, quote=False)
 
-def page(lang):
-    a, ui = ACT[lang], UI[lang]
-    url_self = ACT_BASE + '/' + a['dir']
-    url_fr, url_en = ACT_BASE + '/', ACT_BASE + '/en/'
-    ld = json.dumps({"@context": "https://schema.org", "@type": "Organization",
-                     "name": "Éditions Actuarius", "url": ACT_BASE,
-                     "parentOrganization": {"@type": "Organization", "name": "Xavier Advisory", "url": MAIN},
-                     "founder": {"@type": "Person", "name": "Xavier Robitaille"}}, ensure_ascii=False)
+def esc(s):
+    return html.escape(s, quote=False)
+
+
+def page(brand):
+    b_ = BRANDS[brand]
+    lang = b_['lang']
+    ui = UI[lang]
+    url_self = b_['base'] + '/'
+    ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": b_['name'],
+        "url": b_['base'],
+        "logo": b_['base'] + '/logo.svg',
+        "parentOrganization": {"@type": "Organization",
+                               "name": "Xavier Advisory", "url": MAIN},
+        "founder": {"@type": "Person", "name": "Xavier Robitaille"},
+    }, ensure_ascii=False)
+
     cards = ''
-    for slug, b in BOOKS.items():
-        desc = b['en_desc'] if lang == 'en' else b['fr_desc']
-        preview = f"{MAIN}{'/publications/' if lang == 'en' else '/fr/publications/'}{slug}/"
-        buy = buy_buttons(slug, ui) or f'<span class="upcoming">{a["upcoming"]}</span>'
+    for slug, bk in BOOKS.items():
+        desc = bk['en_desc'] if lang == 'en' else bk['fr_desc']
+        preview = f"{MAIN}{b_['preview_path']}{slug}/"
+        buy = buy_buttons(slug, ui) or \
+            f'<span class="upcoming">{b_["upcoming"]}</span>'
         cards += f"""<div class="bk">
-  <div class="cw">{cover_svg(b)}</div>
-  <h3>{esc(b['name'])}</h3>
+  <div class="cw">{cover_svg(bk)}</div>
+  <h3>{esc(bk['name'])}</h3>
   <p>{esc(desc)}</p>
-  <a class="extract" href="{preview}">{a['extract']} &rarr;</a>
+  <a class="extract" href="{preview}">{b_['extract']} &rarr;</a>
   {buy}
 </div>\n"""
-    lemon = LEMON_JS if any(shop_of(sl) and SHOP[sl].get('ls') for sl in BOOKS) else ''
+
+    lemon = LEMON_JS if any(shop_of(s) and SHOP[s].get('ls') for s in BOOKS) else ''
+
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{a['title']}</title>
-<meta name="description" content="{a['desc']}">
+<title>{b_['title']}</title>
+<meta name="description" content="{b_['desc']}">
 <link rel="canonical" href="{url_self}">
-<link rel="alternate" hreflang="fr" href="{url_fr}">
-<link rel="alternate" hreflang="en" href="{url_en}">
-<link rel="alternate" hreflang="x-default" href="{url_fr}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Éditions Actuarius">
-<meta property="og:title" content="{a['title']}">
-<meta property="og:description" content="{a['desc']}">
+<meta property="og:site_name" content="{b_['name']}">
+<meta property="og:title" content="{b_['title']}">
+<meta property="og:description" content="{b_['desc']}">
 <meta property="og:url" content="{url_self}">
-<link rel="icon" type="image/svg+xml" href="/actuarius-mark.svg">
+<meta property="og:image" content="{b_['base']}/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{ld}</script>
@@ -128,35 +232,36 @@ def page(lang):
 </head>
 <body>
 <header class="hero"><div class="wrap">
-  <div class="langsw"><a href="{a['other']}" rel="alternate">{a['other_label']}</a></div>
-  <div class="wordmark">
-    <div style="width:88px;margin:0 auto .9rem">{ACT_MARK_INV}</div>
-    <div class="wm-l1">Éditions</div>
-    <div class="wm-rule"></div>
-    <div class="wm-l2">ACTUARIUS</div>
-  </div>
-  <p class="tagline">{a['tagline']}</p>
-  <p class="intro">{a['intro']}</p>
+  <p class="sister"><a href="{b_['sister_url']}">{b_['sister_label']} &rarr;</a></p>
+  <div class="logo">{asset(b_['logo'])}</div>
+  <p class="tagline">{b_['tagline']}</p>
+  <p class="intro">{b_['intro']}</p>
 </div></header>
 <section class="shop"><div class="wrap">
   <div class="grid">{cards}</div>
 </div></section>
 <section class="author"><div class="wrap">
-  <h2>{a['author_t']}</h2>
-  <p>{a['author_b']}</p>
+  <h2>{b_['author_t']}</h2>
+  <p>{b_['author_b']}</p>
 </div></section>
 <footer><div class="wrap">
-  <span>&copy; 2026 Éditions Actuarius &mdash; {a['legal']}</span>
-  <span><a href="mailto:welcome@myxavier.finance">{a['contact']}</a></span>
+  <span>&copy; 2026 {b_['name']} &mdash; {b_['legal']}</span>
+  <span><a href="mailto:welcome@myxavier.finance">{b_['contact']}</a></span>
 </div></footer>
 </body></html>"""
 
+
 if __name__ == '__main__':
     import shutil
-    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    out = os.path.join(root, 'actuarius')
-    os.makedirs(os.path.join(out, 'en'), exist_ok=True)
-    open(os.path.join(out, 'index.html'), 'w', encoding='utf-8').write(page('fr'))
-    open(os.path.join(out, 'en', 'index.html'), 'w', encoding='utf-8').write(page('en'))
-    shutil.copy(os.path.join(root, 'brand_assets', 'actuarius-mark.svg'), out)
-    print("Site Actuarius généré (fr + en)")
+    for key, b_ in BRANDS.items():
+        out = os.path.join(ROOT, b_['outdir'])
+        os.makedirs(out, exist_ok=True)
+        with open(os.path.join(out, 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(page(key))
+        # Assets servis a la racine du domaine.
+        shutil.copy(os.path.join(ASSETS, 'favicon.svg'), out)
+        shutil.copy(os.path.join(ASSETS, 'favicon.ico'), out)
+        shutil.copy(os.path.join(ASSETS, 'apple-touch-icon.png'), out)
+        shutil.copy(os.path.join(ASSETS, b_['og']), os.path.join(out, 'og.png'))
+        shutil.copy(os.path.join(ASSETS, b_['logo']), os.path.join(out, 'logo.svg'))
+        print("%-20s -> %s/  (%s)" % (b_['name'], b_['outdir'], b_['base']))
