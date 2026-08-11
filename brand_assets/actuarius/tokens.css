@@ -1,0 +1,13 @@
+:root {
+  --act-deep-navy: #0B1530;
+  --act-rich-gold: #C79A3B;
+  --act-ivory: #F5F2EB;
+  --act-white: #FFFFFF;
+  --act-light-grey: #E6E8EC;
+  --act-font-display: "EB Garamond", Georgia, serif;
+  --act-font-interface: Inter, Arial, sans-serif;
+  --act-radius-sm: 6px;
+  --act-radius-md: 12px;
+  --act-space-1: 4px; --act-space-2: 8px; --act-space-3: 16px;
+  --act-space-4: 24px; --act-space-5: 32px; --act-space-6: 48px;
+}
