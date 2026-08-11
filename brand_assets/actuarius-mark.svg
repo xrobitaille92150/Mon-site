@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Éditions Actuarius">
+  <path d="M 195,570 A 520 520 0 0 0 805,570" fill="none" stroke="#C79A3B" stroke-width="52"/>
+  <circle cx="500" cy="185" r="58" fill="none" stroke="#0B1530" stroke-width="32"/>
+  <polygon fill="#0B1530" points="461,248 539,248 228,852 150,852"/>
+  <polygon fill="#0B1530" points="461,248 539,248 850,852 772,852"/>
+</svg>
