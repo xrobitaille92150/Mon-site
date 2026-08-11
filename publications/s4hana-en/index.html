@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implementing an Accounting ERP in an Insurance Entity — Preview | Xavier Advisory</title>
+<meta name="description" content="Replacing the accounting core is a redesign of the financial reporting process, not an IT project. Technology, finance core, editions and licensing, migration paths, insurance architecture and programme delivery.">
+<link rel="canonical" href="https://www.myxavier.finance/publications/s4hana-en/">
+<link rel="alternate" hreflang="en" href="https://www.myxavier.finance/publications/s4hana-en/">
+<link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/publications/s4hana-en/">
+<link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/publications/s4hana-en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Xavier Advisory">
+<meta property="og:title" content="Implementing an Accounting ERP in an Insurance Entity — Preview | Xavier Advisory">
+<meta property="og:description" content="Replacing the accounting core is a redesign of the financial reporting process, not an IT project. Technology, finance core, editions and licensing, migration paths, insurance architecture and programme delivery.">
+<meta property="og:url" content="https://www.myxavier.finance/publications/s4hana-en/">
+<meta property="og:image" content="https://www.myxavier.finance/brand_assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Implementing an Accounting ERP in an Insurance Entity", "author": {"@type": "Person", "name": "Xavier Robitaille"}, "inLanguage": "fr", "datePublished": "2026-08", "publisher": {"@type": "Organization", "name": "Xavier Advisory"}, "url": "https://www.myxavier.finance/publications/s4hana-en/", "description": "Replacing the accounting core is a redesign of the financial reporting process, not an IT project. Technology, finance core, editions and licensing, migration paths, insurance architecture and programme delivery."}</script>
+<style>
+:root { --primary:#0B1530; --text:#0B1530; --gold:#C79A3B; --gold-light:#D9A24A; --light-bg:#F5F2EB; --white:#FFF; --gray:#6B7280; --border:rgba(11,21,48,0.1); }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+body{font-family:'Inter',Arial,sans-serif;color:var(--text);background:var(--light-bg);-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'EB Garamond',Georgia,serif}
+nav{position:sticky;top:0;z-index:100;background:var(--primary);padding:1.1rem 0}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:inline-flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none}
+.xa-mark{height:46px;width:46px;display:block;flex-shrink:0}
+.xa-word{display:flex;flex-direction:column;line-height:1;font-family:'EB Garamond',Georgia,serif;font-weight:600;font-size:1.15rem;letter-spacing:.28em;color:#fff}
+.xa-name{display:block;white-space:nowrap;margin-right:-.28em}
+.xa-word em{font-style:normal;color:var(--gold)}
+.xa-word small{font-family:'Inter',Arial,sans-serif;font-size:.55rem;font-weight:500;letter-spacing:0;margin-top:4px;color:rgba(255,255,255,.72);display:flex;justify-content:space-between}
+.nav-right{display:flex;align-items:center;gap:1.4rem}
+.nav-right a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.nav-right a:hover,.nav-right a:focus-visible{color:#fff}
+.nav-right a.nav-link.active{color:#fff;border-bottom:2px solid var(--gold);padding-bottom:3px}
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-drop{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--primary);border:1px solid rgba(199,154,59,.3);box-shadow:0 14px 34px rgba(11,21,48,.35);padding:.55rem 0;min-width:250px;z-index:120}
+.nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop{display:block}
+.nav-drop a{display:block;padding:.5rem 1.1rem;font-size:.72rem;letter-spacing:.05em;text-transform:none;color:rgba(245,242,235,.82);white-space:nowrap}
+.nav-drop a:hover{color:#fff;background:rgba(199,154,59,.14)}
+.nav-cta{background:var(--gold);color:#fff !important;padding:.55rem 1.2rem;border-radius:3px}
+.hero{background:var(--primary);color:#fff;padding:4.5rem 0 4rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+.label{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.label::before{content:"";width:26px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(2.1rem,4.5vw,3.4rem);font-weight:700;line-height:1.12;letter-spacing:-.01em;margin:.9rem 0 1.2rem}
+.hero p{max-width:640px;font-size:1.02rem;line-height:1.7;color:rgba(255,255,255,.82)}
+section{padding:3.6rem 0}
+section h2{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:700;margin-bottom:1.3rem}
+.prose p{max-width:680px;line-height:1.75;margin-bottom:1rem;color:#2A3345}
+ul.deliver{list-style:none;max-width:720px}
+ul.deliver li{padding:.9rem 0 .9rem 1.6rem;border-bottom:1px solid var(--border);line-height:1.65;color:#2A3345;position:relative}
+ul.deliver li::before{content:"";position:absolute;left:0;top:1.45rem;width:9px;height:9px;background:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1.4rem}
+.card{background:var(--white);border-top:3px solid var(--gold);padding:1.4rem 1.5rem;box-shadow:0 8px 24px rgba(11,21,48,.07)}
+.card h3{font-size:.98rem;font-weight:700;margin-bottom:.55rem;color:var(--primary)}
+.card p{font-size:.88rem;line-height:1.65;color:#4B5364}
+.cta{background:var(--primary);color:#fff;text-align:center;padding:4rem 0}
+.cta h2{color:#fff}
+.cta p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 1.6rem;line-height:1.7}
+.btn-gold{display:inline-block;background:var(--gold);color:#fff;text-decoration:none;padding:.9rem 2rem;border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s}
+.btn-gold:hover{transform:translateY(-2px)}
+.cta .alt{display:block;margin-top:1.1rem;color:rgba(255,255,255,.7);font-size:.9rem}
+.cta .alt a{color:var(--gold-light)}
+footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(245,242,235,.78);font-size:.8rem}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:rgba(245,242,235,.9);text-decoration:none;margin-left:1.2rem}
+.breadcrumb{font-size:.78rem;margin-bottom:1rem}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+@media (max-width:640px){.nav-right a.nav-link,.nav-right .nav-item{display:none}}
+
+.pub-section{padding:3.6rem 0}
+.pub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:1.6rem}
+.bookcard{background:var(--white);box-shadow:0 8px 24px rgba(11,21,48,.07);border-top:3px solid var(--gold);padding:1.6rem;display:flex;flex-direction:column;gap:1rem;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.bookcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,21,48,.13)}
+.coverwrap{position:relative;display:flex;justify-content:center;background:var(--light-bg);padding:1.4rem 0}
+.coverwrap svg{width:210px;height:auto;display:block;box-shadow:0 12px 28px rgba(11,21,48,.3)}
+.release-badge{position:absolute;top:.8rem;right:.8rem;background:var(--gold);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .7rem;border-radius:2px}
+.bookcard h3{font-family:'EB Garamond',Georgia,serif;font-size:1.22rem;font-weight:700;color:var(--primary);line-height:1.25}
+.bookcard p{font-size:.88rem;line-height:1.65;color:#4B5364}
+.bookcard .view{margin-top:auto;color:var(--gold);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+/* ── Livre animé ── */
+.fb-stage{max-width:860px;margin:0 auto;padding:1rem 0}
+#flipbook{margin:0 auto}
+.fb-page{width:400px;height:580px;background:#FDFCF8;overflow:hidden;box-shadow:inset -6px 0 14px -8px rgba(11,21,48,.14)}
+body:not(.flip-on) #flipbook{display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
+.fb-inner{padding:30px 28px;height:100%;box-sizing:border-box;position:relative}
+.fb-cover{background:#0B1530}
+.fb-cover svg{width:100%;height:100%;display:block}
+.fb-folio{position:absolute;bottom:11px;right:16px;font-size:9px;color:#9AA1AE}
+.fb-h{font-family:'EB Garamond',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--primary);margin:0 0 .7rem}
+.fb-toc-h{font-weight:700;color:var(--primary);margin:.55rem 0 .2rem;font-size:11.5px}
+.fb-toc-part{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:.65rem 0 .25rem}
+.fb-toc-ch{font-size:10.5px;line-height:1.45;color:#2A3345;padding:.12rem 0 .12rem 1.1rem;text-indent:-1.1rem}
+.fb-toc-ch b{color:var(--primary);font-weight:600}
+.fb-toc-ax{font-size:10.5px;line-height:1.45;color:#2A3345;padding:.1rem 0}
+.fb-p{font-size:12.5px;line-height:1.62;color:#2A3345;margin:0 0 .55rem;text-align:justify}
+.fb-li{font-size:12.5px;line-height:1.55;color:#2A3345;margin:0 0 .15rem;padding-left:1rem;position:relative}
+.fb-li::before{content:"—";position:absolute;left:0;color:var(--gold);font-size:10px}
+.fb-q{font-size:12.5px;line-height:1.6;color:#4B5364;font-style:italic;border-left:2px solid var(--gold);padding-left:.8rem;margin:0 0 .7rem}
+.fb-ih{font-family:'EB Garamond',Georgia,serif;font-size:14.5px;font-weight:700;color:var(--primary);margin:.7rem 0 .4rem}
+.fb-title{display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;height:100%}
+.fb-title .st-coll{font-size:.6rem;font-weight:700;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;line-height:1.8}
+.fb-title .st-rule{width:90px;height:1px;background:var(--gold);margin:.9rem auto}
+.fb-title .st-t1{font-family:'EB Garamond',Georgia,serif;font-size:1.55rem;font-weight:700;color:var(--primary);line-height:1.25}
+.fb-title .st-t2{font-family:'EB Garamond',Georgia,serif;font-size:1.05rem;font-style:italic;color:var(--primary);margin-top:.55rem}
+.fb-title .st-sub{font-size:.72rem;color:#4B5364;margin-top:1.1rem;line-height:1.6}
+.fb-title .st-ref{font-size:.62rem;color:var(--gold);letter-spacing:.03em;margin-top:1.2rem}
+.fb-title .st-author{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+.fb-title .st-site{font-size:.62rem;color:var(--gray);margin-top:.4rem}
+.fb-end{background:#0B1530;color:#fff}
+.fb-end .fb-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.1rem}
+.fb-end .e1{font-family:'EB Garamond',Georgia,serif;font-size:1.35rem;font-weight:700;line-height:1.3}
+.fb-end .e2{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.7;max-width:270px}
+.fb-end .e3{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.fb-controls{display:flex;align-items:center;justify-content:center;gap:1.1rem;margin-top:1.4rem}
+.fb-btn{background:var(--primary);color:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.05rem;line-height:1;transition:background .2s,transform .2s}
+.fb-btn:hover{background:var(--gold);transform:translateY(-1px)}
+.fb-count{font-size:.8rem;color:var(--gray);min-width:70px;text-align:center}
+.fb-hint{text-align:center;font-size:.78rem;color:var(--gray);margin-top:.6rem;font-style:italic}
+.preview-note{max-width:760px;margin:1.6rem auto 0;font-size:.88rem;color:var(--gray);font-style:italic;text-align:center}
+.preview-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
+.notify-form{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;align-items:stretch}
+.notify-mail{padding:.8rem 1rem;border:1px solid rgba(11,21,48,.3);border-radius:3px;min-width:270px;font-family:'Inter',Arial,sans-serif;font-size:.9rem;color:var(--text);background:#fff}
+.notify-mail:focus-visible{outline:2px solid var(--gold)}
+@media(max-width:480px){.fb-btn{width:36px;height:36px}}
+/* ── Boutique ── */
+.buy-row{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;justify-content:center}
+.buy-price{font-weight:800;margin-left:.45rem;letter-spacing:0}
+.btn-buy2{display:inline-block;background:transparent;color:var(--primary);text-decoration:none;padding:.82rem 1.6rem;border:1.5px solid var(--primary);border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s,background .2s,color .2s}
+.btn-buy2:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.btn-buy2:focus-visible,.buy-row .btn-gold:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.buy-note{text-align:center;font-size:.78rem;color:var(--gray);margin-top:.8rem}
+.bookcard .buy-row{justify-content:flex-start;margin-top:.2rem;gap:.6rem}
+.bookcard .btn-gold{padding:.65rem 1.2rem;font-size:.72rem}
+.bookcard .btn-buy2{padding:.6rem 1.1rem;font-size:.72rem}
+.bookcard-link{display:flex;flex-direction:column;gap:1rem;text-decoration:none;color:inherit;flex:1}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="nav-logo" href="/" aria-label="Xavier Advisory"><svg class="xa-mark" viewBox="0 0 1000 1000" aria-hidden="true"><polygon points="880,145.79 722.57,145.79 559.71,371.07 714.43,371.07" fill="var(--gold)"/><polygon points="426.71,623.5 277.43,623.5 120,851.5 261.14,851.5" fill="var(--gold)"/><polygon points="128.14,148.5 679.14,851.5 855.57,854.21 312.71,148.5" fill="#F5F2EB"/></svg><span class="xa-word"><span class="xa-name">X<em>a</em>v<em>i</em>er</span><small><span>A</span><span>D</span><span>V</span><span>I</span><span>S</span><span>O</span><span>R</span><span>Y</span></small></span></a>
+  <div class="nav-right"><div class="nav-item"><a class="nav-link" href="/#expertise">Expertise</a><div class="nav-drop"><a href="/#expertise">Overview</a><a href="/expertise/ifrs-17-ifrs-9-solvency-ii/">IFRS 17, IFRS 9 &amp; Solvency II</a><a href="/expertise/simcorp-clearwater/">SimCorp &amp; Clearwater</a><a href="/expertise/investment-accounting-reporting/">Investment Accounting &amp; Reporting</a><a href="/expertise/pmo-programme-delivery/">PMO &amp; Programme Delivery</a><a href="/expertise/interim-management/">Interim Management</a></div></div><div class="nav-item"><a class="nav-link" href="/#profile">About</a><div class="nav-drop"><a href="/#clients">Clients</a><a href="/#profile">Profile</a><a href="/#approach">Approach</a></div></div><div class="nav-item"><a class="nav-link active" aria-current="page" href="/publications/">Publications</a><div class="nav-drop"><a href="/publications/">Books &amp; extracts</a><a href="/insights/">Insights</a></div></div><a class="nav-link" href="/formation/">Training</a><a class="nav-cta" href="/#contact">Contact</a><a href="https://www.myxavier.finance/fr/publications/s4hana-en/" rel="alternate">FR</a></div>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <div class="breadcrumb"><a href="/publications/">&larr; Publications</a></div>
+  <div class="label">Preview &mdash; Published August 2026</div>
+  <h1 style="font-size:clamp(1.7rem,3.4vw,2.5rem)">Implementing an Accounting ERP in an Insurance Entity</h1>
+  <p>Replacing the accounting core is a redesign of the financial reporting process, not an IT project. Technology, finance core, editions and licensing, migration paths, insurance architecture and programme delivery.</p>
+</div></header>
+<section class="pub-section"><div class="wrap">
+  <p class="preview-note">Book written in French.</p>
+  <div class="fb-stage">
+    <div id="flipbook"><div class="fb-page fb-cover" data-density="hard"><svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Implementing an Accounting ERP in an Insurance Entity" preserveAspectRatio="xMidYMid meet"><rect width="400" height="580" fill="#0B1530"/><rect x="16" y="16" width="368" height="548" fill="none" stroke="#C79A3B" stroke-width="1.4"/><rect x="22" y="22" width="356" height="536" fill="none" stroke="#C79A3B" stroke-width="0.4" opacity="0.5"/><text x="200" y="62" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="11" letter-spacing="3.5" fill="#C79A3B">KEYS TO INSURANCE</text><text x="200" y="79" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="11" letter-spacing="3.5" fill="#C79A3B">AND FINANCE</text><line x1="145" y1="104" x2="255" y2="104" stroke="#C79A3B" stroke-width="1"/><text x="200" y="158" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="27" font-weight="600" fill="#F5F2EB">Implementing</text><text x="200" y="194" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="27" font-weight="600" fill="#F5F2EB">an Accounting ERP</text><text x="200" y="236" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16.5" font-style="italic" fill="#F5F2EB">in an Insurance Entity</text><text x="200" y="282" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="11" fill="#C7CCD6">The specific case of</text><text x="200" y="299" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="11" fill="#C7CCD6">SAP S/4HANA</text><text x="200" y="462" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="9" fill="#C79A3B">SAP S/4HANA · IFRS 17 / IFRS 9 · Solvency II</text><text x="200" y="476" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="9" fill="#C79A3B">Regulatory reporting</text><text x="200" y="516" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="12.5" letter-spacing="2.5" fill="#FFFFFF">XAVIER ROBITAILLE</text><text x="200" y="542" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="9" letter-spacing="2.2" fill="#C79A3B">ACTUARIUS PRESS</text></svg></div><div class="fb-page"><div class="fb-inner"><div class="fb-title"><div><div class="st-coll">KEYS TO INSURANCE<br>AND FINANCE</div><div class="st-rule"></div></div><div><div class="st-t1">Implementing<br>an Accounting ERP</div><div class="st-t2">in an Insurance Entity</div><div class="st-sub">The specific case of<br>SAP S/4HANA</div><div class="st-ref">SAP S/4HANA · IFRS 17 / IFRS 9 · Solvency II<br>Regulatory reporting</div></div><div><div class="st-author">Xavier Robitaille</div><div class="st-site">Actuarius Press</div></div></div></div><span class="fb-folio">2</span></div><div class="fb-page"><div class="fb-inner"><div class="fb-h">Table of contents</div><div class="fb-toc-h">Introduction</div><div class="fb-toc-part">PART I — Understanding the system before deciding</div><div class="fb-toc-ch"><b>1.</b> The integrated business system: what it does and what it does not do</div><div class="fb-toc-ch"><b>2.</b> From R/1 to S/4HANA: fifty years of integration</div><div class="fb-toc-ch"><b>3.</b> HANA: memory, columns and compression</div><div class="fb-toc-ch"><b>4.</b> What HANA changes in S/4HANA, and what it does not</div><div class="fb-toc-ch"><b>5.</b> Fiori: reaching the system by role rather than by transaction code</div><div class="fb-toc-part">PART II — The finance core</div><div class="fb-toc-ch"><b>6.</b> Financial accounting and management accounting: two readings of the same fact</div><div class="fb-toc-ch"><b>7.</b> FI and CO under ECC: reconciliation as a closing ritual</div><div class="fb-toc-ch"><b>8.</b> The Universal Journal: one register, several readings</div><div class="fb-toc-ch"><b>9.</b> From the data model to the dashboard: tables, CDS views and embedded analytics</div><div class="fb-toc-part">PART III — Editions, offerings and licensing</div><div class="fb-toc-ch"><b>10.</b> On-premise, Cloud Private, Cloud Public: three distributions of responsibility</div><div class="fb-toc-ch"><b>11.</b> RISE and GROW: commercial paths, not editions</div><div class="fb-toc-ch"><b>12.</b> Perpetual licence, subscription, FUE and Digital Access</div></div><span class="fb-folio">3</span></div><div class="fb-page"><div class="fb-inner"><div class="fb-toc-ch"><b>13.</b> Choosing an edition: seven criteria, and the question of exit cost</div><div class="fb-toc-part">PART IV — What the product allows, what the programme costs</div><div class="fb-toc-ch"><b>14.</b> What S/4HANA brings to the finance department</div><div class="fb-toc-ch"><b>15.</b> Automation, machine learning and artificial intelligence</div><div class="fb-toc-ch"><b>16.</b> What S/4HANA brings to the IT department</div><div class="fb-toc-ch"><b>17.</b> The real cost of an S/4HANA programme</div><div class="fb-toc-ch"><b>18.</b> Dependency, rigidity, maintenance: three documented controversies</div><div class="fb-toc-ch"><b>19.</b> The 2027 deadline: what it actually covers</div><div class="fb-toc-part">PART V — Migration paths</div><div class="fb-toc-ch"><b>20.</b> Greenfield, brownfield, selective transition: three ways of moving the risk</div><div class="fb-toc-ch"><b>21.</b> The Business Partner: the prerequisite that blocks</div><div class="fb-toc-ch"><b>22.</b> The Material Ledger and custom code</div><div class="fb-toc-ch"><b>23.</b> Data quality decides everything</div><div class="fb-toc-ch"><b>24.</b> How a conversion runs, and its control points</div><div class="fb-toc-part">PART VI — The insurer</div><div class="fb-toc-ch"><b>25.</b> Why insurance is not an industry like the others</div><div class="fb-toc-ch"><b>26.</b> General ledger and subledgers: the division of accounting work</div><div class="fb-toc-ch"><b>27.</b> The investment subledger: several possible answers, none imposed</div></div><span class="fb-folio">4</span></div><div class="fb-page"><div class="fb-inner"><div class="fb-toc-ch"><b>28.</b> The Financial Products Subledger: scope, status, operation</div><div class="fb-toc-ch"><b>29.</b> IFRS 17: what S/4HANA covers and what it does not</div><div class="fb-toc-ch"><b>30.</b> Solvency II: a prudential framework that is not an accounting framework</div><div class="fb-toc-ch"><b>31.</b> Coexisting with insurance administration systems</div><div class="fb-toc-ch"><b>32.</b> Regulatory reporting: from QRT to XBRL</div><div class="fb-toc-part">PART VII — Running the programme</div><div class="fb-toc-ch"><b>33.</b> A business programme that contains an IT project</div><div class="fb-toc-ch"><b>34.</b> SAP Activate and programme governance</div><div class="fb-toc-ch"><b>35.</b> Testing processes end to end</div><div class="fb-toc-ch"><b>36.</b> Cutover: preparation, rehearsals and the go-live decision</div><div class="fb-toc-ch"><b>37.</b> Internal control and segregation of duties</div><div class="fb-toc-ch"><b>38.</b> Hypercare and the move from project to product</div><div class="fb-toc-h">Conclusion</div><div class="fb-toc-h">Appendices</div><div class="fb-toc-ax">Appendix A — Comparison of the three S/4HANA editions</div><div class="fb-toc-ax">Appendix B — Comparison of the three migration paths</div><div class="fb-toc-ax">Appendix C — Indicative RACI for an S/4HANA programme at an insurer</div><div class="fb-toc-ax">Appendix D — Conversion prerequisite checklist</div><div class="fb-toc-ax">Appendix E — Glossary</div></div><span class="fb-folio">5</span></div><div class="fb-page"><div class="fb-inner"><div class="fb-h">Introduction</div><div class="fb-q">A European insurer deciding today what to do with its accounting system is making a decision with a fifteen to twenty year life. It is making that decision under calendar pressure: mainstream maintenance for SAP ERP 6.0 ends on 31 December 2027, with paid extended maintenance available until 2030. It is making it in a sector that has just absorbed IFRS 17, that has applied Solvency II since 2016, and that will see the revised regime apply from 30 January 2027. And it is making it about a product whose vendor documentation describes the potential with remarkable consistency, and the conditions for realising it with considerably less insistence.</div><p class="fb-p">This book is about that decision and about carrying it out.</p></div><span class="fb-folio">6</span></div><div class="fb-page"><div class="fb-inner"><p class="fb-p">It has three purposes. The first is to explain S/4HANA to a reader with no prior background in information systems: what an integrated business system is, what the HANA database does and does not change, why the Universal Journal is the most substantial change to the organisation of SAP accounting in twenty years. The second is to separate, at every point, what the product makes possible from what the programme achieves. Vendor presentations and market folklore obscure that distinction with equal efficiency. The third is to treat the question from the insurer's own position: inverted production cycle, technical provisions, investment subledger, coexistence with policy and claims systems, the IFRS 17 chain, and the production of regulatory returns.</p></div><span class="fb-folio">7</span></div><div class="fb-page"><div class="fb-inner"><p class="fb-p">That last angle is the reason for the book. There is a large body of writing on S/4HANA for manufacturing and retail, and a dense technical literature on IFRS 17 and Solvency II. The junction between them, meaning how a French or European insurer builds its finance core on S/4HANA, with which subledgers, which reconciliations and which responsibilities, remains poorly documented outside vendor and system integrator material, whose role is not to be neutral.</p><p class="fb-p">Scope. The book covers concepts and decisions, never configuration: no screen, no transaction and no table is described here to be reproduced. Oracle, Workday, Microsoft and sector solutions appear to situate the market, without being assessed — the reader will find neither a vendor comparison nor an argument for or against the product. The book takes a position on specific points, including the real scope of "real time", the blocking nature of certain prerequisites, and the impossibility for any software to produce compliance. It states explicitly where sources diverge or are missing.</p></div><span class="fb-folio">8</span></div><div class="fb-page"><div class="fb-inner"><p class="fb-p">Method and sourcing. Every normative statement refers to the official text: the French Commercial Code, Directive 2009/138/EC and Directive (EU) 2025/2, IFRS standards published by the IFRS Foundation, EIOPA and ACPR publications, and SAP documentation. The figures that circulate abundantly on this subject, meaning average project costs, close cycle reductions, automation rates and market shares, come almost entirely from commercial comparison sites, sponsored studies or licensing advisory firms. They are not repeated here as facts. Where an order of magnitude is useful, it appears as such, with the origin of the source and the reservation it requires. This discipline has a cost: the reader will find fewer striking numbers than in a brochure. It also has a return: what is written here can be defended in an investment committee.</p></div><span class="fb-folio">9</span></div><div class="fb-page"><div class="fb-inner"><p class="fb-p">Reading conventions. The book uses ERP for the integrated business system. It distinguishes throughout between SAP ECC, the application core of SAP ERP 6.0 used by most existing installations, and S/4HANA, a distinct product marketed since 2015. HANA is the database; S/4HANA is the ERP that runs on it. The word edition refers to the three forms of S/4HANA, meaning on-premise, Cloud Private Edition and Cloud Public Edition, and never to a software release. The word release refers to the software version. FI is financial accounting in the SAP sense, CO is management accounting. These conventions are restated at the head of each part so that each part can be read on its own.</p><p class="fb-p">The book follows a logical progression: understand the object, understand what it does to accounting, understand what you are buying, weigh the benefits against the costs, choose a migration path, address the specifics of insurance, run the programme. Economics first, technique second, organisation and controls last.</p></div><span class="fb-folio">10</span></div><div class="fb-page fb-end" data-density="hard"><div class="fb-inner">
+      <div class="e3">Published August 2026</div>
+      <div class="e1">Implementing an Accounting ERP in an Insurance Entity</div>
+      <div class="e2">End of preview. The complete book is published in August 2026.</div>
+      <div style="width:96px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Éditions Actuarius">
+  <path d="M 195,570 A 520 520 0 0 0 805,570" fill="none" stroke="#C79A3B" stroke-width="52"/>
+  <circle cx="500" cy="185" r="58" fill="none" stroke="#F5F2EB" stroke-width="32"/>
+  <polygon fill="#F5F2EB" points="461,248 539,248 228,852 150,852"/>
+  <polygon fill="#F5F2EB" points="461,248 539,248 850,852 772,852"/>
+</svg>
+</div>
+    </div></div></div>
+    <div class="fb-controls">
+      <button class="fb-btn" id="fb-prev" aria-label="Previous page">&larr;</button>
+      <span class="fb-count" id="fb-count"></span>
+      <button class="fb-btn" id="fb-next" aria-label="Next page">&rarr;</button>
+    </div>
+    <p class="fb-hint">Click or drag a page corner to turn the pages — or use the arrows.</p>
+  </div>
+  <div class="preview-actions">
+    <form class="notify-form" name="notify-parution" method="POST" action="/publications/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="notify-parution">
+      <input type="hidden" name="livre" value="Implementing an Accounting ERP in an Insurance Entity">
+      <p style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
+      <input class="notify-mail" type="email" name="email" required placeholder="Your work email" aria-label="Email">
+      <button class="btn-gold" type="submit">Get notified at publication</button>
+    </form>
+  </div>
+</div></section>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+(function() {
+  var el = document.getElementById('flipbook');
+  if (!el || typeof St === 'undefined') return;
+  try {
+    var pf = new St.PageFlip(el, {
+      width: 400, height: 580, size: 'stretch',
+      minWidth: 280, maxWidth: 460, minHeight: 406, maxHeight: 667,
+      showCover: true, maxShadowOpacity: 0.4, mobileScrollSupport: false, flippingTime: 800
+    });
+    pf.loadFromHTML(document.querySelectorAll('.fb-page'));
+    document.body.classList.add('flip-on');
+    var total = pf.getPageCount();
+    var count = document.getElementById('fb-count');
+    function upd() { count.textContent = (pf.getCurrentPageIndex() + 1) + ' / ' + total; }
+    upd();
+    pf.on('flip', function() { setTimeout(upd, 50); });
+    document.getElementById('fb-prev').addEventListener('click', function() { pf.flipPrev(); });
+    document.getElementById('fb-next').addEventListener('click', function() { pf.flipNext(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') pf.flipPrev();
+      if (e.key === 'ArrowRight') pf.flipNext();
+    });
+  } catch (e) { /* les pages restent affichées empilées */ }
+})();
+</script>
+<section class="cta"><div class="wrap">
+  <h2>Available now for new mandates</h2><p>Full remote, hybrid or on-site, in France and internationally. French and English.</p>
+  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">Book a call &rarr;</a>
+  <span class="alt">or write to <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span>
+</div></section>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="/">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span></div></footer>
+</body></html>

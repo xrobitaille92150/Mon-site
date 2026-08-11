@@ -2642,5 +2642,1007 @@
     "Situation arrêtée au 16 juillet 2026."
    ]
   ]
+ },
+ "s4hana-en": {
+  "titlepage": [
+   [
+    "",
+    "Implementing an Accounting ERP in an Insurance Entity"
+   ],
+   [
+    "",
+    "The specific case of SAP S/4HANA"
+   ],
+   [
+    "",
+    "SAP S/4HANA  ·  IFRS 17 / IFRS 9  ·  Solvency II  ·  Regulatory reporting"
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "",
+    "www.myxavier.fr"
+   ],
+   [
+    "",
+    "XAVIER"
+   ],
+   [
+    "",
+    "ADVISORY"
+   ],
+   [
+    "",
+    "Implementing an Accounting ERP in an Insurance Entity"
+   ],
+   [
+    "",
+    "The specific case of SAP S/4HANA"
+   ],
+   [
+    "Titre4",
+    "SAP S/4HANA  ·  IFRS 17 / IFRS 9  ·  Solvency II  ·  Regulatory reporting"
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "En-ttedetabledesmatires",
+    "Contents"
+   ]
+  ],
+  "toc": [
+   [
+    "Titre6",
+    "Introduction"
+   ],
+   [
+    "NumroPartie",
+    "PART I"
+   ],
+   [
+    "Titre1",
+    "Understanding the system before deciding"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 1"
+   ],
+   [
+    "Titre2",
+    "The integrated business system: what it does and what it does not do"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 2"
+   ],
+   [
+    "Titre2",
+    "From R/1 to S/4HANA: fifty years of integration"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 3"
+   ],
+   [
+    "Titre2",
+    "HANA: memory, columns and compression"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 4"
+   ],
+   [
+    "Titre2",
+    "What HANA changes in S/4HANA, and what it does not"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 5"
+   ],
+   [
+    "Titre2",
+    "Fiori: reaching the system by role rather than by transaction code"
+   ],
+   [
+    "NumroPartie",
+    "PART II"
+   ],
+   [
+    "Titre1",
+    "The finance core"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 6"
+   ],
+   [
+    "Titre2",
+    "Financial accounting and management accounting: two readings of the same fact"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 7"
+   ],
+   [
+    "Titre2",
+    "FI and CO under ECC: reconciliation as a closing ritual"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 8"
+   ],
+   [
+    "Titre2",
+    "The Universal Journal: one register, several readings"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 9"
+   ],
+   [
+    "Titre2",
+    "From the data model to the dashboard: tables, CDS views and embedded analytics"
+   ],
+   [
+    "NumroPartie",
+    "PART III"
+   ],
+   [
+    "Titre1",
+    "Editions, offerings and licensing"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 10"
+   ],
+   [
+    "Titre2",
+    "On-premise, Cloud Private, Cloud Public: three distributions of responsibility"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 11"
+   ],
+   [
+    "Titre2",
+    "RISE and GROW: commercial paths, not editions"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 12"
+   ],
+   [
+    "Titre2",
+    "Perpetual licence, subscription, FUE and Digital Access"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 13"
+   ],
+   [
+    "Titre2",
+    "Choosing an edition: seven criteria, and the question of exit cost"
+   ],
+   [
+    "NumroPartie",
+    "PART IV"
+   ],
+   [
+    "Titre1",
+    "What the product allows, what the programme costs"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 14"
+   ],
+   [
+    "Titre2",
+    "What S/4HANA brings to the finance department"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 15"
+   ],
+   [
+    "Titre2",
+    "Automation, machine learning and artificial intelligence"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 16"
+   ],
+   [
+    "Titre2",
+    "What S/4HANA brings to the IT department"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 17"
+   ],
+   [
+    "Titre2",
+    "The real cost of an S/4HANA programme"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 18"
+   ],
+   [
+    "Titre2",
+    "Dependency, rigidity, maintenance: three documented controversies"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 19"
+   ],
+   [
+    "Titre2",
+    "The 2027 deadline: what it actually covers"
+   ],
+   [
+    "NumroPartie",
+    "PART V"
+   ],
+   [
+    "Titre1",
+    "Migration paths"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 20"
+   ],
+   [
+    "Titre2",
+    "Greenfield, brownfield, selective transition: three ways of moving the risk"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 21"
+   ],
+   [
+    "Titre2",
+    "The Business Partner: the prerequisite that blocks"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 22"
+   ],
+   [
+    "Titre2",
+    "The Material Ledger and custom code"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 23"
+   ],
+   [
+    "Titre2",
+    "Data quality decides everything"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 24"
+   ],
+   [
+    "Titre2",
+    "How a conversion runs, and its control points"
+   ],
+   [
+    "NumroPartie",
+    "PART VI"
+   ],
+   [
+    "Titre1",
+    "The insurer"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 25"
+   ],
+   [
+    "Titre2",
+    "Why insurance is not an industry like the others"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 26"
+   ],
+   [
+    "Titre2",
+    "General ledger and subledgers: the division of accounting work"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 27"
+   ],
+   [
+    "Titre2",
+    "The investment subledger: several possible answers, none imposed"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 28"
+   ],
+   [
+    "Titre2",
+    "The Financial Products Subledger: scope, status, operation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 29"
+   ],
+   [
+    "Titre2",
+    "IFRS 17: what S/4HANA covers and what it does not"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 30"
+   ],
+   [
+    "Titre2",
+    "Solvency II: a prudential framework that is not an accounting framework"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 31"
+   ],
+   [
+    "Titre2",
+    "Coexisting with insurance administration systems"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 32"
+   ],
+   [
+    "Titre2",
+    "Regulatory reporting: from QRT to XBRL"
+   ],
+   [
+    "NumroPartie",
+    "PART VII"
+   ],
+   [
+    "Titre1",
+    "Running the programme"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 33"
+   ],
+   [
+    "Titre2",
+    "A business programme that contains an IT project"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 34"
+   ],
+   [
+    "Titre2",
+    "SAP Activate and programme governance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 35"
+   ],
+   [
+    "Titre2",
+    "Testing processes end to end"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 36"
+   ],
+   [
+    "Titre2",
+    "Cutover: preparation, rehearsals and the go-live decision"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 37"
+   ],
+   [
+    "Titre2",
+    "Internal control and segregation of duties"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 38"
+   ],
+   [
+    "Titre2",
+    "Hypercare and the move from project to product"
+   ],
+   [
+    "Titre6",
+    "Conclusion"
+   ],
+   [
+    "Titre6",
+    "APPENDICES"
+   ],
+   [
+    "NumroChapitre",
+    "APPENDIX A"
+   ],
+   [
+    "Titre7",
+    "Comparison of the three S/4HANA editions"
+   ],
+   [
+    "NumroChapitre",
+    "APPENDIX B"
+   ],
+   [
+    "Titre7",
+    "Comparison of the three migration paths"
+   ],
+   [
+    "NumroChapitre",
+    "APPENDIX C"
+   ],
+   [
+    "Titre7",
+    "Indicative RACI for an S/4HANA programme at an insurer"
+   ],
+   [
+    "NumroChapitre",
+    "APPENDIX D"
+   ],
+   [
+    "Titre7",
+    "Conversion prerequisite checklist"
+   ],
+   [
+    "NumroChapitre",
+    "APPENDIX E"
+   ],
+   [
+    "Titre7",
+    "Glossary"
+   ]
+  ],
+  "pages": null,
+  "intro": [
+   [
+    "q",
+    "A European insurer deciding today what to do with its accounting system is making a decision with a fifteen to twenty year life. It is making that decision under calendar pressure: mainstream maintenance for SAP ERP 6.0 ends on 31 December 2027, with paid extended maintenance available until 2030. It is making it in a sector that has just absorbed IFRS 17, that has applied Solvency II since 2016, and that will see the revised regime apply from 30 January 2027. And it is making it about a product whose vendor documentation describes the potential with remarkable consistency, and the conditions for realising it with considerably less insistence."
+   ],
+   [
+    "p",
+    "This book is about that decision and about carrying it out."
+   ],
+   [
+    "p",
+    "It has three purposes. The first is to explain S/4HANA to a reader with no prior background in information systems: what an integrated business system is, what the HANA database does and does not change, why the Universal Journal is the most substantial change to the organisation of SAP accounting in twenty years. The second is to separate, at every point, what the product makes possible from what the programme achieves. Vendor presentations and market folklore obscure that distinction with equal efficiency. The third is to treat the question from the insurer's own position: inverted production cycle, technical provisions, investment subledger, coexistence with policy and claims systems, the IFRS 17 chain, and the production of regulatory returns."
+   ],
+   [
+    "p",
+    "That last angle is the reason for the book. There is a large body of writing on S/4HANA for manufacturing and retail, and a dense technical literature on IFRS 17 and Solvency II. The junction between them, meaning how a French or European insurer builds its finance core on S/4HANA, with which subledgers, which reconciliations and which responsibilities, remains poorly documented outside vendor and system integrator material, whose role is not to be neutral."
+   ],
+   [
+    "p",
+    "Scope. The book covers concepts and decisions, never configuration: no screen, no transaction and no table is described here to be reproduced. Oracle, Workday, Microsoft and sector solutions appear to situate the market, without being assessed — the reader will find neither a vendor comparison nor an argument for or against the product. The book takes a position on specific points, including the real scope of \"real time\", the blocking nature of certain prerequisites, and the impossibility for any software to produce compliance. It states explicitly where sources diverge or are missing."
+   ],
+   [
+    "p",
+    "Method and sourcing. Every normative statement refers to the official text: the French Commercial Code, Directive 2009/138/EC and Directive (EU) 2025/2, IFRS standards published by the IFRS Foundation, EIOPA and ACPR publications, and SAP documentation. The figures that circulate abundantly on this subject, meaning average project costs, close cycle reductions, automation rates and market shares, come almost entirely from commercial comparison sites, sponsored studies or licensing advisory firms. They are not repeated here as facts. Where an order of magnitude is useful, it appears as such, with the origin of the source and the reservation it requires. This discipline has a cost: the reader will find fewer striking numbers than in a brochure. It also has a return: what is written here can be defended in an investment committee."
+   ],
+   [
+    "p",
+    "Reading conventions. The book uses ERP for the integrated business system. It distinguishes throughout between SAP ECC, the application core of SAP ERP 6.0 used by most existing installations, and S/4HANA, a distinct product marketed since 2015. HANA is the database; S/4HANA is the ERP that runs on it. The word edition refers to the three forms of S/4HANA, meaning on-premise, Cloud Private Edition and Cloud Public Edition, and never to a software release. The word release refers to the software version. FI is financial accounting in the SAP sense, CO is management accounting. These conventions are restated at the head of each part so that each part can be read on its own."
+   ],
+   [
+    "p",
+    "The book follows a logical progression: understand the object, understand what it does to accounting, understand what you are buying, weigh the benefits against the costs, choose a migration path, address the specifics of insurance, run the programme. Economics first, technique second, organisation and controls last."
+   ]
+  ]
+ },
+ "s4hana-fr": {
+  "titlepage": [
+   [
+    "",
+    "Implémenter un ERP comptable dans une entité d'assurance"
+   ],
+   [
+    "",
+    "Le cas particulier de SAP S/4HANA"
+   ],
+   [
+    "",
+    "SAP S/4HANA  ·  IFRS 17 / IFRS 9  ·  Solvabilité II  ·  Reporting réglementaire"
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "",
+    "www.myxavier.fr"
+   ],
+   [
+    "",
+    "XAVIER"
+   ],
+   [
+    "",
+    "ADVISORY"
+   ],
+   [
+    "",
+    "Implémenter un ERP comptable dans une entité d'assurance"
+   ],
+   [
+    "",
+    "Le cas particulier de SAP S/4HANA"
+   ],
+   [
+    "Titre4",
+    "SAP S/4HANA  ·  IFRS 17 / IFRS 9  ·  Solvabilité II  ·  Reporting réglementaire"
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "En-ttedetabledesmatires",
+    "Table des matières"
+   ]
+  ],
+  "toc": [
+   [
+    "Titre6",
+    "Introduction"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE I"
+   ],
+   [
+    "Titre1",
+    "Comprendre le système avant de décider"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 1"
+   ],
+   [
+    "Titre2",
+    "Le progiciel de gestion intégré : ce qu'il fait, ce qu'il ne fait pas"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 2"
+   ],
+   [
+    "Titre2",
+    "De R/1 à S/4HANA : cinquante ans d'intégration"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 3"
+   ],
+   [
+    "Titre2",
+    "HANA : mémoire vive, colonnes et compression"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 4"
+   ],
+   [
+    "Titre2",
+    "Ce que HANA change dans S/4HANA, et ce qu'elle ne change pas"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 5"
+   ],
+   [
+    "Titre2",
+    "Fiori : l'accès au système par les rôles plutôt que par les codes"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE II"
+   ],
+   [
+    "Titre1",
+    "Le cœur financier"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 6"
+   ],
+   [
+    "Titre2",
+    "Comptabilité générale et contrôle de gestion : deux lectures du même fait"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 7"
+   ],
+   [
+    "Titre2",
+    "FI et CO sous ECC : la réconciliation comme rituel de clôture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 8"
+   ],
+   [
+    "Titre2",
+    "L'Universal Journal : un registre unique, plusieurs lectures"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 9"
+   ],
+   [
+    "Titre2",
+    "Du modèle de données au tableau de bord : tables, vues CDS et analytique embarquée"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE III"
+   ],
+   [
+    "Titre1",
+    "Éditions, offres et licences"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 10"
+   ],
+   [
+    "Titre2",
+    "On-premise, Cloud Private, Cloud Public : trois répartitions de responsabilité"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 11"
+   ],
+   [
+    "Titre2",
+    "RISE et GROW : des parcours commerciaux, non des éditions"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 12"
+   ],
+   [
+    "Titre2",
+    "Licence perpétuelle, abonnement, FUE et Digital Access"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 13"
+   ],
+   [
+    "Titre2",
+    "Choisir une édition : sept critères, et la question du coût de sortie"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE IV"
+   ],
+   [
+    "Titre1",
+    "Ce que le produit permet, ce que le programme coûte"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 14"
+   ],
+   [
+    "Titre2",
+    "Ce que S/4HANA apporte à la direction financière"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 15"
+   ],
+   [
+    "Titre2",
+    "Automatisation, apprentissage automatique et intelligence artificielle"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 16"
+   ],
+   [
+    "Titre2",
+    "Ce que S/4HANA apporte à la direction des systèmes d'information"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 17"
+   ],
+   [
+    "Titre2",
+    "Le coût réel d'un programme S/4HANA"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 18"
+   ],
+   [
+    "Titre2",
+    "Dépendance, rigidité, maintenance : trois controverses documentées"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 19"
+   ],
+   [
+    "Titre2",
+    "L'échéance 2027 : ce qu'elle recouvre exactement"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE V"
+   ],
+   [
+    "Titre1",
+    "Les trajectoires de migration"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 20"
+   ],
+   [
+    "Titre2",
+    "Greenfield, brownfield, transition sélective : trois façons de déplacer le risque"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 21"
+   ],
+   [
+    "Titre2",
+    "Le Business Partner : le prérequis qui bloque"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 22"
+   ],
+   [
+    "Titre2",
+    "Le Material Ledger et le code spécifique"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 23"
+   ],
+   [
+    "Titre2",
+    "La qualité des données décide de tout"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 24"
+   ],
+   [
+    "Titre2",
+    "Le déroulé d'une conversion et ses points de contrôle"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VI"
+   ],
+   [
+    "Titre1",
+    "L'assureur"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 25"
+   ],
+   [
+    "Titre2",
+    "Pourquoi l'assurance n'est pas une industrie comme les autres"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 26"
+   ],
+   [
+    "Titre2",
+    "Grand livre et comptabilités auxiliaires : la division du travail comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 27"
+   ],
+   [
+    "Titre2",
+    "Le sub-ledger des placements : plusieurs réponses possibles, aucune imposée"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 28"
+   ],
+   [
+    "Titre2",
+    "Le Financial Products Subledger : périmètre, statut, fonctionnement"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 29"
+   ],
+   [
+    "Titre2",
+    "IFRS 17 : ce que S/4HANA couvre, ce qu'il ne couvre pas"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 30"
+   ],
+   [
+    "Titre2",
+    "Solvabilité II : un cadre prudentiel qui n'est pas un cadre comptable"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 31"
+   ],
+   [
+    "Titre2",
+    "Coexister avec les systèmes techniques d'assurance"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 32"
+   ],
+   [
+    "Titre2",
+    "Le reporting réglementaire : des QRT au fichier XBRL"
+   ],
+   [
+    "NumroPartie",
+    "PARTIE VII"
+   ],
+   [
+    "Titre1",
+    "Conduire le programme"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 33"
+   ],
+   [
+    "Titre2",
+    "Un projet d'entreprise qui comporte un chantier informatique"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 34"
+   ],
+   [
+    "Titre2",
+    "SAP Activate et la gouvernance du programme"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 35"
+   ],
+   [
+    "Titre2",
+    "Tester des processus de bout en bout"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 36"
+   ],
+   [
+    "Titre2",
+    "La bascule : préparation, répétitions et décision d'ouverture"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 37"
+   ],
+   [
+    "Titre2",
+    "Contrôle interne et séparation des tâches"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPITRE 38"
+   ],
+   [
+    "Titre2",
+    "Hypercare et passage du projet au produit"
+   ],
+   [
+    "Titre6",
+    "Conclusion"
+   ],
+   [
+    "Titre6",
+    "ANNEXES"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE A"
+   ],
+   [
+    "Titre7",
+    "Comparatif des trois éditions de S/4HANA"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE B"
+   ],
+   [
+    "Titre7",
+    "Comparatif des trois trajectoires de migration"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE C"
+   ],
+   [
+    "Titre7",
+    "RACI type d'un programme S/4HANA chez un assureur"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE D"
+   ],
+   [
+    "Titre7",
+    "Liste de contrôle des prérequis de conversion"
+   ],
+   [
+    "NumroChapitre",
+    "ANNEXE E"
+   ],
+   [
+    "Titre7",
+    "Glossaire"
+   ]
+  ],
+  "pages": null,
+  "intro": [
+   [
+    "q",
+    "Un assureur européen qui décide aujourd'hui du sort de son système comptable prend une décision d'une durée de vie de quinze à vingt ans. Il la prend sous contrainte de calendrier : la maintenance standard de SAP ERP 6.0 s'arrête le 31 décembre 2027, avec une maintenance étendue payante jusqu'en 2030. Il la prend dans un secteur qui vient d'absorber IFRS 17, qui applique Solvabilité II depuis 2016 et qui verra la révision de ce régime entrer en application le 30 janvier 2027. Et il la prend sur un objet dont la documentation commerciale décrit le potentiel avec une constance remarquable, et les conditions de réalisation avec beaucoup moins d'insistance."
+   ],
+   [
+    "p",
+    "Cet ouvrage traite de cette décision et de son implémentation."
+   ],
+   [
+    "p",
+    "Il poursuit trois objectifs. Le premier est d'expliquer S/4HANA à un lecteur qui n'a aucune compétence préalable en systèmes d'information : ce qu'est un progiciel de gestion intégré, ce que la base de données HANA change et ne change pas, pourquoi l'Universal Journal représente la rupture la plus substantielle depuis vingt ans dans l'organisation de la comptabilité SAP. Le deuxième est de séparer systématiquement ce que le produit rend possible de ce que le programme réalise — distinction que les présentations d'éditeur et les légendes noires du marché escamotent avec une égale efficacité. Le troisième est de traiter la question sous l'angle propre de l'assureur : cycle de production inversé, provisions techniques, sub-ledger des placements, coexistence avec les systèmes de gestion des contrats et des sinistres, chaîne IFRS 17, production des états prudentiels."
+   ],
+   [
+    "p",
+    "Cet angle est le motif du livre. Il existe une littérature abondante sur S/4HANA pour l'industrie et la distribution, et une littérature technique dense sur IFRS 17 et Solvabilité II. Le point de jonction — comment un assureur français ou européen construit son cœur financier sur S/4HANA, avec quelles comptabilités auxiliaires, quelles réconciliations et quelles responsabilités — reste peu documenté hors des supports d'éditeurs et d'intégrateurs, dont ce n'est pas le rôle d'être neutres."
+   ],
+   [
+    "p",
+    "Périmètre. L'ouvrage traite des concepts et des décisions, jamais du paramétrage : aucun écran, aucune transaction, aucune table n'y est décrite pour être reproduite. Oracle, Workday, Microsoft et les solutions sectorielles y sont mentionnés pour situer le marché, sans être évalués — le lecteur ne trouvera pas ici de comparatif d'éditeurs, ni de plaidoyer. L'ouvrage prend position sur des points précis — la portée réelle du « temps réel », le caractère bloquant de certains prérequis, l'impossibilité pour un logiciel de produire la conformité — et signale explicitement les points où les sources divergent ou manquent."
+   ],
+   [
+    "p",
+    "Méthode et sourcing. Chaque affirmation normative renvoie au texte officiel : Code de commerce, directive 2009/138/CE et directive (UE) 2025/2, normes IFRS publiées par l'IFRS Foundation, publications de l'EIOPA et de l'ACPR, documentation SAP. Les chiffres qui circulent abondamment sur ce sujet — coûts moyens de projet, gains de délai de clôture, taux d'automatisation, parts de marché — proviennent presque tous de comparateurs commerciaux, d'études commanditées ou de cabinets de conseil en licences. Ils ne sont pas repris comme des faits. Quand un ordre de grandeur est utile, il est présenté comme tel, avec l'origine de la source et la réserve qui s'impose. Cette discipline a un coût : le lecteur trouvera moins de chiffres frappants que dans une brochure. Elle a une contrepartie : ce qui est écrit ici peut être opposé en comité d'investissement."
+   ],
+   [
+    "p",
+    "Convention de lecture. L'ouvrage désigne par ERP le progiciel de gestion intégré, sigle anglais universellement employé en français professionnel. Il distingue systématiquement SAP ECC, le cœur applicatif de SAP ERP 6.0 utilisé par la plupart des installations historiques, et S/4HANA, produit distinct commercialisé depuis 2015. HANA désigne la base de données ; S/4HANA l'ERP qui l'utilise. Le terme édition renvoie aux trois formes de S/4HANA — on-premise, Cloud Private Edition, Cloud Public Edition — et jamais à une version. Le terme version renvoie au millésime logiciel. FI désigne la comptabilité financière au sens de SAP, CO le contrôle de gestion. Cette convention est rappelée en tête de chaque partie, afin que chacune se lise séparément."
+   ],
+   [
+    "p",
+    "L'ouvrage suit un mouvement simple : comprendre l'objet, comprendre ce qu'il fait de la comptabilité, comprendre ce qu'on achète, peser les apports contre les coûts, choisir une trajectoire, traiter les spécificités de l'assurance, conduire le programme. L'économie d'abord, la technique ensuite, les contrôles en fermeture."
+   ]
+  ]
  }
 }

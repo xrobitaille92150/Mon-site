@@ -5,7 +5,20 @@
 import os, sys, json, re, html, math
 sys.path.insert(0, os.path.dirname(__file__))
 from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE, navlinks_html
-from publications_data import UI, BOOKS, SHOP
+from publications_data import UI, BOOKS, SHOP, IMPRINT_OF
+
+
+def books_for(lang):
+    """Le catalogue de chaque langue.
+
+    Un ouvrage appartient a une seule marque d'edition, donc a une seule
+    langue : le catalogue anglais n'est pas une traduction du francais.
+    Presenter un traite de normes francaises a un lecteur anglophone n'a
+    pas de sens, et inversement.
+    """
+    want = 'press' if lang == 'en' else 'editions'
+    return [(s, b) for s, b in BOOKS.items()
+            if IMPRINT_OF.get(s, 'editions') == want]
 
 TOC = json.load(open(os.path.join(os.path.dirname(__file__), 'books_toc.json'), encoding='utf-8'))
 
@@ -107,8 +120,15 @@ body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
 
 def esc(s): return html.escape(s, quote=False)
 
-def cover_svg(b):
-    """Couverture fictive aux couleurs de la charte (inline SVG, polices du document)."""
+IMPRINT_LABEL = {'editions': '&#201;DITIONS ACTUARIUS', 'press': 'ACTUARIUS PRESS'}
+
+
+def cover_svg(b, slug=None):
+    """Couverture fictive aux couleurs de la charte (inline SVG, polices du document).
+
+    La signature de bas de couverture porte la marque d'edition de l'ouvrage :
+    un livre anglais ne porte jamais « EDITIONS », et inversement.
+    """
     serif = "'EB Garamond',Georgia,serif"; sans = "'Inter',Arial,sans-serif"
     y = 62; parts = []
     parts.append('<svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="%s" preserveAspectRatio="xMidYMid meet">' % esc(b['name']))
@@ -131,7 +151,8 @@ def cover_svg(b):
     for line in b['ref']:
         parts.append('<text x="200" y="%d" text-anchor="middle" font-family="%s" font-size="9" fill="#C79A3B">%s</text>' % (ry, sans, esc(line))); ry += 14
     parts.append('<text x="200" y="516" text-anchor="middle" font-family="%s" font-size="12.5" letter-spacing="2.5" fill="#FFFFFF">XAVIER ROBITAILLE</text>' % sans)
-    parts.append('<text x="200" y="542" text-anchor="middle" font-family="%s" font-size="9" letter-spacing="2.2" fill="#C79A3B">&#201;DITIONS ACTUARIUS</text>' % sans)
+    imprint = IMPRINT_LABEL[IMPRINT_OF.get(slug, 'editions')]
+    parts.append('<text x="200" y="542" text-anchor="middle" font-family="%s" font-size="9" letter-spacing="2.2" fill="#C79A3B">%s</text>' % (sans, imprint))
     parts.append('</svg>')
     return ''.join(parts)
 
@@ -147,15 +168,17 @@ def toc_entries(src, ui):
         if s == 'Titre6':
             started = True
             out.append(('h', t.capitalize() if t.isupper() else t))
-            if t.upper().startswith('ANNEXE'): annexes_started = True
+            if re.match(r'ANNEXE?S?\b|APPENDI(X|CES)\b', t, re.I): annexes_started = True
         elif s == 'NumroPartie':
-            if t.upper().startswith('PARTIE'): started = True; pending_part = t
+            # « PARTIE » (FR) ou « PART » (EN) — les deux marques coexistent.
+            if re.match(r'PART(IE)?\b', t, re.I): started = True; pending_part = t
         elif s == 'Titre1' and started and pending_part:
             out.append(('part', pending_part + ' — ' + t)); pending_part = None
         elif s == 'NumroChapitre':
             m_num = re.search(r'(\d+)', t)
-            m_ax = re.fullmatch(r'ANNEXE\s+([A-Z])', t, re.I)
-            if m_ax: pending_ax = 'Annexe ' + m_ax.group(1) + ' — '
+            m_ax = re.fullmatch(r'(?:ANNEXE|APPENDIX)\s+([A-Z])', t, re.I)
+            if m_ax: pending_ax = ('Appendix ' if t.upper().startswith('APPENDIX')
+                                   else 'Annexe ') + m_ax.group(1) + ' — '
             elif m_num: prefix = m_num.group(1) + '. '
             else: prefix = t.capitalize().replace('Synthese', 'Synthèse') + ' — '
         elif s == 'Titre2' and started:
@@ -245,22 +268,23 @@ def index_page(lang):
                      "author": {"@type": "Person", "name": "Xavier Robitaille"}}, ensure_ascii=False)
     ex_links = ' &middot; '.join(
         f'<a href="{"/publications/" if lang=="en" else "/fr/publications/"}{slug}/">{esc(b["name"])}</a>'
-        for slug, b in BOOKS.items())
+        for slug, b in books_for(lang))
     cards = ''
-    for slug, b in BOOKS.items():
+    for slug, b in books_for(lang):
         href = (f"/publications/{slug}/" if lang == 'en' else f"/fr/publications/{slug}/")
         desc = b['en_desc'] if lang == 'en' else b['fr_desc']
         buy = buy_buttons(slug, ui, compact=True)
         cards += f"""<div class="bookcard">
   <a class="bookcard-link" href="{href}">
-    <div class="coverwrap">{cover_svg(b)}<span class="release-badge">{ui['release']}</span></div>
+    <div class="coverwrap">{cover_svg(b, slug)}<span class="release-badge">{ui['release']}</span></div>
     <h3>{esc(b['name'])}</h3>
     <p>{esc(desc)}</p>
     <span class="view">{ui['view']}</span>
   </a>
   {buy}
 </div>\n"""
-    lemon = LEMON_JS if any(shop_of(sl) and SHOP[sl].get('ls') for sl in BOOKS) else ''
+    lemon = LEMON_JS if any(shop_of(sl) and SHOP[sl].get('ls')
+                            for sl, _ in books_for(lang)) else ''
     return f"""{head(ui['title'], ui['desc'], url_self, url_en, url_fr, lang, ld, extra_head=lemon)}
 <body>
 {nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
@@ -333,7 +357,7 @@ def preview_page(slug, b, lang):
     folio = [0]
 
     # 1. Couverture
-    pages.append(f'<div class="fb-page fb-cover" data-density="hard">{cover_svg(b)}</div>'); folio[0] += 1
+    pages.append(f'<div class="fb-page fb-cover" data-density="hard">{cover_svg(b, slug)}</div>'); folio[0] += 1
     # 2. Page de titre
     tp = ['<div class="fb-inner"><div class="fb-title">',
           '<div><div class="st-coll">' + '<br>'.join(esc(x) for x in b['collection']) + '</div><div class="st-rule"></div></div>',
@@ -341,12 +365,17 @@ def preview_page(slug, b, lang):
     if b['t2']: tp.append('<div class="st-t2">' + '<br>'.join(esc(x) for x in b['t2']) + '</div>')
     if b['sub']: tp.append('<div class="st-sub">' + '<br>'.join(esc(x) for x in b['sub']) + '</div>')
     tp.append('<div class="st-ref">' + '<br>'.join(esc(x) for x in b['ref']) + '</div></div>')
-    tp.append('<div><div class="st-author">Xavier Robitaille</div><div class="st-site">Éditions Actuarius</div></div>')
+    imprint_name = ('Actuarius Press' if IMPRINT_OF.get(slug) == 'press'
+                    else 'Éditions Actuarius')
+    tp.append('<div><div class="st-author">Xavier Robitaille</div><div class="st-site">' + imprint_name + '</div></div>')
     tp.append('</div></div>')
     folio[0] += 1
     pages.append(f'<div class="fb-page">{"".join(tp)}<span class="fb-folio">{folio[0]}</span></div>')
     # 3+. Table des matières
-    entries = toc_entries(b['src'], UI['fr'])
+    # La TdM suit la langue de l'ouvrage, pas celle de la page qui l'affiche :
+    # l'intitule « Annexes / Appendices » doit rester celui du livre.
+    book_ui = UI['en'] if IMPRINT_OF.get(slug) == 'press' else UI['fr']
+    entries = toc_entries(b['src'], book_ui)
     for i, chunk in enumerate(paginate(entries, _toc_height, 40)):
         h = f'<div class="fb-h">{ui["toc_title"]}</div>' if i == 0 else ''
         folio[0] += 1
@@ -457,7 +486,7 @@ if __name__ == '__main__':
         base = 'publications' if lang == 'en' else 'fr/publications'
         os.makedirs(os.path.join(root, base), exist_ok=True)
         open(os.path.join(root, base, 'index.html'), 'w', encoding='utf-8').write(index_page(lang)); count += 1
-        for slug, b in BOOKS.items():
+        for slug, b in books_for(lang):
             d = os.path.join(root, base, slug)
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(preview_page(slug, b, lang)); count += 1

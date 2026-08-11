@@ -20,7 +20,7 @@ Les liens d'achat viennent du dict SHOP de publications_data.py.
 import os, sys, json, html
 
 sys.path.insert(0, os.path.dirname(__file__))
-from publications_data import UI, BOOKS, SHOP
+from publications_data import UI, BOOKS, SHOP, IMPRINT_OF
 from build_publications import cover_svg, buy_buttons, shop_of, LEMON_JS
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,7 +44,10 @@ BRANDS = {
     logo='editions-stacked-inverse.svg',
     og='og-editions.png',
     sister_url="https://www.actuariuspress.com",
-    sister_label="English — Actuarius Press",
+    sister_label="Books in English — Actuarius Press",
+    empty_t="Les premiers titres sont en préparation",
+    empty_b='Le catalogue s\'ouvrira ici. En attendant, nos ouvrages en anglais '
+            'paraissent chez <a href="https://www.actuariuspress.com">Actuarius Press</a>.',
     title="Éditions Actuarius — Traités techniques finance & assurance",
     desc="Éditions Actuarius publie des traités techniques de référence en "
          "finance et assurance : comptabilité des placements, prudentiel, "
@@ -71,7 +74,14 @@ BRANDS = {
     logo='press-stacked-inverse.svg',
     og='og-press.png',
     sister_url="https://www.editionsactuarius.com",
-    sister_label="Français — Éditions Actuarius",
+    sister_label="Livres en français — Éditions Actuarius",
+    empty_t="First titles in preparation",
+    empty_b='Actuarius Press is building an English-language list written from '
+            'practice. It is not a translation of the French catalogue: French '
+            'GAAP has little to say to an international readership, so these '
+            'books are written for it from the start. Our French titles are '
+            'published by <a href="https://www.editionsactuarius.com">Éditions '
+            'Actuarius</a>.',
     title="Actuarius Press — Technical books on finance & insurance",
     desc="Actuarius Press publishes reference technical books on finance and "
          "insurance: investment accounting, prudential rules, controls. "
@@ -191,14 +201,18 @@ def page(brand):
         "founder": {"@type": "Person", "name": "Xavier Robitaille"},
     }, ensure_ascii=False)
 
+    # Un ouvrage ne parait que sur le site de sa marque.
+    catalogue = [(s, b) for s, b in BOOKS.items()
+                 if IMPRINT_OF.get(s) == brand]
+
     cards = ''
-    for slug, bk in BOOKS.items():
+    for slug, bk in catalogue:
         desc = bk['en_desc'] if lang == 'en' else bk['fr_desc']
         preview = f"{MAIN}{b_['preview_path']}{slug}/"
         buy = buy_buttons(slug, ui) or \
             f'<span class="upcoming">{b_["upcoming"]}</span>'
         cards += f"""<div class="bk">
-  <div class="cw">{cover_svg(bk)}</div>
+  <div class="cw">{cover_svg(bk, slug)}</div>
   <h3>{esc(bk['name'])}</h3>
   <p>{esc(desc)}</p>
   <a class="extract" href="{preview}">{b_['extract']} &rarr;</a>
