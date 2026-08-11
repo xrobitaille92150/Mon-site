@@ -34,6 +34,11 @@ UI = {
     in_french="Book written in French.",
     hint="Click or drag a page corner to turn the pages — or use the arrows.",
     pg_prev="Previous page", pg_next="Next page",
+    buy_pdf="Buy the PDF",
+    buy_paper="Paperback",
+    buy_kindle="Kindle edition",
+    buy_note="Secure payment. Invoice and EU VAT handled at checkout. Immediate PDF delivery.",
+    preview_note_sale="End of preview. The complete book is available in PDF and paperback.",
  ),
  'fr': dict(
     title="Publications — Traités et livres blancs finance assurance | Xavier Advisory",
@@ -66,6 +71,11 @@ UI = {
     in_french="",
     hint="Cliquez ou faites glisser le coin d'une page pour la tourner — ou utilisez les flèches.",
     pg_prev="Page précédente", pg_next="Page suivante",
+    buy_pdf="Acheter le PDF",
+    buy_paper="Version papier",
+    buy_kindle="Édition Kindle",
+    buy_note="Paiement sécurisé. Facture et TVA UE gérées au paiement. PDF livré immédiatement.",
+    preview_note_sale="Fin de l'aperçu. L'ouvrage complet est disponible en PDF et en version papier.",
  ),
 }
 
@@ -115,4 +125,25 @@ BOOKS = {
     fr_desc="Les couvertures de l'assureur : instruments et cadre juridique, stratégies, comptabilité en normes françaises et IFRS, Solvabilité II, gestion et contrôles. Avec dossiers comptables chiffrés.",
     en_desc="Insurers' hedging operations: instruments and legal framework, strategies, French GAAP and IFRS accounting, Solvency II, management and controls. With worked accounting cases.",
  ),
+}
+
+# ── Boutique ────────────────────────────────────────────────────────────────
+# Un bouton n'apparaît sur le site QUE si son URL est renseignée ci-dessous.
+# Tant qu'un livre n'a aucune URL, la page conserve le formulaire
+# « être prévenu de la parution ». Aucun lien cassé possible.
+#
+#   price  : prix TTC affiché pour le PDF, ex. "89 €" (affiché seulement si
+#            au moins une URL est renseignée)
+#   ls     : URL de checkout Lemon Squeezy du PDF
+#            (Store → Products → Share → Checkout link,
+#             ex. https://xavieradvisory.lemonsqueezy.com/buy/xxxxxxxx)
+#            L'overlay lemon.js s'active automatiquement : l'acheteur paie
+#            sans quitter le site.
+#   paper  : URL de la fiche produit papier (Amazon KDP / BoD)
+#   kindle : URL de l'édition Kindle / ePub
+SHOP = {
+ 'chantiers-2027-2028':     dict(price="", ls="", paper="", kindle=""),
+ 'operations-de-pension':   dict(price="", ls="", paper="", kindle=""),
+ 'gestion-obligataire':     dict(price="", ls="", paper="", kindle=""),
+ 'operations-de-couverture': dict(price="", ls="", paper="", kindle=""),
 }

@@ -5,11 +5,35 @@
 import os, sys, json, re, html, math
 sys.path.insert(0, os.path.dirname(__file__))
 from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE, navlinks_html
-from publications_data import UI, BOOKS
+from publications_data import UI, BOOKS, SHOP
 
 TOC = json.load(open(os.path.join(os.path.dirname(__file__), 'books_toc.json'), encoding='utf-8'))
 
 FLIP_JS_CDN = "https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
+LEMON_JS = '\n<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>'
+
+# Monogramme Actuarius (compas + arc), variante inversée pour fonds marine.
+ACT_MARK = open(os.path.join(os.path.dirname(__file__), '..', 'brand_assets', 'actuarius-mark.svg'), encoding='utf-8').read()
+ACT_MARK_INV = ACT_MARK.replace('#0B1530', '#F5F2EB')
+
+def shop_of(slug):
+    sh = SHOP.get(slug) or {}
+    return sh if any(sh.get(k) for k in ('ls', 'paper', 'kindle')) else None
+
+def buy_buttons(slug, ui, compact=False):
+    """Rangée de boutons d'achat. Vide si aucune URL renseignée dans SHOP."""
+    sh = shop_of(slug)
+    if not sh: return ''
+    btns = []
+    if sh.get('ls'):
+        price = f' <span class="buy-price">{esc(sh["price"])}</span>' if sh.get('price') else ''
+        btns.append(f'<a class="btn-gold lemonsqueezy-button" href="{sh["ls"]}">{ui["buy_pdf"]}{price}</a>')
+    if sh.get('paper'):
+        btns.append(f'<a class="btn-buy2" href="{sh["paper"]}" target="_blank" rel="noopener">{ui["buy_paper"]}</a>')
+    if sh.get('kindle'):
+        btns.append(f'<a class="btn-buy2" href="{sh["kindle"]}" target="_blank" rel="noopener">{ui["buy_kindle"]}</a>')
+    note = '' if compact else f'<p class="buy-note">{ui["buy_note"]}</p>'
+    return f'<div class="buy-row">{"".join(btns)}</div>{note}'
 
 PUB_CSS = """
 .pub-section{padding:3.6rem 0}
@@ -68,6 +92,17 @@ body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
 .notify-mail{padding:.8rem 1rem;border:1px solid rgba(11,21,48,.3);border-radius:3px;min-width:270px;font-family:'Inter',Arial,sans-serif;font-size:.9rem;color:var(--text);background:#fff}
 .notify-mail:focus-visible{outline:2px solid var(--gold)}
 @media(max-width:480px){.fb-btn{width:36px;height:36px}}
+/* ── Boutique ── */
+.buy-row{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;justify-content:center}
+.buy-price{font-weight:800;margin-left:.45rem;letter-spacing:0}
+.btn-buy2{display:inline-block;background:transparent;color:var(--primary);text-decoration:none;padding:.82rem 1.6rem;border:1.5px solid var(--primary);border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s,background .2s,color .2s}
+.btn-buy2:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.btn-buy2:focus-visible,.buy-row .btn-gold:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.buy-note{text-align:center;font-size:.78rem;color:var(--gray);margin-top:.8rem}
+.bookcard .buy-row{justify-content:flex-start;margin-top:.2rem;gap:.6rem}
+.bookcard .btn-gold{padding:.65rem 1.2rem;font-size:.72rem}
+.bookcard .btn-buy2{padding:.6rem 1.1rem;font-size:.72rem}
+.bookcard-link{display:flex;flex-direction:column;gap:1rem;text-decoration:none;color:inherit;flex:1}
 """
 
 def esc(s): return html.escape(s, quote=False)
@@ -96,7 +131,7 @@ def cover_svg(b):
     for line in b['ref']:
         parts.append('<text x="200" y="%d" text-anchor="middle" font-family="%s" font-size="9" fill="#C79A3B">%s</text>' % (ry, sans, esc(line))); ry += 14
     parts.append('<text x="200" y="516" text-anchor="middle" font-family="%s" font-size="12.5" letter-spacing="2.5" fill="#FFFFFF">XAVIER ROBITAILLE</text>' % sans)
-    parts.append('<text x="200" y="542" text-anchor="middle" font-family="%s" font-size="9" fill="#C7CCD6">www.myxavier.fr</text>' % sans)
+    parts.append('<text x="200" y="542" text-anchor="middle" font-family="%s" font-size="9" letter-spacing="2.2" fill="#C79A3B">&#201;DITIONS ACTUARIUS</text>' % sans)
     parts.append('</svg>')
     return ''.join(parts)
 
@@ -215,13 +250,18 @@ def index_page(lang):
     for slug, b in BOOKS.items():
         href = (f"/publications/{slug}/" if lang == 'en' else f"/fr/publications/{slug}/")
         desc = b['en_desc'] if lang == 'en' else b['fr_desc']
-        cards += f"""<a class="bookcard" href="{href}">
-  <div class="coverwrap">{cover_svg(b)}<span class="release-badge">{ui['release']}</span></div>
-  <h3>{esc(b['name'])}</h3>
-  <p>{esc(desc)}</p>
-  <span class="view">{ui['view']}</span>
-</a>\n"""
-    return f"""{head(ui['title'], ui['desc'], url_self, url_en, url_fr, lang, ld)}
+        buy = buy_buttons(slug, ui, compact=True)
+        cards += f"""<div class="bookcard">
+  <a class="bookcard-link" href="{href}">
+    <div class="coverwrap">{cover_svg(b)}<span class="release-badge">{ui['release']}</span></div>
+    <h3>{esc(b['name'])}</h3>
+    <p>{esc(desc)}</p>
+    <span class="view">{ui['view']}</span>
+  </a>
+  {buy}
+</div>\n"""
+    lemon = LEMON_JS if any(shop_of(sl) and SHOP[sl].get('ls') for sl in BOOKS) else ''
+    return f"""{head(ui['title'], ui['desc'], url_self, url_en, url_fr, lang, ld, extra_head=lemon)}
 <body>
 {nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
 <header class="hero"><div class="wrap">
@@ -274,11 +314,20 @@ def preview_page(slug, b, lang):
     url_other = url_fr if lang == 'en' else url_en
     desc = (b['en_desc'] if lang == 'en' else b['fr_desc'])
     title = esc(b['name']) + (" — Preview | Xavier Advisory" if lang == 'en' else " — Aperçu | Xavier Advisory")
-    ld = json.dumps({"@context": "https://schema.org", "@type": "Book",
-                     "name": b['name'], "author": {"@type": "Person", "name": "Xavier Robitaille"},
-                     "inLanguage": "fr", "datePublished": "2026-08",
-                     "publisher": {"@type": "Organization", "name": "Xavier Advisory"},
-                     "url": url_self, "description": desc}, ensure_ascii=False)
+    ld_obj = {"@context": "https://schema.org", "@type": "Book",
+              "name": b['name'], "author": {"@type": "Person", "name": "Xavier Robitaille"},
+              "inLanguage": "fr", "datePublished": "2026-08",
+              "publisher": {"@type": "Organization", "name": "Xavier Advisory"},
+              "url": url_self, "description": desc}
+    sh = shop_of(slug)
+    if sh and sh.get('ls'):
+        m = re.match(r'([\d.,]+)', sh.get('price', ''))
+        offer = {"@type": "Offer", "url": sh['ls'], "availability": "https://schema.org/InStock",
+                 "priceCurrency": "EUR"}
+        if m: offer["price"] = m.group(1).replace(',', '.')
+        ld_obj["bookFormat"] = "https://schema.org/EBook"
+        ld_obj["offers"] = offer
+    ld = json.dumps(ld_obj, ensure_ascii=False)
 
     pages = []
     folio = [0]
@@ -292,7 +341,7 @@ def preview_page(slug, b, lang):
     if b['t2']: tp.append('<div class="st-t2">' + '<br>'.join(esc(x) for x in b['t2']) + '</div>')
     if b['sub']: tp.append('<div class="st-sub">' + '<br>'.join(esc(x) for x in b['sub']) + '</div>')
     tp.append('<div class="st-ref">' + '<br>'.join(esc(x) for x in b['ref']) + '</div></div>')
-    tp.append('<div><div class="st-author">Xavier Robitaille</div><div class="st-site">www.myxavier.fr</div></div>')
+    tp.append('<div><div class="st-author">Xavier Robitaille</div><div class="st-site">Éditions Actuarius</div></div>')
     tp.append('</div></div>')
     folio[0] += 1
     pages.append(f'<div class="fb-page">{"".join(tp)}<span class="fb-folio">{folio[0]}</span></div>')
@@ -309,11 +358,13 @@ def preview_page(slug, b, lang):
         folio[0] += 1
         pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_intro_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
     # Dernière page
+    on_sale = shop_of(slug) is not None
+    end_note = ui['preview_note_sale'] if on_sale else ui['preview_note']
     pages.append(f'''<div class="fb-page fb-end" data-density="hard"><div class="fb-inner">
       <div class="e3">{ui['release']}</div>
       <div class="e1">{esc(b['name'])}</div>
-      <div class="e2">{ui['preview_note']}</div>
-      <div style="width:120px">{MARK.replace('var(--gold)', '#C79A3B')}</div>
+      <div class="e2">{end_note}</div>
+      <div style="width:96px">{ACT_MARK_INV}</div>
     </div></div>''')
 
     lang_note = f'<p class="preview-note">{ui["in_french"]}</p>' if ui['in_french'] else ''
@@ -345,7 +396,8 @@ def preview_page(slug, b, lang):
   }} catch (e) {{ /* les pages restent affichées empilées */ }}
 }})();
 </script>"""
-    return f"""{head(title, esc(desc), url_self, url_en, url_fr, lang, ld)}
+    lemon = LEMON_JS if (sh and sh.get('ls')) else ''
+    return f"""{head(title, esc(desc), url_self, url_en, url_fr, lang, ld, extra_head=lemon)}
 <body>
 {nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
 <header class="hero"><div class="wrap">
@@ -366,13 +418,13 @@ def preview_page(slug, b, lang):
     <p class="fb-hint">{ui['hint']}</p>
   </div>
   <div class="preview-actions">
-    <form class="notify-form" name="notify-parution" method="POST" action="{'/publications/thank-you/' if lang=='en' else '/fr/publications/merci/'}" data-netlify="true" netlify-honeypot="bot-field">
+    {buy_buttons(slug, ui) if on_sale else f'''<form class="notify-form" name="notify-parution" method="POST" action="{'/publications/thank-you/' if lang == 'en' else '/fr/publications/merci/'}" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="notify-parution">
       <input type="hidden" name="livre" value="{esc(b['name'])}">
       <p style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
       <input class="notify-mail" type="email" name="email" required placeholder="{ui['mail_ph']}" aria-label="Email">
       <button class="btn-gold" type="submit">{ui['notify']}</button>
-    </form>
+    </form>'''}
   </div>
 </div></section>
 {flip_js}
