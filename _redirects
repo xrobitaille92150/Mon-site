@@ -3,6 +3,15 @@ https://www.xavier-robitaille.fr/* https://www.myxavier.finance/:splat 301!
 http://xavier-robitaille.fr/* https://www.myxavier.finance/:splat 301!
 http://www.xavier-robitaille.fr/* https://www.myxavier.finance/:splat 301!
 
+# Ouvrages français : leurs pages anglaises ont été retirées le 11/08/2026.
+# Le catalogue anglais n'est plus une traduction du français — un traité de
+# normes françaises n'a pas de lectorat anglophone. Redirection vers la
+# version française plutôt qu'un 404 : ces URL sont indexées.
+/publications/chantiers-2027-2028/*      /fr/publications/chantiers-2027-2028/ 301!
+/publications/operations-de-pension/*    /fr/publications/operations-de-pension/ 301!
+/publications/gestion-obligataire/*      /fr/publications/gestion-obligataire/ 301!
+/publications/operations-de-couverture/* /fr/publications/operations-de-couverture/ 301!
+
 # Documents internes — jamais servis en production
 /CLAUDE.md / 404!
 /README.md / 404!
