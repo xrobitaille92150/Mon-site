@@ -8,6 +8,18 @@ from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE, navlinks_html
 from publications_data import UI, BOOKS, SHOP, IMPRINT_OF
 
 
+# Domaine de chaque marque : les apercus « premieres pages » vivent desormais
+# chez l'editeur, pas sur le site de conseil. Le site principal garde la
+# vitrine et renvoie a la boutique.
+IMPRINT_BASE = {'editions': 'https://www.editionsactuarius.com',
+                'press': 'https://www.actuariuspress.com'}
+
+
+def shop_url(slug):
+    """L'URL de l'apercu d'un ouvrage, sur le site de sa marque."""
+    return f"{IMPRINT_BASE[IMPRINT_OF.get(slug, 'editions')]}/{slug}/"
+
+
 def books_for(lang):
     """Le catalogue de chaque langue.
 
@@ -23,6 +35,35 @@ def books_for(lang):
 TOC = json.load(open(os.path.join(os.path.dirname(__file__), 'books_toc.json'), encoding='utf-8'))
 
 FLIP_JS_CDN = "https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"
+FLIP_JS = f"""
+<script src="{FLIP_JS_CDN}"></script>
+<script>
+(function() {{
+  var el = document.getElementById('flipbook');
+  if (!el || typeof St === 'undefined') return;
+  try {{
+    var pf = new St.PageFlip(el, {{
+      width: 400, height: 580, size: 'stretch',
+      minWidth: 280, maxWidth: 460, minHeight: 406, maxHeight: 667,
+      showCover: true, maxShadowOpacity: 0.4, mobileScrollSupport: false, flippingTime: 800
+    }});
+    pf.loadFromHTML(document.querySelectorAll('.fb-page'));
+    document.body.classList.add('flip-on');
+    var total = pf.getPageCount();
+    var count = document.getElementById('fb-count');
+    function upd() {{ count.textContent = (pf.getCurrentPageIndex() + 1) + ' / ' + total; }}
+    upd();
+    pf.on('flip', function() {{ setTimeout(upd, 50); }});
+    document.getElementById('fb-prev').addEventListener('click', function() {{ pf.flipPrev(); }});
+    document.getElementById('fb-next').addEventListener('click', function() {{ pf.flipNext(); }});
+    document.addEventListener('keydown', function(e) {{
+      if (e.key === 'ArrowLeft') pf.flipPrev();
+      if (e.key === 'ArrowRight') pf.flipNext();
+    }});
+  }} catch (e) {{ /* les pages restent affichées empilées */ }}
+}})();
+</script>"""
+
 LEMON_JS = '\n<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>'
 
 # Monogramme Actuarius (compas + arc), variante inversée pour fonds marine.
@@ -267,11 +308,11 @@ def index_page(lang):
                      "name": "Publications", "url": url_self,
                      "author": {"@type": "Person", "name": "Xavier Robitaille"}}, ensure_ascii=False)
     ex_links = ' &middot; '.join(
-        f'<a href="{"/publications/" if lang=="en" else "/fr/publications/"}{slug}/">{esc(b["name"])}</a>'
+        f'<a href="{shop_url(slug)}">{esc(b["name"])}</a>'
         for slug, b in books_for(lang))
     cards = ''
     for slug, b in books_for(lang):
-        href = (f"/publications/{slug}/" if lang == 'en' else f"/fr/publications/{slug}/")
+        href = shop_url(slug)
         desc = b['en_desc'] if lang == 'en' else b['fr_desc']
         buy = buy_buttons(slug, ui, compact=True)
         cards += f"""<div class="bookcard">
@@ -331,6 +372,57 @@ def _render_intro_rows(chunk):
         else: rows.append(f'<p class="fb-p">{t}</p>')
     return ''.join(rows)
 
+def flipbook_pages(slug, b, ui):
+    """Les pages du livre feuilletable : couverture, page de titre, TdM, intro.
+
+    Factorise pour que le site principal et les sites de la maison d'edition
+    servent exactement le meme apercu, sans dupliquer la pagination.
+    """
+    pages, folio = [], [0]
+
+    # 1. Couverture
+    pages.append(f'<div class="fb-page fb-cover" data-density="hard">{cover_svg(b, slug)}</div>')
+    folio[0] += 1
+
+    # 2. Page de titre
+    tp = ['<div class="fb-inner"><div class="fb-title">',
+          '<div><div class="st-coll">' + '<br>'.join(esc(x) for x in b['collection']) + '</div><div class="st-rule"></div></div>',
+          '<div><div class="st-t1">' + '<br>'.join(esc(x) for x in b['t1']) + '</div>']
+    if b['t2']: tp.append('<div class="st-t2">' + '<br>'.join(esc(x) for x in b['t2']) + '</div>')
+    if b['sub']: tp.append('<div class="st-sub">' + '<br>'.join(esc(x) for x in b['sub']) + '</div>')
+    tp.append('<div class="st-ref">' + '<br>'.join(esc(x) for x in b['ref']) + '</div></div>')
+    imprint_name = ('Actuarius Press' if IMPRINT_OF.get(slug) == 'press'
+                    else 'Éditions Actuarius')
+    tp.append('<div><div class="st-author">Xavier Robitaille</div><div class="st-site">' + imprint_name + '</div></div>')
+    tp.append('</div></div>')
+    folio[0] += 1
+    pages.append(f'<div class="fb-page">{"".join(tp)}<span class="fb-folio">{folio[0]}</span></div>')
+
+    # 3+. Table des matieres. Elle suit la langue de l'ouvrage, pas celle de la
+    # page qui l'affiche : « Annexes / Appendices » reste l'intitule du livre.
+    book_ui = UI['en'] if IMPRINT_OF.get(slug) == 'press' else UI['fr']
+    for i, chunk in enumerate(paginate(toc_entries(b['src'], book_ui), _toc_height, 40)):
+        h = f'<div class="fb-h">{ui["toc_title"]}</div>' if i == 0 else ''
+        folio[0] += 1
+        pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_toc_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
+
+    # Introduction
+    for i, chunk in enumerate(paginate(TOC[b['src']].get('intro') or [], _intro_height, 44)):
+        h = '<div class="fb-h">Introduction</div>' if i == 0 else ''
+        folio[0] += 1
+        pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_intro_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
+
+    # Derniere page
+    end_note = ui['preview_note_sale'] if shop_of(slug) else ui['preview_note']
+    pages.append(f'''<div class="fb-page fb-end" data-density="hard"><div class="fb-inner">
+      <div class="e3">{ui['release']}</div>
+      <div class="e1">{esc(b['name'])}</div>
+      <div class="e2">{end_note}</div>
+      <div style="width:96px">{ACT_MARK_INV}</div>
+    </div></div>''')
+    return pages
+
+
 def preview_page(slug, b, lang):
     s, ui = STR[lang], UI[lang]
     url_en, url_fr = book_url(slug, 'en'), book_url(slug, 'fr')
@@ -353,78 +445,10 @@ def preview_page(slug, b, lang):
         ld_obj["offers"] = offer
     ld = json.dumps(ld_obj, ensure_ascii=False)
 
-    pages = []
-    folio = [0]
-
-    # 1. Couverture
-    pages.append(f'<div class="fb-page fb-cover" data-density="hard">{cover_svg(b, slug)}</div>'); folio[0] += 1
-    # 2. Page de titre
-    tp = ['<div class="fb-inner"><div class="fb-title">',
-          '<div><div class="st-coll">' + '<br>'.join(esc(x) for x in b['collection']) + '</div><div class="st-rule"></div></div>',
-          '<div><div class="st-t1">' + '<br>'.join(esc(x) for x in b['t1']) + '</div>']
-    if b['t2']: tp.append('<div class="st-t2">' + '<br>'.join(esc(x) for x in b['t2']) + '</div>')
-    if b['sub']: tp.append('<div class="st-sub">' + '<br>'.join(esc(x) for x in b['sub']) + '</div>')
-    tp.append('<div class="st-ref">' + '<br>'.join(esc(x) for x in b['ref']) + '</div></div>')
-    imprint_name = ('Actuarius Press' if IMPRINT_OF.get(slug) == 'press'
-                    else 'Éditions Actuarius')
-    tp.append('<div><div class="st-author">Xavier Robitaille</div><div class="st-site">' + imprint_name + '</div></div>')
-    tp.append('</div></div>')
-    folio[0] += 1
-    pages.append(f'<div class="fb-page">{"".join(tp)}<span class="fb-folio">{folio[0]}</span></div>')
-    # 3+. Table des matières
-    # La TdM suit la langue de l'ouvrage, pas celle de la page qui l'affiche :
-    # l'intitule « Annexes / Appendices » doit rester celui du livre.
-    book_ui = UI['en'] if IMPRINT_OF.get(slug) == 'press' else UI['fr']
-    entries = toc_entries(b['src'], book_ui)
-    for i, chunk in enumerate(paginate(entries, _toc_height, 40)):
-        h = f'<div class="fb-h">{ui["toc_title"]}</div>' if i == 0 else ''
-        folio[0] += 1
-        pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_toc_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
-    # Introduction
-    intro = TOC[b['src']].get('intro') or []
-    for i, chunk in enumerate(paginate(intro, _intro_height, 44)):
-        h = f'<div class="fb-h">Introduction</div>' if i == 0 else ''
-        folio[0] += 1
-        pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_intro_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
-    # Dernière page
+    pages = flipbook_pages(slug, b, ui)
     on_sale = shop_of(slug) is not None
-    end_note = ui['preview_note_sale'] if on_sale else ui['preview_note']
-    pages.append(f'''<div class="fb-page fb-end" data-density="hard"><div class="fb-inner">
-      <div class="e3">{ui['release']}</div>
-      <div class="e1">{esc(b['name'])}</div>
-      <div class="e2">{end_note}</div>
-      <div style="width:96px">{ACT_MARK_INV}</div>
-    </div></div>''')
-
     lang_note = f'<p class="preview-note">{ui["in_french"]}</p>' if ui['in_french'] else ''
-    flip_js = f"""
-<script src="{FLIP_JS_CDN}"></script>
-<script>
-(function() {{
-  var el = document.getElementById('flipbook');
-  if (!el || typeof St === 'undefined') return;
-  try {{
-    var pf = new St.PageFlip(el, {{
-      width: 400, height: 580, size: 'stretch',
-      minWidth: 280, maxWidth: 460, minHeight: 406, maxHeight: 667,
-      showCover: true, maxShadowOpacity: 0.4, mobileScrollSupport: false, flippingTime: 800
-    }});
-    pf.loadFromHTML(document.querySelectorAll('.fb-page'));
-    document.body.classList.add('flip-on');
-    var total = pf.getPageCount();
-    var count = document.getElementById('fb-count');
-    function upd() {{ count.textContent = (pf.getCurrentPageIndex() + 1) + ' / ' + total; }}
-    upd();
-    pf.on('flip', function() {{ setTimeout(upd, 50); }});
-    document.getElementById('fb-prev').addEventListener('click', function() {{ pf.flipPrev(); }});
-    document.getElementById('fb-next').addEventListener('click', function() {{ pf.flipNext(); }});
-    document.addEventListener('keydown', function(e) {{
-      if (e.key === 'ArrowLeft') pf.flipPrev();
-      if (e.key === 'ArrowRight') pf.flipNext();
-    }});
-  }} catch (e) {{ /* les pages restent affichées empilées */ }}
-}})();
-</script>"""
+    flip_js = FLIP_JS
     lemon = LEMON_JS if (sh and sh.get('ls')) else ''
     return f"""{head(title, esc(desc), url_self, url_en, url_fr, lang, ld, extra_head=lemon)}
 <body>
@@ -486,10 +510,10 @@ if __name__ == '__main__':
         base = 'publications' if lang == 'en' else 'fr/publications'
         os.makedirs(os.path.join(root, base), exist_ok=True)
         open(os.path.join(root, base, 'index.html'), 'w', encoding='utf-8').write(index_page(lang)); count += 1
-        for slug, b in books_for(lang):
-            d = os.path.join(root, base, slug)
-            os.makedirs(d, exist_ok=True)
-            open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(preview_page(slug, b, lang)); count += 1
+        # Les apercus « premieres pages » ne sont plus generes ici : ils vivent
+        # sur editionsactuarius.com et actuariuspress.com, sous leur marque.
+        # build_actuarius.py les produit. preview_page() reste disponible pour
+        # un rendu local ponctuel.
         seg = 'thank-you' if lang == 'en' else 'merci'
         d = os.path.join(root, base, seg)
         os.makedirs(d, exist_ok=True)
