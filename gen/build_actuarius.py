@@ -56,9 +56,13 @@ BRANDS = {
     tagline="Parutions spécialisées dans les domaines de la Finance "
             "et de l'Assurance",
     intro="L'<em>actuarius</em> tenait les registres et les comptes de Rome. "
-          "Éditions Actuarius publie des traités écrits depuis la pratique : "
-          "comptabilité des placements, règles prudentielles et contrôles, "
-          "avec écritures complètes et dossiers chiffrés.",
+          "Éditions Actuarius publie des ouvrages basés sur l'expérience "
+          "pratique de leurs auteurs : gestion et comptabilité des placements, "
+          "comptabilité technique d'assurance, reportings prudentiels, contrôle "
+          "interne, projets d'implémentation… Ils incluent des schémas "
+          "comptables et des exemples chiffrés, des lexiques des termes "
+          "techniques et des acronymes spécifiques au secteur, ainsi que des "
+          "listes de contrôles directement applicables.",
     extract="Lire les premières pages",
     upcoming="Bientôt disponible ici",
     author_t="Nos auteurs",
@@ -92,9 +96,12 @@ BRANDS = {
          "PDF, paperback and Kindle.",
     tagline="Specialist publications in Finance and Insurance",
     intro="The <em>actuarius</em> kept Rome's registers and accounts. "
-          "Actuarius Press publishes books written from practice: investment "
-          "accounting, prudential rules and controls, with full accounting "
-          "entries and worked cases.",
+          "Actuarius Press publishes books grounded in their authors' working "
+          "experience: investment management and accounting, insurance "
+          "technical accounting, prudential reporting, internal control, "
+          "implementation programmes… They include accounting schemes and "
+          "worked figures, glossaries of technical terms and sector acronyms, "
+          "and control checklists ready to apply.",
     extract="Read the first pages",
     upcoming="Coming soon to this shop",
     author_t="Our authors",
