@@ -49,10 +49,13 @@ BRANDS = {
     empty_t="Les premiers titres sont en préparation",
     empty_b='Le catalogue s\'ouvrira ici. En attendant, nos ouvrages en anglais '
             'paraissent chez <a href="https://www.actuariuspress.com">Actuarius Press</a>.',
-    title="Éditions Actuarius — Traités techniques finance & assurance",
-    desc="Éditions Actuarius publie des traités techniques de référence en "
-         "finance et assurance : comptabilité des placements, prudentiel, "
-         "contrôles. PDF, papier et Kindle.",
+    # Le nom d'abord : un onglet n'affiche que ~18 caracteres, le reste
+    # ne sert qu'aux resultats de recherche.
+    title="Éditions Actuarius — Finance et assurance",
+    desc="Éditions Actuarius publie des ouvrages de référence en finance et "
+         "assurance : gestion et comptabilité des placements, comptabilité "
+         "technique, reportings prudentiels, contrôle interne. PDF, papier "
+         "et Kindle.",
     tagline="Parutions spécialisées dans les domaines de la Finance "
             "et de l'Assurance",
     intro="L'<em>actuarius</em> tenait les registres et les comptes de Rome. "
@@ -90,7 +93,7 @@ BRANDS = {
             'books are written for it from the start. Our French titles are '
             'published by <a href="https://www.editionsactuarius.com">Éditions '
             'Actuarius</a>.',
-    title="Actuarius Press — Technical books on finance & insurance",
+    title="Actuarius Press — Finance and insurance",
     desc="Actuarius Press publishes reference technical books on finance and "
          "insurance: investment accounting, prudential rules, controls. "
          "PDF, paperback and Kindle.",
