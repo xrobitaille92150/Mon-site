@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
-from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE, navlinks_html
+from build_pages import (CSS, MARK, WORD, STR, NAV_LINKS, BASE,
+                         navlinks_html, legal_links)
 
 ART_CSS = """
 .byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
@@ -66,7 +67,7 @@ def cta_footer(s):
   <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">{s['cta_btn']}</a>
   <span class="alt">{s['cta_alt']}</span>
 </div></section>
-<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>{legal_links(s)}</span></div></footer>
 </body></html>"""
 
 def article_page(slug, lang, a):

@@ -95,6 +95,7 @@ footer{background:var(--act-deep-navy);color:#C7CCD6;padding:2rem 0;
        font-size:.8rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;
              flex-wrap:wrap;align-items:center}
+footer .wrap span{display:inline-flex;gap:1.1rem;flex-wrap:wrap}
 footer a{color:#C7CCD6}
 footer a:hover{color:var(--act-rich-gold)}
 @media(max-width:640px){.hero .logo{width:180px}
@@ -193,6 +194,18 @@ header.sub p.desc{max-width:720px;margin:1rem auto 0;font-size:.92rem;
              font-size:.9rem}
 .notify-mail:focus-visible{outline:2px solid var(--act-rich-gold);
                            outline-offset:1px}
+
+.legal{max-width:760px;margin:0 auto;padding:2.8rem 0 3.4rem}
+.legal h2{font-family:var(--act-font-display);font-size:1.3rem;
+          color:var(--act-deep-navy);margin:2rem 0 .6rem}
+.legal h2:first-child{margin-top:0}
+.legal p,.legal ul{line-height:1.75;margin-bottom:.9rem;font-size:.94rem}
+.legal ul{margin-left:1.2rem}
+.legal li{margin-bottom:.35rem}
+.legal .updated{font-size:.8rem;color:var(--gray);margin-top:2.2rem}
+.notify-rgpd{max-width:560px;margin:.9rem auto 0;font-size:.74rem;
+             line-height:1.6;color:var(--gray);text-align:center}
+.notify-rgpd a{color:var(--act-rich-gold)}
 </style>
 </head>
 <body>
@@ -238,7 +251,8 @@ header.sub p.desc{max-width:720px;margin:1rem auto 0;font-size:.92rem;
   <input class="notify-mail" type="email" name="email" required
          placeholder="Votre email professionnel" aria-label="Email">
   <button class="btn-gold" type="submit">Être prévenu de la parution</button>
-</form></div>
+</form>
+<p class="notify-rgpd">Votre email est utilisé par Expert Zone Finance Group (Éditions Actuarius) dans un seul but&nbsp;: vous prévenir de la parution de cet ouvrage. Il n'est ni partagé ni utilisé à d'autres fins, et il est supprimé après l'envoi. Vous pouvez retirer votre consentement à tout moment&nbsp;: <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a> &mdash; <a href="/confidentialite/">politique de confidentialité</a>.</p></div>
 </div></section>
 
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
@@ -270,6 +284,6 @@ header.sub p.desc{max-width:720px;margin:1rem auto 0;font-size:.92rem;
 </script>
 <footer><div class="wrap">
   <span>&copy; 2026 Éditions Actuarius</span>
-  <span><a href="mailto:welcome@myxavier.finance">Contact</a></span>
+  <span><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/cgv/">CGV</a><a href="mailto:welcome@myxavier.finance">Contact</a></span>
 </div></footer>
 </body></html>

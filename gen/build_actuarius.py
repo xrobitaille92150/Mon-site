@@ -23,6 +23,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from publications_data import UI, BOOKS, SHOP, IMPRINT_OF
 from build_publications import (cover_svg, buy_buttons, shop_of, LEMON_JS,
                                 flipbook_pages, PUB_CSS, FLIP_JS, esc as _esc)
+import actuarius_legal as AL
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(ROOT, 'brand_assets', 'actuarius')
@@ -195,6 +196,7 @@ footer{background:var(--act-deep-navy);color:#C7CCD6;padding:2rem 0;
        font-size:.8rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;
              flex-wrap:wrap;align-items:center}
+footer .wrap span{display:inline-flex;gap:1.1rem;flex-wrap:wrap}
 footer a{color:#C7CCD6}
 footer a:hover{color:var(--act-rich-gold)}
 @media(max-width:640px){.hero .logo{width:180px}
@@ -281,7 +283,7 @@ def page(brand):
 </div></section>
 <footer><div class="wrap">
   <span>&copy; 2026 {b_['name']}</span>
-  <span><a href="mailto:welcome@myxavier.finance">{b_['contact']}</a></span>
+  <span>{AL.footer_links(b_)}<a href="mailto:welcome@myxavier.finance">{b_['contact']}</a></span>
 </div></footer>
 </body></html>"""
 
@@ -292,7 +294,7 @@ def write_previews(brand, out):
     b_ = dict(BRANDS[brand])
     b_['logo_svg'] = asset(b_['logo'])
     ui = UI[b_['lang']]
-    css = f"<style>{CSS}{PUB_CSS}{AP.PREVIEW_CSS}</style>"
+    css = f"<style>{CSS}{PUB_CSS}{AP.PREVIEW_CSS}{AL.LEGAL_CSS}</style>"
     n = 0
     for slug, bk in BOOKS.items():
         if IMPRINT_OF.get(slug) != brand:
@@ -315,6 +317,46 @@ def write_previews(brand, out):
     return n
 
 
+def write_legal(brand, out):
+    """Mentions légales, politique de confidentialité et CGV de la marque.
+
+    Textes : actuarius_legal.py. Une page = un segment d'URL dans la
+    langue du site (/mentions-legales/ vs /legal/, etc.).
+    """
+    import actuarius_preview as AP
+    b_ = dict(BRANDS[brand])
+    b_['logo_svg'] = asset(b_['logo'])
+    css = f"<style>{CSS}{AL.LEGAL_CSS}</style>"
+    lang = b_['lang']
+    n = 0
+    for key in ('mentions', 'privacy', 'cgv'):
+        seg = AL.SEGS[lang][key]
+        h1 = AL.TITLES[lang][key]
+        title = f"{h1} — {b_['name']}"
+        url_self = f"{b_['base']}/{seg}/"
+        ld = json.dumps({"@context": "https://schema.org",
+                         "@type": "WebPage", "name": h1, "url": url_self},
+                        ensure_ascii=False)
+        html_ = f"""{AP.head(b_, title, h1, url_self, ld)}
+<body>
+<header class="sub"><div class="wrap">
+  <div class="logo"><a href="/">{b_['logo_svg']}</a></div>
+  <p class="crumb"><a href="/">&larr; {b_['back_shop']}</a></p>
+  <h1>{h1}</h1>
+</div></header>
+<section><div class="wrap"><div class="legal">{AL.BODIES[key](b_)}</div></div></section>
+{AP.footer(b_)}"""
+        html_ = html_.replace('</head>',
+                              '<meta name="robots" content="noindex, follow">'
+                              + css + '\n</head>')
+        d = os.path.join(out, seg)
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(html_)
+        n += 1
+    return n
+
+
 if __name__ == '__main__':
     import shutil
     for key, b_ in BRANDS.items():
@@ -323,11 +365,12 @@ if __name__ == '__main__':
         with open(os.path.join(out, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(page(key))
         n_prev = write_previews(key, out)
+        n_leg = write_legal(key, out)
         # Assets servis a la racine du domaine.
         shutil.copy(os.path.join(ASSETS, 'favicon.svg'), out)
         shutil.copy(os.path.join(ASSETS, 'favicon.ico'), out)
         shutil.copy(os.path.join(ASSETS, 'apple-touch-icon.png'), out)
         shutil.copy(os.path.join(ASSETS, b_['og']), os.path.join(out, 'og.png'))
         shutil.copy(os.path.join(ASSETS, b_['logo']), os.path.join(out, 'logo.svg'))
-        print("%-20s -> %s/  (%s)  %d apercu(s)"
-              % (b_['name'], b_['outdir'], b_['base'], n_prev))
+        print("%-20s -> %s/  (%s)  %d apercu(s), %d page(s) legale(s)"
+              % (b_['name'], b_['outdir'], b_['base'], n_prev, n_leg))

@@ -122,6 +122,19 @@ STR = {
  'fr': dict(home='/fr/', contact='Contact', cta_h="Disponible imm&eacute;diatement pour de nouvelles missions", cta_p="Remote, hybride ou sur site, en France et &agrave; l'international. Fran&ccedil;ais et anglais.", cta_btn="R&eacute;server un appel &rarr;", cta_alt='ou &eacute;crivez &agrave; <a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>', back="&larr; Toute l'expertise", lang_link_label="EN", crumb="Expertise"),
 }
 
+# Liens réglementaires du pied de page (LCEN art. 6-III, RGPD).
+# Les pages elles-mêmes sont générées par build_legal.py.
+LEGAL_LINKS = {
+ 'en': [('Legal notice', '/legal/'), ('Privacy', '/privacy/')],
+ 'fr': [('Mentions l&eacute;gales', '/fr/mentions-legales/'),
+        ('Confidentialit&eacute;', '/fr/confidentialite/')],
+}
+
+def legal_links(s):
+    """Ancres légales du footer ; la langue se déduit de s['home']."""
+    lang = 'fr' if s['home'].startswith('/fr') else 'en'
+    return ''.join(f'<a href="{h}">{t}</a>' for t, h in LEGAL_LINKS[lang])
+
 def jsonld(slug, lang, d):
     url = f"{BASE}/{base_path(slug)}/" if lang=='en' else f"{BASE}/fr/{base_path(slug)}/"
     import json
@@ -194,7 +207,7 @@ def page(slug, lang, d):
 </div></section>
 <footer><div class="wrap">
   <span>&copy; 2026 Xavier Advisory</span>
-  <span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span>
+  <span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>{legal_links(s)}</span>
 </div></footer>
 </body>
 </html>

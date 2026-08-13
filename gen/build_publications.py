@@ -4,7 +4,8 @@
 # table des matières complète et introduction.
 import os, sys, json, re, html, math
 sys.path.insert(0, os.path.dirname(__file__))
-from build_pages import CSS, MARK, WORD, STR, NAV_LINKS, BASE, navlinks_html
+from build_pages import (CSS, MARK, WORD, STR, NAV_LINKS, BASE,
+                         navlinks_html, legal_links)
 from publications_data import UI, BOOKS, SHOP, IMPRINT_OF
 
 
@@ -293,7 +294,7 @@ def cta_footer(s):
   <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">{s['cta_btn']}</a>
   <span class="alt">{s['cta_alt']}</span>
 </div></section>
-<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a></span></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>{legal_links(s)}</span></div></footer>
 </body></html>"""
 
 def book_url(slug, lang):

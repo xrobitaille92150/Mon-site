@@ -9,6 +9,7 @@ Le corps du feuilletable vient de build_publications.flipbook_pages() :
 les deux sites servent exactement le meme apercu.
 """
 import json, os
+import actuarius_legal as AL
 
 # CSS propre a l'apercu, en complement de la feuille de la boutique.
 PREVIEW_CSS = """
@@ -68,7 +69,7 @@ def head(b_, title, desc, url_self, ld, extra=''):
 def footer(b_):
     return f"""<footer><div class="wrap">
   <span>&copy; 2026 {b_['name']}</span>
-  <span><a href="mailto:welcome@myxavier.finance">{b_['contact']}</a></span>
+  <span>{AL.footer_links(b_)}<a href="mailto:welcome@myxavier.finance">{b_['contact']}</a></span>
 </div></footer>
 </body></html>"""
 
@@ -127,7 +128,8 @@ def notify_form(b_, bk, ui, esc):
   <input class="notify-mail" type="email" name="email" required
          placeholder="{ui['mail_ph']}" aria-label="Email">
   <button class="btn-gold" type="submit">{ui['notify']}</button>
-</form>"""
+</form>
+{AL.notify_notice(b_)}"""
 
 
 def thanks_page(b_, ui, esc):
