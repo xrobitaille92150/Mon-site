@@ -39,14 +39,20 @@ header.hero{background:var(--act-deep-navy);color:var(--act-ivory);
             padding:4.4rem 0 3.6rem;text-align:center;position:relative}
 .hero .logo{width:230px;margin:0 auto}
 .hero .logo svg{width:100%;height:auto;display:block}
-.hero .tagline{margin-top:1.4rem;font-size:.95rem;color:#C7CCD6;
-               letter-spacing:.04em}
+/* Baseline : 24px plancher, jamais moins. */
+.hero .tagline{margin:1.6rem auto 0;max-width:760px;
+               font-family:var(--act-font-display);
+               font-size:clamp(1.5rem,2.6vw,1.85rem);line-height:1.35;
+               color:var(--act-ivory);letter-spacing:.01em}
 .hero .sister{position:absolute;top:1.2rem;right:1.6rem}
 .hero .sister a{color:#C7CCD6;text-decoration:none;font-size:.78rem;
                 letter-spacing:.08em}
 .hero .sister a:hover{color:var(--act-rich-gold)}
 .intro{max-width:720px;margin:2.6rem auto 0;font-size:1rem;line-height:1.8}
-.intro em{font-family:var(--act-font-display)}
+/* EB Garamond a une hauteur d'x plus basse qu'Inter : a taille nominale
+   egale il parait plus petit. Le 1.14em compense optiquement. */
+.intro em{font-family:var(--act-font-display);font-size:1.14em;
+          color:var(--act-rich-gold);font-style:italic}
 .shop{padding:var(--act-space-6) 0 4rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:2rem}
@@ -263,7 +269,7 @@ header.sub p.desc{max-width:720px;margin:1rem auto 0;font-size:.92rem;
 })();
 </script>
 <footer><div class="wrap">
-  <span>&copy; 2026 Éditions Actuarius &mdash; Éditions Actuarius est la marque d'édition de Xavier Advisory.</span>
+  <span>&copy; 2026 Éditions Actuarius</span>
   <span><a href="mailto:welcome@myxavier.finance">Contact</a></span>
 </div></footer>
 </body></html>

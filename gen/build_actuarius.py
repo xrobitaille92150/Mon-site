@@ -53,17 +53,19 @@ BRANDS = {
     desc="Éditions Actuarius publie des traités techniques de référence en "
          "finance et assurance : comptabilité des placements, prudentiel, "
          "contrôles. PDF, papier et Kindle.",
-    tagline="Traités techniques finance &amp; assurance",
+    tagline="Parutions spécialisées dans les domaines de la Finance "
+            "et de l'Assurance",
     intro="L'<em>actuarius</em> tenait les registres et les comptes de Rome. "
           "Éditions Actuarius publie des traités écrits depuis la pratique : "
           "comptabilité des placements, règles prudentielles et contrôles, "
           "avec écritures complètes et dossiers chiffrés.",
     extract="Lire les premières pages",
     upcoming="Bientôt disponible ici",
-    author_t="L'auteur",
-    author_b="Xavier Robitaille conseille assureurs et institutions financières "
-             "sur leurs sujets finance, comptabilité, investissements et "
-             'réglementaire. Profil complet sur <a href="%s/fr/">myxavier.finance</a>.' % MAIN,
+    author_t="Nos auteurs",
+    author_b="<strong>Xavier Robitaille</strong> conseille assureurs et "
+             "institutions financières sur leurs sujets finance, comptabilité, "
+             "investissements et réglementaire. Profil complet sur "
+             '<a href="%s/fr/">myxavier.finance</a>.' % MAIN,
     legal="Éditions Actuarius est la marque d'édition de Xavier Advisory.",
     contact="Contact",
     back_shop="Tous les ouvrages",
@@ -88,17 +90,17 @@ BRANDS = {
     desc="Actuarius Press publishes reference technical books on finance and "
          "insurance: investment accounting, prudential rules, controls. "
          "PDF, paperback and Kindle.",
-    tagline="Technical books on finance &amp; insurance",
+    tagline="Specialist publications in Finance and Insurance",
     intro="The <em>actuarius</em> kept Rome's registers and accounts. "
           "Actuarius Press publishes books written from practice: investment "
           "accounting, prudential rules and controls, with full accounting "
           "entries and worked cases.",
     extract="Read the first pages",
     upcoming="Coming soon to this shop",
-    author_t="The author",
-    author_b="Xavier Robitaille advises insurers and financial institutions on "
-             "finance, accounting, investment and regulatory topics. Full "
-             'profile at <a href="%s/">myxavier.finance</a>.' % MAIN,
+    author_t="Our authors",
+    author_b="<strong>Xavier Robitaille</strong> advises insurers and financial "
+             "institutions on finance, accounting, investment and regulatory "
+             'topics. Full profile at <a href="%s/">myxavier.finance</a>.' % MAIN,
     legal="Actuarius Press is the publishing imprint of Xavier Advisory.",
     contact="Contact",
     back_shop="All books",
@@ -127,14 +129,20 @@ header.hero{background:var(--act-deep-navy);color:var(--act-ivory);
             padding:4.4rem 0 3.6rem;text-align:center;position:relative}
 .hero .logo{width:230px;margin:0 auto}
 .hero .logo svg{width:100%;height:auto;display:block}
-.hero .tagline{margin-top:1.4rem;font-size:.95rem;color:#C7CCD6;
-               letter-spacing:.04em}
+/* Baseline : 24px plancher, jamais moins. */
+.hero .tagline{margin:1.6rem auto 0;max-width:760px;
+               font-family:var(--act-font-display);
+               font-size:clamp(1.5rem,2.6vw,1.85rem);line-height:1.35;
+               color:var(--act-ivory);letter-spacing:.01em}
 .hero .sister{position:absolute;top:1.2rem;right:1.6rem}
 .hero .sister a{color:#C7CCD6;text-decoration:none;font-size:.78rem;
                 letter-spacing:.08em}
 .hero .sister a:hover{color:var(--act-rich-gold)}
 .intro{max-width:720px;margin:2.6rem auto 0;font-size:1rem;line-height:1.8}
-.intro em{font-family:var(--act-font-display)}
+/* EB Garamond a une hauteur d'x plus basse qu'Inter : a taille nominale
+   egale il parait plus petit. Le 1.14em compense optiquement. */
+.intro em{font-family:var(--act-font-display);font-size:1.14em;
+          color:var(--act-rich-gold);font-style:italic}
 .shop{padding:var(--act-space-6) 0 4rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:2rem}
@@ -262,7 +270,7 @@ def page(brand):
   <p>{b_['author_b']}</p>
 </div></section>
 <footer><div class="wrap">
-  <span>&copy; 2026 {b_['name']} &mdash; {b_['legal']}</span>
+  <span>&copy; 2026 {b_['name']}</span>
   <span><a href="mailto:welcome@myxavier.finance">{b_['contact']}</a></span>
 </div></footer>
 </body></html>"""

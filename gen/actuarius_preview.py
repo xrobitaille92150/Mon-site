@@ -67,7 +67,7 @@ def head(b_, title, desc, url_self, ld, extra=''):
 
 def footer(b_):
     return f"""<footer><div class="wrap">
-  <span>&copy; 2026 {b_['name']} &mdash; {b_['legal']}</span>
+  <span>&copy; 2026 {b_['name']}</span>
   <span><a href="mailto:welcome@myxavier.finance">{b_['contact']}</a></span>
 </div></footer>
 </body></html>"""

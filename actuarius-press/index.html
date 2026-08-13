@@ -39,14 +39,20 @@ header.hero{background:var(--act-deep-navy);color:var(--act-ivory);
             padding:4.4rem 0 3.6rem;text-align:center;position:relative}
 .hero .logo{width:230px;margin:0 auto}
 .hero .logo svg{width:100%;height:auto;display:block}
-.hero .tagline{margin-top:1.4rem;font-size:.95rem;color:#C7CCD6;
-               letter-spacing:.04em}
+/* Baseline : 24px plancher, jamais moins. */
+.hero .tagline{margin:1.6rem auto 0;max-width:760px;
+               font-family:var(--act-font-display);
+               font-size:clamp(1.5rem,2.6vw,1.85rem);line-height:1.35;
+               color:var(--act-ivory);letter-spacing:.01em}
 .hero .sister{position:absolute;top:1.2rem;right:1.6rem}
 .hero .sister a{color:#C7CCD6;text-decoration:none;font-size:.78rem;
                 letter-spacing:.08em}
 .hero .sister a:hover{color:var(--act-rich-gold)}
 .intro{max-width:720px;margin:2.6rem auto 0;font-size:1rem;line-height:1.8}
-.intro em{font-family:var(--act-font-display)}
+/* EB Garamond a une hauteur d'x plus basse qu'Inter : a taille nominale
+   egale il parait plus petit. Le 1.14em compense optiquement. */
+.intro em{font-family:var(--act-font-display);font-size:1.14em;
+          color:var(--act-rich-gold);font-style:italic}
 .shop{padding:var(--act-space-6) 0 4rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:2rem}
@@ -104,7 +110,7 @@ footer a:hover{color:var(--act-rich-gold)}
   <line x1="125" y1="960" x2="1075" y2="960" stroke="#C79A3B" stroke-width="3"/>
   <text x="600" y="1115" text-anchor="middle" font-family="'Inter',Arial,sans-serif" font-size="100" font-weight="500" letter-spacing="35" fill="#C79A3B">PRESS</text>
 </svg></div>
-  <p class="tagline">Technical books on finance &amp; insurance</p>
+  <p class="tagline">Specialist publications in Finance and Insurance</p>
   <p class="intro">The <em>actuarius</em> kept Rome's registers and accounts. Actuarius Press publishes books written from practice: investment accounting, prudential rules and controls, with full accounting entries and worked cases.</p>
 </div></header>
 <section class="shop"><div class="wrap">
@@ -118,11 +124,11 @@ footer a:hover{color:var(--act-rich-gold)}
 </div>
 </div></section>
 <section class="author"><div class="wrap">
-  <h2>The author</h2>
-  <p>Xavier Robitaille advises insurers and financial institutions on finance, accounting, investment and regulatory topics. Full profile at <a href="https://www.myxavier.finance/">myxavier.finance</a>.</p>
+  <h2>Our authors</h2>
+  <p><strong>Xavier Robitaille</strong> advises insurers and financial institutions on finance, accounting, investment and regulatory topics. Full profile at <a href="https://www.myxavier.finance/">myxavier.finance</a>.</p>
 </div></section>
 <footer><div class="wrap">
-  <span>&copy; 2026 Actuarius Press &mdash; Actuarius Press is the publishing imprint of Xavier Advisory.</span>
+  <span>&copy; 2026 Actuarius Press</span>
   <span><a href="mailto:welcome@myxavier.finance">Contact</a></span>
 </div></footer>
 </body></html>
