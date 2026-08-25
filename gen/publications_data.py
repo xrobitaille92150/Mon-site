@@ -91,6 +91,7 @@ IMPRINT_OF = {
  'operations-de-couverture': 'editions',
  's4hana-fr':               'editions',
  's4hana-en':               'press',
+ '2027-2028-agenda':        'press',
 }
 
 # La collection remplace l'etiquette de genre « TRAITE » (decision de format
@@ -167,6 +168,17 @@ BOOKS = {
     fr_desc="Le remplacement du cœur comptable vu comme une refonte du processus de production financière, pas comme un projet informatique. Édition anglaise, publiée par Actuarius Press.",
     en_desc="Replacing the accounting core is a redesign of the financial reporting process, not an IT project. Technology, finance core, editions and licensing, migration paths, insurance architecture and programme delivery.",
  ),
+ '2027-2028-agenda': dict(
+    src='transformations-en',
+    collection=COLL_EN,
+    t1=["Insurance undertakings:", "your 2027-2028", "agenda"],
+    t2=["Have you anticipated these 15 reforms?"],
+    sub=[],
+    ref=["Revised Solvency II · IFRS 18 · IRRD · DORA", "AI Act · Omnibus · vendor end-of-support"],
+    name="Insurance undertakings: your 2027-2028 agenda",
+    fr_desc="Édition anglaise du livre « Organismes d'assurance : vos chantiers de 2027-2028 », publiée par Actuarius Press.",
+    en_desc="Fifteen simultaneous reforms read twice: what applies to any French company, then the insurer-specific effect. Impacts on P&L, balance sheet, prudential figures, systems and internal control.",
+ ),
 }
 
 # ── Boutique ────────────────────────────────────────────────────────────────
@@ -190,4 +202,5 @@ SHOP = {
  'operations-de-couverture': dict(price="", ls="", paper="", kindle=""),
  's4hana-fr':               dict(price="", ls="", paper="", kindle=""),
  's4hana-en':               dict(price="", ls="", paper="", kindle=""),
+ '2027-2028-agenda':        dict(price="", ls="", paper="", kindle=""),
 }

@@ -3644,5 +3644,622 @@
     "L'ouvrage suit un mouvement simple : comprendre l'objet, comprendre ce qu'il fait de la comptabilité, comprendre ce qu'on achète, peser les apports contre les coûts, choisir une trajectoire, traiter les spécificités de l'assurance, conduire le programme. L'économie d'abord, la technique ensuite, les contrôles en fermeture."
    ]
   ]
+ },
+ "transformations-en": {
+  "titlepage": [
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "NumroPartie",
+    "Organismes d'assurance : Vos chantiers de 2027-2028"
+   ],
+   [
+    "CouvertureMotsCls",
+    "Solvabilité 2, IFRS 18, AI Act, IRDD, ..."
+   ],
+   [
+    "NumroPartie",
+    "Avez-vous anticipé ces 15 réformes ?"
+   ],
+   [
+    "",
+    "Les clés de l’Assurance et de la Finance"
+   ],
+   [
+    "",
+    "Les clés de l’Assurance et de la Finance"
+   ],
+   [
+    "",
+    "Organismes d'assurance : Vos chantiers de 2027-2028"
+   ],
+   [
+    "",
+    "Solvabilité 2, IFRS 18, AI Act, IRDD, ..."
+   ],
+   [
+    "",
+    "Xavier Robitaille"
+   ],
+   [
+    "En-ttedetabledesmatires",
+    "Table des matières"
+   ],
+   [
+    "TM5",
+    "Introduction13"
+   ],
+   [
+    "TM6",
+    "Société d’assurance : la double peine14"
+   ],
+   [
+    "TM6",
+    "Caveat15"
+   ],
+   [
+    "TM6",
+    "Les conventions de niveau d’exigence utilisées dans ce livre15"
+   ]
+  ],
+  "toc": [
+   [
+    "NumroPartie",
+    "Insurance undertakings: your 2027-2028 agenda"
+   ],
+   [
+    "NumroPartie",
+    "Have you anticipated these 15 reforms?"
+   ],
+   [
+    "Titre6",
+    "Introduction"
+   ],
+   [
+    "Titre7",
+    "The insurance company: a double burden"
+   ],
+   [
+    "Titre7",
+    "Caveat"
+   ],
+   [
+    "Titre7",
+    "Requirement-level conventions used in this book"
+   ],
+   [
+    "Titre7",
+    "The analysis grid"
+   ],
+   [
+    "NumroPartie",
+    "PART I"
+   ],
+   [
+    "Titre1",
+    "Understanding the transformation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 1"
+   ],
+   [
+    "Titre2",
+    "Fifteen reforms land in 2027 and compete for the same resources"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 2"
+   ],
+   [
+    "Titre2",
+    "Five sources of rules for an ordinary company, eight for an insurer"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 3"
+   ],
+   [
+    "Titre2",
+    "A taxonomy of impacts: ten questions, one grid"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 4"
+   ],
+   [
+    "Titre2",
+    "The insurer plays three roles"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 5"
+   ],
+   [
+    "Titre2",
+    "The consolidated timeline: what is certain, what is not"
+   ],
+   [
+    "NumroPartie",
+    "PART II"
+   ],
+   [
+    "Titre1",
+    "The common base for every French company"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 6"
+   ],
+   [
+    "Titre2",
+    "The modernised French GAAP applies to insurers, but their sector regulation has not caught up"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 7"
+   ],
+   [
+    "Titre2",
+    "E-invoicing reaches SMEs in September 2027 — and, by ricochet, the insurer's ecosystem"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 8"
+   ],
+   [
+    "Titre2",
+    "The “Fraud” act of 25 June 2026 extends record retention to ten years and sanctions third parties"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 9"
+   ],
+   [
+    "Titre2",
+    "The same “Fraud” act hits the insurer through three other channels no insurance text announces"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 10"
+   ],
+   [
+    "Titre2",
+    "The CVAE does not disappear in 2027: it is frozen, then phased down"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 11"
+   ],
+   [
+    "Titre2",
+    "The simplification act imposes deadlines on the insurer and a duty to justify contract termination"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 12"
+   ],
+   [
+    "Titre2",
+    "Software becomes a defective product, and the liability insurer discovers its exposure"
+   ],
+   [
+    "NumroPartie",
+    "PART III"
+   ],
+   [
+    "Titre1",
+    "Employment and social law"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 13"
+   ],
+   [
+    "Titre2",
+    "Pay transparency: the burden of proof changes sides on 1 January 2028"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 14"
+   ],
+   [
+    "Titre2",
+    "Value sharing and employee benefits: two tests to build into each entity's closing"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 15"
+   ],
+   [
+    "Titre2",
+    "A social-law text reaches the insurer through three channels — only one is handled spontaneously"
+   ],
+   [
+    "NumroPartie",
+    "PART IV"
+   ],
+   [
+    "Titre1",
+    "Sustainability"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 16"
+   ],
+   [
+    "Titre2",
+    "Omnibus I: 80% of companies leave the scope; those that remain collect data from January 2027"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 17"
+   ],
+   [
+    "Titre2",
+    "ESRS and taxonomy: double materiality stays, underwriting is the orphan scope"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 18"
+   ],
+   [
+    "Titre2",
+    "CS3D and SFDR: two unstabilised texts that still require 2027 work"
+   ],
+   [
+    "NumroPartie",
+    "PART V"
+   ],
+   [
+    "Titre1",
+    "Accounting and financial presentation"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 19"
+   ],
+   [
+    "Titre2",
+    "IFRS 18: same net income, a different income statement — and a 2026 comparative to produce"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 20"
+   ],
+   [
+    "Titre2",
+    "MPMs: the adjusted result from the press release enters the audited notes"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 21"
+   ],
+   [
+    "Titre2",
+    "What is an insurer's main business activity? A real question, for IFRS 18"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 22"
+   ],
+   [
+    "Titre2",
+    "IFRS 19: the only (small) breath of oxygen"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 23"
+   ],
+   [
+    "Titre2",
+    "IFRS S2: financed emissions are decided at the investment committee"
+   ],
+   [
+    "NumroPartie",
+    "PART VI"
+   ],
+   [
+    "Titre1",
+    "The insurance prudential framework"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 24"
+   ],
+   [
+    "Titre2",
+    "Revised Solvency II applies as of Q1 2027"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 25"
+   ],
+   [
+    "Titre2",
+    "2027 prudential reporting: taxonomy 2.10 in Q1, an audited SFCR for the year"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 26"
+   ],
+   [
+    "Titre2",
+    "ICS and ESAP: ratios become comparable — therefore contestable"
+   ],
+   [
+    "NumroPartie",
+    "PART VII"
+   ],
+   [
+    "Titre1",
+    "Compliance, digital and data"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 27"
+   ],
+   [
+    "Titre2",
+    "AMLR: applicable on 10 July 2027, with no transposition and no national doctrine"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 28"
+   ],
+   [
+    "Titre2",
+    "AI Act: life and health pricing among the high-risk uses"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 29"
+   ],
+   [
+    "Titre2",
+    "DORA, NIS2, CRA: the cyber obligations of the insurer and its suppliers"
+   ],
+   [
+    "NumroPartie",
+    "PART VIII"
+   ],
+   [
+    "Titre1",
+    "Decommissioning and delivery"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 30"
+   ],
+   [
+    "Titre2",
+    "Obsolescence: the only risk of the period that is certain, dated and public"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 31"
+   ],
+   [
+    "Titre2",
+    "SAP Business Suite 7: standard maintenance ends late 2027 — and the ERP produces the numbers for every other workstream"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 32"
+   ],
+   [
+    "Titre2",
+    "Windows Server 2016 and SQL Server: infrastructure leaves support in the middle of the regulatory peak"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 33"
+   ],
+   [
+    "Titre2",
+    "Db2, Cognos Planning, SAS: three 2027 end-of-support dates, including the modelling tools"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 34"
+   ],
+   [
+    "Titre2",
+    "The integrated programme: fifteen workstreams, four axes, one consolidated budget"
+   ],
+   [
+    "NumroChapitre",
+    "CHAPTER 35"
+   ],
+   [
+    "Titre2",
+    "Internal control and audit: three documents enter the audit scope"
+   ],
+   [
+    "Titre6",
+    "Conclusion"
+   ],
+   [
+    "Titre6",
+    "APPENDICES"
+   ],
+   [
+    "Titre7",
+    "Appendix A - General impact matrix"
+   ],
+   [
+    "Titre7",
+    "Appendix B - Implementation calendar"
+   ],
+   [
+    "Titre7",
+    "Appendix C - Standards-processes-systems matrix"
+   ],
+   [
+    "Titre7",
+    "Appendix D - Impact sheet template"
+   ],
+   [
+    "Titre7",
+    "Appendix E - Preparation checklists"
+   ],
+   [
+    "Titre7",
+    "Appendix F - Glossary of acronyms"
+   ],
+   [
+    "Titre7",
+    "Appendix G - Selected institutional bibliography"
+   ],
+   [
+    "Titre7",
+    "Appendix H - The seven points to validate — quarterly review"
+   ]
+  ],
+  "pages": "(null)",
+  "intro": [
+   [
+    "p",
+    "In 2023, an insurance CFO could sum up the year in one sentence: “we are moving to IFRS 17”. The constraint was heavy, but it was clear. It had an owner, a budget, a steering committee and a date."
+   ],
+   [
+    "p",
+    "The 2027 and 2028 financial years will not be summed up so easily. No single standard will dominate the period the way IFRS 17 and IFRS 9 dominated the previous one. The difficulty lies elsewhere: some fifteen transformations of different origins arrive at the same time, call on the same teams, consume the same data and run on the same systems — some of which, widely used by insurers, will stop being maintained during the period."
+   ],
+   [
+    "p",
+    "On 1 January 2027, IFRS 18 takes effect. On 30 January 2027, the revised Solvency II framework and IRRD apply, the day after their transposition deadline expires."
+   ],
+   [
+    "p",
+    "By 19 March 2027, France must have transposed the Omnibus directive. On 10 July 2027, the European anti-money-laundering regulation becomes directly applicable."
+   ],
+   [
+    "p",
+    "On 2 August 2027, the AI Act reaches its full scheduled application."
+   ],
+   [
+    "p",
+    "On 1 September 2027, French SMEs must issue their invoices electronically."
+   ],
+   [
+    "p",
+    "On 11 December 2027, the Cyber Resilience Act produces its main obligations."
+   ],
+   [
+    "p",
+    "Unsurprisingly, none of these dates was set with any of the others in mind."
+   ],
+   [
+    "p",
+    "To top it all, on 31 December 2027 SAP ends standard maintenance for Business Suite 7. Before that, on 12 January 2027, Windows Server 2016 leaves Microsoft support."
+   ],
+   [
+    "h",
+    "The insurance company: a double burden"
+   ],
+   [
+    "p",
+    "An insurance company, whatever its legal form, is governed first by the same texts as any French company: it pays the CVAE, keeps its accounting records, issues electronic invoices, publishes a gender-equality index and suffers its vendors' end-of-support dates exactly like a manufacturer. Ordinary law does not stop at the door of the regulated sector, and experience shows that insurers absorbed by their own prudential corpus not infrequently discover cross-sector texts late."
+   ],
+   [
+    "p",
+    "In addition, regulatory change produces a specific effect on an insurer. That effect travels through two channels which must be kept distinct:"
+   ],
+   [
+    "p",
+    "the insurer as regulated entity, subject to Solvency II, the supervisor, DORA and IRRD;"
+   ],
+   [
+    "p",
+    "the insurer as carrier of other people's risks — the channel most often neglected."
+   ],
+   [
+    "p",
+    "That second channel is why every new standard or obligation deserves an exhaustive review."
+   ],
+   [
+    "p",
+    "When the product liability directive brings software within the notion of a defective product, it does not address insurers: it addresses manufacturers. But it changes the exposure of the liability policies those insurers have written."
+   ],
+   [
+    "p",
+    "When pay transparency reverses the burden of proof in discrimination cases, it addresses employers — and it feeds directors' liability and legal protection covers."
+   ],
+   [
+    "p",
+    "When NIS2 imposes security obligations on fifteen thousand French entities, it excludes insurers, who are covered by DORA — but it transforms the profile of their cyber policyholders and of their own suppliers."
+   ],
+   [
+    "p",
+    "Guiding principle no. 1 - A reform that does not target insurance can be, for an insurer, an underwriting matter before it is a compliance matter."
+   ],
+   [
+    "h",
+    "Caveat"
+   ],
+   [
+    "p",
+    "This book does not set out to catalogue every change in a technical and legal environment of legendary complexity."
+   ],
+   [
+    "p",
+    "It focuses on the changes likely to require a management decision from an insurer's executive committee: a programme, a budget, a strategic choice, an IT development, or a material change in the risk profile."
+   ],
+   [
+    "p",
+    "It does not replace advice from a law firm, an audit firm or an accounting firm."
+   ],
+   [
+    "p",
+    "Finally, it systematically separates what has been adopted from what has not. As of 16 July 2026, when we closed the drafting of this guide, the French act transposing NIS2 has not been passed; the pay-transparency bill is before the Conseil d'État; several implementing decrees of the simplification act are missing."
+   ],
+   [
+    "p",
+    "The list of these uncertainties is consolidated in an appendix, so you can track them throughout 2027."
+   ],
+   [
+    "h",
+    "Requirement-level conventions used in this book"
+   ],
+   [
+    "p",
+    "[RULE]: a requirement explicitly grounded in an adopted text;"
+   ],
+   [
+    "p",
+    "[INTERPRETATION]: a consequence reasonably inferred from the texts;"
+   ],
+   [
+    "p",
+    "[RECOMMENDATION]: a suggested implementation practice;"
+   ],
+   [
+    "p",
+    "[TO BE CONFIRMED]: a point depending on a forthcoming text, a transposition or a legal analysis. Appendix H gathers and ranks the seven points of this kind;"
+   ],
+   [
+    "p",
+    "[INTERNAL POLICY]: a choice belonging to the undertaking's own governance."
+   ],
+   [
+    "h",
+    "The analysis grid"
+   ],
+   [
+    "p",
+    "Each change is examined against ten possible impacts:"
+   ],
+   [
+    "p",
+    "This reading grid makes heterogeneous events — a prudential directive and a vendor end-of-support — comparable on a single plane: that of their effects."
+   ],
+   [
+    "p",
+    "Position as at 16 July 2026."
+   ]
+  ]
  }
 }
