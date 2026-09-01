@@ -92,16 +92,20 @@ def preview_page(b_, slug, bk, ui, css, pages, flip_js, buy_html, esc):
     url_self = f"{b_['base']}/{slug}/"
     desc = bk['en_desc'] if b_['lang'] == 'en' else bk['fr_desc']
     title = f"{bk['name']} — {b_['name']}"
-    ld = json.dumps({
+    ld_obj = {
         "@context": "https://schema.org", "@type": "Book",
         "name": bk['name'],
         "author": {"@type": "Person", "name": "Xavier Robitaille"},
         "inLanguage": b_['lang'],
-        "datePublished": "2026-08",
         "publisher": {"@type": "Organization", "name": b_['name'],
                       "url": b_['base']},
         "url": url_self, "description": desc,
-    }, ensure_ascii=False)
+    }
+    # Pas de date de parution annoncee => pas de datePublished : une date fausse
+    # dans les donnees structurees est pire qu'une date absente.
+    if bk.get('date_published'):
+        ld_obj["datePublished"] = bk['date_published']
+    ld = json.dumps(ld_obj, ensure_ascii=False)
 
     note = f'<p class="preview-note">{ui["in_french"]}</p>' if ui['in_french'] else ''
 
@@ -111,7 +115,7 @@ def preview_page(b_, slug, bk, ui, css, pages, flip_js, buy_html, esc):
 <header class="sub"><div class="wrap">
   <div class="logo"><a href="/">{b_['logo_svg']}</a></div>
   <p class="crumb"><a href="/">&larr; {b_['back_shop']}</a></p>
-  <div class="label">{ui['preview_label']} &mdash; {ui['release']}</div>
+  <div class="label">{ui['preview_label']} &mdash; {bk.get('release', ui['release'])}</div>
   <h1>{esc(bk['name'])}</h1>
   <p class="desc">{esc(desc)}</p>
 </div></header>

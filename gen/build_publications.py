@@ -328,7 +328,7 @@ def index_page(lang):
         buy = buy_buttons(slug, ui, compact=True)
         cards += f"""<div class="bookcard">
   <a class="bookcard-link" href="{href}">
-    <div class="coverwrap">{cover_html(b, slug)}<span class="release-badge">{ui['release']}</span></div>
+    <div class="coverwrap">{cover_html(b, slug)}<span class="release-badge">{b.get('release', ui['release'])}</span></div>
     <h3>{esc(b['name'])}</h3>
     <p>{esc(desc)}</p>
     <span class="view">{ui['view']}</span>
@@ -424,9 +424,9 @@ def flipbook_pages(slug, b, ui):
         pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_intro_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
 
     # Derniere page
-    end_note = ui['preview_note_sale'] if shop_of(slug) else ui['preview_note']
+    end_note = ui['preview_note_sale'] if shop_of(slug) else b.get('preview_note', ui['preview_note'])
     pages.append(f'''<div class="fb-page fb-end" data-density="hard"><div class="fb-inner">
-      <div class="e3">{ui['release']}</div>
+      <div class="e3">{b.get('release', ui['release'])}</div>
       <div class="e1">{esc(b['name'])}</div>
       <div class="e2">{end_note}</div>
       <div style="width:96px">{ACT_MARK_INV}</div>
@@ -466,7 +466,7 @@ def preview_page(slug, b, lang):
 {nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
 <header class="hero"><div class="wrap">
   <div class="breadcrumb"><a href="{ui['backhref']}">{ui['back']}</a></div>
-  <div class="label">{ui['preview_label']} &mdash; {ui['release']}</div>
+  <div class="label">{ui['preview_label']} &mdash; {b.get('release', ui['release'])}</div>
   <h1 style="font-size:clamp(1.7rem,3.4vw,2.5rem)">{esc(b['name'])}</h1>
   <p>{esc(desc)}</p>
 </div></header>
