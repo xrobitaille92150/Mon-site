@@ -21,7 +21,7 @@ import os, sys, json, html
 
 sys.path.insert(0, os.path.dirname(__file__))
 from publications_data import UI, BOOKS, SHOP, IMPRINT_OF
-from build_publications import (cover_svg, buy_buttons, shop_of, LEMON_JS,
+from build_publications import (cover_svg, cover_html, buy_buttons, shop_of, LEMON_JS,
                                 flipbook_pages, PUB_CSS, FLIP_JS, esc as _esc)
 import actuarius_legal as AL
 
@@ -162,7 +162,7 @@ header.hero{background:var(--act-deep-navy);color:var(--act-ivory);
     flex-direction:column;gap:1rem}
 .bk .cw{display:flex;justify-content:center;background:var(--act-ivory);
         padding:1.4rem 0}
-.bk .cw svg{width:210px;height:auto;box-shadow:0 12px 28px rgba(11,21,48,.3)}
+.bk .cw svg,.bk .cw img.cover-img{width:210px;height:auto;box-shadow:0 12px 28px rgba(11,21,48,.3)}
 .bk h3{font-family:var(--act-font-display);font-size:1.22rem;
        color:var(--act-deep-navy);line-height:1.25}
 .bk p{font-size:.88rem;line-height:1.65;color:#4B5364}
@@ -235,7 +235,7 @@ def page(brand):
         buy = buy_buttons(slug, ui) or \
             f'<span class="upcoming">{b_["upcoming"]}</span>'
         cards += f"""<div class="bk">
-  <div class="cw">{cover_svg(bk, slug)}</div>
+  <div class="cw">{cover_html(bk, slug)}</div>
   <h3>{esc(bk['name'])}</h3>
   <p>{esc(desc)}</p>
   <a class="extract" href="{preview}">{b_['extract']} &rarr;</a>
@@ -372,5 +372,14 @@ if __name__ == '__main__':
         shutil.copy(os.path.join(ASSETS, 'apple-touch-icon.png'), out)
         shutil.copy(os.path.join(ASSETS, b_['og']), os.path.join(out, 'og.png'))
         shutil.copy(os.path.join(ASSETS, b_['logo']), os.path.join(out, 'logo.svg'))
+        # Couvertures reelles des ouvrages de la marque : /covers/<fichier>.
+        cov_dir = os.path.join(out, 'covers')
+        for slug, bk in BOOKS.items():
+            if IMPRINT_OF.get(slug) != key:
+                continue
+            for k in ('cover_img', 'back_img', 'og_img'):
+                if bk.get(k):
+                    os.makedirs(cov_dir, exist_ok=True)
+                    shutil.copy(os.path.join(ASSETS, 'covers', bk[k]), cov_dir)
         print("%-20s -> %s/  (%s)  %d apercu(s), %d page(s) legale(s)"
               % (b_['name'], b_['outdir'], b_['base'], n_prev, n_leg))

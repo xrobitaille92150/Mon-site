@@ -108,6 +108,32 @@ BOOKS = {
     sub=[],
     ref=["Solvabilité II révisée · IFRS 18 · IRRD · DORA", "AI Act · Omnibus · fins de support éditeurs"],
     name="Organismes d'assurance : vos chantiers de 2027-2028",
+    # Couverture reelle (version finale navy 1b, Claude Design 31/08/2026),
+    # servie depuis brand_assets/actuarius/covers/ ; remplace le SVG fictif.
+    cover_img='chantiers-2027-2028-recto.jpg',
+    back_img='chantiers-2027-2028-4e.jpg',
+    og_img='chantiers-2027-2028-og.jpg',
+    # Quatrieme de couverture — texte final de Xavier (31/08/2026), source :
+    # 10_Work/Livres/transformations_2027-2028/ENSEIGNEMENTS_4E_2026-08-31.md
+    backcover=dict(
+        paras=[
+            "En 2023, un directeur financier d'assurance pouvait résumer sa feuille de route en un seul sigle : IFRS 17. À l'opposé, en 2027 et 2028, la difficulté sera tout autre : pas moins d'une quinzaine de transformations majeures qui devront être conduites sur cette courte période.",
+            "Solvabilité II révisée, IFRS 18, AI Act, lutte contre le blanchiment, DORA, NIS2, Cyber Resilience Act, durabilité, facturation électronique, transparence salariale : ces textes pris isolément n'ont que peu de rapport entre eux. Pour autant, leur mise en œuvre mobilisera souvent les mêmes équipes, les mêmes données et les mêmes systèmes d'information. Certains de ces systèmes entreront eux-mêmes en fin de support au moment où la charge de transformation atteindra son maximum.",
+            "Pour un assureur, l'enjeu ne se limite pas à respecter les textes qui lui sont directement applicables. Il doit aussi mesurer comment les réformes, qui concernent ses assurés, ses fournisseurs et ses partenaires, modifient sa propre exposition aux risques, ses règles de souscription, sa tarification et ses dispositifs de contrôle.",
+        ],
+        pivot="Ce livre n'est pas un ouvrage de veille réglementaire de plus.",
+        promise="Son objectif est bien plus large : transformer le calendrier réglementaire en programme d'action. Aussi chaque évolution est-elle examinée selon ses effets sur :",
+        grid=[
+            "la stratégie et la gouvernance ;",
+            "la finance, la comptabilité et le reporting ;",
+            "les risques, le capital et la solvabilité ;",
+            "les produits, la souscription et la gestion des contrats ;",
+            "les processus, les données et les systèmes ;",
+            "le contrôle interne, l'audit et les relations avec les partenaires.",
+        ],
+        deliverables="Le lecteur y trouvera une chronologie consolidée, une matrice générale des impacts, une matrice normes-processus-systèmes, des fiches d'impact, des checklists de préparation et une revue des points restant à valider.",
+        closing="Un ouvrage indispensable pour éclairer les décisions des Directions Générales, Directions Financières, des Risques, de l'Actuariat et des DSI du secteur de l'assurance.",
+    ),
     fr_desc="Quinze réformes simultanées lues deux fois : ce qui s'applique à toute société française, puis l'effet propre chez l'assureur. Impacts sur le compte de résultat, le bilan, le prudentiel, les systèmes et le contrôle interne.",
     en_desc="Fifteen simultaneous reforms read twice: what applies to any French company, then the insurer-specific effect. Impacts on P&L, balance sheet, prudential figures, systems and internal control.",
  ),

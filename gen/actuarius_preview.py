@@ -29,6 +29,19 @@ header.sub h1{font-family:var(--act-font-display);
 header.sub p.desc{max-width:720px;margin:1rem auto 0;font-size:.92rem;
                   color:#C7CCD6;line-height:1.7}
 .pv{padding:2.6rem 0 3.4rem}
+.bc{background:var(--act-ivory);padding:3rem 0 3.6rem;border-top:1px solid var(--act-light-grey)}
+.bc-h{font-family:var(--act-font-display);font-size:1.5rem;color:var(--act-deep-navy);
+      text-align:center;margin:0 0 1.8rem}
+.bc-grid{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:2.4rem;
+         align-items:start;max-width:960px;margin:0 auto}
+.bc-img img{width:100%;height:auto;display:block;box-shadow:0 12px 28px rgba(11,21,48,.3)}
+.bc-text p{font-size:.95rem;line-height:1.7;color:#2B3140;margin:0 0 .9rem;text-align:justify}
+.bc-text ul{margin:0 0 .9rem 1.1rem;padding:0;font-size:.95rem;line-height:1.7;color:#2B3140}
+.bc-text li::marker{color:var(--act-rich-gold)}
+.bc-pivot{font-weight:700;color:var(--act-deep-navy)}
+.bc-closing{font-family:var(--act-font-display);font-weight:700;color:var(--act-rich-gold);
+            text-align:center!important;margin-top:1.2rem}
+@media (max-width:700px){.bc-grid{grid-template-columns:1fr}.bc-img{max-width:260px;margin:0 auto}}
 .preview-note{text-align:center;font-size:.82rem;color:var(--gray);
               margin-bottom:1.4rem}
 .preview-actions{margin-top:2rem;text-align:center}
@@ -41,7 +54,7 @@ header.sub p.desc{max-width:720px;margin:1rem auto 0;font-size:.92rem;
 """
 
 
-def head(b_, title, desc, url_self, ld, extra=''):
+def head(b_, title, desc, url_self, ld, extra='', og=None):
     return f"""<!DOCTYPE html>
 <html lang="{b_['lang']}">
 <head>
@@ -55,7 +68,7 @@ def head(b_, title, desc, url_self, ld, extra=''):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url_self}">
-<meta property="og:image" content="{b_['base']}/og.png">
+<meta property="og:image" content="{og or (b_['base'] + '/og.png')}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="alternate icon" href="/favicon.ico">
@@ -92,7 +105,8 @@ def preview_page(b_, slug, bk, ui, css, pages, flip_js, buy_html, esc):
 
     note = f'<p class="preview-note">{ui["in_french"]}</p>' if ui['in_french'] else ''
 
-    return f"""{head(b_, esc(title), esc(desc), url_self, ld)}
+    og = f"{b_['base']}/covers/{bk['og_img']}" if bk.get('og_img') else None
+    return f"""{head(b_, esc(title), esc(desc), url_self, ld, og=og)}
 <body>
 <header class="sub"><div class="wrap">
   <div class="logo"><a href="/">{b_['logo_svg']}</a></div>
@@ -114,8 +128,38 @@ def preview_page(b_, slug, bk, ui, css, pages, flip_js, buy_html, esc):
   </div>
   <div class="preview-actions">{buy_html}</div>
 </div></section>
+{backcover_section(b_, bk, ui, esc)}
 {flip_js}
 {footer(b_)}"""
+
+
+def backcover_section(b_, bk, ui, esc):
+    """Quatrieme de couverture de l'ouvrage : image reelle (dos navy) et le
+    texte final en HTML (lisible, indexable). Ne s'affiche que si l'ouvrage
+    porte un champ backcover dans publications_data.BOOKS."""
+    bc = bk.get('backcover')
+    if not bc:
+        return ''
+    img = ''
+    if bk.get('back_img'):
+        img = (f'<div class="bc-img"><img src="/covers/{bk["back_img"]}" '
+               f'alt="Quatrième de couverture — {esc(bk["name"])}" width="400" height="567" loading="lazy"></div>')
+    paras = ''.join(f'<p>{esc(p)}</p>' for p in bc['paras'])
+    grid = ''.join(f'<li>{esc(x)}</li>' for x in bc['grid'])
+    return f"""<section class="bc"><div class="wrap">
+  <h2 class="bc-h">{ui.get('backcover_title', 'Quatrième de couverture')}</h2>
+  <div class="bc-grid">
+    {img}
+    <div class="bc-text">
+      {paras}
+      <p class="bc-pivot">{esc(bc['pivot'])}</p>
+      <p>{esc(bc['promise'])}</p>
+      <ul>{grid}</ul>
+      <p>{esc(bc['deliverables'])}</p>
+      <p class="bc-closing">{esc(bc['closing'])}</p>
+    </div>
+  </div>
+</div></section>"""
 
 
 def notify_form(b_, bk, ui, esc):

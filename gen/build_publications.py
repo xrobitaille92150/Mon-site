@@ -96,7 +96,7 @@ PUB_CSS = """
 .bookcard{background:var(--white);box-shadow:0 8px 24px rgba(11,21,48,.07);border-top:3px solid var(--gold);padding:1.6rem;display:flex;flex-direction:column;gap:1rem;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
 .bookcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,21,48,.13)}
 .coverwrap{position:relative;display:flex;justify-content:center;background:var(--light-bg);padding:1.4rem 0}
-.coverwrap svg{width:210px;height:auto;display:block;box-shadow:0 12px 28px rgba(11,21,48,.3)}
+.coverwrap svg,.coverwrap img.cover-img{width:210px;height:auto;display:block;box-shadow:0 12px 28px rgba(11,21,48,.3)}
 .release-badge{position:absolute;top:.8rem;right:.8rem;background:var(--gold);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .7rem;border-radius:2px}
 .bookcard h3{font-family:'EB Garamond',Georgia,serif;font-size:1.22rem;font-weight:700;color:var(--primary);line-height:1.25}
 .bookcard p{font-size:.88rem;line-height:1.65;color:#4B5364}
@@ -109,7 +109,7 @@ body:not(.flip-on) #flipbook{display:flex;flex-direction:column;align-items:cent
 body:not(.flip-on) .fb-page{box-shadow:0 10px 30px rgba(11,21,48,.14)}
 .fb-inner{padding:30px 28px;height:100%;box-sizing:border-box;position:relative}
 .fb-cover{background:#0B1530}
-.fb-cover svg{width:100%;height:100%;display:block}
+.fb-cover svg,.fb-cover img.cover-img{width:100%;height:100%;display:block;object-fit:cover}
 .fb-folio{position:absolute;bottom:11px;right:16px;font-size:9px;color:#9AA1AE}
 .fb-h{font-family:'EB Garamond',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--primary);margin:0 0 .7rem}
 .fb-toc-h{font-weight:700;color:var(--primary);margin:.55rem 0 .2rem;font-size:11.5px}
@@ -197,6 +197,16 @@ def cover_svg(b, slug=None):
     parts.append('<text x="200" y="542" text-anchor="middle" font-family="%s" font-size="9" letter-spacing="2.2" fill="#C79A3B">%s</text>' % (sans, imprint))
     parts.append('</svg>')
     return ''.join(parts)
+
+def cover_html(b, slug=None):
+    """Couverture d'un ouvrage : l'image reelle quand elle existe (cover_img,
+    servie a la racine du site de la marque, URL absolue pour que le site
+    principal l'affiche aussi), sinon le SVG fictif de cover_svg()."""
+    if b.get('cover_img'):
+        base = IMPRINT_BASE[IMPRINT_OF.get(slug, 'editions')]
+        return ('<img class="cover-img" src="%s/covers/%s" alt="%s" width="400" height="567" loading="lazy">'
+                % (base, b['cover_img'], esc(b['name'])))
+    return cover_svg(b, slug)
 
 def toc_entries(src, ui):
     """Aplati le sommaire extrait du docx : intro/parties/chapitres, puis annexes (Titre7 après le dernier chapitre)."""
@@ -318,7 +328,7 @@ def index_page(lang):
         buy = buy_buttons(slug, ui, compact=True)
         cards += f"""<div class="bookcard">
   <a class="bookcard-link" href="{href}">
-    <div class="coverwrap">{cover_svg(b, slug)}<span class="release-badge">{ui['release']}</span></div>
+    <div class="coverwrap">{cover_html(b, slug)}<span class="release-badge">{ui['release']}</span></div>
     <h3>{esc(b['name'])}</h3>
     <p>{esc(desc)}</p>
     <span class="view">{ui['view']}</span>
@@ -382,7 +392,7 @@ def flipbook_pages(slug, b, ui):
     pages, folio = [], [0]
 
     # 1. Couverture
-    pages.append(f'<div class="fb-page fb-cover" data-density="hard">{cover_svg(b, slug)}</div>')
+    pages.append(f'<div class="fb-page fb-cover" data-density="hard">{cover_html(b, slug)}</div>')
     folio[0] += 1
 
     # 2. Page de titre
