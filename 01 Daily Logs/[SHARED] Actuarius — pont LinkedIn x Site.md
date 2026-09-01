@@ -22,7 +22,7 @@ Détail complet (inventaire, interfaces, points ouverts) : voir la version canon
   les finaux ont été rendus depuis les HTML.
 - **Fichiers finaux** (`10_Work/Livres/transformations_2027-2028/couverture/`) : `Couverture_1b_navy_FINALE_recto.png`,
   `_4e.png`, `_dos.png` — 2240 × 3176 px (A5 à ≈ 384 dpi), dos 140 px.
-- **Site** (repo Mon-site, build du 01/09, **non commité, non déployé**) : couverture réelle à la place du SVG fictif partout où le livre
+- **Site** (repo Mon-site, build du 01/09, **déployé et vérifié en prod le 01/09 00h30**) : couverture réelle à la place du SVG fictif partout où le livre
   apparaît (accueil editionsactuarius.com, catalogue myxavier.finance/fr/publications, page livre), nouvelle section
   « Quatrième de couverture » (image + texte HTML) sur `editionsactuarius.com/chantiers-2027-2028/`, `og:image` de la page livre =
   recto navy (aperçu du lien LinkedIn). Assets : `brand_assets/actuarius/covers/` → copiés par le build dans `actuarius/covers/`.
@@ -33,5 +33,4 @@ Détail complet (inventaire, interfaces, points ouverts) : voir la version canon
   abandonner.
 - **Incohérence à trancher** : le site affiche « Aperçu — Parution août 2026 » (`ui['release']`, `datePublished 2026-08`) ; les posts et
   le rendu 3D disent « septembre 2026 ». À aligner avant le 03/09.
-- **Séquence avant le post 1b (03/09)** : Xavier commit + déploie Netlify (editionsactuarius + racine myxavier.finance) → vérifier
-  `https://www.editionsactuarius.com/covers/chantiers-2027-2028-og.jpg` → poster avec les 2 images.
+- **Déploiement** : désormais par `Mon-site/deploy_actuarius.sh "message"` (build → commit → 3 sites Netlify → vérifications curl). Fait le 01/09 ; Post Inspector LinkedIn validé. Reste : poster 1b le 03/09 avec les 2 images.
