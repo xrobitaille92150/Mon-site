@@ -99,6 +99,8 @@ IMPRINT_OF = {
 # du 03/08/2026). Deux lignes pour la composition de couverture.
 COLL_FR = ["LES CLÉS DE L'ASSURANCE", "ET DE LA FINANCE"]
 COLL_EN = ["THE ESSENTIALS OF INSURANCE", "& FINANCE"]
+# Le S/4HANA francais releve d'une seconde collection (couverture livree le 01/09).
+COLL_CAHIERS = ["LES CAHIERS TECHNIQUES", "DE L'ASSURANCE"]
 
 BOOKS = {
  'chantiers-2027-2028': dict(
@@ -145,6 +147,8 @@ BOOKS = {
  'operations-de-pension': dict(
     src='pension',
     collection=COLL_FR,
+    cover_img='operations-de-pension-recto.jpg',
+    og_img='operations-de-pension-og.jpg',
     t1=["Les opérations", "de pension"],
     t2=["dans les organismes d'assurance"],
     sub=["Aspects juridiques, économiques, comptables,", "prudentiels et opérationnels"],
@@ -156,6 +160,8 @@ BOOKS = {
  'gestion-obligataire': dict(
     src='obligations',
     collection=COLL_FR,
+    cover_img='gestion-obligataire-recto.jpg',
+    og_img='gestion-obligataire-og.jpg',
     t1=["La gestion", "obligataire"],
     t2=["dans l'assurance non-vie"],
     sub=["Instruments, marchés, gestion de portefeuille,", "comptabilité, prudentiel et contrôles"],
@@ -167,6 +173,8 @@ BOOKS = {
  'operations-de-couverture': dict(
     src='couvertures',
     collection=COLL_FR,
+    cover_img='operations-de-couverture-recto.jpg',
+    og_img='operations-de-couverture-og.jpg',
     t1=["Les opérations", "de couverture"],
     t2=["dans les organismes d'assurance"],
     sub=["Change, taux, indices — instruments, stratégies,", "comptabilité, prudentiel et contrôles"],
@@ -179,7 +187,10 @@ BOOKS = {
  # une fiche par marque, chacune sur le site de sa langue.
  's4hana-fr': dict(
     src='s4hana-fr',
-    collection=COLL_FR,
+    collection=COLL_CAHIERS,
+    # Variante IVOIRE retenue par Xavier pour distinguer la collection.
+    cover_img='s4hana-fr-recto.jpg',
+    og_img='s4hana-fr-og.jpg',
     t1=["Implémenter un ERP", "comptable"],
     t2=["dans une entité d'assurance"],
     sub=["Le cas particulier de", "SAP S/4HANA"],
