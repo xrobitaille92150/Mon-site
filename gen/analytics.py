@@ -26,7 +26,7 @@ cta, footer).
 """
 import os, re, sys
 
-UMAMI_WEBSITE_ID = ""                                   # ← UUID du site dans Umami Cloud
+UMAMI_WEBSITE_ID = "ca7b8fbb-2534-4848-83ef-28415b404c16"                                   # ← UUID du site dans Umami Cloud
 UMAMI_SCRIPT = "https://cloud.umami.is/script.js"       # URL donnée par l'onglet « Tracking code »
 DOMAINS = "www.myxavier.finance"                        # ignore localhost et les Deploy Previews Netlify
 
