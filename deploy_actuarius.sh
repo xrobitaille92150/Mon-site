@@ -56,8 +56,13 @@ echo "  ✔ netlify-cli OK, repo OK"
 
 if [[ $DO_BUILD -eq 1 ]]; then
   echo "== 1. Regénération des pages (generateurs Python)"
+  run "python3 gen/analytics.py"
+  run "python3 gen/build_pages.py"
+  run "python3 gen/build_articles.py"
+  run "python3 gen/build_legal.py"
   run "python3 gen/build_publications.py"
   run "python3 gen/build_actuarius.py"
+  run "python3 gen/build_sitemap.py"
   # Garde-fous : la couverture réelle et la 4e doivent être dans la sortie
   if [[ $DRY -eq 0 ]]; then
     grep -q 'covers/chantiers-2027-2028-recto.jpg' actuarius/index.html \

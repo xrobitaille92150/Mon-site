@@ -103,8 +103,8 @@ FR_REF = """Sources : <a href="https://www.ifrs.org/issued-standards/list-of-sta
 ARTICLES = {
  'effective-interest-rate-bond-amortisation': {
   'en': dict(
-    title="Effective Interest Rate vs Linear Amortisation: the European Rules | Xavier Advisory",
-    desc="Why the effective interest rate (EIR) is mandatory for bond premium and discount amortisation for European insurers: IFRS 9, Solvency II, ANC 2015-11, French tax law.",
+    title="Effective Interest Rate vs Linear Amortisation in Europe",
+    desc="Why the effective interest rate is mandatory for bond premium and discount amortisation at European insurers: IFRS 9, Solvency II, ANC 2015-11, French tax law.",
     label="Investment Accounting",
     h1="Bond Premium and Discount Amortisation: Why the Effective Interest Rate Is Mandatory in Europe",
     h1_plain="Bond premium and discount amortisation: why the effective interest rate is mandatory in Europe",
@@ -116,8 +116,8 @@ ARTICLES = {
     refnote=EN_REF,
   ),
   'fr': dict(
-    title="TIE ou amortissement linéaire : ce que la réglementation impose | Xavier Advisory",
-    desc="Pourquoi le taux d'intérêt effectif (TIE) est obligatoire pour l'amortissement des primes et décotes obligataires des assureurs européens : IFRS 9, Solvabilité II, ANC 2015-11, CGI.",
+    title="TIE ou amortissement linéaire : ce qu'impose la réglementation",
+    desc="Pourquoi le taux d'intérêt effectif (TIE) s'impose pour amortir primes et décotes obligataires des assureurs : IFRS 9, Solvabilité II, ANC 2015-11, CGI.",
     label="Comptabilité des investissements",
     h1="Amortissement des primes et décotes obligataires : pourquoi le taux d'intérêt effectif s'impose en Europe",
     h1_plain="Amortissement des primes et décotes obligataires : pourquoi le taux d'intérêt effectif s'impose en Europe",

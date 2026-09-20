@@ -1,0 +1,16 @@
+# En-têtes Netlify — site racine www.myxavier.finance uniquement
+# (les sites éditeur sont déployés depuis actuarius/ et actuarius-press/).
+
+# Images et logos : rarement modifiés. Convention : un fichier qui change de contenu change de nom.
+/brand_assets/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# Pages HTML : toujours revalidées (réglage Netlify par défaut, rappelé ici).
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Fichiers d'indexation : revalidés chaque jour.
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+/robots.txt
+  Cache-Control: public, max-age=86400

@@ -48,3 +48,7 @@ BRANDS_NOTE_EN = ("<strong>Xavier Advisory</strong> is the trade name under "
 
 UPDATED_FR = "14 août 2026"
 UPDATED_EN = "14 August 2026"
+
+# Politique de confidentialité du site vitrine (ajout de la mesure d'audience Umami).
+PRIVACY_UPDATED_FR = "20 septembre 2026"
+PRIVACY_UPDATED_EN = "20 September 2026"

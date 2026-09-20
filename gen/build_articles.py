@@ -3,6 +3,7 @@ import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
 from build_pages import (CSS, MARK, WORD, STR, NAV_LINKS, BASE,
                          navlinks_html, legal_links)
+import analytics
 
 ART_CSS = """
 .byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
@@ -49,9 +50,12 @@ def head(title, desc, url_self, url_en, url_fr, lang, ld):
 <meta property="og:image" content="{BASE}/brand_assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap"></noscript>
 <script type="application/ld+json">{ld}</script>
 <style>{CSS}{ART_CSS}</style>
+{analytics.snippet()}
 </head>"""
 
 def nav(lang, s, url_other, other_label):
@@ -64,10 +68,10 @@ def nav(lang, s, url_other, other_label):
 def cta_footer(s):
     return f"""<section class="cta"><div class="wrap">
   <h2>{s['cta_h']}</h2><p>{s['cta_p']}</p>
-  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">{s['cta_btn']}</a>
+  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener" data-umami-event="calendly" data-umami-event-placement="cta">{s['cta_btn']}</a>
   <span class="alt">{s['cta_alt']}</span>
 </div></section>
-<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>{legal_links(s)}</span></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance" data-umami-event="email" data-umami-event-placement="footer">welcome@myxavier.finance</a>{legal_links(s)}</span></div></footer>
 </body></html>"""
 
 def article_page(slug, lang, a):
@@ -78,12 +82,22 @@ def article_page(slug, lang, a):
     url_other = url_fr if lang == 'en' else url_en
     idx = '/insights/' if lang == 'en' else '/fr/insights/'
     back = '&larr; Insights' if lang == 'en' else '&larr; D&eacute;cryptages'
-    ld = json.dumps({"@context": "https://schema.org", "@type": "Article",
-        "headline": a['h1_plain'], "description": a['desc'],
-        "datePublished": a['date_iso'], "inLanguage": lang,
-        "author": {"@type": "Person", "name": "Xavier Robitaille"},
-        "publisher": {"@type": "Organization", "name": "Xavier Advisory", "url": BASE + "/"},
-        "mainEntityOfPage": url_self}, ensure_ascii=False)
+    ld = json.dumps({"@context": "https://schema.org", "@graph": [
+        {"@type": "Article",
+         "headline": a['h1_plain'], "description": a['desc'],
+         "image": BASE + "/brand_assets/og-image.jpg",
+         "datePublished": a['date_iso'], "dateModified": a.get('modified_iso', a['date_iso']),
+         "inLanguage": lang,
+         "author": {"@type": "Person", "@id": BASE + "/#person", "name": "Xavier Robitaille", "url": BASE + "/",
+                    "sameAs": ["https://www.linkedin.com/in/xrobitaille"]},
+         "publisher": {"@type": "Organization", "@id": BASE + "/#service", "name": "Xavier Advisory", "url": BASE + "/",
+                       "logo": {"@type": "ImageObject", "url": BASE + "/brand_assets/xa-logo-512.png"}},
+         "mainEntityOfPage": url_self},
+        {"@type": "BreadcrumbList", "itemListElement": [
+         {"@type": "ListItem", "position": 1, "name": "Home" if lang == 'en' else "Accueil", "item": s['home'] if s['home'].startswith('http') else BASE + s['home']},
+         {"@type": "ListItem", "position": 2, "name": "Insights" if lang == 'en' else "Décryptages", "item": BASE + idx},
+         {"@type": "ListItem", "position": 3, "name": a['h1_plain'], "item": url_self}]}
+    ]}, ensure_ascii=False)
     return f"""{head(a['title'], a['desc'], url_self, url_en, url_fr, lang, ld)}
 <body>
 {nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
@@ -107,8 +121,8 @@ def index_page(lang, arts):
     url_self = url_en if lang == 'en' else url_fr
     url_other = url_fr if lang == 'en' else url_en
     t = 'Insights' if lang == 'en' else 'D&eacute;cryptages'
-    title = ("Insights — Insurance Finance, Investment Accounting & Regulation | Xavier Advisory" if lang == 'en'
-             else "Décryptages — Finance assurance, comptabilité des investissements | Xavier Advisory")
+    title = ("Insights on Insurance Finance & Regulation | Xavier Advisory" if lang == 'en'
+             else "Décryptages finance assurance & réglementation | Xavier Advisory")
     desc = ("Technical articles on insurance finance: IFRS 9 and IFRS 17, investment accounting, Solvency II, platform implementations. By Xavier Robitaille." if lang == 'en'
             else "Articles techniques sur la finance assurance : IFRS 9 et IFRS 17, comptabilité des investissements, Solvabilité II, implémentations. Par Xavier Robitaille.")
     intro = ("Working notes from the field: regulation, investment accounting and systems, written from delivered engagements." if lang == 'en'
