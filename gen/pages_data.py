@@ -3,7 +3,7 @@ PAGES = {
  'ifrs-17-ifrs-9-solvency-ii': {
   'en': dict(
     title="IFRS 17, IFRS 9 & Solvency II Consultant | Xavier Advisory",
-    desc="Senior consultant for IFRS 17, IFRS 9 and Solvency II programmes: gap analysis, accounting schemes, ECL, dry-runs, regulatory reporting production. 25 years in insurance.",
+    desc="Senior consultant for IFRS 17, IFRS 9 and Solvency II programmes: gap analysis, accounting schemes, ECL, dry-runs, regulatory reporting. 25 years in insurance.",
     label="Expertise", h1="IFRS 17, IFRS 9 &amp; Solvency II",
     intro="Regulatory programmes fail at the junction between actuarial models, accounting schemes and reporting systems. I work at that junction: qualified in accounting, trained in actuarial science, and hands-on with the production systems.",
     s1title="The problem",
@@ -39,7 +39,7 @@ PAGES = {
   )},
  'simcorp-clearwater': {
   'en': dict(
-    title="SimCorp Dimension & Clearwater Analytics Consultant | Xavier Advisory",
+    title="SimCorp Dimension & Clearwater Consultant | Xavier Advisory",
     desc="Independent consultant with full implementations delivered on both SimCorp Dimension and Clearwater Analytics: scoping, UAT, data migration, go-live, hypercare.",
     label="Expertise", h1="SimCorp Dimension &amp; Clearwater Analytics",
     intro="I have delivered full implementations on both leading investment management platforms. Few independent consultants have taken SimCorp Dimension and Clearwater Analytics from scoping to production.",
@@ -57,7 +57,7 @@ PAGES = {
         ("SCOR — SimCorp Dimension (2006–2010)","Investment function transformation (special advisor to the COO), then full front-to-back implementation, €3M budget: middle and back office, Swift, Bloomberg, GL interfaces, IFRS and US GAAP reporting.")],
   ),
   'fr': dict(
-    title="Consultant SimCorp Dimension & Clearwater Analytics | Xavier Advisory",
+    title="Consultant SimCorp Dimension & Clearwater | Xavier Advisory",
     desc="Consultant indépendant avec des implémentations complètes livrées sur SimCorp Dimension et Clearwater Analytics : cadrage, recette, migration, mise en production.",
     label="Expertise", h1="SimCorp Dimension &amp; Clearwater Analytics",
     intro="J'ai livré des implémentations complètes sur les deux plateformes leaders de gestion des investissements. Peu de consultants indépendants ont mené SimCorp Dimension et Clearwater Analytics du cadrage à la production.",
@@ -77,7 +77,7 @@ PAGES = {
  'investment-accounting-reporting': {
   'en': dict(
     title="Investment Accounting & Reporting Consultant | Xavier Advisory",
-    desc="Investment accounting for insurers and asset managers: securities sub-ledger, multi-GAAP schemes, amortised cost, custodian reconciliation, fast-close, ALM reporting.",
+    desc="Investment accounting for insurers and asset managers: securities sub-ledger, multi-GAAP schemes, amortised cost, custodian reconciliation, fast-close, ALM.",
     label="Expertise", h1="Investment Accounting &amp; Reporting",
     intro="The securities sub-ledger is where market data, custodian records and the general ledger must agree, every closing. I have run, redesigned and migrated that function for insurers and reinsurers for 25 years.",
     s1title="The problem",
@@ -94,7 +94,7 @@ PAGES = {
         ("Reference tooling","Amortised cost / effective-rate model (ASD) built and reused across engagements; ECL production files delivered at Coface.")],
   ),
   'fr': dict(
-    title="Consultant Comptabilité & Reporting des Investissements | Xavier Advisory",
+    title="Consultant comptabilité des placements | Xavier Advisory",
     desc="Comptabilité des placements pour assureurs et asset managers : sous-ledger titres, schémas multi-normes, coût amorti, réconciliation dépositaire, fast-close, ALM.",
     label="Expertise", h1="Comptabilit&eacute; &amp; Reporting des Investissements",
     intro="Le sous-ledger titres est l'endroit où les données de marché, les relevés dépositaire et le grand livre doivent se réconcilier, à chaque clôture. Je fais tourner, refonds et migre cette fonction chez les assureurs et réassureurs depuis 25 ans.",
@@ -131,7 +131,7 @@ PAGES = {
         ("Certification","PMP&reg;, Project Management Institute, 2025 — on top of 20 years of delivered programmes.")],
   ),
   'fr': dict(
-    title="PMO & Pilotage de Programme — Finance & Assurance | Xavier Advisory",
+    title="PMO & pilotage de programme finance assurance | Xavier Advisory",
     desc="Pilotage de programme certifié PMP pour les transformations finance et assurance : gouvernance C-suite, RAID, comitologie bilingue, feuilles de route tenues.",
     label="Expertise", h1="PMO &amp; Pilotage de Programme",
     intro="La gouvernance de programme fonctionne quand celui qui la porte comprend le fond. Je préside des comités de pilotage sur des sujets que j'ai livrés moi-même : comptabilité réglementaire, implémentations de plateformes, transformation finance.",
@@ -206,7 +206,7 @@ PAGES = {
         ("Your vocabulary","IFRS 17, ECL, QRT, reconciliations, fast-close: sessions run on your material, in your terms, under your confidentiality constraints.")],
   ),
   'fr': dict(
-    title="Formation IA pour les professionnels de la finance | Xavier Advisory",
+    title="Formation IA pour professionnels de la finance | Xavier Advisory",
     desc="Formation à l'IA générative pour les équipes finance, comptabilité et reporting en assurance et gestion d'actifs. Conçue et animée par un praticien. FR ou EN.",
     label="Formation", h1="Formation IA pour les professionnels de la finance",
     back="&larr; Accueil", backhref="/fr/",

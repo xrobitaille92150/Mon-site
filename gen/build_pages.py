@@ -137,16 +137,29 @@ def legal_links(s):
 
 def jsonld(slug, lang, d):
     url = f"{BASE}/{base_path(slug)}/" if lang=='en' else f"{BASE}/fr/{base_path(slug)}/"
-    import json
+    import json, html as _html
+    home = BASE + ("/" if lang == 'en' else "/fr/")
+    crumbs = [(("Home" if lang == 'en' else "Accueil"), home)]
+    if slug != 'formation':
+        crumbs.append((("Expertise"), home + "#expertise"))
+    crumbs.append((_html.unescape(d['h1']), url))
     return json.dumps({
-      "@context":"https://schema.org","@type":"Service",
-      "@id":url+"#service",
-      "name":d['title'].split(' | ')[0],
-      "description":d['desc'],
-      "url":url,
-      "inLanguage":"en" if lang=='en' else "fr",
-      "provider":{"@type":"ProfessionalService","name":"Xavier Advisory","url":BASE+"/", "founder":{"@type":"Person","name":"Xavier Robitaille"}},
-      "areaServed":["FR","EU","International"]
+      "@context":"https://schema.org",
+      "@graph":[
+        {"@type":"Service",
+         "@id":url+"#service",
+         "name":d['title'].split(' | ')[0],
+         "description":d['desc'],
+         "url":url,
+         "inLanguage":"en" if lang=='en' else "fr",
+         "provider":{"@type":"ProfessionalService","@id":BASE+"/#service","name":"Xavier Advisory","url":BASE+"/",
+                     "logo":BASE+"/brand_assets/xa-logo-512.png",
+                     "founder":{"@type":"Person","@id":BASE+"/#person","name":"Xavier Robitaille","url":BASE+"/",
+                                "sameAs":["https://www.linkedin.com/in/xrobitaille"]}},
+         "areaServed":["FR","EU","International"]},
+        {"@type":"BreadcrumbList",
+         "itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]}
+      ]
     }, ensure_ascii=False)
 
 def page(slug, lang, d):
@@ -181,7 +194,9 @@ def page(slug, lang, d):
 <meta property="og:image" content="{BASE}/brand_assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap"></noscript>
 <script type="application/ld+json">{jsonld(slug, lang, d)}</script>
 <style>{CSS}</style>
 </head>

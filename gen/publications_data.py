@@ -4,7 +4,7 @@
 
 UI = {
  'en': dict(
-    title="Publications — Insurance Finance Books & White Papers | Xavier Advisory",
+    title="Publications — Insurance Finance Books | Xavier Advisory",
     desc="Professional books on insurance finance by Xavier Robitaille: repos, bond management, hedging, 2027-2028 regulatory agenda. Free extracts and white paper.",
     label="Publications", h1="Publications",
     intro="Professional books written from practice: investment accounting, prudential rules and controls, with full accounting entries and worked cases. Published in French. Each book below opens on its first pages: title and full table of contents.",
@@ -42,8 +42,8 @@ UI = {
     preview_note_sale="End of preview. The complete book is available in PDF and paperback.",
  ),
  'fr': dict(
-    title="Publications — Ouvrages et livres blancs finance assurance | Xavier Advisory",
-    desc="Ouvrages professionnels de Xavier Robitaille : opérations de pension, gestion obligataire, couvertures, chantiers réglementaires 2027-2028. Extraits gratuits et livre blanc.",
+    title="Publications — Livres finance assurance | Xavier Advisory",
+    desc="Ouvrages professionnels de Xavier Robitaille : opérations de pension, gestion obligataire, couvertures, chantiers réglementaires 2027-2028. Extraits gratuits.",
     label="Publications", h1="Publications",
     intro="Des ouvrages professionnels écrits depuis la pratique : comptabilité des placements, prudentiel et contrôles, avec écritures comptables complètes et dossiers chiffrés. Chaque ouvrage ci-dessous s'ouvre sur ses premières pages : le titre et la table des matières complète.",
     free_title="Documentation gratuite",

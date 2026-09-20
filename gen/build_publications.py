@@ -286,7 +286,9 @@ def head(title, desc, url_self, url_en, url_fr, lang, ld, extra_head=''):
 <meta property="og:image" content="{BASE}/brand_assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="/brand_assets/xa-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap"></noscript>
 <script type="application/ld+json">{ld}</script>
 <style>{CSS}{PUB_CSS}</style>{extra_head}
 </head>"""
