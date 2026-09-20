@@ -9,7 +9,8 @@
 Le site vitrine ne collecte aucune donnée via formulaire : le contact
 passe par mailto et Calendly. La politique couvre donc les logs
 d'hébergement, la préférence de langue (localStorage) et les ressources
-tierces (Google Fonts). Pas de cookie soumis à consentement : pas de
+tierces (Google Fonts) et la mesure d'audience Umami Cloud (sans cookie,
+voir analytics.py). Pas de cookie soumis à consentement : pas de
 bannière (délibération CNIL n° 2020-091, art. 82 loi Informatique et
 Libertés — traceurs strictement fonctionnels exemptés).
 
@@ -19,7 +20,8 @@ import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from build_pages import CSS, MARK, WORD, STR, BASE, navlinks_html, legal_links
 from legal_data import (COMPANY as C, HOST, BRANDS_NOTE_FR, BRANDS_NOTE_EN,
-                        UPDATED_FR, UPDATED_EN)
+                        UPDATED_FR, UPDATED_EN, PRIVACY_UPDATED_FR, PRIVACY_UPDATED_EN)
+import analytics
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -156,6 +158,15 @@ Base légale&nbsp;: mesures précontractuelles (art. 6.1.b RGPD).
 Durée&nbsp;: la durée de la relation, au plus 3 ans après le dernier
 contact. Calendly LLC traite vos données selon sa propre politique de
 confidentialité.</li>
+<li><strong>Mesure d'audience</strong> (Umami Cloud, Umami Software,
+Inc.)&nbsp;: pages consultées, page d'origine, pays, type d'appareil et
+de navigateur, clics sur les liens de contact. Aucun cookie, aucune
+adresse IP conservée&nbsp;: le visiteur est compté à partir d'une
+empreinte hachée renouvelée chaque jour, qui ne permet ni de le
+réidentifier ni de le suivre d'un site à l'autre. Finalité&nbsp;:
+statistiques de fréquentation. Base légale&nbsp;: intérêt légitime
+(art. 6.1.f RGPD). Traceur exempté de consentement (délibération CNIL
+n° 2020-091). Durée&nbsp;: 6 mois.</li>
 </ul>
 <h2>3. Ressources tierces</h2>
 <p>Les polices de caractères sont chargées depuis Google Fonts&nbsp;: à
@@ -163,12 +174,13 @@ cette occasion, votre adresse IP est transmise à Google Ireland Ltd /
 Google LLC (États-Unis). Aucun cookie n'est déposé par ce service.</p>
 <h2>4. Cookies</h2>
 <p>Ce site ne dépose <strong>aucun cookie</strong> soumis à consentement
-(pas de mesure d'audience, pas de traceur publicitaire)&nbsp;: c'est
-pourquoi aucune bannière de consentement n'est affichée.</p>
+(mesure d'audience sans cookie ni donnée personnelle, pas de traceur
+publicitaire)&nbsp;: c'est pourquoi aucune bannière de consentement n'est
+affichée.</p>
 <h2>5. Destinataires et transferts hors UE</h2>
 <p>Les données décrites ci-dessus sont traitées par nos sous-traitants
-d'hébergement et d'infrastructure ({HOST['name']}, Calendly LLC, Google),
-établis en partie aux États-Unis. Ces transferts sont encadrés par les
+d'hébergement et d'infrastructure ({HOST['name']}, Calendly LLC, Google,
+Umami Software, Inc.), établis en partie aux États-Unis. Ces transferts sont encadrés par les
 clauses contractuelles types de la Commission européenne et, le cas
 échéant, par la certification des prestataires au Data Privacy
 Framework. Aucune donnée n'est vendue ni transmise à des fins
@@ -180,7 +192,7 @@ de portabilité sur vos données. Pour les exercer&nbsp;:
 <a href="mailto:{C['email']}">{C['email']}</a>. Vous pouvez introduire
 une réclamation auprès de la CNIL
 (<a href="https://www.cnil.fr" rel="noopener">www.cnil.fr</a>).</p>
-<p class="updated">Dernière mise à jour : {UPDATED_FR}</p>"""
+<p class="updated">Dernière mise à jour : {PRIVACY_UPDATED_FR}</p>"""
     return f"""
 <h2>1. Data controller</h2>
 <p><strong>{C['name']}</strong>, {C['forme_en']}, {C['siege']}, trading
@@ -203,19 +215,27 @@ is used solely to handle your request. Legal basis: pre-contractual
 steps (art. 6(1)(b) GDPR). Retention: the duration of our exchange, at
 most 3 years after the last contact. Calendly LLC processes your data
 under its own privacy policy.</li>
+<li><strong>Audience measurement</strong> (Umami Cloud, Umami Software,
+Inc.): pages viewed, referring page, country, device and browser type,
+clicks on contact links. No cookie and no IP address is stored: visitors
+are counted from a hashed fingerprint renewed daily, which can neither
+re-identify them nor follow them across sites. Purpose: traffic
+statistics. Legal basis: legitimate interest (art. 6(1)(f) GDPR). A
+tracer exempt from consent under French CNIL guidance (deliberation
+no. 2020-091). Retention: 6 months.</li>
 </ul>
 <h2>3. Third-party resources</h2>
 <p>Fonts are loaded from Google Fonts; when they load, your IP address
 is transmitted to Google Ireland Ltd / Google LLC (United States). This
 service sets no cookies.</p>
 <h2>4. Cookies</h2>
-<p>This site sets <strong>no cookies</strong> requiring consent (no
-analytics, no advertising tracers), which is why no consent banner is
-displayed.</p>
+<p>This site sets <strong>no cookies</strong> requiring consent
+(cookie-free audience measurement with no personal data, no advertising
+tracers), which is why no consent banner is displayed.</p>
 <h2>5. Recipients and transfers outside the EU</h2>
 <p>The data described above is processed by our hosting and
-infrastructure providers ({HOST['name']}, Calendly LLC, Google), partly
-established in the United States. These transfers are governed by the
+infrastructure providers ({HOST['name']}, Calendly LLC, Google, Umami
+Software, Inc.), partly established in the United States. These transfers are governed by the
 European Commission's standard contractual clauses and, where
 applicable, the providers' certification under the Data Privacy
 Framework. No data is sold or shared for commercial purposes.</p>
@@ -225,7 +245,7 @@ rectification, erasure, restriction, objection and portability. To
 exercise them: <a href="mailto:{C['email']}">{C['email']}</a>. You may
 lodge a complaint with the French supervisory authority, the CNIL
 (<a href="https://www.cnil.fr" rel="noopener">www.cnil.fr</a>).</p>
-<p class="updated">Last updated: {UPDATED_EN}</p>"""
+<p class="updated">Last updated: {PRIVACY_UPDATED_EN}</p>"""
 
 
 BODY = {'mentions': mentions_body, 'privacy': privacy_body}
@@ -267,6 +287,7 @@ def page(key, lang):
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap"></noscript>
 <style>{CSS}{LEGAL_CSS}</style>
+{analytics.snippet()}
 </head>
 <body>
 <nav><div class="nav-inner">
@@ -280,7 +301,7 @@ def page(key, lang):
 <section><div class="wrap legal">{body}</div></section>
 <footer><div class="wrap">
   <span>&copy; 2026 Xavier Advisory</span>
-  <span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>{legal_links(s)}</span>
+  <span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance" data-umami-event="email" data-umami-event-placement="footer">welcome@myxavier.finance</a>{legal_links(s)}</span>
 </div></footer>
 </body>
 </html>

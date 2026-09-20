@@ -3,6 +3,7 @@ import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
 from build_pages import (CSS, MARK, WORD, STR, NAV_LINKS, BASE,
                          navlinks_html, legal_links)
+import analytics
 
 ART_CSS = """
 .byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
@@ -54,6 +55,7 @@ def head(title, desc, url_self, url_en, url_fr, lang, ld):
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap"></noscript>
 <script type="application/ld+json">{ld}</script>
 <style>{CSS}{ART_CSS}</style>
+{analytics.snippet()}
 </head>"""
 
 def nav(lang, s, url_other, other_label):
@@ -66,10 +68,10 @@ def nav(lang, s, url_other, other_label):
 def cta_footer(s):
     return f"""<section class="cta"><div class="wrap">
   <h2>{s['cta_h']}</h2><p>{s['cta_p']}</p>
-  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener">{s['cta_btn']}</a>
+  <a class="btn-gold" href="https://calendly.com/xrobitaille/1h" target="_blank" rel="noopener" data-umami-event="calendly" data-umami-event-placement="cta">{s['cta_btn']}</a>
   <span class="alt">{s['cta_alt']}</span>
 </div></section>
-<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance">welcome@myxavier.finance</a>{legal_links(s)}</span></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance" data-umami-event="email" data-umami-event-placement="footer">welcome@myxavier.finance</a>{legal_links(s)}</span></div></footer>
 </body></html>"""
 
 def article_page(slug, lang, a):

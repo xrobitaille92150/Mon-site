@@ -56,6 +56,7 @@ echo "  ✔ netlify-cli OK, repo OK"
 
 if [[ $DO_BUILD -eq 1 ]]; then
   echo "== 1. Regénération des pages (generateurs Python)"
+  run "python3 gen/analytics.py"
   run "python3 gen/build_pages.py"
   run "python3 gen/build_articles.py"
   run "python3 gen/build_legal.py"
