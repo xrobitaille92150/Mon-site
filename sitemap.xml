@@ -100,6 +100,13 @@
     <lastmod>2026-09-20</lastmod>
   </url>
   <url>
+    <loc>https://www.myxavier.finance/insights/nav-loans-private-equity-insurers/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/nav-loans-private-equity-insurers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/nav-loans-private-equity-insurers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/nav-loans-private-equity-insurers/"/>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
     <loc>https://www.myxavier.finance/fr/expertise/ifrs-17-ifrs-9-solvency-ii/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/expertise/ifrs-17-ifrs-9-solvency-ii/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/expertise/ifrs-17-ifrs-9-solvency-ii/"/>
@@ -135,10 +142,21 @@
     <lastmod>2026-09-20</lastmod>
   </url>
   <url>
+    <loc>https://www.myxavier.finance/fr/insights/dette-souveraine-refinancement/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
     <loc>https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/effective-interest-rate-bond-amortisation/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/effective-interest-rate-bond-amortisation/"/>
     <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.myxavier.finance/fr/insights/nav-loans-private-equity-insurers/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.myxavier.finance/insights/nav-loans-private-equity-insurers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.myxavier.finance/fr/insights/nav-loans-private-equity-insurers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myxavier.finance/insights/nav-loans-private-equity-insurers/"/>
+    <lastmod>2026-09-21</lastmod>
   </url>
 </urlset>

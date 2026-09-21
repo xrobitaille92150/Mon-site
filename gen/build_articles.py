@@ -5,6 +5,13 @@ from build_pages import (CSS, MARK, WORD, STR, NAV_LINKS, BASE,
                          navlinks_html, legal_links)
 import analytics
 
+# Catégories de la rubrique Insights / Décryptages : ordre d'affichage et libellés.
+# Un article sans champ `category` est rangé dans 'notes'.
+CATEGORIES = [
+    ('analysis', {'en': 'Analysis of in-depth articles', 'fr': "Analyse d'articles de fond"}),
+    ('notes',    {'en': 'Technical notes',               'fr': 'Notes techniques'}),
+]
+
 ART_CSS = """
 .byline{display:flex;gap:1rem;align-items:center;font-size:.8rem;color:rgba(255,255,255,.65);margin-top:1.2rem}
 .byline strong{color:rgba(255,255,255,.9)}
@@ -25,12 +32,18 @@ article a:hover{text-decoration:underline}
 .related strong{display:block;margin-bottom:.4rem;color:var(--primary)}
 .idx-card{display:block;background:var(--white);border-top:3px solid var(--gold);padding:1.5rem 1.6rem;margin-bottom:1.2rem;box-shadow:0 8px 24px rgba(11,21,48,.07);text-decoration:none;color:inherit;transition:transform .2s}
 .idx-card:hover{transform:translateY(-2px)}
-.idx-card h2{font-size:1.25rem;color:var(--primary);margin-bottom:.5rem}
+.idx-card h2,.idx-card h3{font-family:'EB Garamond',Georgia,serif;font-weight:700;font-size:1.25rem;color:var(--primary);margin-bottom:.5rem}
+.idx-cat{font-size:1.35rem;color:var(--primary);margin:2.4rem 0 1.1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.idx-cat:first-child{margin-top:0}
 .idx-card p{color:#4B5364;line-height:1.65;font-size:.92rem}
 .idx-card .meta{font-size:.75rem;color:var(--gray);margin-top:.7rem;display:block}
 """
 
-def head(title, desc, url_self, url_en, url_fr, lang, ld):
+def head(title, desc, url_self, url_en, url_fr, lang, ld, bilingual=True):
+    # Page publiée dans une seule langue : pas de liens hreflang vers une traduction inexistante.
+    alternates = (f'''<link rel="alternate" hreflang="en" href="{url_en}">
+<link rel="alternate" hreflang="fr" href="{url_fr}">
+<link rel="alternate" hreflang="x-default" href="{url_en}">''' if bilingual else '')
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -39,9 +52,7 @@ def head(title, desc, url_self, url_en, url_fr, lang, ld):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url_self}">
-<link rel="alternate" hreflang="en" href="{url_en}">
-<link rel="alternate" hreflang="fr" href="{url_fr}">
-<link rel="alternate" hreflang="x-default" href="{url_en}">
+{alternates}
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Xavier Advisory">
 <meta property="og:title" content="{title}">
@@ -74,12 +85,15 @@ def cta_footer(s):
 <footer><div class="wrap"><span>&copy; 2026 Xavier Advisory</span><span><a href="{s['home']}">Xavier Advisory</a><a href="mailto:welcome@myxavier.finance" data-umami-event="email" data-umami-event-placement="footer">welcome@myxavier.finance</a>{legal_links(s)}</span></div></footer>
 </body></html>"""
 
-def article_page(slug, lang, a):
+def article_page(slug, lang, a, bilingual=True):
     s = STR[lang]
     url_en = f"{BASE}/insights/{slug}/"
     url_fr = f"{BASE}/fr/insights/{slug}/"
     url_self = url_en if lang == 'en' else url_fr
     url_other = url_fr if lang == 'en' else url_en
+    if not bilingual:
+        # Pas de traduction : le bouton de langue renvoie à la page d'accueil de la rubrique dans l'autre langue.
+        url_other = '/fr/insights/' if lang == 'en' else '/insights/'
     idx = '/insights/' if lang == 'en' else '/fr/insights/'
     back = '&larr; Insights' if lang == 'en' else '&larr; D&eacute;cryptages'
     ld = json.dumps({"@context": "https://schema.org", "@graph": [
@@ -98,7 +112,7 @@ def article_page(slug, lang, a):
          {"@type": "ListItem", "position": 2, "name": "Insights" if lang == 'en' else "Décryptages", "item": BASE + idx},
          {"@type": "ListItem", "position": 3, "name": a['h1_plain'], "item": url_self}]}
     ]}, ensure_ascii=False)
-    return f"""{head(a['title'], a['desc'], url_self, url_en, url_fr, lang, ld)}
+    return f"""{head(a['title'], a['desc'], url_self, url_en, url_fr, lang, ld, bilingual)}
 <body>
 {nav(lang, s, url_other, 'FR' if lang=='en' else 'EN')}
 <header class="hero"><div class="wrap">
@@ -128,9 +142,14 @@ def index_page(lang, arts):
     intro = ("Working notes from the field: regulation, investment accounting and systems, written from delivered engagements." if lang == 'en'
              else "Notes de terrain : réglementation, comptabilité des investissements et systèmes, écrites depuis des missions livrées.")
     cards = ''
-    for slug, a in arts:
-        href = (f"/insights/{slug}/" if lang == 'en' else f"/fr/insights/{slug}/")
-        cards += f'<a class="idx-card" href="{href}"><h2>{a["h1"]}</h2><p>{a["desc"]}</p><span class="meta">Xavier Robitaille · {a["date_h"]} · {a["readtime"]}</span></a>\n'
+    groups = [(key, [(slug, a) for slug, a in arts if a.get('category', 'notes') == key]) for key, _ in CATEGORIES]
+    groups = [(key, items) for key, items in groups if items]
+    for key, items in groups:
+        if len(groups) > 1:
+            cards += f'<h2 class="idx-cat" id="{key}">{dict(CATEGORIES)[key][lang]}</h2>\n'
+        for slug, a in items:
+            href = (f"/insights/{slug}/" if lang == 'en' else f"/fr/insights/{slug}/")
+            cards += f'<a class="idx-card" href="{href}"><h3>{a["h1"]}</h3><p>{a["desc"]}</p><span class="meta">Xavier Robitaille · {a["date_h"]} · {a["readtime"]}</span></a>\n'
     ld = json.dumps({"@context": "https://schema.org", "@type": "CollectionPage", "name": t, "url": url_self}, ensure_ascii=False)
     return f"""{head(title, desc, url_self, url_en, url_fr, lang, ld)}
 <body>
@@ -147,15 +166,18 @@ def index_page(lang, arts):
 
 if __name__ == '__main__':
     from articles_data import ARTICLES
-    order = sorted(ARTICLES.items(), key=lambda kv: kv[1]['en']['date_iso'], reverse=True)
+    # Un article peut n'exister qu'en français ou qu'en anglais : il n'apparaît alors que dans cette langue.
+    order = sorted(ARTICLES.items(), key=lambda kv: next(iter(kv[1].values()))['date_iso'], reverse=True)
+    n = 0
     for slug, langs in ARTICLES.items():
         for lang, a in langs.items():
             path = f"insights/{slug}" if lang == 'en' else f"fr/insights/{slug}"
             os.makedirs(path, exist_ok=True)
-            open(f"{path}/index.html", 'w', encoding='utf-8').write(article_page(slug, lang, a))
+            open(f"{path}/index.html", 'w', encoding='utf-8').write(article_page(slug, lang, a, bilingual=len(langs) == 2))
+            n += 1
     for lang in ('en', 'fr'):
         path = 'insights' if lang == 'en' else 'fr/insights'
         os.makedirs(path, exist_ok=True)
-        arts = [(slug, langs[lang]) for slug, langs in order]
+        arts = [(slug, langs[lang]) for slug, langs in order if lang in langs]
         open(f"{path}/index.html", 'w', encoding='utf-8').write(index_page(lang, arts))
-    print(f"OK: {len(ARTICLES)*2} articles + 2 index")
+    print(f"OK: {n} articles + 2 index")
