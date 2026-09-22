@@ -70,6 +70,12 @@ ul.deliver li::before{content:"";position:absolute;left:0;top:1.45rem;width:9px;
 footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(245,242,235,.78);font-size:.8rem}
 footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer a{color:rgba(245,242,235,.9);text-decoration:none;margin-left:1.2rem}
+.prose a,ul.deliver a,.faq a{color:var(--primary);text-decoration:none;border-bottom:1.5px solid var(--gold);transition:color .2s}
+.prose a:hover,ul.deliver a:hover,.faq a:hover,.prose a:focus-visible,ul.deliver a:focus-visible,.faq a:focus-visible{color:var(--gold)}
+.faq{max-width:760px}
+.faq h3{font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.6rem 0 .5rem}
+.faq h3:first-child{margin-top:0}
+.faq p{line-height:1.75;color:#2A3345}
 .breadcrumb{font-size:.78rem;margin-bottom:1rem}
 .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
 .breadcrumb a:hover{color:#fff}
@@ -91,6 +97,7 @@ footer a{color:rgba(245,242,235,.9);text-decoration:none;margin-left:1.2rem}
 <section><div class="wrap prose"><h2>Le probl&egrave;me</h2><p>Les formations IA généralistes enseignent le prompting sur des exemples génériques. Les équipes finance en sortent sans savoir l'appliquer à un dossier de clôture, un rapprochement ou un QRT, et leurs questions sur la confidentialité et la piste d'audit restent sans réponse.</p><p>Les blocages sont précis : quelles données peuvent entrer dans l'outil, comment contrôler ce qui en sort, quelle place pour l'IA dans un environnement de contrôle interne. Un formateur sans expérience de la production financière ne peut pas y répondre.</p></div></section>
 <section style="background:var(--white)"><div class="wrap"><h2>Ce que je livre</h2><ul class="deliver"><li><strong>Ateliers sur vos cas réels</strong> : les participants apportent leur matière (procédures, rapprochements, dossiers de clôture, anonymisés si nécessaire) et repartent avec des méthodes utilisables dès le lendemain.</li><li><strong>Cas d'usage finance</strong> : notes de clôture, première analyse de comptes, documentation de procédures, contrôles de qualité des données, veille réglementaire.</li><li><strong>Garde-fous</strong> : règles de confidentialité, relecture avant usage, ce qui ne doit jamais entrer dans les outils. Cohérent avec votre dispositif de contrôle.</li><li><strong>Format</strong> : ateliers d'une demi-journée ou d'une journée, à distance ou sur site, en français ou en anglais, pour les équipes finance, comptabilité, reporting et opérations, ou les indépendants.</li></ul></div></section>
 <section><div class="wrap"><h2>Pourquoi moi</h2><div class="cards"><div class="card"><h3>Praticien</h3><p>J'ai automatisé ma propre activité de conseil avec des chaînes IA : génération de documents, classification, notation. J'enseigne ce que je fais tourner en production chaque jour.</p></div><div class="card"><h3>Certifié</h3><p>Certificats en IA générative (Vanderbilt, Yale, 2026), PMP (2025), 25 ans en finance d'assurance. Les exemples viennent de vraies clôtures.</p></div><div class="card"><h3>Votre vocabulaire</h3><p>IFRS 17, ECL, QRT, rapprochements, fast-close : les sessions se déroulent sur votre matière, dans vos termes, avec vos contraintes de confidentialité.</p></div></div></div></section>
+
 <section class="cta"><div class="wrap">
   <h2>Disponible imm&eacute;diatement pour de nouvelles missions</h2>
   <p>Remote, hybride ou sur site, en France et &agrave; l'international. Fran&ccedil;ais et anglais.</p>
