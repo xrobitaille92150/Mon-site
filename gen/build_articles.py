@@ -19,7 +19,7 @@ article{max-width:760px}
 article h2{font-size:1.55rem;margin:2.6rem 0 1rem}
 article h3{font-family:'Inter',Arial,sans-serif;font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.8rem 0 .6rem}
 article p{line-height:1.75;margin-bottom:1rem;color:#2A3345}
-article ul{margin:0 0 1rem 1.2rem;line-height:1.7;color:#2A3345}
+article ul,article ol{margin:0 0 1rem 1.2rem;line-height:1.7;color:#2A3345}
 article li{margin-bottom:.4rem}
 article blockquote{border-left:3px solid var(--gold);padding:.6rem 0 .6rem 1.2rem;margin:1.2rem 0;color:#4B5364;font-style:italic}
 article table{width:100%;border-collapse:collapse;margin:1.4rem 0;font-size:.88rem}

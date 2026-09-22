@@ -284,7 +284,116 @@ DETTE_FR_BODY = """
 
 DETTE_FR_REF = """Article analysé : <a href="https://www.ft.com/content/4f28ef6c-f727-4d36-88a3-bbdbd13ddfbf" target="_blank" rel="noopener"><em>The world's $2tn interest bill</em></a>, <em>Financial Times</em>, 8 septembre 2026."""
 
+AIACT_FR_BODY = """
+<h2>Synthèse</h2>
+<p>Le règlement (UE) 2024/1689 est applicable depuis le 2 août 2026, sous réserve des échéances spécifiques prévues à son article 113. Les obligations de transparence de l'article 50 sont notamment entrées en application à cette date.</p>
+<p>Pour l'assurance, le principal report concerne les systèmes à haut risque de l'annexe III. Les sections 1 à 3 du chapitre III leur seront applicables à compter du 2 décembre 2027. L'annexe III, point 5(c), vise expressément les systèmes d'IA utilisés pour évaluer le risque et tarifer les contrats concernant des personnes physiques en assurance vie et en assurance maladie.</p>
+<p>Ce calendrier laisse seize mois aux organismes concernés pour qualifier leurs cas d'usage, confirmer leur rôle au sens du règlement et adapter leur dispositif de contrôle. En pratique, chaque organisme devrait disposer d'un inventaire documenté, d'une analyse de qualification par système et d'un plan de conformité spécifique aux systèmes à haut risque.</p>
+
+<h2>1. Calendrier d'application</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Date</th><th>Dispositions</th><th>Conséquence pour l'organisme</th></tr>
+<tr><td>2 février 2025</td><td>Chapitres I et II, dont l'article 4</td><td>Définir les mesures de sensibilisation et de formation adaptées.</td></tr>
+<tr><td>2 août 2025</td><td>Gouvernance et modèles d'IA à usage général</td><td>Identifier les modèles intégrés dans les solutions internes ou achetées.</td></tr>
+<tr><td>2 août 2026</td><td>Date générale d'application ; article 50</td><td>Revoir les interfaces, les contenus générés et les informations communiquées.</td></tr>
+<tr><td>2 décembre 2027</td><td>Chapitre III, sections 1 à 3 &mdash; annexe III</td><td>Mettre en conformité les systèmes concernés, dont certains systèmes vie et santé.</td></tr>
+<tr><td>2 août 2028</td><td>Chapitre III, sections 1 à 3 &mdash; annexe I</td><td>Examiner les produits réglementés et leurs composants de sécurité.</td></tr>
+</table>
+</div>
+<p>L'article 113 fixe ces dates dans la version consolidée au 27 juillet 2026. Le règlement (UE) 2026/1744 a reporté l'application des obligations relatives aux systèmes à haut risque de l'annexe III du 2 août 2026 au 2 décembre 2027.</p>
+
+<h2>2. Qualification des cas d'usage</h2>
+<p>L'inventaire devrait couvrir les systèmes en production, les pilotes, les solutions achetées et les développements locaux susceptibles de répondre à la définition d'un système d'IA. Chaque ligne doit préciser la destination du système, les décisions qu'il prend ou facilite, la population concernée, les données utilisées, l'entité juridique responsable et le fournisseur éventuel.</p>
+<p>Pour les cas visés à l'annexe III, l'article 6, paragraphe 3, prévoit une dérogation lorsque le système ne présente aucun risque important de préjudice pour la santé, la sécurité ou les droits fondamentaux des personnes physiques et n'a pas d'incidence significative sur le résultat de la décision. Cette dérogation couvre quatre situations :</p>
+<ul>
+<li>une tâche procédurale étroite ;</li>
+<li>l'amélioration du résultat d'une activité humaine déjà réalisée ;</li>
+<li>la détection de constantes ou d'écarts, sous réserve d'un examen humain approprié ;</li>
+<li>une tâche préparatoire à une évaluation visée par l'annexe III.</li>
+</ul>
+<p>Un système de l'annexe III qui effectue un profilage de personnes physiques reste classé à haut risque. Par ailleurs, le fournisseur qui retient la dérogation doit documenter son analyse avant la mise sur le marché ou la mise en service et enregistrer le système dans la base de données de l'Union.</p>
+<p>La qualification doit donc être établie au niveau du cas d'usage. Une même solution technique peut recevoir plusieurs destinations et relever de qualifications différentes selon l'entité qui l'utilise et la décision qu'elle facilite.</p>
+
+<h2>3. Quid des autres usages de l'IA en assurance ?</h2>
+<p>La tarification IARD, la détection de fraude, le traitement des sinistres, l'analyse documentaire, les assistants destinés aux collaborateurs et les outils de relation client ne relèvent pas automatiquement de l'annexe III, point 5(c). Certains usages peuvent toutefois entrer dans une autre catégorie de l'annexe III, notamment lorsqu'ils concernent le recrutement, l'affectation des tâches ou l'évaluation des salariés.</p>
+<p>L'opinion publiée par l'EIOPA le 6 août 2025 porte sur les systèmes utilisés en assurance qui ne constituent ni une pratique interdite ni un système à haut risque. Elle est adressée aux autorités nationales de contrôle et ne crée aucune exigence nouvelle. Elle précise la manière dont les dispositions existantes de Solvabilité II, de la directive sur la distribution d'assurances (DDA) et de DORA s'appliquent à ces usages.</p>
+<p>L'analyse proportionnée recommandée par l'EIOPA prend notamment en compte :</p>
+<ul>
+<li>la nature, le volume et la sensibilité des données ;</li>
+<li>le nombre de clients concernés, dont les clients vulnérables ;</li>
+<li>l'autonomie du système et son incidence sur les décisions ;</li>
+<li>les conséquences sur les clients, la continuité d'activité et la situation financière ;</li>
+<li>la capacité à expliquer les résultats, à suivre les dérives et à traiter les réclamations.</li>
+</ul>
+<p>Ces travaux peuvent être intégrés aux dispositifs existants de gestion des risques, de gestion des modèles, de gouvernance des produits («&nbsp;Product Oversight and Governance&nbsp;» ou POG), de contrôle interne et de gestion des prestataires.</p>
+
+<h2>4. Rôles de fournisseur et de déployeur</h2>
+<p>Le rôle d'un organisme d'assurance dépend des opérations qu'il effectue sur le système. Un déployeur devient fournisseur d'un système à haut risque lorsqu'il :</p>
+<ul>
+<li>commercialise le système sous son propre nom ou sa propre marque ;</li>
+<li>apporte une modification substantielle au système ;</li>
+<li>modifie sa destination de telle sorte qu'il devient un système à haut risque.</li>
+</ul>
+<p>Ces situations sont définies à l'article 25, paragraphe 1. Le contrat conclu avec l'éditeur doit donc permettre de qualifier les responsabilités réglementaires et de disposer de la documentation technique, des limites connues, des conditions de test, des changements de version, des incidents et des accès aux journaux.</p>
+<p>Pour les systèmes à haut risque, l'article 26 impose au déployeur plusieurs obligations opérationnelles :</p>
+<ul>
+<li>utiliser le système conformément à sa notice ;</li>
+<li>confier le contrôle humain à des personnes disposant des compétences, de la formation et de l'autorité nécessaires ;</li>
+<li>vérifier la pertinence et la représentativité des données d'entrée lorsqu'il les contrôle ;</li>
+<li>surveiller le fonctionnement du système et traiter les incidents ;</li>
+<li>conserver les journaux placés sous son contrôle pendant une durée adaptée, au minimum six mois, sauf règle contraire ;</li>
+<li>informer les personnes lorsqu'un système de l'annexe III prend ou facilite une décision les concernant.</li>
+</ul>
+<p>Pour les établissements financiers, l'article 26 permet d'intégrer certains contrôles et journaux dans la gouvernance et la documentation déjà prévues par le droit européen des services financiers.</p>
+
+<h2>5. Documentation à constituer</h2>
+<p>La documentation devrait être organisée par système et conserver l'historique des décisions de qualification. Elle comprendrait a minima :</p>
+<ol>
+<li>la fiche d'identité du système et sa destination ;</li>
+<li>l'analyse du champ d'application et de la classe de risque ;</li>
+<li>la répartition des rôles entre l'organisme, l'éditeur et les autres prestataires ;</li>
+<li>les données utilisées, les contrôles de qualité et les limites recensées ;</li>
+<li>la description du contrôle humain et des procédures d'escalade ;</li>
+<li>le cahier de recette, les résultats des tests et le procès-verbal de recette ;</li>
+<li>le suivi des versions, des incidents, des dérives et des mesures correctrices ;</li>
+<li>les journaux disponibles et leur durée de conservation ;</li>
+<li>les informations communiquées aux utilisateurs, aux clients et aux autorités.</li>
+</ol>
+<p>Pour les systèmes visés à l'annexe III, point 5(c), le déployeur doit également réaliser, avant le premier déploiement, une analyse d'impact sur les droits fondamentaux (article 27). Les éléments déjà couverts par une analyse d'impact relative à la protection des données peuvent être repris ou faire l'objet de renvois.</p>
+
+<h2>6. Travaux à réaliser sur 90 jours</h2>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Période</th><th>Action</th><th>Rationnel</th><th>Portage proposé</th></tr>
+<tr><td>J1&ndash;J15</td><td>Arrêter le périmètre de l'inventaire et désigner son responsable.</td><td>L'exhaustivité conditionne la qualification et le suivi des échéances.</td><td>Sponsor ; data ou transformation.</td></tr>
+<tr><td>J16&ndash;J45</td><td>Qualifier chaque cas et documenter la conclusion.</td><td>Le classement dépend de la destination, du rôle de l'entité et du profilage éventuel.</td><td>Métiers, conformité, juridique, IT et data.</td></tr>
+<tr><td>J46&ndash;J75</td><td>Tester le dispositif sur deux systèmes de nature différente.</td><td>Vérifier la qualification, la documentation fournisseur, le contrôle humain et la recette.</td><td>Métier, actuariat le cas échéant, risques, conformité et IT.</td></tr>
+<tr><td>J76&ndash;J90</td><td>Valider les qualifications, les écarts de contrôle et le plan de traitement.</td><td>Fixer les responsabilités, le budget et les échéances.</td><td>Comité existant compétent.</td></tr>
+</table>
+</div>
+<p>Au terme de ce premier cycle, l'organisme devrait pouvoir présenter à sa direction l'inventaire initial, les qualifications motivées, les responsabilités attribuées, les écarts de contrôle et le plan de traitement des systèmes concernés par l'échéance du 2 décembre 2027.</p>
+"""
+
+AIACT_FR_REF = """Sources : 1. <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">Règlement (UE) 2024/1689</a>, version consolidée au 27 juillet 2026 : articles 6, 25, 26, 27, 50 et 113 ; annexe III. · 2. Règlement (UE) 2026/1744 : report des échéances applicables aux systèmes à haut risque. · 3. EIOPA, <em>Opinion on Artificial Intelligence Governance and Risk Management</em>, 6 août 2025. · 4. Commission européenne, mise en application au 2 août 2026.<br><br><strong>Caveat.</strong> Cette note reflète les textes et positions publiés au 19 septembre 2026. Elle constitue un document de cadrage et ne remplace pas l'analyse juridique d'un cas d'usage donné."""
+
 ARTICLES = {
+ 'ai-act-tarification-vie-sante-haut-risque': {
+  'fr': dict(
+    category='notes',
+    title="AI Act : la tarification vie et santé classée à haut risque",
+    desc="AI Act et assurance : qualifier les systèmes d'IA, répartir les obligations entre fournisseur et déployeur, et se préparer à l'échéance du 2 décembre 2027.",
+    label="Note technique",
+    h1="AI Act : la tarification vie et santé parmi les usages à haut risque",
+    h1_plain="AI Act : la tarification vie et santé parmi les usages à haut risque",
+    standfirst="Classer les systèmes, déterminer les obligations des fournisseurs et des déployeurs, puis finaliser les contrôles au plus tard le 2 décembre 2027.",
+    date_iso="2026-09-22", date_h="22 septembre 2026", readtime="6 min de lecture",
+    body=AIACT_FR_BODY,
+    rel_t="Expertise associée",
+    rel_b="Cette note se rattache aux missions couvertes dans <a href=\"/fr/expertise/ifrs-17-ifrs-9-solvency-ii/\">IFRS 17, IFRS 9 &amp; Solvabilité II</a> et <a href=\"/fr/expertise/pmo-programme-delivery/\">PMO &amp; Pilotage de Programme</a>.",
+    refnote=AIACT_FR_REF,
+  ),
+ },
  'dette-souveraine-refinancement': {
   'fr': dict(
     category='analysis',
