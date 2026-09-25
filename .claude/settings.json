@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__n8n__get_sdk_reference",
+      "mcp__n8n__get_suggested_nodes",
+      "mcp__n8n__search_nodes",
+      "mcp__n8n__get_node_types",
+      "mcp__n8n__validate_node_config",
+      "mcp__n8n__validate_workflow",
+      "mcp__n8n__create_workflow_from_code",
+      "mcp__n8n__update_workflow",
+      "mcp__n8n__search_workflows",
+      "mcp__n8n__get_workflow_details",
+      "mcp__n8n__list_credentials",
+      "mcp__n8n__search_projects",
+      "mcp__n8n__search_folders",
+      "mcp__n8n__publish_workflow",
+      "mcp__n8n__execute_workflow"
+    ]
+  }
+}

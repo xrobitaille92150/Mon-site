@@ -46,6 +46,11 @@
 - **Spacing:** Use intentional, consistent spacing tokens — not random Tailwind steps.
 - **Depth:** Surfaces should have a layering system (base → elevated → floating), not all sit at the same z-plane.
 
+## Repository Structure
+- **Each new project/topic gets its own dedicated GitHub repository** — never nest it as a subfolder of `Mon-site`.
+- `Mon-site` is reserved for the website only.
+- When starting a new project, create a new repo first, then work inside it.
+
 ## Hard Rules
 - Do not add sections, features, or content not in the reference
 - Do not "improve" a reference design — match it
