@@ -11,7 +11,7 @@ UI = {
     free_title="Free documentation",
     free_wp_t="White paper — Insurers: the consolidated 2027-2028 reform calendar",
     free_wp_b="The fifteen reforms of 2027-2028 in one consolidated calendar: what is certain, what is not, and the decisions each deadline forces. Available at publication.",
-    free_wp_badge="Coming — September 2026",
+    free_wp_badge="Coming — October 2026",
     free_ex_t="Free extracts",
     free_ex_b="For each book: the title page and the complete table of contents, free to read.",
     free_ins_t="Insights articles",
@@ -51,7 +51,7 @@ UI = {
     free_title="Documentation gratuite",
     free_wp_t="Livre blanc — Assureurs : le calendrier consolidé des réformes 2027-2028",
     free_wp_b="Les quinze réformes de 2027-2028 dans un seul calendrier consolidé : ce qui est certain, ce qui ne l'est pas, et les décisions que chaque échéance impose. Disponible à la parution.",
-    free_wp_badge="À paraître — septembre 2026",
+    free_wp_badge="À paraître — octobre 2026",
     free_ex_t="Extraits gratuits",
     free_ex_b="Pour chaque ouvrage : la page de titre et la table des matières complète, en lecture libre.",
     free_ins_t="Articles Décryptages",
@@ -239,9 +239,10 @@ BOOKS = {
  '2027-2028-agenda': dict(
     src='transformations-en',
     collection=COLL_EN,
-    release="Published September 2026",
-    preview_note="End of preview. The complete book is published in September 2026.",
-    date_published="2026-09",
+    # Edition anglaise non commercialisee au 15/10/2026 (decision Xavier) :
+    # pas de date annoncee, donc pas de datePublished ; badge « Forthcoming ».
+    release="Forthcoming",
+    preview_note="End of preview. The complete book is forthcoming.",
     t1=["Insurance Organisations:", "Your 2027\u20132028 Transformation", "Agenda"],
     t2=["Have you anticipated these 15 reforms?"],
     sub=[],
