@@ -45,6 +45,12 @@ header.sub p.desc{max-width:720px;margin:1rem auto 0;font-size:.92rem;
 .preview-note{text-align:center;font-size:.82rem;color:var(--gray);
               margin-bottom:1.4rem}
 .preview-actions{margin-top:2rem;text-align:center}
+.preview-actions .buy-row{justify-content:center}
+.errata{max-width:720px;margin:2.2rem auto 0;padding:1.1rem 1.4rem;
+        background:var(--act-white);border-left:3px solid var(--act-rich-gold);
+        font-size:.86rem;line-height:1.65;color:#4B5364}
+.errata-h{font-weight:700;color:var(--act-deep-navy);margin-bottom:.4rem;
+          font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 .notify-form{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
 .notify-mail{padding:.75rem 1rem;border:1.5px solid var(--act-light-grey);
              border-radius:3px;min-width:270px;font-family:inherit;
@@ -105,9 +111,24 @@ def preview_page(b_, slug, bk, ui, css, pages, flip_js, buy_html, esc):
     # dans les donnees structurees est pire qu'une date absente.
     if bk.get('date_published'):
         ld_obj["datePublished"] = bk['date_published']
+    if bk.get('isbn'):
+        ld_obj["isbn"] = bk['isbn']
+    if bk.get('pages'):
+        ld_obj["numberOfPages"] = bk['pages']
     ld = json.dumps(ld_obj, ensure_ascii=False)
 
     note = f'<p class="preview-note">{ui["in_french"]}</p>' if ui['in_french'] else ''
+    # Note de l'editeur datee (correctif ou mise a jour posterieure au texte
+    # vendu). Ne s'affiche que si l'ouvrage porte un champ errata.
+    er = bk.get('errata')
+    errata = ''
+    if er:
+        src = (f' <a href="{er["source_url"]}" target="_blank" rel="noopener">'
+               f'{esc(er["source_label"])}</a>.' if er.get('source_url') else '')
+        er_title = ui.get('errata_title', "Note de l'éditeur")
+        errata = (f'<div class="errata"><p class="errata-h">'
+                  f'{er_title} — {esc(er["date"])}</p>'
+                  f'<p>{esc(er["text"])}{src}</p></div>')
 
     og = f"{b_['base']}/covers/{bk['og_img']}" if bk.get('og_img') else None
     return f"""{head(b_, esc(title), esc(desc), url_self, ld, og=og)}
@@ -131,6 +152,7 @@ def preview_page(b_, slug, bk, ui, css, pages, flip_js, buy_html, esc):
     <p class="fb-hint">{ui['hint']}</p>
   </div>
   <div class="preview-actions">{buy_html}</div>
+  {errata}
 </div></section>
 {backcover_section(b_, bk, ui, esc)}
 {flip_js}

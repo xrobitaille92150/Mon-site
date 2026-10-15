@@ -85,10 +85,15 @@ def buy_buttons(slug, ui, compact=False):
         price = f' <span class="buy-price">{esc(sh["price"])}</span>' if sh.get('price') else ''
         btns.append(f'<a class="btn-gold lemonsqueezy-button" href="{sh["ls"]}">{ui["buy_pdf"]}{price}</a>')
     if sh.get('paper'):
-        btns.append(f'<a class="btn-buy2" href="{sh["paper"]}" target="_blank" rel="noopener">{ui["buy_paper"]}</a>')
+        price = f' <span class="buy-price">{esc(sh["paper_price"])}</span>' if sh.get('paper_price') else ''
+        btns.append(f'<a class="btn-buy2" href="{sh["paper"]}" target="_blank" rel="noopener">{ui["buy_paper"]}{price}</a>')
     if sh.get('kindle'):
-        btns.append(f'<a class="btn-buy2" href="{sh["kindle"]}" target="_blank" rel="noopener">{ui["buy_kindle"]}</a>')
-    note = '' if compact else f'<p class="buy-note">{ui["buy_note"]}</p>'
+        price = f' <span class="buy-price">{esc(sh["kindle_price"])}</span>' if sh.get('kindle_price') else ''
+        btns.append(f'<a class="btn-buy2" href="{sh["kindle"]}" target="_blank" rel="noopener">{ui["buy_kindle"]}{price}</a>')
+    # Sans PDF Lemon Squeezy, la note « PDF livre immediatement » serait fausse :
+    # on affiche la note Amazon.
+    note_key = 'buy_note' if sh.get('ls') else 'buy_note_amazon'
+    note = '' if compact else f'<p class="buy-note">{ui[note_key]}</p>'
     return f'<div class="buy-row">{"".join(btns)}</div>{note}'
 
 PUB_CSS = """
@@ -428,7 +433,13 @@ def flipbook_pages(slug, b, ui):
         pages.append(f'<div class="fb-page"><div class="fb-inner">{h}{_render_intro_rows(chunk)}</div><span class="fb-folio">{folio[0]}</span></div>')
 
     # Derniere page
-    end_note = ui['preview_note_sale'] if shop_of(slug) else b.get('preview_note', ui['preview_note'])
+    sh = shop_of(slug)
+    if sh and sh.get('ls'):
+        end_note = ui['preview_note_sale']
+    elif sh:
+        end_note = ui['preview_note_sale_amazon']
+    else:
+        end_note = b.get('preview_note', ui['preview_note'])
     pages.append(f'''<div class="fb-page fb-end" data-density="hard"><div class="fb-inner">
       <div class="e3">{b.get('release', ui['release'])}</div>
       <div class="e1">{esc(b['name'])}</div>

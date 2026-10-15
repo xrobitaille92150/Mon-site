@@ -39,7 +39,9 @@ UI = {
     buy_paper="Paperback",
     buy_kindle="Kindle edition",
     buy_note="Secure payment. Invoice and EU VAT handled at checkout. Immediate PDF delivery.",
+    buy_note_amazon="Sold and shipped by Amazon.fr. Prices incl. VAT, as displayed by Amazon; they may change.",
     preview_note_sale="End of preview. The complete book is available in PDF and paperback.",
+    preview_note_sale_amazon="End of preview. The complete book is available on Amazon, in paperback and Kindle editions.",
  ),
  'fr': dict(
     title="Publications — Livres finance assurance | Xavier Advisory",
@@ -73,10 +75,12 @@ UI = {
     hint="Cliquez ou faites glisser le coin d'une page pour la tourner — ou utilisez les flèches.",
     pg_prev="Page précédente", pg_next="Page suivante",
     buy_pdf="Acheter le PDF",
-    buy_paper="Version papier",
+    buy_paper="Broché",
     buy_kindle="Édition Kindle",
     buy_note="Paiement sécurisé. Facture et TVA UE gérées au paiement. PDF livré immédiatement.",
+    buy_note_amazon="Vente et expédition par Amazon.fr. Prix TTC tels qu'affichés par Amazon ; ils peuvent évoluer.",
     preview_note_sale="Fin de l'aperçu. L'ouvrage complet est disponible en PDF et en version papier.",
+    preview_note_sale_amazon="Fin de l'aperçu. L'ouvrage complet est disponible sur Amazon, en broché et en édition Kindle.",
  ),
 }
 
@@ -106,10 +110,32 @@ BOOKS = {
  'chantiers-2027-2028': dict(
     src='transformations',
     collection=COLL_FR,
-    # Ce titre a une date de parution annoncee ; les autres sont « a paraitre ».
-    release="Parution septembre 2026",
-    preview_note="Fin de l'aperçu. L'ouvrage complet paraît en septembre 2026.",
-    date_published="2026-09",
+    # En vente sur Amazon depuis le 7 octobre 2026 (broché, ISBN
+    # 978-2-489546-00-2) et le 10 octobre 2026 (Kindle, ASIN B0HMLXT8TR) ;
+    # constat Amazon.fr du 15/10/2026. Les boutons d'achat viennent de SHOP.
+    release="Disponible — octobre 2026",
+    preview_note="Fin de l'aperçu. L'ouvrage complet est disponible sur Amazon, en broché et en édition Kindle.",
+    date_published="2026-10-07",
+    isbn="978-2-489546-00-2",
+    pages=166,
+    # Note de l'editeur affichee sous l'apercu : le texte vendu est arrete au
+    # 16 juillet 2026 ; l'Omnibus numerique (reglement (UE) 2026/1744, en
+    # vigueur le 27/07/2026) a ensuite deplace les echeances de l'AI Act.
+    # Source : Commission europeenne, digital-strategy.ec.europa.eu.
+    errata=dict(
+        date="15 octobre 2026",
+        text="Le texte de l'ouvrage est arrêté au 16 juillet 2026. Depuis, le "
+             "règlement (UE) 2026/1744 (« Omnibus numérique », en vigueur le "
+             "27 juillet 2026) a reporté l'application du régime à haut risque "
+             "de l'AI Act : au 2 décembre 2027 pour les systèmes de l'annexe III "
+             "et au 2 août 2028 pour ceux intégrés aux produits de l'annexe I. "
+             "La phrase de l'introduction qui vise le 2 août 2027 se lit à la "
+             "lumière de ces nouvelles dates ; les interdictions, les modèles "
+             "d'IA à usage général et les obligations de transparence "
+             "s'appliquent déjà.",
+        source_label="Commission européenne — AI Omnibus enters into force",
+        source_url="https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
+    ),
     t1=["Organismes d'assurance :", "vos chantiers", "de 2027-2028"],
     t2=["Avez-vous anticipé ces 15 réformes ?"],
     sub=[],
@@ -266,8 +292,17 @@ BOOKS = {
 #            sans quitter le site.
 #   paper  : URL de la fiche produit papier (Amazon KDP / BoD)
 #   kindle : URL de l'édition Kindle / ePub
+#   paper_price, kindle_price : prix TTC affichés à côté du bouton (facultatifs ;
+#            constatés sur Amazon.fr à la date notée, à recontrôler à chaque
+#            modification). Sans URL « ls », la note sous les boutons devient
+#            buy_note_amazon et la dernière page de l'aperçu
+#            preview_note_sale_amazon.
 SHOP = {
- 'chantiers-2027-2028':     dict(price="", ls="", paper="", kindle=""),
+ # Constat Amazon.fr du 15/10/2026 : broché 49,00 € TTC, Kindle 22,70 € TTC.
+ 'chantiers-2027-2028':     dict(price="", ls="",
+                                 paper="https://www.amazon.fr/dp/2489546007",
+                                 kindle="https://www.amazon.fr/dp/B0HMLXT8TR",
+                                 paper_price="49 €", kindle_price="22,70 €"),
  'operations-de-pension':   dict(price="", ls="", paper="", kindle=""),
  'gestion-obligataire':     dict(price="", ls="", paper="", kindle=""),
  'operations-de-couverture': dict(price="", ls="", paper="", kindle=""),
