@@ -27,6 +27,12 @@ const annotations=[
 ];
 for(const [lang,html] of Object.entries(pages)){
  const rendered=text(html);
+ const icons=[...html.matchAll(/<svg class="domain-glyph" data-icon="([^"]+)"[^>]*>(.*?)<\/svg>/gs)];
+ assert.equal(icons.length,7,'Seven discipline icons: '+lang);
+ assert.equal(new Set(icons.map(x=>x[1])).size,7,'One icon ID per discipline: '+lang);
+ assert.equal(new Set(icons.map(x=>x[2])).size,7,'Each discipline has a distinct drawing: '+lang);
+ assert.deepEqual(icons.map(x=>x[1]),['investments','technical','reporting','programme','management','systems','ai'],'Semantic icon order: '+lang);
+ for(const [svg] of icons)assert(svg.includes('aria-hidden="true"')&&svg.includes('focusable="false"'),'Decorative icon accessibility: '+lang);
  for(const [id,fr,en] of annotations)assert(rendered.includes(lang==='fr'?fr:en),`Annotation ${id} (${lang})`);
  const profile=html.match(/<section class="section" id="profile">(.*?)<\/section>/s)[1];
  assert.equal((profile.match(/class="cross-row"/g)||[]).length,4,'Four expertise blocks: '+lang);

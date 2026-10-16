@@ -4,6 +4,10 @@ Site bilingue publié sur https://www.myxavier.finance. Refonte du 16 octobre 20
 
 ## Construction et déploiement
 
+Les corrections sont regroupées dans un aperçu local avant validation et publication du lot. `npm run preview` construit, contrôle et ouvre un serveur statique sur `http://127.0.0.1:3000/fr/#expertise`. Il ne publie rien et ne consomme pas de crédits Netlify. Il ne simule pas les fonctions serveur ni le cycle d’authentification complet. Après une correction, relancer la construction et actualiser la page.
+
+Les sauvegardes intermédiaires envoyées à GitHub portent `[skip netlify]`. Après validation, publier une seule fois, par Git **ou** par envoi manuel, sans doubler les deux méthodes. Les réglages de publication automatique du compte ne sont pas changés par cette procédure. Voir `AGENTS.md`.
+
 Node 22 et Python 3.12 sont requis. Installer les dépendances avec `npm ci`, puis lancer `npm run build` et `npm run verify`. Le répertoire de publication est **`dist-advisory/`**, jamais la racine du dépôt. `./deploy.sh "message"` construit, contrôle et publie uniquement ce site ; le script ne crée aucun commit et ne modifie pas les journaux.
 
 Les anciens fichiers HTML à la racine sont conservés comme références historiques. Ils ne sont plus la source de la version publiée. Les sites Éditions Actuarius et Actuarius Press restent distincts : ne pas leur appliquer ce déploiement.

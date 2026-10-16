@@ -11,6 +11,7 @@ from advisory_content import CASES, DOMAINS, RESOURCES
 from pages_data import PAGES
 from articles_data import ARTICLES
 from advisory_expertise import DETAILS
+from advisory_icons import domain_icon
 from advisory_translations import add_english
 add_english(ARTICLES)
 
@@ -73,8 +74,7 @@ def case_card(c,lang):
     d=c[lang];url=href(lang,('missions/' if lang=='fr' else 'assignments/')+c['slug'])
     return f'<a class="case-card" href="{url}" data-tags="{" ".join(c["tags"])}" data-search="{e((c["name"][lang]+" "+d["title"]+" "+d["summary"]).lower(),quote=True)}"><div class="case-meta"><strong>{c["name"][lang]}</strong><span>{c["period"]}</span></div><h3>{d["title"]}</h3><p>{d["summary"]}</p><div class="case-bottom"><span>{t(lang,"Lire le retour d’expérience","Read the case study")}</span>{arrow()}</div></a>'
 def domain_cards(lang):
-    glyph='<svg class="domain-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 16h28M16 2v28M6 6l20 20M6 26L26 6" stroke="currentColor" stroke-width="1"/><circle cx="16" cy="16" r="7" stroke="currentColor" fill="white"/></svg>'
-    return '<div class="expertise-grid">'+''.join(f'<article class="expertise-item">{glyph}<h3>{t(lang,x[2],x[3])}</h3><p>{t(lang,x[4],x[5])}</p>{link(href(lang,"ia" if lang=="fr" else "ai") if x[0]=="ai" else href(lang,"expertise/"+x[1]),t(lang,"Compétences et réalisations","Skills and experience"))}</article>' for x in DOMAINS)+'</div>'
+    return '<div class="expertise-grid">'+''.join(f'<article class="expertise-item">{domain_icon(x[0])}<h3>{t(lang,x[2],x[3])}</h3><p>{t(lang,x[4],x[5])}</p>{link(href(lang,"ia" if lang=="fr" else "ai") if x[0]=="ai" else href(lang,"expertise/"+x[1]),t(lang,"Compétences et réalisations","Skills and experience"))}</article>' for x in DOMAINS)+'</div>'
 def resources(lang,member=False):
     return '<div class="resources">'+''.join(f'''<article class="card-resource"><span class="resource-kind">{t(lang,'Modèle original · Excel éditable','Original template · Editable Excel')}</span><h3>{t(lang,r[1],r[2])}</h3><p>{t(lang,r[3],r[4])}</p>{f'<button class="button outline small" data-download="{r[0]}">{t(lang,"Télécharger le modèle","Download template")} ↓</button>' if member else link(href(lang,'abonnes' if lang=='fr' else 'members'),t(lang,'Accéder au modèle','Get the template'),'button outline small')}</article>''' for r in RESOURCES)+'</div>'
 

@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "node scripts/build.mjs",
+    "preview": "npm run build && npm run verify && node scripts/preview.mjs",
     "verify": "node scripts/verify.mjs && node scripts/verify-homepage.mjs"
   },
   "dependencies": {
