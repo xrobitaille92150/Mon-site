@@ -36,7 +36,10 @@ form.addEventListener('submit',async ev=>{
    await signup(email,password,{language:fr?'fr':'en',privacy_version:'2026-10-16',privacy_accepted_at:new Date().toISOString()});
    message(t('Consultez votre boîte email et confirmez votre adresse pour accéder à la bibliothèque. Regardez aussi les courriers indésirables.','Check your email and confirm your address to access the library. Please also check your spam folder.'));
   }else if(mode==='recovery'){
-   await recoverPassword(recoveryToken,password);recoveryToken=null;history.replaceState(null,'',location.pathname);await showUser();
+   const recovered=await recoverPassword(recoveryToken,password);recoveryToken=null;history.replaceState(null,'',location.pathname);
+   // The recovery helper updates the password but does not create download cookies.
+   // Establish a normal authenticated session before opening the library.
+   await login(recovered.email,password);await showUser();
   }else{await login(email,password);await showUser();}
   document.querySelector('#member-password').value='';
  }catch(error){handleError(error);}finally{submit.disabled=false;}
