@@ -8,7 +8,7 @@ const annotations=[
  [1,'25 ans dans l’assurance et la gestion d’actifs.','25 years in insurance and asset management.'],
  [2,'expertise projet, ESCP.','project expertise and ESCP.'],
  [3,'la totalité des métiers du chiffre d’une compagnie d’assurance et le management de programmes complexes.','the full range of financial disciplines within an insurance company and the management of complex programmes.'],
- [4,'Assurance, Finance, Investissement & Gestion de Projets','Insurance, Finance, Investment & Project Management Expertise'],
+ [4,'Assurance, Finance & Gestion de Projets','Insurance, Finance & Project Management Expertise'],
  [5,'Mes clients','My clients'],
  [6,'La complémentarité d’une expertise technique, d’expériences opérationnelles et de la conduite de projets complexes.','Technical expertise, operational experience and the management of complex projects.'],
  [7,'Mon parcours réunit audit financier, management d’équipes, production comptable, financière ou réglementaire, accompagnement des évolutions normatives.','My background combines financial audit, team management, accounting operations, financial and regulatory reporting, and the implementation of accounting and regulatory changes.'],
