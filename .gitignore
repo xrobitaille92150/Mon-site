@@ -8,3 +8,4 @@ __pycache__/
 # Build output and installed tooling
 dist-advisory/
 node_modules/
+netlify/private-resources/

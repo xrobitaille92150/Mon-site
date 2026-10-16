@@ -13,6 +13,22 @@ for(const path of pages){
  if((html.match(/<h1\b/g)||[]).length!==1)errors.push(path+': expected one h1');
  if(!html.includes('name="description"'))errors.push(path+': missing description');
  if(!html.includes('rel="canonical"'))errors.push(path+': missing canonical');
+ for(const tag of html.matchAll(/<img\b[^>]*>/g))if(!/\balt="[^"]*"/.test(tag[0]))errors.push(path+': image without alt');
+ for(const tag of html.matchAll(/<(?:input|select|textarea)\b[^>]*>/g)){
+  if(/type="hidden"/.test(tag[0]))continue;
+  const id=tag[0].match(/\bid="([^"]+)"/)?.[1];
+  if(!id||!html.includes('for="'+id+'"'))errors.push(path+': form control without label');
+ }
+ for(const match of html.matchAll(/href="([^" ]*#[^" ]+)"/g)){
+  let [url,fragment]=match[1].split('#');
+  if(url.startsWith('https://www.myxavier.finance'))url=url.replace('https://www.myxavier.finance','');
+  if(url&&!url.startsWith('/'))continue;
+  const target=url?join(root,url,url.endsWith('/')?'index.html':''):path;
+  if(existsSync(target)){
+   const targetHtml=target===path?html:readFileSync(target,'utf8');
+   if(!targetHtml.includes('id="'+fragment+'"')&&!targetHtml.includes('name="'+fragment+'"'))errors.push(path+': missing anchor '+match[1]);
+  }
+ }
  for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)){try{JSON.parse(match[1]);schemas++;}catch{errors.push(path+': invalid JSON-LD');}}
  for(const match of html.matchAll(/(?:href|src)="([^"#]*)/g)){
   let url=match[1];if(!url.startsWith('/')&&!url.startsWith('https://www.myxavier.finance/'))continue;

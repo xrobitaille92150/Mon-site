@@ -149,6 +149,9 @@ def articles(lang):
         if lang not in langs:continue
         d=langs[lang];otherlang='en' if lang=='fr' else 'fr'
         other=href(otherlang,'insights/'+slug) if otherlang in langs else ''
+        d=d.copy()
+        table_label=t(lang,'Tableau de données, défilement horizontal','Data table, horizontal scrolling')
+        d['body']=re.sub(r'(<table(?:\s[^>]*)?>.*?</table>)',lambda m:f'<div class="table-scroll" role="region" aria-label="{table_label}" tabindex="0">{m.group(1)}</div>',d['body'],flags=re.S)
         body=hero(lang,d['h1'],d['standfirst'],t(lang,'Analyses','Insights'))+f'<section class="section white"><article class="wrap"><div class="prose wide"><div class="article-meta"><span>Xavier Robitaille</span><time datetime="{d["date_iso"]}">{d["date_h"]}</time><span>{d["readtime"]}</span></div>{d["body"]}<div class="article-ref">{d["refnote"]}</div><div class="actions">{link(href(lang,"insights"),t(lang,"Toutes les analyses","All insights"))}</div></div></article></section>'
         write(href(lang,'insights/'+slug),body,lang,e(d['title']),d['desc'],other=other,schema={'@type':'Article','headline':d['h1_plain'],'author':{'@id':BASE+'/#person'},'datePublished':d['date_iso'],'inLanguage':lang,'mainEntityOfPage':BASE+href(lang,'insights/'+slug)})
     body=hero(lang,t(lang,'Analyses de praticien.','A practitioner’s analysis.'),t(lang,'Comptabilité des placements, transformations Finance, réglementation et systèmes : des articles pour examiner les choix techniques et leurs conséquences opérationnelles.','Investment accounting, Finance transformation, regulation and systems: articles examining technical choices and their operational consequences.'),t(lang,'Analyses','Insights'))

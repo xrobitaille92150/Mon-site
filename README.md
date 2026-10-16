@@ -17,7 +17,7 @@ Les anciens fichiers HTML à la racine sont conservés comme références histor
 - `assets/advisory.css` / `advisory.js` : interface, animations, filtres, démonstration, consentement d’audience.
 - `assets/members.source.js` : compte abonné ; `members.js` est généré.
 - `netlify/functions/member-download.mjs` : téléchargement après vérification du compte confirmé.
-- `netlify/private-resources/workbooks.mjs` : modèles originaux FR/EN embarqués côté serveur, non publiés comme fichiers statiques.
+- Stockage privé Netlify Blobs `xa-member-templates-v1` : huit fichiers Excel originaux, servis uniquement par la fonction après vérification du compte confirmé. Ne pas ajouter leur contenu au dépôt public. Mise à jour : `netlify blobs:set xa-member-templates-v1 NOM-fr.xlsx --input CHEMIN_ABSOLU` (même principe pour EN).
 
 L’espace est gratuit, avec confirmation de l’email. L’inscription n’abonne à aucune newsletter. Ne pas remplacer la vérification serveur par un simple masquage des liens. Aucun document client, CV source ou secret ne doit entrer dans le répertoire de publication.
 

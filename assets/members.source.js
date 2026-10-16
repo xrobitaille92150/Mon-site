@@ -22,6 +22,12 @@ const setMode=m=>{
  status.hidden=true;
 };
 document.querySelectorAll('[data-auth-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.authMode)));
+document.querySelector('.tabs').addEventListener('keydown',event=>{
+ if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+ event.preventDefault();const tabs=[...document.querySelectorAll('[data-auth-mode]')];
+ const current=tabs.indexOf(document.activeElement);const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(current+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+ tabs[next].focus();setMode(tabs[next].dataset.authMode);
+});
 const handleError=error=>{
  const code=error?.status||error?.statusCode;
  if(code===429)message(t('Trop de tentatives. Patientez quelques minutes avant de réessayer.','Too many attempts. Please wait a few minutes before trying again.'));
