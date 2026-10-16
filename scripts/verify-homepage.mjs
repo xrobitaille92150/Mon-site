@@ -31,9 +31,32 @@ for(const [lang,html] of Object.entries(pages)){
  assert.equal(icons.length,7,'Seven discipline icons: '+lang);
  assert.equal(new Set(icons.map(x=>x[1])).size,7,'One icon ID per discipline: '+lang);
  assert.equal(new Set(icons.map(x=>x[2])).size,7,'Each discipline has a distinct drawing: '+lang);
- assert.deepEqual(icons.map(x=>x[1]),['investments','technical','reporting','programme','management','systems','ai'],'Semantic icon order: '+lang);
+ assert.deepEqual(icons.map(x=>x[1]),['investments','technical','reporting','programme','management','standards','ai'],'Semantic icon order: '+lang);
  for(const [svg] of icons)assert(svg.includes('aria-hidden="true"')&&svg.includes('focusable="false"'),'Decorative icon accessibility: '+lang);
  for(const [id,fr,en] of annotations)assert(rendered.includes(lang==='fr'?fr:en),`Annotation ${id} (${lang})`);
+ const cards=[...html.matchAll(/<article class="expertise-item">(.*?)<\/article>/gs)].map(x=>text(x[1]));
+ const updatedCards=lang==='fr'?[
+  ['Comptabilité des placements : French GAAP & IFRS 9','ICNE','PRE, PDD, réserve de capitalisation','résultats réalisés et latents'],
+  ['Comptabilité technique : vie et non-vie','PSAP, PNA, PREC, IBNR, PM, PGG','IFRS 17','nouveaux produits','AP/AR'],
+  ['fiabilisation des clôtures','VarCap, TFT','production des QRT'],
+  ['RFI/RFP','lotissement','UAT','instances projet'],
+  ['Remplacement au pied levé','qualité, délais','Management des équipes','amélioration des processus'],
+  ['Veille normative et mise en œuvre de nouvelles normes','gap analysis','formation des équipes']
+ ]:[
+  ['Investment accounting: French GAAP & IFRS 9','accrued interest','PRE, PDD, capitalisation reserve','realised and unrealised gains and losses'],
+  ['Insurance technical accounting: life and non-life','PSAP, PNA, PREC, IBNR, PM, PGG','IFRS 17','new products','AP/AR'],
+  ['financial closes','changes in equity and cash flows','QRT production'],
+  ['RFI/RFP','work packages','UAT','project governance bodies'],
+  ['short notice','quality and deadlines','Team management','process documentation and improvement'],
+  ['Accounting and regulatory monitoring & implementation','gap analysis','team training']
+ ];
+ updatedCards.forEach((terms,index)=>terms.forEach(term=>assert(cards[index].includes(term),`Updated discipline ${index+1} (${lang}): ${term}`)));
+ assert(!cards.join(' ').includes(lang==='fr'?'Outils de place & projets métier':'Industry platforms & business projects'),'Replaced duplicate systems discipline: '+lang);
+ const prefix=lang==='fr'?'fr/':'';
+ const standards=readFileSync(`dist-advisory/${prefix}expertise/accounting-regulatory-change/index.html`,'utf8');
+ for(const slug of ['ifrs9-assureur-credit','transformation-finance-assureur-iard'])assert(standards.includes(slug),'Standards linked to relevant experience: '+lang);
+ const redirects=readFileSync('dist-advisory/_redirects','utf8');
+ assert(redirects.includes(`/${prefix}expertise/investment-systems-business-projects/ /${prefix}expertise/accounting-regulatory-change/ 301!`),'Old competence URL preserved: '+lang);
  const profile=html.match(/<section class="section" id="profile">(.*?)<\/section>/s)[1];
  assert.equal((profile.match(/class="cross-row"/g)||[]).length,4,'Four expertise blocks: '+lang);
  assert(!/\bSAS\b/.test(profile),'SAS removed from the annotated platform list: '+lang);

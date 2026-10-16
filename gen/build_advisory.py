@@ -200,7 +200,8 @@ def build():
         'missions/cnp-simcorp':'missions/projet-placements-bancassureur',
         'missions/scor-simcorp':'missions/deploiement-placements-reassureur',
         'missions/axa-xl':'missions/transformation-finance-assureur-iard',
-        'expertise/simcorp-clearwater':'expertise/investment-systems-business-projects',
+        'expertise/simcorp-clearwater':'expertise/accounting-regulatory-change',
+        'expertise/investment-systems-business-projects':'expertise/accounting-regulatory-change',
         'expertise/investment-accounting-reporting':'expertise/investment-accounting-ifrs9',
         'expertise/ifrs-17-ifrs-9-solvency-ii':'expertise/insurance-technical-accounting-ifrs17'
     }
