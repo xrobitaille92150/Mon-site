@@ -118,24 +118,6 @@ BOOKS = {
     date_published="2026-10-07",
     isbn="978-2-489546-00-2",
     pages=166,
-    # Note de l'editeur affichee sous l'apercu : le texte vendu est arrete au
-    # 16 juillet 2026 ; l'Omnibus numerique (reglement (UE) 2026/1744, en
-    # vigueur le 27/07/2026) a ensuite deplace les echeances de l'AI Act.
-    # Source : Commission europeenne, digital-strategy.ec.europa.eu.
-    errata=dict(
-        date="15 octobre 2026",
-        text="Le texte de l'ouvrage est arrêté au 16 juillet 2026. Depuis, le "
-             "règlement (UE) 2026/1744 (« Omnibus numérique », en vigueur le "
-             "27 juillet 2026) a reporté l'application du régime à haut risque "
-             "de l'AI Act : au 2 décembre 2027 pour les systèmes de l'annexe III "
-             "et au 2 août 2028 pour ceux intégrés aux produits de l'annexe I. "
-             "La phrase de l'introduction qui vise le 2 août 2027 se lit à la "
-             "lumière de ces nouvelles dates ; les interdictions, les modèles "
-             "d'IA à usage général et les obligations de transparence "
-             "s'appliquent déjà.",
-        source_label="Commission européenne — AI Omnibus enters into force",
-        source_url="https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
-    ),
     t1=["Organismes d'assurance :", "vos chantiers", "de 2027-2028"],
     t2=["Avez-vous anticipé ces 15 réformes ?"],
     sub=[],
