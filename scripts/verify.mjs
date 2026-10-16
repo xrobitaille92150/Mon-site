@@ -5,8 +5,12 @@ const root='dist-advisory';
 const walk=dir=>readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(join(dir,x.name)):[join(dir,x.name)]);
 const pages=walk(root).filter(p=>p.endsWith('/index.html'));
 const errors=[];const titles=new Set();let links=0;let schemas=0;
+const clientNames=/\b(?:Coface|CNP|SCOR|AXA|CACEIS|BPSS|Primexis|Luxempart|CCR)\b/i;
+const caseVendors=/\b(?:Clearwater|SimCorp|Bloomberg|Linedata|Chorus|NeoXam|SAP|PeopleSoft|Monday|SAS|Power BI|Palladio|CODA|LPx|TSOX)\b/i;
 for(const path of pages){
  const html=readFileSync(path,'utf8');
+ if(clientNames.test(html))errors.push(path+': named client or third party');
+ if(/\/(?:missions|assignments)\/.+\/index\.html$/.test(path)&&caseVendors.test(html))errors.push(path+': named vendor in case study');
  const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
  if(!title)errors.push(path+': missing title');
  if(titles.has(title))errors.push(path+': duplicated title');titles.add(title);
@@ -41,5 +45,15 @@ for(const path of pages){
 }
 assert(!walk(root).some(p=>/node_modules|CV_XRO|CLAUDE|\.env$|\/gen\/|\.source\.js$/.test(p)),'Internal files in publish directory');
 assert(!walk(root).some(p=>p.endsWith('.csv')),'Member downloads must not be public static files');
+assert(!existsSync(join(root,'brand_assets/logos')),'Client logos must not be published');
+const casePages=pages.filter(p=>/\/(?:missions|assignments)\/.+\/index\.html$/.test(p));
+assert.equal(casePages.length,18,'Nine bilingual anonymised case studies');
+for(const prefix of ['fr/','']){
+ for(const slug of ['investment-accounting-ifrs9','insurance-technical-accounting-ifrs17','consolidation-financial-regulatory-reporting'])assert(existsSync(join(root,prefix,'expertise',slug,'index.html')),'Missing distinct expertise: '+slug);
+ const reporting=readFileSync(join(root,prefix,'expertise/consolidation-financial-regulatory-reporting/index.html'),'utf8').split('Des missions associées.')[0].split('Related assignments.')[0];
+ assert(/Solvabilité II|Solvency II/.test(reporting)&&/Clôtures|Close/.test(reporting),'Closes and Solvency II belong in reporting');
+}
+assert(readFileSync(join(root,'fr/index.html'),'utf8').includes('Consultant Expert en <em>Assurance, Finance &amp; Investissement</em>'),'Restore original French homepage headline');
+assert(!readFileSync(join(root,'sitemap.xml'),'utf8').match(/coface|cnp|scor|axa|clearwater|simcorp/i),'No client or vendor named case URLs in sitemap');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
 console.log(JSON.stringify({pages:pages.length,links,schemas,status:'PASS'}));

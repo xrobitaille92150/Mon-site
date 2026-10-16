@@ -27,7 +27,7 @@ EN_BODY = """
 <p>The pattern is consistent: where the text is explicit, it requires the effective rate; where it is silent, supervisory practice and the IFRS anchor leave no room for interpolation in statutory or prudential reporting.</p>
 
 <h2>What the platforms enforce</h2>
-<p>Every major investment accounting platform used by European insurers amortises at the effective rate by default: SimCorp Dimension, Clearwater Analytics, NeoXam GP, SAP FAM, Eagle, Aladdin. None of them offers linear interpolation as a statutory amortisation mode. Having implemented SimCorp Dimension and Clearwater Analytics end to end, I have never seen a compliant configuration built on interpolation. When interpolation appears, it lives in a side spreadsheet, and that is where audit findings start.</p>
+<p>Every major investment accounting platform used by European insurers amortises at the effective rate by default: SimCorp Dimension, Clearwater Analytics, NeoXam GP, SAP FAM, Eagle, Aladdin. None of them offers linear interpolation as a statutory amortisation mode. Having implemented investment accounting platforms end to end, I have never seen a compliant configuration built on interpolation. When interpolation appears, it lives in a side spreadsheet, and that is where audit findings start.</p>
 
 <h2>Where linear interpolation breaks</h2>
 <ul>
@@ -77,7 +77,7 @@ FR_BODY = """
 <p>Le motif est constant : là où le texte est explicite, il exige le taux effectif ; là où il est muet, la pratique prudentielle et l'ancrage IFRS ne laissent aucune place à l'interpolation dans le reporting statutaire ou prudentiel.</p>
 
 <h2>Ce que les plateformes imposent</h2>
-<p>Toutes les grandes plateformes de comptabilité des placements utilisées par les assureurs européens amortissent au taux effectif par défaut : SimCorp Dimension, Clearwater Analytics, NeoXam GP, SAP FAM, Eagle, Aladdin. Aucune ne propose l'interpolation linéaire comme mode d'amortissement statutaire. Pour avoir implémenté SimCorp Dimension et Clearwater Analytics de bout en bout, je n'ai jamais vu une configuration conforme construite sur de l'interpolation. Quand elle existe, elle vit dans un tableur satellite, et c'est là que commencent les constats d'audit.</p>
+<p>Toutes les grandes plateformes de comptabilité des placements utilisées par les assureurs européens amortissent au taux effectif par défaut : SimCorp Dimension, Clearwater Analytics, NeoXam GP, SAP FAM, Eagle, Aladdin. Aucune ne propose l'interpolation linéaire comme mode d'amortissement statutaire. Pour avoir implémenté des plateformes de comptabilité des placements de bout en bout, je n'ai jamais vu une configuration conforme construite sur de l'interpolation. Quand elle existe, elle vit dans un tableur satellite, et c'est là que commencent les constats d'audit.</p>
 
 <h2>Où l'interpolation linéaire casse</h2>
 <ul>
@@ -406,7 +406,7 @@ ARTICLES = {
     date_iso="2026-09-21", date_h="21 septembre 2026", readtime="4 min de lecture",
     body=DETTE_FR_BODY,
     rel_t="Expertise associée",
-    rel_b="Cette analyse se rattache aux missions couvertes dans <a href=\"/fr/expertise/investment-accounting-reporting/\">Comptabilité &amp; Reporting des Investissements</a> et <a href=\"/fr/expertise/ifrs-17-ifrs-9-solvency-ii/\">IFRS 17, IFRS 9 &amp; Solvabilité II</a>.",
+    rel_b="Cette analyse se rattache aux missions couvertes dans <a href=\"/fr/expertise/investment-accounting-ifrs9/\">Comptabilité des placements &amp; IFRS 9</a> et <a href=\"/fr/expertise/ifrs-17-ifrs-9-solvency-ii/\">IFRS 17, IFRS 9 &amp; Solvabilité II</a>.",
     refnote=DETTE_FR_REF,
   ),
  },
@@ -422,7 +422,7 @@ ARTICLES = {
     date_iso="2026-09-21", date_h="21 September 2026", readtime="5 min read",
     body=NAV_EN_BODY,
     rel_t="Related expertise",
-    rel_b='This analysis relates to the work covered in <a href="/expertise/investment-accounting-reporting/">Investment Accounting &amp; Reporting</a> and <a href="/expertise/ifrs-17-ifrs-9-solvency-ii/">IFRS 17, IFRS 9 &amp; Solvency II</a>.',
+    rel_b='This analysis relates to the work covered in <a href="/expertise/investment-accounting-ifrs9/">Investment accounting &amp; IFRS 9</a> and <a href="/expertise/ifrs-17-ifrs-9-solvency-ii/">IFRS 17, IFRS 9 &amp; Solvency II</a>.',
     refnote=NAV_EN_REF,
   ),
   'fr': dict(
@@ -436,7 +436,7 @@ ARTICLES = {
     date_iso="2026-09-21", date_h="21 septembre 2026", readtime="5 min de lecture",
     body=NAV_FR_BODY,
     rel_t="Expertise associée",
-    rel_b="Cette analyse se rattache aux missions couvertes dans <a href=\"/fr/expertise/investment-accounting-reporting/\">Comptabilité &amp; Reporting des Investissements</a> et <a href=\"/fr/expertise/ifrs-17-ifrs-9-solvency-ii/\">IFRS 17, IFRS 9 &amp; Solvabilité II</a>.",
+    rel_b="Cette analyse se rattache aux missions couvertes dans <a href=\"/fr/expertise/investment-accounting-ifrs9/\">Comptabilité des placements &amp; IFRS 9</a> et <a href=\"/fr/expertise/ifrs-17-ifrs-9-solvency-ii/\">IFRS 17, IFRS 9 &amp; Solvabilité II</a>.",
     refnote=NAV_FR_REF,
   ),
  },
@@ -451,7 +451,7 @@ ARTICLES = {
     date_iso="2026-07-03", date_h="3 July 2026", readtime="7 min read",
     body=EN_BODY,
     rel_t="Related expertise",
-    rel_b='This note draws on engagements covered in <a href="/expertise/investment-accounting-reporting/">Investment Accounting &amp; Reporting</a> and <a href="/expertise/simcorp-clearwater/">SimCorp Dimension &amp; Clearwater Analytics</a>.',
+    rel_b='This note draws on engagements covered in <a href="/expertise/investment-accounting-ifrs9/">Investment accounting &amp; IFRS 9</a> and <a href="/expertise/investment-systems-business-projects/">Industry platforms &amp; business projects</a>.',
     refnote=EN_REF,
   ),
   'fr': dict(
@@ -464,7 +464,7 @@ ARTICLES = {
     date_iso="2026-07-03", date_h="3 juillet 2026", readtime="7 min de lecture",
     body=FR_BODY,
     rel_t="Expertise associée",
-    rel_b="Cette note s'appuie sur les missions couvertes dans <a href=\"/fr/expertise/investment-accounting-reporting/\">Comptabilité &amp; Reporting des Investissements</a> et <a href=\"/fr/expertise/simcorp-clearwater/\">SimCorp Dimension &amp; Clearwater Analytics</a>.",
+    rel_b="Cette note s'appuie sur les missions couvertes dans <a href=\"/fr/expertise/investment-accounting-ifrs9/\">Comptabilité des placements &amp; IFRS 9</a> et <a href=\"/fr/expertise/investment-systems-business-projects/\">Outils de place &amp; projets métier</a>.",
     refnote=FR_REF,
   ),
  },
