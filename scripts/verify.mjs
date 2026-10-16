@@ -53,7 +53,7 @@ for(const prefix of ['fr/','']){
  const reporting=readFileSync(join(root,prefix,'expertise/consolidation-financial-regulatory-reporting/index.html'),'utf8').split('Des missions associées.')[0].split('Related assignments.')[0];
  assert(/Solvabilité II|Solvency II/.test(reporting)&&/Clôtures|Close/.test(reporting),'Closes and Solvency II belong in reporting');
 }
-assert(readFileSync(join(root,'fr/index.html'),'utf8').includes('Consultant Expert en <em>Assurance, Finance &amp; Investissement</em>'),'Restore original French homepage headline');
+assert(readFileSync(join(root,'fr/index.html'),'utf8').includes('Consultant Expert en <em>Assurance, Finance, Investissement &amp; Gestion de Projets</em>'),'Homepage headline includes project management');
 assert(!readFileSync(join(root,'sitemap.xml'),'utf8').match(/coface|cnp|scor|axa|clearwater|simcorp/i),'No client or vendor named case URLs in sitemap');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
 console.log(JSON.stringify({pages:pages.length,links,schemas,status:'PASS'}));
