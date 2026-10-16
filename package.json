@@ -1,5 +1,13 @@
 {
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
   "dependencies": {
+    "@netlify/identity": "^2.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12",
     "netlify-cli": "^27.3.0"
   }
 }

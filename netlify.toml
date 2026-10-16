@@ -1,0 +1,24 @@
+[build]
+  command = "npm run build"
+  publish = "dist-advisory"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PYTHON_VERSION = "3.12"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "private, no-store"
