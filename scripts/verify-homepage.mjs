@@ -48,7 +48,7 @@ for(const [lang,html] of Object.entries(pages)){
   ['financial closes','changes in equity and cash flows','QRT production'],
   ['RFI/RFP','work packages','UAT','project governance bodies'],
   ['short notice','quality and deadlines','Team management','process documentation and improvement'],
-  ['Accounting and regulatory monitoring & implementation','gap analysis','team training']
+  ['Monitoring & implementation of new accounting and regulatory standards','gap analysis','team training']
  ];
  updatedCards.forEach((terms,index)=>terms.forEach(term=>assert(cards[index].includes(term),`Updated discipline ${index+1} (${lang}): ${term}`)));
  assert(!cards.join(' ').includes(lang==='fr'?'Outils de place & projets métier':'Industry platforms & business projects'),'Replaced duplicate systems discipline: '+lang);
