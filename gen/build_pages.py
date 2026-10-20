@@ -58,6 +58,12 @@ ul.deliver li::before{content:"";position:absolute;left:0;top:1.45rem;width:9px;
 footer{background:var(--primary);border-top:1px solid rgba(255,255,255,.12);padding:1.6rem 0;color:rgba(245,242,235,.78);font-size:.8rem}
 footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer a{color:rgba(245,242,235,.9);text-decoration:none;margin-left:1.2rem}
+.prose a,ul.deliver a,.faq a{color:var(--primary);text-decoration:none;border-bottom:1.5px solid var(--gold);transition:color .2s}
+.prose a:hover,ul.deliver a:hover,.faq a:hover,.prose a:focus-visible,ul.deliver a:focus-visible,.faq a:focus-visible{color:var(--gold)}
+.faq{max-width:760px}
+.faq h3{font-size:1.02rem;font-weight:700;color:var(--primary);margin:1.6rem 0 .5rem}
+.faq h3:first-child{margin-top:0}
+.faq p{line-height:1.75;color:#2A3345}
 .breadcrumb{font-size:.78rem;margin-bottom:1rem}
 .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
 .breadcrumb a:hover{color:#fff}
@@ -160,7 +166,10 @@ def jsonld(slug, lang, d):
          "areaServed":["FR","EU","International"]},
         {"@type":"BreadcrumbList",
          "itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]}
-      ]
+      ] + ([{"@type":"FAQPage",
+             "mainEntity":[{"@type":"Question","name":_html.unescape(q),
+                            "acceptedAnswer":{"@type":"Answer","text":_html.unescape(a)}} for q,a in d['faq']]}]
+           if d.get('faq') else [])
     }, ensure_ascii=False)
 
 def page(slug, lang, d):
@@ -176,6 +185,14 @@ def page(slug, lang, d):
     cards = ''.join(f'<div class="card"><h3>{t}</h3><p>{b}</p></div>' for t,b in d['s3'])
     prose1 = ''.join(f'<p>{p}</p>' for p in d['s1'])
     deliver = ''.join(f'<li>{p}</li>' for p in d['s2'])
+    extra = ''
+    if d.get('s4'):
+        prose4 = ''.join(f'<p>{p}</p>' for p in d['s4'])
+        extra = f'<section><div class="wrap prose"><h2>{d["s4title"]}</h2>{prose4}</div></section>'
+    faq = ''
+    if d.get('faq'):
+        items = ''.join(f'<h3>{q}</h3><p>{a}</p>' for q, a in d['faq'])
+        faq = f'<section style="background:var(--white)"><div class="wrap"><h2>{d["faqtitle"]}</h2><div class="faq">{items}</div></div></section>'
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -215,7 +232,8 @@ def page(slug, lang, d):
 </div></header>
 <section><div class="wrap prose"><h2>{d['s1title']}</h2>{prose1}</div></section>
 <section style="background:var(--white)"><div class="wrap"><h2>{d['s2title']}</h2><ul class="deliver">{deliver}</ul></div></section>
-<section><div class="wrap"><h2>{d['s3title']}</h2><div class="cards">{cards}</div></div></section>
+{extra}<section><div class="wrap"><h2>{d['s3title']}</h2><div class="cards">{cards}</div></div></section>
+{faq}
 <section class="cta"><div class="wrap">
   <h2>{s['cta_h']}</h2>
   <p>{s['cta_p']}</p>
